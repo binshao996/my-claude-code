@@ -1,0 +1,15 @@
+R2.2 TUI acceptance record
+
+Evidence:
+- docs/refactor/golden/tui/manifest.json
+- docs/refactor/golden/tui/ansi/startup.ansi
+- docs/refactor/golden/tui/ansi/streaming.ansi
+- docs/refactor/golden/tui/ansi/permission.ansi
+- docs/refactor/golden/tui/ansi/overlay.ansi
+- docs/refactor/golden/tui/ansi/markdown.ansi
+- docs/refactor/golden/tui/ansi/scroll-selection.ansi
+- packages/tui/src/terminalApp.test.ts
+- packages/tui/src/screenSelection.test.ts
+- packages/tui/src/windowing.test.ts
+
+Status: covered by golden ANSI fixtures and local Ink/TUI tests.

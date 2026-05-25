@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 860" width="1280" height="860" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code Agent Loop 运行流</title>
+  <desc id="desc">展示 QueryEngine.submitMessage 到 query.ts queryLoop 的上下文治理、模型流、工具执行和循环状态转移。</desc>
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { fill: #111827; font-size: 22px; font-weight: 600; }
+    .subtitle { fill: #6b7280; font-size: 13px; }
+    .box-title { fill: #111827; font-size: 14px; font-weight: 600; }
+    .box-sub { fill: #6b7280; font-size: 12px; }
+    .small { fill: #6b7280; font-size: 11px; }
+    .section { fill: #f9fafb; stroke: #d1d5db; stroke-width: 1.3; stroke-dasharray: 7 5; rx: 12; ry: 12; }
+    .node { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #e9d5ff; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .rose { fill: #fef2f2; stroke: #fecaca; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="860" fill="#ffffff"/>
+  <text x="42" y="46" class="title">Claude Code Agent Loop 运行流</text>
+  <text x="42" y="70" class="subtitle">主线：QueryEngine.submitMessage() 维护会话态，query.ts queryLoop() 驱动模型流、工具调用和恢复策略</text>
+
+  <rect x="34" y="104" width="260" height="644" class="section"/>
+  <text x="56" y="132" class="box-title">入口与会话态</text>
+  <text x="56" y="152" class="small">QueryEngine / transcript / SDK output</text>
+
+  <rect x="332" y="104" width="340" height="644" class="section"/>
+  <text x="354" y="132" class="box-title">循环前置治理</text>
+  <text x="354" y="152" class="small">context / compact / prompt assembly</text>
+
+  <rect x="710" y="104" width="250" height="644" class="section"/>
+  <text x="732" y="132" class="box-title">模型流</text>
+  <text x="732" y="152" class="small">deps.callModel / streaming blocks</text>
+
+  <rect x="998" y="104" width="240" height="644" class="section"/>
+  <text x="1020" y="132" class="box-title">工具与转移</text>
+  <text x="1020" y="152" class="small">runTools / stop hooks / next turn</text>
+
+  <rect x="68" y="190" width="190" height="72" class="node blue"/>
+  <text x="163" y="218" text-anchor="middle" class="box-title">submitMessage()</text>
+  <text x="163" y="240" text-anchor="middle" class="box-sub">处理用户输入与 slash command</text>
+
+  <rect x="68" y="326" width="190" height="86" class="node blue"/>
+  <text x="163" y="354" text-anchor="middle" class="box-title">构造 QueryParams</text>
+  <text x="163" y="376" text-anchor="middle" class="box-sub">messages / systemPrompt</text>
+  <text x="163" y="394" text-anchor="middle" class="box-sub">toolUseContext / canUseTool</text>
+
+  <rect x="68" y="512" width="190" height="88" class="node purple"/>
+  <text x="163" y="540" text-anchor="middle" class="box-title">query()</text>
+  <text x="163" y="562" text-anchor="middle" class="box-sub">Langfuse trace</text>
+  <text x="163" y="580" text-anchor="middle" class="box-sub">autonomy lifecycle</text>
+
+  <rect x="374" y="176" width="256" height="74" class="node green"/>
+  <text x="502" y="204" text-anchor="middle" class="box-title">queryLoop state</text>
+  <text x="502" y="226" text-anchor="middle" class="box-sub">State + QueryConfig + budgetTracker</text>
+
+  <rect x="374" y="300" width="256" height="90" class="node green"/>
+  <text x="502" y="328" text-anchor="middle" class="box-title">上下文治理</text>
+  <text x="502" y="350" text-anchor="middle" class="box-sub">tool result budget / snip</text>
+  <text x="502" y="368" text-anchor="middle" class="box-sub">microcompact / contextCollapse</text>
+
+  <rect x="374" y="442" width="256" height="86" class="node green"/>
+  <text x="502" y="470" text-anchor="middle" class="box-title">auto compact</text>
+  <text x="502" y="492" text-anchor="middle" class="box-sub">blocking limit / predictive compact</text>
+  <text x="502" y="510" text-anchor="middle" class="box-sub">postCompactMessages</text>
+
+  <rect x="374" y="580" width="256" height="78" class="node orange"/>
+  <text x="502" y="608" text-anchor="middle" class="box-title">组装请求</text>
+  <text x="502" y="630" text-anchor="middle" class="box-sub">appendSystemContext</text>
+  <text x="502" y="648" text-anchor="middle" class="box-sub">prependUserContext</text>
+
+  <rect x="748" y="210" width="174" height="88" class="node purple"/>
+  <text x="835" y="238" text-anchor="middle" class="box-title">callModel()</text>
+  <text x="835" y="260" text-anchor="middle" class="box-sub">流式 assistant blocks</text>
+  <text x="835" y="278" text-anchor="middle" class="box-sub">tools / MCP / model options</text>
+
+  <rect x="748" y="370" width="174" height="90" class="node purple"/>
+  <text x="835" y="398" text-anchor="middle" class="box-title">收集输出</text>
+  <text x="835" y="420" text-anchor="middle" class="box-sub">assistantMessages</text>
+  <text x="835" y="438" text-anchor="middle" class="box-sub">toolUseBlocks / needsFollowUp</text>
+
+  <rect x="748" y="548" width="174" height="88" class="node rose"/>
+  <text x="835" y="576" text-anchor="middle" class="box-title">恢复策略</text>
+  <text x="835" y="598" text-anchor="middle" class="box-sub">fallback / tombstone</text>
+  <text x="835" y="616" text-anchor="middle" class="box-sub">413 / max output retry</text>
+
+  <rect x="1030" y="188" width="176" height="84" class="node orange"/>
+  <text x="1118" y="216" text-anchor="middle" class="box-title">有 tool_use?</text>
+  <text x="1118" y="238" text-anchor="middle" class="box-sub">没有则 stop hooks</text>
+  <text x="1118" y="256" text-anchor="middle" class="box-sub">最终 completed</text>
+
+  <rect x="1030" y="342" width="176" height="96" class="node orange"/>
+  <text x="1118" y="370" text-anchor="middle" class="box-title">runTools()</text>
+  <text x="1118" y="392" text-anchor="middle" class="box-sub">并发安全批处理</text>
+  <text x="1118" y="410" text-anchor="middle" class="box-sub">权限 / hooks / call</text>
+
+  <rect x="1030" y="520" width="176" height="102" class="node blue"/>
+  <text x="1118" y="548" text-anchor="middle" class="box-title">next State</text>
+  <text x="1118" y="570" text-anchor="middle" class="box-sub">messages + assistant</text>
+  <text x="1118" y="588" text-anchor="middle" class="box-sub">+ toolResults + attachments</text>
+  <text x="1118" y="606" text-anchor="middle" class="box-sub">turnCount++</text>
+
+  <line x1="163" y1="262" x2="163" y2="326" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="163" y1="412" x2="163" y2="512" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <path d="M258 556 C300 556 320 213 374 213" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr-blue)"/>
+  <line x1="502" y1="250" x2="502" y2="300" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <line x1="502" y1="390" x2="502" y2="442" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <line x1="502" y1="528" x2="502" y2="580" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <path d="M630 620 C680 620 692 254 748 254" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arr-purple)"/>
+  <line x1="835" y1="298" x2="835" y2="370" stroke="#9333ea" stroke-width="2" marker-end="url(#arr-purple)"/>
+  <path d="M922 415 C968 415 986 230 1030 230" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M922 415 C974 415 980 390 1030 390" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arr-green)"/>
+  <line x1="1118" y1="438" x2="1118" y2="520" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <path d="M1030 571 C930 705 520 728 502 658" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M835 460 L835 548" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M748 592 C690 592 678 485 630 485" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arr-rose)"/>
+
+  <rect x="44" y="796" width="640" height="34" fill="#ffffff"/>
+  <line x1="56" y1="814" x2="86" y2="814" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <text x="98" y="818" class="small">主循环转移</text>
+  <line x1="196" y1="814" x2="226" y2="814" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="238" y="818" class="small">上下文与工具结果推进</text>
+  <line x1="406" y1="814" x2="436" y2="814" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-rose)"/>
+  <text x="448" y="818" class="small">恢复 / 重试路径</text>
+</svg>

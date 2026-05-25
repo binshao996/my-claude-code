@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { fill: #111827; font-size: 28px; font-weight: 700; }
+    .subtitle { fill: #6b7280; font-size: 16px; }
+    .lane-title { fill: #111827; font-size: 16px; font-weight: 700; }
+    .lane-sub { fill: #6b7280; font-size: 13px; }
+    .node-title { fill: #111827; font-size: 16px; font-weight: 700; }
+    .node-sub { fill: #6b7280; font-size: 13px; }
+    .small { fill: #6b7280; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#9333ea"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="900" fill="#ffffff"/>
+
+  <text class="title" x="44" y="54">Plugin 与 MCP 扩展流</text>
+  <text class="subtitle" x="44" y="84">Plugin 负责分发与声明，MCP Runtime 负责连接、授权、能力转换和执行治理</text>
+
+  <rect x="42" y="126" width="286" height="650" rx="10" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="8 8"/>
+  <text class="lane-title" x="70" y="164">Plugin Sources</text>
+  <text class="lane-sub" x="70" y="188">session / marketplace / builtin</text>
+
+  <rect x="392" y="126" width="286" height="650" rx="10" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="8 8"/>
+  <text class="lane-title" x="420" y="164">Plugin Loader</text>
+  <text class="lane-sub" x="420" y="188">schemas.ts / pluginLoader.ts</text>
+
+  <rect x="742" y="126" width="286" height="650" rx="10" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="8 8"/>
+  <text class="lane-title" x="770" y="164">Component Adapters</text>
+  <text class="lane-sub" x="770" y="188">commands / agents / hooks / MCP</text>
+
+  <rect x="1092" y="126" width="286" height="650" rx="10" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="8 8"/>
+  <text class="lane-title" x="1120" y="164">Runtime Injection</text>
+  <text class="lane-sub" x="1120" y="188">Claude Code capability graph</text>
+
+  <rect x="84" y="224" width="202" height="78" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.6"/>
+  <text class="node-title" x="185" y="256" text-anchor="middle">Session Plugin</text>
+  <text class="node-sub" x="185" y="280" text-anchor="middle">--plugin-dir</text>
+
+  <rect x="84" y="354" width="202" height="78" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.6"/>
+  <text class="node-title" x="185" y="386" text-anchor="middle">Marketplace</text>
+  <text class="node-sub" x="185" y="410" text-anchor="middle">plugin@marketplace</text>
+
+  <rect x="84" y="484" width="202" height="78" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.6"/>
+  <text class="node-title" x="185" y="516" text-anchor="middle">Built-in Plugin</text>
+  <text class="node-sub" x="185" y="540" text-anchor="middle">name@builtin</text>
+
+  <rect x="84" y="614" width="202" height="78" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.6"/>
+  <text class="node-title" x="185" y="646" text-anchor="middle">Policy</text>
+  <text class="node-sub" x="185" y="670" text-anchor="middle">managed / blocklist</text>
+
+  <rect x="434" y="214" width="202" height="78" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.6"/>
+  <text class="node-title" x="535" y="246" text-anchor="middle">loadAllPlugins</text>
+  <text class="node-sub" x="535" y="270" text-anchor="middle">full / cache-only</text>
+
+  <rect x="434" y="334" width="202" height="78" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.6"/>
+  <text class="node-title" x="535" y="366" text-anchor="middle">Manifest Schema</text>
+  <text class="node-sub" x="535" y="390" text-anchor="middle">plugin.json validation</text>
+
+  <rect x="434" y="454" width="202" height="88" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.6"/>
+  <text class="node-title" x="535" y="486" text-anchor="middle">LoadedPlugin</text>
+  <text class="node-sub" x="535" y="510" text-anchor="middle">path / source / enabled</text>
+  <text class="node-sub" x="535" y="530" text-anchor="middle">component paths</text>
+
+  <rect x="434" y="604" width="202" height="88" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.6"/>
+  <text class="node-title" x="535" y="636" text-anchor="middle">User Config</text>
+  <text class="node-sub" x="535" y="660" text-anchor="middle">settings + secure storage</text>
+  <text class="node-sub" x="535" y="680" text-anchor="middle">variable substitution</text>
+
+  <rect x="784" y="194" width="202" height="74" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.6"/>
+  <text class="node-title" x="885" y="225" text-anchor="middle">Commands</text>
+  <text class="node-sub" x="885" y="248" text-anchor="middle">markdown -> slash command</text>
+
+  <rect x="784" y="300" width="202" height="74" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.6"/>
+  <text class="node-title" x="885" y="331" text-anchor="middle">Agents / Skills</text>
+  <text class="node-sub" x="885" y="354" text-anchor="middle">definitions + prompts</text>
+
+  <rect x="784" y="406" width="202" height="74" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.6"/>
+  <text class="node-title" x="885" y="437" text-anchor="middle">Hooks / Styles</text>
+  <text class="node-sub" x="885" y="460" text-anchor="middle">lifecycle + prompt behavior</text>
+
+  <rect x="784" y="512" width="202" height="88" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.6"/>
+  <text class="node-title" x="885" y="544" text-anchor="middle">MCP Servers</text>
+  <text class="node-sub" x="885" y="568" text-anchor="middle">.mcp.json / manifest</text>
+  <text class="node-sub" x="885" y="588" text-anchor="middle">MCPB / DXT</text>
+
+  <rect x="784" y="640" width="202" height="74" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.6"/>
+  <text class="node-title" x="885" y="671" text-anchor="middle">Channels / LSP</text>
+  <text class="node-sub" x="885" y="694" text-anchor="middle">active input + language server</text>
+
+  <rect x="1134" y="194" width="202" height="74" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.6"/>
+  <text class="node-title" x="1235" y="225" text-anchor="middle">Command Runtime</text>
+  <text class="node-sub" x="1235" y="248" text-anchor="middle">/plugin:command</text>
+
+  <rect x="1134" y="300" width="202" height="74" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.6"/>
+  <text class="node-title" x="1235" y="331" text-anchor="middle">Agent Runtime</text>
+  <text class="node-sub" x="1235" y="354" text-anchor="middle">agent definitions</text>
+
+  <rect x="1134" y="406" width="202" height="74" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.6"/>
+  <text class="node-title" x="1235" y="437" text-anchor="middle">Hook / Prompt</text>
+  <text class="node-sub" x="1235" y="460" text-anchor="middle">callbacks + output style</text>
+
+  <rect x="1134" y="512" width="202" height="88" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.6"/>
+  <text class="node-title" x="1235" y="544" text-anchor="middle">MCP Runtime</text>
+  <text class="node-sub" x="1235" y="568" text-anchor="middle">plugin:name:server</text>
+  <text class="node-sub" x="1235" y="588" text-anchor="middle">connect + tools</text>
+
+  <rect x="1134" y="640" width="202" height="74" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.6"/>
+  <text class="node-title" x="1235" y="671" text-anchor="middle">Policy Surface</text>
+  <text class="node-sub" x="1235" y="694" text-anchor="middle">trust + allowlist</text>
+
+  <path d="M286 263 C338 263 382 253 434 253" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M286 393 C338 393 382 253 434 253" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M286 523 C338 523 382 253 434 253" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M286 653 C338 653 382 648 434 648" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+
+  <path d="M535 292 C535 314 535 314 535 334" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M535 412 C535 434 535 434 535 454" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M535 542 C535 572 535 574 535 604" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+
+  <path d="M636 498 C690 498 730 231 784 231" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M636 498 C690 498 730 337 784 337" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M636 498 C690 498 730 443 784 443" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M636 648 C696 648 724 556 784 556" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M636 648 C696 648 724 677 784 677" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+
+  <path d="M986 231 C1036 231 1084 231 1134 231" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M986 337 C1036 337 1084 337 1134 337" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M986 443 C1036 443 1084 443 1134 443" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M986 556 C1036 556 1084 556 1134 556" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M986 677 C1036 677 1084 677 1134 677" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+
+  <g transform="translate(58, 838)">
+    <line x1="0" y1="0" x2="42" y2="0" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arr-blue)"/>
+    <text class="small" x="54" y="5">插件加载与组件注入</text>
+    <line x1="250" y1="0" x2="292" y2="0" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arr-grn)"/>
+    <text class="small" x="304" y="5">Agent / Skill 能力</text>
+    <line x1="500" y1="0" x2="542" y2="0" stroke="#9333ea" stroke-width="2.2" marker-end="url(#arr-vlt)"/>
+    <text class="small" x="554" y="5">Hooks / Styles / 配置</text>
+    <line x1="760" y1="0" x2="802" y2="0" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arr-rose)"/>
+    <text class="small" x="814" y="5">信任与策略边界</text>
+  </g>
+</svg>

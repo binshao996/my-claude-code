@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .label { font-size: 15px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #4b5563; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #e9d5ff; }
+    .red { fill: #fef2f2; stroke: #fecaca; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .teal { fill: #f0fdfa; stroke: #99f6e4; }
+    .gray { fill: #f9fafb; stroke: #d1d5db; }
+    .rail { fill: none; stroke: #e5e7eb; stroke-width: 1.2; stroke-dasharray: 6 5; rx: 14; ry: 14; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="820" fill="#ffffff"/>
+  <text x="44" y="48" class="title">Command Type and Safety Decision Matrix</text>
+  <text x="44" y="72" class="subtitle">新增或排查命令时，先判定执行语义，再检查模型调用、headless、Remote Bridge 和消息渲染边界。</text>
+
+  <rect x="42" y="106" width="1194" height="116" class="rail"/>
+  <text x="64" y="132" class="small">第一步：执行语义</text>
+
+  <rect x="96" y="150" width="250" height="52" class="box blue"/>
+  <text x="124" y="181" class="label">需要模型继续推理？</text>
+  <path d="M346 176 L444 176" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="444" y="150" width="230" height="52" class="box green"/>
+  <text x="478" y="181" class="label">prompt command</text>
+  <path d="M674 176 L770 176" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="770" y="150" width="230" height="52" class="box orange"/>
+  <text x="807" y="181" class="label">本地状态或 UI？</text>
+  <path d="M1000 176 L1092 176" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <rect x="1092" y="150" width="110" height="52" class="box purple"/>
+  <text x="1119" y="181" class="label">分型</text>
+
+  <rect x="62" y="266" width="350" height="356" class="rail"/>
+  <text x="84" y="292" class="small">prompt 分支</text>
+
+  <rect x="94" y="326" width="286" height="72" class="box green"/>
+  <text x="122" y="356" class="label">inline prompt</text>
+  <text x="122" y="378" class="small">isMeta user message + command permissions</text>
+
+  <rect x="94" y="424" width="286" height="72" class="box green"/>
+  <text x="122" y="454" class="label">fork prompt</text>
+  <text x="122" y="476" class="small">context fork + runAgent 子上下文</text>
+
+  <rect x="94" y="522" width="286" height="72" class="box green"/>
+  <text x="122" y="552" class="label">SkillTool 可调用性</text>
+  <text x="122" y="574" class="small">disableModelInvocation / whenToUse</text>
+
+  <path d="M237 202 L237 326" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+
+  <rect x="464" y="266" width="350" height="356" class="rail"/>
+  <text x="486" y="292" class="small">local 分支</text>
+
+  <rect x="496" y="326" width="286" height="72" class="box orange"/>
+  <text x="524" y="356" class="label">text output</text>
+  <text x="524" y="378" class="small">local-command-stdout / stderr</text>
+
+  <rect x="496" y="424" width="286" height="72" class="box orange"/>
+  <text x="524" y="454" class="label">compact result</text>
+  <text x="524" y="476" class="small">重建 post-compact messages</text>
+
+  <rect x="496" y="522" width="286" height="72" class="box orange"/>
+  <text x="524" y="552" class="label">headless gate</text>
+  <text x="524" y="574" class="small">supportsNonInteractive 必须显式声明</text>
+
+  <path d="M1114 202 C1114 238, 639 238, 639 326" stroke="#ea580c" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+
+  <rect x="866" y="266" width="350" height="356" class="rail"/>
+  <text x="888" y="292" class="small">local-jsx 分支</text>
+
+  <rect x="898" y="326" width="286" height="72" class="box purple"/>
+  <text x="926" y="356" class="label">Ink UI</text>
+  <text x="926" y="378" class="small">setToolJSX + onDone 完成</text>
+
+  <rect x="898" y="424" width="286" height="72" class="box purple"/>
+  <text x="926" y="454" class="label">immediate</text>
+  <text x="926" y="476" class="small">仅运行中 local-jsx 快速路径</text>
+
+  <rect x="898" y="522" width="286" height="72" class="box purple"/>
+  <text x="926" y="552" class="label">headless blocked</text>
+  <text x="926" y="574" class="small">非交互模式不渲染 JSX</text>
+
+  <path d="M1180 202 C1180 248, 1041 248, 1041 326" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-vlt)"/>
+
+  <rect x="78" y="668" width="1124" height="84" class="box gray"/>
+  <text x="106" y="700" class="label">统一安全检查</text>
+  <text x="106" y="724" class="small">userInvocable 控制用户是否能直接输入；disableModelInvocation 控制模型是否能调用；bridgeSafe 和 allowlist 控制 Remote Bridge；isSensitive 控制参数脱敏。</text>
+
+  <path d="M237 594 C237 650, 280 668, 390 668" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M639 594 C639 640, 640 650, 640 668" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M1041 594 C1041 650, 996 668, 890 668" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-rose)"/>
+
+  <g transform="translate(58, 786)">
+    <line x1="0" y1="8" x2="34" y2="8" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+    <text x="44" y="12" class="tiny">类型选择</text>
+    <line x1="128" y1="8" x2="162" y2="8" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-grn)"/>
+    <text x="172" y="12" class="tiny">prompt 语义</text>
+    <line x1="296" y1="8" x2="330" y2="8" stroke="#9333ea" stroke-width="1.8" marker-end="url(#arr-vlt)"/>
+    <text x="340" y="12" class="tiny">local-jsx 语义</text>
+    <line x1="474" y1="8" x2="508" y2="8" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-rose)"/>
+    <text x="518" y="12" class="tiny">安全闸门</text>
+  </g>
+</svg>

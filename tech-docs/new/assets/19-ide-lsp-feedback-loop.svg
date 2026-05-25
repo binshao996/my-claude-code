@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" width="1280" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane-title { font-size: 14px; font-weight: 700; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 12px; fill: #374151; }
+    .legend { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <filter id="shadow" x="-12%" y="-16%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="780" fill="#ffffff"/>
+  <text x="36" y="42" class="title">IDE / LSP 反馈闭环：诊断如何进入 Agent 上下文</text>
+  <text x="36" y="65" class="subtitle">Claude Code 同时接收 IDE MCP 诊断和内置 LSP 被动诊断，并在下一轮查询前作为 diagnostics attachment 注入模型上下文</text>
+
+  <g transform="translate(34,98)">
+    <rect x="0" y="0" width="232" height="548" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">变更触发</text>
+
+    <rect x="30" y="62" width="172" height="90" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="92" class="node-title">Prompt Start</text>
+    <text x="50" y="114" class="node-sub">新一轮 query 开始</text>
+    <text x="50" y="132" class="mono">handleQueryStart()</text>
+
+    <rect x="30" y="194" width="172" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="50" y="224" class="node-title">Before Edit</text>
+    <text x="50" y="246" class="node-sub">写盘前拉 IDE baseline</text>
+    <text x="50" y="264" class="mono">beforeFileEdited()</text>
+
+    <rect x="30" y="332" width="172" height="96" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="362" class="node-title">After Write</text>
+    <text x="50" y="384" class="node-sub">Edit / Write 通知 LSP</text>
+    <text x="50" y="402" class="mono">didChange + didSave</text>
+  </g>
+
+  <g transform="translate(314,98)">
+    <rect x="0" y="0" width="260" height="548" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">IDE MCP 诊断</text>
+
+    <rect x="32" y="58" width="196" height="100" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="52" y="88" class="node-title">IDE Client</text>
+    <text x="52" y="110" class="node-sub">VS Code / Cursor / JetBrains</text>
+    <text x="52" y="128" class="mono">getConnectedIdeClient()</text>
+
+    <rect x="32" y="196" width="196" height="108" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="52" y="226" class="node-title">getDiagnostics</text>
+    <text x="52" y="248" class="node-sub">baseline 与当前结果对比</text>
+    <text x="52" y="266" class="node-sub">只返回新增问题</text>
+    <text x="52" y="284" class="mono">diagnosticTracker</text>
+
+    <rect x="32" y="342" width="196" height="96" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="52" y="372" class="node-title">Claude FS Right</text>
+    <text x="52" y="394" class="node-sub">优先使用右侧 diff 诊断</text>
+    <text x="52" y="412" class="mono">_claude_fs_right</text>
+  </g>
+
+  <g transform="translate(622,98)">
+    <rect x="0" y="0" width="262" height="548" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">内置 LSP 被动反馈</text>
+
+    <rect x="34" y="56" width="194" height="104" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="54" y="86" class="node-title">publishDiagnostics</text>
+    <text x="54" y="108" class="node-sub">语言服务器异步推送</text>
+    <text x="54" y="126" class="mono">passiveFeedback.ts</text>
+
+    <rect x="34" y="198" width="194" height="106" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="54" y="228" class="node-title">Registry</text>
+    <text x="54" y="250" class="node-sub">去重、排序、限量</text>
+    <text x="54" y="268" class="node-sub">10/file, 30 total</text>
+    <text x="54" y="286" class="mono">LSPDiagnosticRegistry</text>
+
+    <rect x="34" y="342" width="194" height="100" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="54" y="372" class="node-title">Clear On Edit</text>
+    <text x="54" y="394" class="node-sub">文件被改后允许重发</text>
+    <text x="54" y="412" class="mono">clearDelivered...</text>
+  </g>
+
+  <g transform="translate(932,98)">
+    <rect x="0" y="0" width="274" height="548" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">上下文注入与 UI</text>
+
+    <rect x="30" y="56" width="214" height="100" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="86" class="node-title">Attachment System</text>
+    <text x="50" y="108" class="node-sub">仅主线程注入</text>
+    <text x="50" y="126" class="mono">getAttachments()</text>
+
+    <rect x="30" y="194" width="214" height="106" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="224" class="node-title">System Reminder</text>
+    <text x="50" y="246" class="node-sub">new-diagnostics 包裹</text>
+    <text x="50" y="264" class="mono">messages.ts</text>
+
+    <rect x="30" y="338" width="214" height="98" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="50" y="368" class="node-title">Terminal UI</text>
+    <text x="50" y="390" class="node-sub">默认摘要，Ctrl+O 展开</text>
+    <text x="50" y="408" class="mono">DiagnosticsDisplay</text>
+  </g>
+
+  <path d="M236 239 C274 239 276 246 314 246" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M236 380 C418 380 440 108 622 108" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M542 250 C584 250 580 248 622 248" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M852 250 C892 250 892 106 932 106" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M542 390 C736 390 738 106 932 106" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1039 156 L1039 194" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M1039 300 L1039 338" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M236 380 C474 470 616 470 854 392" stroke="#dc2626" stroke-width="1.7" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(150,666)">
+    <rect x="0" y="0" width="980" height="52" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="22" class="node-title">核心不变量</text>
+    <text x="122" y="22" class="node-sub">诊断不是立即打断工具执行，而是在下一轮上下文中作为新增信息交给模型；重复诊断会被去重，文件被编辑后才清理该文件的 delivered 记录。</text>
+    <text x="122" y="40" class="node-sub">因此 Agent 能看到“这次改动新增了哪些错误”，而不是被整个项目历史错误淹没。</text>
+  </g>
+
+  <g transform="translate(38,724)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+    <text x="42" y="12" class="legend">诊断聚合与注入</text>
+    <line x1="182" y1="8" x2="214" y2="8" stroke="#16a34a" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+    <text x="224" y="12" class="legend">LSP 被动反馈</text>
+    <line x1="348" y1="8" x2="380" y2="8" stroke="#9333ea" stroke-width="1.7" marker-end="url(#arrow-purple)"/>
+    <text x="390" y="12" class="legend">IDE 基线对比</text>
+    <line x1="520" y1="8" x2="552" y2="8" stroke="#dc2626" stroke-width="1.7" marker-end="url(#arrow-red)"/>
+    <text x="562" y="12" class="legend">编辑后重置去重</text>
+  </g>
+</svg>

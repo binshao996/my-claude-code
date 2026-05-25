@@ -1,0 +1,24 @@
+{
+  "version": "r2.6",
+  "generatedAt": "2026-05-25T09:58:41.998Z",
+  "scope": "root package/build/toolchain reconciliation without modifying byte-identical src or packages",
+  "changes": [
+    "copied upstream root build/tooling files: build.ts, tsconfig.base.json, vite.config.ts, bunfig.toml, knip.json, docs.json, mint.json",
+    "copied upstream vendor directory for audio-capture build assets",
+    "copied missing upstream scripts while preserving refactor parity scripts",
+    "merged root package.json with upstream workspaces/dependencies/scripts and retained parity scripts",
+    "set root package version to upstream claude-code/package.json version 2.4.4 so build macros match upstream package version",
+    "set bun run cli to use scripts/dev.ts so development CLI receives the same MACRO defines and feature flags as upstream dev mode",
+    "replaced root tsconfig.json with upstream config",
+    "copied upstream tests directory for typecheck mock imports",
+    "ran bun install to install upstream dependency set"
+  ],
+  "validation": {
+    "build": "pass: bun run build",
+    "typecheck": "pass: bun run typecheck",
+    "cliDev": "pass: bun run cli -- --version => 2.4.4 (Claude Code)",
+    "cliDist": "pass: node dist/cli-node.js --version => 2.4.4 (Claude Code)",
+    "trueOneToOne": "expected fail: source/package file tree, byte content, and marker checks pass; only many-to-one debt and legacy report consistency remain",
+    "lint": "not R2.6 acceptance; upstream source style still conflicts with local Biome rules and is left for later toolchain policy cleanup without modifying upstream files"
+  }
+}

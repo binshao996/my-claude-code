@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 790" width="1120" height="790">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .section { font-size: 13px; font-weight: 700; fill: #374151; }
+    .label { font-size: 13px; font-weight: 600; fill: #111827; }
+    .small { font-size: 11px; fill: #6b7280; }
+    .tiny { font-size: 10px; fill: #6b7280; }
+    .code { font-size: 11px; fill: #374151; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
+  </style>
+  <defs>
+    <marker id="arrow-blue-15b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green-15b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple-15b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red-15b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="shadow-15b" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1120" height="790" fill="#ffffff"/>
+  <text class="title" x="36" y="42">Usage、Cost 与限流观测链路</text>
+  <text class="small" x="36" y="65">API stream usage 被归一化后，同时驱动成本累计、SDK result、/context、statusline、cache warning 和 rate limit UI</text>
+
+  <rect x="34" y="98" width="216" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="54" y="128">API 响应来源</text>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="62" y="154" width="160" height="82" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="82" y="181">Anthropic Stream</text>
+    <text class="small" x="82" y="203">message_start</text>
+    <text class="small" x="82" y="221">message_delta usage</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="62" y="274" width="160" height="82" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="82" y="301">OpenAI / Grok</text>
+    <text class="small" x="82" y="323">prompt_tokens</text>
+    <text class="small" x="82" y="341">cached_tokens</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="62" y="394" width="160" height="82" rx="8" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5"/>
+    <text class="label" x="82" y="421">Gemini</text>
+    <text class="small" x="82" y="443">usageMetadata</text>
+    <text class="small" x="82" y="461">thoughtsTokenCount</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="62" y="514" width="160" height="82" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="82" y="541">Rate Limit Headers</text>
+    <text class="small" x="82" y="563">5h / 7d utilization</text>
+    <text class="small" x="82" y="581">overage status</text>
+  </g>
+
+  <rect x="294" y="98" width="244" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="314" y="128">Usage 归一化</text>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="324" y="154" width="184" height="92" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="346" y="181">NonNullableUsage</text>
+    <text class="small" x="346" y="203">input / output</text>
+    <text class="small" x="346" y="221">cache read / cache write</text>
+    <text class="code" x="346" y="238">updateUsage()</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="324" y="286" width="184" height="92" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="346" y="313">Provider Adapter</text>
+    <text class="small" x="346" y="335">OpenAI cached_tokens</text>
+    <text class="small" x="346" y="353">Gemini cachedContentTokenCount</text>
+    <text class="code" x="346" y="370">@ant/model-provider</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="324" y="418" width="184" height="92" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="346" y="445">Message Mutation</text>
+    <text class="small" x="346" y="467">directly set usage / stop_reason</text>
+    <text class="small" x="346" y="485">lazy transcript writer sees final values</text>
+  </g>
+
+  <rect x="582" y="98" width="238" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="602" y="128">成本与状态聚合</text>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="612" y="154" width="178" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="634" y="181">Cost Model</text>
+    <text class="small" x="634" y="203">per Mtok pricing</text>
+    <text class="small" x="634" y="221">cache + web search</text>
+    <text class="code" x="634" y="238">calculateUSDCost()</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="612" y="274" width="178" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="634" y="301">Session State</text>
+    <text class="small" x="634" y="323">modelUsage map</text>
+    <text class="small" x="634" y="341">total cost / tokens</text>
+    <text class="code" x="634" y="358">addToTotalSessionCost()</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="612" y="394" width="178" height="86" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="634" y="421">QueryEngine Totals</text>
+    <text class="small" x="634" y="443">accumulateUsage()</text>
+    <text class="small" x="634" y="461">result.usage / modelUsage</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="612" y="514" width="178" height="82" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text class="label" x="634" y="541">Limits State</text>
+    <text class="small" x="634" y="563">rawUtilization</text>
+    <text class="small" x="634" y="581">currentLimits / overage</text>
+  </g>
+
+  <rect x="866" y="98" width="220" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="886" y="128">消费方</text>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="896" y="154" width="160" height="78" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="918" y="181">SDK Result</text>
+    <text class="small" x="918" y="203">total_cost_usd</text>
+    <text class="small" x="918" y="220">usage, modelUsage</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="896" y="262" width="160" height="78" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="918" y="289">/cost /usage</text>
+    <text class="small" x="918" y="311">formatTotalCost()</text>
+    <text class="small" x="918" y="328">Settings Usage tab</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="896" y="370" width="160" height="78" rx="8" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5"/>
+    <text class="label" x="918" y="397">/context</text>
+    <text class="small" x="918" y="419">API usage 优先</text>
+    <text class="small" x="918" y="436">估算分类兜底</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="896" y="478" width="160" height="78" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="918" y="505">Statusline</text>
+    <text class="small" x="918" y="527">context %</text>
+    <text class="small" x="918" y="544">5h / 7d limits</text>
+  </g>
+
+  <g filter="url(#shadow-15b)">
+    <rect x="896" y="586" width="160" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text class="label" x="918" y="613">Cache Warning</text>
+    <text class="small" x="918" y="635">hit rate below threshold</text>
+  </g>
+
+  <path d="M222 195 C258 195, 284 200, 324 200" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15b)"/>
+  <path d="M222 315 C258 315, 284 332, 324 332" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15b)"/>
+  <path d="M222 435 C258 435, 284 332, 324 332" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15b)"/>
+  <path d="M222 555 C468 555, 556 555, 612 555" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15b)"/>
+
+  <path d="M508 200 C548 200, 572 197, 612 197" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15b)"/>
+  <path d="M508 464 C548 464, 572 437, 612 437" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15b)"/>
+  <path d="M790 197 C832 197, 854 193, 896 193" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15b)"/>
+  <path d="M790 317 C832 317, 854 301, 896 301" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15b)"/>
+  <path d="M790 437 C832 437, 854 409, 896 409" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15b)"/>
+  <path d="M790 437 C832 437, 854 517, 896 517" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15b)"/>
+  <path d="M790 555 C832 555, 854 517, 896 517" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15b)"/>
+  <path d="M790 317 C832 317, 854 615, 896 615" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-15b)"/>
+
+  <path d="M508 200 L546 200 L546 600 L896 600" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-15b)"/>
+  <rect x="586" y="585" width="216" height="28" rx="6" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+  <text class="tiny" x="598" y="603">cache_read / cache_creation 也驱动缓存命中率告警</text>
+
+  <rect x="36" y="716" width="1032" height="42" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="58" y1="738" x2="88" y2="738" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15b)"/>
+  <text class="tiny" x="96" y="742">usage 输入</text>
+  <line x1="194" y1="738" x2="224" y2="738" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15b)"/>
+  <text class="tiny" x="232" y="742">成本与聚合</text>
+  <line x1="350" y1="738" x2="380" y2="738" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15b)"/>
+  <text class="tiny" x="388" y="742">展示与限流</text>
+  <line x1="532" y1="738" x2="562" y2="738" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-15b)"/>
+  <text class="tiny" x="570" y="742">缓存健康信号</text>
+  <text class="tiny" x="742" y="742">原则：API usage 是真值，估算只用于请求前决策和分类展示</text>
+</svg>

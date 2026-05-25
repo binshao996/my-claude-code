@@ -1,0 +1,30 @@
+export {
+  discoverExtensionRegistry,
+  generateSkill,
+  getExtensionToolSurfaceNames,
+  loadBundledSkills,
+  loadProjectSkills,
+  readSkillImprovementFeedback,
+  readSkillLearning,
+  readSkillStoreCache,
+  readSkillStoreIndex,
+  recordSkillImprovementFeedback,
+  recordSkillLearning,
+  searchSkills,
+  type SkillDescriptor,
+  type SkillGenerationRecord,
+  type SkillImprovementFeedback,
+  type SkillLearningRecord,
+  type SkillSearchResult,
+  type SkillStoreCache,
+  type SkillStoreConflict,
+  type SkillStoreEntry,
+  type SkillStoreIndex,
+} from '../../packages/tools/src/extensions.js'
+
+export const skillsMirror = {
+  upstream: 'claude-code/src/skills',
+  local: 'packages/tools/src/extensions.ts',
+  status: 'r1.8-mcp-oauth-plugin-skill-mirror',
+  golden: 'docs/refactor/golden/runtime/r1.8-extension-ecosystem-golden.json',
+} as const

@@ -1,0 +1,43 @@
+{
+  "version": "r2.5",
+  "generatedAt": "2026-05-25T09:48:12.406Z",
+  "operation": "byte-identical source replacement from claude-code into parity roots",
+  "ignoredSegments": [
+    "node_modules",
+    ".git",
+    "dist",
+    "coverage"
+  ],
+  "before": [
+    {
+      "name": "src",
+      "missing": 0,
+      "extra": 0,
+      "different": 2292,
+      "structureMarkers": 1671
+    },
+    {
+      "name": "packages",
+      "missing": 0,
+      "extra": 0,
+      "different": 798,
+      "structureMarkers": 273
+    }
+  ],
+  "after": [
+    {
+      "name": "src",
+      "missing": 0,
+      "extra": 0,
+      "different": 0,
+      "structureMarkers": 0
+    },
+    {
+      "name": "packages",
+      "missing": 0,
+      "extra": 0,
+      "different": 0,
+      "structureMarkers": 0
+    }
+  ]
+}

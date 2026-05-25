@@ -1,0 +1,5 @@
+└ SessionStart:startup says: # my-claude-code status
+> who is Jack Ma?
+● Jack Ma founded Alibaba Group and later became a major Chinese technology figure.
+selected text: Jack Ma founded Alibaba Group
+scrollbar: █ █ ▌

@@ -1,0 +1,5 @@
+Settings
+Theme        dark
+Permissions  default
+Vim          insert
+Esc closes this overlay

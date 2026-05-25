@@ -1,0 +1,5 @@
+└ SessionStart:startup says: # my-claude-code status
+> who is Jack Ma?
+✶ Unravelling... (0s · thinking)
+● answer still renders
+>

@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 790" width="1120" height="790">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .section { font-size: 13px; font-weight: 700; fill: #374151; }
+    .label { font-size: 13px; font-weight: 600; fill: #111827; }
+    .small { font-size: 11px; fill: #6b7280; }
+    .tiny { font-size: 10px; fill: #6b7280; }
+    .code { font-size: 11px; fill: #374151; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
+  </style>
+  <defs>
+    <marker id="arrow-blue-14b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green-14b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple-14b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red-14b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="shadow-14b" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1120" height="790" fill="#ffffff"/>
+  <text class="title" x="36" y="42">模型请求 Runtime：共享预处理、Provider 分流、流式归一化</text>
+  <text class="small" x="36" y="65">queryModel 将 Anthropic 内部消息协议作为枢纽，第三方 Provider 通过适配器接入</text>
+
+  <rect x="34" y="98" width="208" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="54" y="128">调用入口</text>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="62" y="154" width="152" height="82" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="82" y="181">Options</text>
+    <text class="small" x="82" y="203">messages, tools</text>
+    <text class="small" x="82" y="221">model, fallbackModel</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="62" y="278" width="152" height="82" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="82" y="305">queryModel()</text>
+    <text class="small" x="82" y="327">stream 或 non-stream</text>
+    <text class="small" x="82" y="345">同一套核心逻辑</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="62" y="402" width="152" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="82" y="429">Retry Context</text>
+    <text class="small" x="82" y="451">querySource</text>
+    <text class="small" x="82" y="469">fastMode</text>
+    <text class="small" x="82" y="487">thinkingConfig</text>
+  </g>
+
+  <rect x="286" y="98" width="278" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="306" y="128">共享预处理</text>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="318" y="154" width="214" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="340" y="181">消息归一化</text>
+    <text class="small" x="340" y="203">normalizeMessagesForAPI</text>
+    <text class="small" x="340" y="220">repair tool_use 和 tool_result</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="318" y="260" width="214" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="340" y="287">Tools 与 Betas</text>
+    <text class="small" x="340" y="309">deferred tools, MCP tools</text>
+    <text class="small" x="340" y="327">advisor beta, cache beta</text>
+    <text class="small" x="340" y="344">tool_choice 归一</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="318" y="376" width="214" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="340" y="403">模型与预算</text>
+    <text class="small" x="340" y="425">parseUserSpecifiedModel</text>
+    <text class="small" x="340" y="443">prompt cache breakpoints</text>
+    <text class="small" x="340" y="460">thinking, max_tokens</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="318" y="492" width="214" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="340" y="519">Provider Decision</text>
+    <text class="small" x="340" y="541">openai, gemini, grok 先分流</text>
+    <text class="small" x="340" y="558">其余走 Anthropic SDK 族</text>
+  </g>
+
+  <rect x="608" y="98" width="226" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="628" y="128">Provider 执行层</text>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="638" y="154" width="166" height="88" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="660" y="181">Anthropic 族</text>
+    <text class="small" x="660" y="203">firstParty</text>
+    <text class="small" x="660" y="221">Bedrock, Vertex</text>
+    <text class="small" x="660" y="239">Foundry</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="638" y="286" width="166" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="660" y="313">OpenAI Adapter</text>
+    <text class="small" x="660" y="335">messages/tools 转换</text>
+    <text class="small" x="660" y="353">responses 或 chat path</text>
+    <text class="code" x="660" y="370">queryModelOpenAI</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="638" y="422" width="166" height="92" rx="8" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5"/>
+    <text class="label" x="660" y="449">Gemini Adapter</text>
+    <text class="small" x="660" y="471">contents, tools</text>
+    <text class="small" x="660" y="489">thinkingConfig</text>
+    <text class="code" x="660" y="506">streamGenerateContent</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="638" y="558" width="166" height="76" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="660" y="585">Grok Adapter</text>
+    <text class="small" x="660" y="607">OpenAI-compatible</text>
+    <text class="code" x="660" y="624">queryModelGrok</text>
+  </g>
+
+  <rect x="878" y="98" width="208" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="898" y="128">归一化输出</text>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="908" y="154" width="148" height="88" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="930" y="181">withRetry()</text>
+    <text class="small" x="930" y="203">401 刷新身份</text>
+    <text class="small" x="930" y="221">429/529 回退</text>
+    <text class="small" x="930" y="239">context overflow 修正</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="908" y="292" width="148" height="88" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="930" y="319">Stream Adapter</text>
+    <text class="small" x="930" y="341">raw SSE 或 SDK stream</text>
+    <text class="small" x="930" y="359">转 Anthropic events</text>
+    <text class="small" x="930" y="377">message_delta usage</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="908" y="430" width="148" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="930" y="457">Assistant 输出</text>
+    <text class="small" x="930" y="479">assistant message</text>
+    <text class="small" x="930" y="497">stream_event</text>
+    <text class="small" x="930" y="514">API error message</text>
+  </g>
+
+  <g filter="url(#shadow-14b)">
+    <rect x="908" y="562" width="148" height="72" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text class="label" x="930" y="589">观测与成本</text>
+    <text class="small" x="930" y="611">usage buckets</text>
+    <text class="small" x="930" y="629">Langfuse, cost</text>
+  </g>
+
+  <path d="M214 195 C248 195, 274 192, 318 192" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+  <path d="M214 319 C248 319, 274 303, 318 303" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+  <path d="M214 448 C250 448, 274 419, 318 419" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-14b)"/>
+
+  <path d="M532 530 C574 530, 592 198, 638 198" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+  <path d="M532 530 C574 530, 592 332, 638 332" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+  <path d="M532 530 C574 530, 592 468, 638 468" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+  <path d="M532 530 C574 530, 592 596, 638 596" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+
+  <path d="M804 198 C852 198, 862 198, 908 198" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+  <path d="M804 332 C852 332, 862 336, 908 336" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+  <path d="M804 468 C852 468, 862 336, 908 336" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+  <path d="M804 596 C852 596, 862 336, 908 336" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+
+  <path d="M982 242 C982 260, 982 272, 982 292" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+  <path d="M982 380 C982 400, 982 410, 982 430" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+  <path d="M982 516 C982 536, 982 542, 982 562" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+
+  <path d="M908 198 L858 198 L858 82 L532 82 L532 154" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-14b)"/>
+  <rect x="650" y="68" width="178" height="28" rx="6" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+  <text class="tiny" x="662" y="86">失败时重建 client 或切换 fallbackModel</text>
+
+  <rect x="36" y="710" width="1032" height="44" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="58" y1="733" x2="88" y2="733" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14b)"/>
+  <text class="tiny" x="96" y="737">主调用路径</text>
+  <line x1="206" y1="733" x2="236" y2="733" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14b)"/>
+  <text class="tiny" x="244" y="737">流式事件归一</text>
+  <line x1="374" y1="733" x2="404" y2="733" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-14b)"/>
+  <text class="tiny" x="412" y="737">上下文与重试参数</text>
+  <line x1="572" y1="733" x2="602" y2="733" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-14b)"/>
+  <text class="tiny" x="610" y="737">失败回路</text>
+  <text class="tiny" x="746" y="737">第三方 Provider 输入输出都被收敛为 Anthropic-style events</text>
+</svg>

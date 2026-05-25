@@ -1,0 +1,57 @@
+{
+  "version": "r1.8",
+  "scope": "mcp-oauth-plugin-skill",
+  "cases": [
+    {
+      "name": "mcp-stdio-transport",
+      "expect": {
+        "toolName": "mcp__demo__echo",
+        "resourceUri": "demo://readme",
+        "toolResult": "echo:hello",
+        "authToolMentionsSecretHandling": true
+      }
+    },
+    {
+      "name": "mcp-http-sse-oauth",
+      "expect": {
+        "toolName": "mcp__remote__search",
+        "toolResult": "remote:search",
+        "subscribed": "skill://remote/code-review",
+        "statePhases": [["events", "approved", "sse"], ["remote", "approved", "http"]],
+        "authorizationHeaders": ["Bearer fresh-token", "Bearer event-token", "Bearer fresh-token", "Bearer fresh-token"],
+        "noStateTokenPersisted": true
+      }
+    },
+    {
+      "name": "mcp-approval-policy",
+      "expect": {
+        "approvalRequired": "approval-required",
+        "policyDenied": "policy-denied"
+      }
+    },
+    {
+      "name": "plugin-lifecycle",
+      "expect": {
+        "installStatus": "installed",
+        "disabledStatus": "disabled",
+        "enabledStatus": "enabled",
+        "updateStatus": "updated",
+        "restored": ["demo"],
+        "toolName": "mcp__demo_server__echo",
+        "commandContent": "hello v2"
+      }
+    },
+    {
+      "name": "skill-lifecycle",
+      "expect": {
+        "bundledSkill": "claude-api",
+        "generatedStatus": "created",
+        "topSearchResult": "review",
+        "conflictResolution": "project_over_plugin_over_bundled",
+        "cacheContainsContent": true,
+        "learningCount": 1,
+        "feedbackCount": 1
+      }
+    }
+  ]
+}

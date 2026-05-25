@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" width="1280" height="900">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .label { font-size: 15px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #4b5563; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #e9d5ff; }
+    .red { fill: #fef2f2; stroke: #fecaca; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .teal { fill: #f0fdfa; stroke: #99f6e4; }
+    .gray { fill: #f9fafb; stroke: #d1d5db; }
+    .rail { fill: none; stroke: #e5e7eb; stroke-width: 1.2; stroke-dasharray: 6 5; rx: 14; ry: 14; }
+    .arrowText { font-size: 11px; fill: #374151; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-org" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="900" fill="#ffffff"/>
+  <text x="44" y="48" class="title">Claude Code Slash Command Runtime Flow</text>
+  <text x="44" y="72" class="subtitle">输入统一进入队列与 processUserInput，随后按 command.type 分派成本地 UI、本地副作用、模型提示或 forked sub-agent。</text>
+
+  <rect x="42" y="104" width="1188" height="142" class="rail"/>
+  <text x="60" y="128" class="small">输入与排队层</text>
+
+  <rect x="76" y="148" width="180" height="62" class="box blue"/>
+  <text x="104" y="173" class="label">PromptInput</text>
+  <text x="104" y="194" class="small">用户键入 /command</text>
+
+  <rect x="296" y="148" width="178" height="62" class="box blue"/>
+  <text x="321" y="173" class="label">Keybindings</text>
+  <text x="321" y="194" class="small">command:* 动作</text>
+
+  <rect x="514" y="148" width="186" height="62" class="box blue"/>
+  <text x="543" y="173" class="label">Remote Bridge</text>
+  <text x="543" y="194" class="small">bridgeOrigin 输入</text>
+
+  <rect x="740" y="148" width="180" height="62" class="box blue"/>
+  <text x="763" y="173" class="label">Scheduler</text>
+  <text x="763" y="194" class="small">通知与自动任务</text>
+
+  <rect x="980" y="132" width="196" height="94" class="box green"/>
+  <text x="1008" y="160" class="label">handlePromptSubmit</text>
+  <text x="1008" y="181" class="small">即时 local-jsx</text>
+  <text x="1008" y="199" class="small">或 enqueue 队列</text>
+
+  <path d="M256 179 L296 179" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M474 179 L514 179" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M700 179 L740 179" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M920 179 L980 179" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+
+  <rect x="58" y="286" width="248" height="90" class="box green"/>
+  <text x="82" y="318" class="label">messageQueueManager</text>
+  <text x="82" y="339" class="small">priority now, next, later</text>
+  <text x="82" y="357" class="small">editable / visible 分离</text>
+
+  <rect x="350" y="286" width="238" height="90" class="box green"/>
+  <text x="374" y="318" class="label">processQueueIfReady</text>
+  <text x="374" y="339" class="small">slash 与 bash 单条处理</text>
+  <text x="374" y="357" class="small">普通 prompt 同 mode 批量</text>
+
+  <rect x="632" y="286" width="242" height="90" class="box green"/>
+  <text x="656" y="318" class="label">executeUserInput</text>
+  <text x="656" y="339" class="small">queryGuard.reserve</text>
+  <text x="656" y="357" class="small">逐条调用 processUserInput</text>
+
+  <rect x="918" y="286" width="244" height="90" class="box green"/>
+  <text x="942" y="318" class="label">processUserInputBase</text>
+  <text x="942" y="339" class="small">图片、附件、Bridge 安全</text>
+  <text x="942" y="357" class="small">选择 slash / bash / text</text>
+
+  <path d="M1078 226 C1078 258, 182 258, 182 286" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M306 331 L350 331" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M588 331 L632 331" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M874 331 L918 331" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+
+  <rect x="42" y="420" width="1188" height="372" class="rail"/>
+  <text x="60" y="444" class="small">Slash Command 执行层</text>
+
+  <rect x="74" y="486" width="238" height="92" class="box purple"/>
+  <text x="98" y="517" class="label">processSlashCommand</text>
+  <text x="98" y="538" class="small">parseSlashCommand</text>
+  <text x="98" y="556" class="small">findCommand / telemetry</text>
+
+  <rect x="360" y="486" width="236" height="92" class="box purple"/>
+  <text x="384" y="517" class="label">getMessagesForSlashCommand</text>
+  <text x="384" y="538" class="small">userInvocable 检查</text>
+  <text x="384" y="556" class="small">按 type switch</text>
+
+  <path d="M1040 376 C1040 416, 193 416, 193 486" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M312 532 L360 532" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-vlt)"/>
+
+  <rect x="666" y="438" width="220" height="86" class="box orange"/>
+  <text x="690" y="469" class="label">local-jsx</text>
+  <text x="690" y="490" class="small">load().call(onDone)</text>
+  <text x="690" y="508" class="small">setToolJSX 渲染 Ink</text>
+
+  <rect x="666" y="548" width="220" height="86" class="box orange"/>
+  <text x="690" y="579" class="label">local</text>
+  <text x="690" y="600" class="small">LocalCommandResult</text>
+  <text x="690" y="618" class="small">text / compact / skip</text>
+
+  <rect x="666" y="658" width="220" height="86" class="box orange"/>
+  <text x="690" y="689" class="label">prompt inline</text>
+  <text x="690" y="710" class="small">getPromptForCommand</text>
+  <text x="690" y="728" class="small">isMeta + permissions</text>
+
+  <rect x="962" y="438" width="220" height="86" class="box red"/>
+  <text x="986" y="469" class="label">Ink Dialog</text>
+  <text x="986" y="490" class="small">modal / picker / settings</text>
+  <text x="986" y="508" class="small">onDone 回写结果</text>
+
+  <rect x="962" y="548" width="220" height="86" class="box teal"/>
+  <text x="986" y="579" class="label">Transcript Output</text>
+  <text x="986" y="600" class="small">local-command-stdout</text>
+  <text x="986" y="618" class="small">不触发模型或可选触发</text>
+
+  <rect x="962" y="658" width="220" height="86" class="box teal"/>
+  <text x="986" y="689" class="label">Main Agent Query</text>
+  <text x="986" y="710" class="small">allowedTools / model / effort</text>
+  <text x="986" y="728" class="small">进入主循环</text>
+
+  <path d="M596 532 C626 532, 626 481, 666 481" stroke="#ea580c" stroke-width="1.8" fill="none" marker-end="url(#arr-org)"/>
+  <path d="M596 532 C626 532, 626 591, 666 591" stroke="#ea580c" stroke-width="1.8" fill="none" marker-end="url(#arr-org)"/>
+  <path d="M596 532 C626 532, 626 701, 666 701" stroke="#ea580c" stroke-width="1.8" fill="none" marker-end="url(#arr-org)"/>
+  <path d="M886 481 L962 481" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M886 591 L962 591" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M886 701 L962 701" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-grn)"/>
+
+  <rect x="360" y="660" width="236" height="84" class="box red"/>
+  <text x="384" y="690" class="label">prompt fork</text>
+  <text x="384" y="711" class="small">prepareForkedCommandContext</text>
+  <text x="384" y="729" class="small">runAgent 子 Agent</text>
+
+  <path d="M478 578 L478 660" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M596 702 L666 702" stroke="#dc2626" stroke-width="1.8" fill="none" stroke-dasharray="6 5" marker-end="url(#arr-rose)"/>
+  <text x="604" y="692" class="arrowText">context fork</text>
+
+  <rect x="76" y="660" width="236" height="84" class="box gray"/>
+  <text x="100" y="690" class="label">Bridge Safety</text>
+  <text x="100" y="711" class="small">prompt 默认允许</text>
+  <text x="100" y="729" class="small">local/local-jsx 显式白名单</text>
+
+  <g transform="translate(58, 822)">
+    <line x1="0" y1="8" x2="34" y2="8" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arr-blue)"/>
+    <text x="44" y="12" class="tiny">输入流</text>
+    <line x1="112" y1="8" x2="146" y2="8" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-grn)"/>
+    <text x="156" y="12" class="tiny">队列与消息流</text>
+    <line x1="270" y1="8" x2="304" y2="8" stroke="#9333ea" stroke-width="1.8" marker-end="url(#arr-vlt)"/>
+    <text x="314" y="12" class="tiny">Slash 解析</text>
+    <line x1="424" y1="8" x2="458" y2="8" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-rose)"/>
+    <text x="468" y="12" class="tiny">安全或 fork 分支</text>
+  </g>
+</svg>

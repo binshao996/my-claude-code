@@ -1,0 +1,38 @@
+{
+  "version": "r2.1",
+  "source": "claude-code hooks, telemetry, policy, bootstrap, migrations, and release control plane",
+  "cases": [
+    {
+      "name": "hook-ordering",
+      "expect": {
+        "results": ["first", "blocker"],
+        "finalDecision": "block"
+      }
+    },
+    {
+      "name": "telemetry-redaction",
+      "expect": {
+        "eventName": "diagnostic.startup",
+        "redacted": true,
+        "perfettoPh": "i",
+        "langfuseName": "completion"
+      }
+    },
+    {
+      "name": "policy-deny",
+      "expect": {
+        "decision": "deny",
+        "rule": "managed-deny"
+      }
+    },
+    {
+      "name": "release-smoke",
+      "expect": {
+        "terminalSetup": "configured",
+        "migratedPermissionMode": "bypassPermissions",
+        "migratedModel": "sonnet-4.6",
+        "fileIndexAtLeast": 1
+      }
+    }
+  ]
+}

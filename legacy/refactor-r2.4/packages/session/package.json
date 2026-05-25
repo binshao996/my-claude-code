@@ -1,0 +1,12 @@
+{
+  "name": "@my-claude-code/session",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@my-claude-code/core": "workspace:*"
+  }
+}

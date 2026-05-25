@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="ttl desc">
+  <title id="ttl">第 11 章图 1：终端 UI 运行时链路</title>
+  <desc id="desc">Claude Code 交互终端从 App provider、REPL 状态、PromptInput、handlePromptSubmit、query stream 到 Messages 渲染的整体链路。</desc>
+  <defs>
+    <marker id="arr-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#059669"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#e11d48"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 34px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .sub { font: 400 18px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .lane { fill: #ffffff; stroke: #dbe4f0; stroke-width: 2; }
+      .lane-title { font: 700 19px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; }
+      .blue { fill: #eff6ff; stroke: #60a5fa; }
+      .green { fill: #ecfdf5; stroke: #34d399; }
+      .amber { fill: #fffbeb; stroke: #f59e0b; }
+      .rose { fill: #fff1f2; stroke: #fb7185; }
+      .violet { fill: #f5f3ff; stroke: #a78bfa; }
+      .slate { fill: #f1f5f9; stroke: #64748b; }
+      .step { font: 700 20px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .txt { font: 400 16px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .small { font: 400 14px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .mono { font: 600 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #1e293b; }
+      .arrow { fill: none; stroke: #2563eb; stroke-width: 3; marker-end: url(#arr-blue); }
+      .arrow-g { fill: none; stroke: #059669; stroke-width: 3; marker-end: url(#arr-grn); }
+      .arrow-r { fill: none; stroke: #e11d48; stroke-width: 3; marker-end: url(#arr-rose); }
+      .arrow-v { fill: none; stroke: #7c3aed; stroke-width: 3; marker-end: url(#arr-vlt); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1080"/>
+  <text class="title" x="64" y="64">终端 UI 运行时链路</text>
+  <text class="sub" x="64" y="96">从 Ink Provider、REPL 状态、输入处理，到 Agent Loop 事件回流和消息列表渲染。</text>
+
+  <rect class="lane" x="50" y="130" width="1500" height="156" rx="14"/>
+  <text class="lane-title" x="72" y="162">Provider 层：交互会话的上下文底座</text>
+  <rect class="box blue" x="92" y="190" width="260" height="64" rx="10"/>
+  <text class="step" x="118" y="220">App</text>
+  <text class="txt" x="118" y="244">FPS / Stats / Theme</text>
+  <rect class="box blue" x="432" y="190" width="300" height="64" rx="10"/>
+  <text class="step" x="458" y="220">AppStateProvider</text>
+  <text class="txt" x="458" y="244">store + useSyncExternalStore</text>
+  <rect class="box blue" x="812" y="190" width="300" height="64" rx="10"/>
+  <text class="step" x="838" y="220">Settings / Mailbox</text>
+  <text class="txt" x="838" y="244">配置变化、语音、桥接上下文</text>
+  <rect class="box blue" x="1192" y="190" width="260" height="64" rx="10"/>
+  <text class="step" x="1218" y="220">REPL</text>
+  <text class="txt" x="1218" y="244">交互终端根组件</text>
+  <path class="arrow" d="M352 222 H432"/>
+  <path class="arrow" d="M732 222 H812"/>
+  <path class="arrow" d="M1112 222 H1192"/>
+
+  <rect class="lane" x="50" y="326" width="1500" height="194" rx="14"/>
+  <text class="lane-title" x="72" y="358">REPL 状态层：把异步运行时投影成 React 状态</text>
+  <rect class="box slate" x="92" y="394" width="260" height="82" rx="10"/>
+  <text class="step" x="118" y="426">messages</text>
+  <text class="txt" x="118" y="454">ref 为真值，state 为渲染投影</text>
+  <rect class="box violet" x="412" y="394" width="260" height="82" rx="10"/>
+  <text class="step" x="438" y="426">queryGuard</text>
+  <text class="txt" x="438" y="454">reserve / active / idle</text>
+  <rect class="box amber" x="732" y="394" width="260" height="82" rx="10"/>
+  <text class="step" x="758" y="426">toolJSX</text>
+  <text class="txt" x="758" y="454">本地命令 UI 与工具进度</text>
+  <rect class="box rose" x="1052" y="394" width="260" height="82" rx="10"/>
+  <text class="step" x="1078" y="426">permission queues</text>
+  <text class="txt" x="1078" y="454">工具、沙箱、MCP elicitation</text>
+  <rect class="box green" x="1372" y="394" width="130" height="82" rx="10"/>
+  <text class="step" x="1394" y="426">tasks</text>
+  <text class="txt" x="1394" y="454">后台状态</text>
+  <path class="arrow-v" d="M352 435 H412"/>
+  <path class="arrow-v" d="M672 435 H732"/>
+  <path class="arrow-v" d="M992 435 H1052"/>
+  <path class="arrow-v" d="M1312 435 H1372"/>
+
+  <rect class="lane" x="50" y="560" width="1500" height="194" rx="14"/>
+  <text class="lane-title" x="72" y="592">输入到 Agent Loop：用户操作进入运行时</text>
+  <rect class="box green" x="92" y="628" width="250" height="82" rx="10"/>
+  <text class="step" x="118" y="660">PromptInput</text>
+  <text class="txt" x="118" y="688">模式、历史、粘贴、footer</text>
+  <rect class="box green" x="398" y="628" width="250" height="82" rx="10"/>
+  <text class="step" x="424" y="660">handlePromptSubmit</text>
+  <text class="txt" x="424" y="688">排队、abort、guard、清空输入</text>
+  <rect class="box green" x="704" y="628" width="250" height="82" rx="10"/>
+  <text class="step" x="730" y="660">processUserInput</text>
+  <text class="txt" x="730" y="688">prompt / bash / slash / attachments</text>
+  <rect class="box green" x="1010" y="628" width="250" height="82" rx="10"/>
+  <text class="step" x="1036" y="660">onQuery</text>
+  <text class="txt" x="1036" y="688">追加消息并启动 query</text>
+  <rect class="box green" x="1316" y="628" width="186" height="82" rx="10"/>
+  <text class="step" x="1342" y="660">query</text>
+  <text class="txt" x="1342" y="688">流式模型与工具</text>
+  <path class="arrow-g" d="M342 669 H398"/>
+  <path class="arrow-g" d="M648 669 H704"/>
+  <path class="arrow-g" d="M954 669 H1010"/>
+  <path class="arrow-g" d="M1260 669 H1316"/>
+
+  <rect class="lane" x="50" y="794" width="1500" height="220" rx="14"/>
+  <text class="lane-title" x="72" y="826">渲染层：消息、流式状态、弹窗与底部输入共同构成终端画面</text>
+  <rect class="box amber" x="92" y="864" width="250" height="94" rx="10"/>
+  <text class="step" x="118" y="896">onQueryEvent</text>
+  <text class="txt" x="118" y="924">stream text / thinking / tools</text>
+  <rect class="box amber" x="398" y="864" width="250" height="94" rx="10"/>
+  <text class="step" x="424" y="896">Messages</text>
+  <text class="txt" x="424" y="924">normalize / group / collapse</text>
+  <rect class="box amber" x="704" y="864" width="250" height="94" rx="10"/>
+  <text class="step" x="730" y="896">MessageRow</text>
+  <text class="txt" x="730" y="924">静态冻结、进度、元信息</text>
+  <rect class="box amber" x="1010" y="864" width="250" height="94" rx="10"/>
+  <text class="step" x="1036" y="896">FullscreenLayout</text>
+  <text class="txt" x="1036" y="924">ScrollBox、modal、bottom</text>
+  <rect class="box amber" x="1316" y="864" width="186" height="94" rx="10"/>
+  <text class="step" x="1342" y="896">PromptInput</text>
+  <text class="txt" x="1342" y="924">继续接收下一次输入</text>
+  <path class="arrow-r" d="M1410 710 C1410 772 217 772 217 864"/>
+  <path class="arrow-r" d="M342 911 H398"/>
+  <path class="arrow-r" d="M648 911 H704"/>
+  <path class="arrow-r" d="M954 911 H1010"/>
+  <path class="arrow-r" d="M1260 911 H1316"/>
+  <path class="arrow dash" d="M1437 864 V476"/>
+</svg>

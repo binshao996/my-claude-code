@@ -1,0 +1,5 @@
+Permission required
+Bash
+Bash wants to run: bun test packages/tui/src/terminalApp.test.ts
+y allow once  s allow session  p persist allow
+n deny once   d deny session  x persist deny  Esc deny once

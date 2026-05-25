@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" width="1440" height="920">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 28px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 16px; fill: #6b7280; }
+    .lane-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .lane-sub { font-size: 13px; fill: #6b7280; }
+    .node-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 13px; fill: #6b7280; }
+    .small { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#9333ea"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="920" fill="#ffffff"/>
+  <text class="title" x="44" y="54">Claude Code Prompt Pipeline 与缓存边界</text>
+  <text class="subtitle" x="44" y="84">从入口层收集配置，到 system prompt 分层、缓存分块，再进入 provider API</text>
+
+  <rect x="42" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="70" y="162">入口与上下文输入</text>
+  <text class="lane-sub" x="70" y="187">QueryEngine / REPL / SDK</text>
+
+  <rect x="390" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="418" y="162">System Prompt 编译</text>
+  <text class="lane-sub" x="418" y="187">prompts.ts / systemPrompt.ts</text>
+
+  <rect x="738" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="766" y="162">缓存与 API 分块</text>
+  <text class="lane-sub" x="766" y="187">api.ts / claude.ts</text>
+
+  <rect x="1086" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="1114" y="162">Provider 请求</text>
+  <text class="lane-sub" x="1114" y="187">Anthropic / OpenAI / Gemini</text>
+
+  <rect x="82" y="226" width="220" height="84" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="262" text-anchor="middle">fetchSystemPromptParts</text>
+  <text class="node-sub" x="192" y="288" text-anchor="middle">tools / model / mcpClients</text>
+
+  <rect x="82" y="358" width="220" height="92" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="394" text-anchor="middle">userContext</text>
+  <text class="node-sub" x="192" y="421" text-anchor="middle">CLAUDE.md / currentDate</text>
+  <text class="node-sub" x="192" y="444" text-anchor="middle">meta user message</text>
+
+  <rect x="82" y="502" width="220" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="538" text-anchor="middle">systemContext</text>
+  <text class="node-sub" x="192" y="565" text-anchor="middle">git status / cache breaker</text>
+  <text class="node-sub" x="192" y="588" text-anchor="middle">system tail</text>
+
+  <rect x="82" y="646" width="220" height="74" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="683" text-anchor="middle">appendSystemPrompt</text>
+  <text class="node-sub" x="192" y="708" text-anchor="middle">调用方追加策略</text>
+
+  <rect x="430" y="214" width="220" height="102" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="252" text-anchor="middle">Static Sections</text>
+  <text class="node-sub" x="540" y="279" text-anchor="middle">intro / system / tasks</text>
+  <text class="node-sub" x="540" y="302" text-anchor="middle">actions / tools / efficiency</text>
+
+  <rect x="430" y="356" width="220" height="96" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="392" text-anchor="middle">Dynamic Sections</text>
+  <text class="node-sub" x="540" y="419" text-anchor="middle">memory / env / language</text>
+  <text class="node-sub" x="540" y="442" text-anchor="middle">output style / hooks</text>
+
+  <rect x="430" y="498" width="220" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="534" text-anchor="middle">Boundary Marker</text>
+  <text class="node-sub" x="540" y="561" text-anchor="middle">static before marker</text>
+  <text class="node-sub" x="540" y="584" text-anchor="middle">dynamic after marker</text>
+
+  <rect x="430" y="640" width="220" height="96" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="676" text-anchor="middle">Effective Prompt</text>
+  <text class="node-sub" x="540" y="703" text-anchor="middle">override / coordinator</text>
+  <text class="node-sub" x="540" y="726" text-anchor="middle">agent / custom / default</text>
+
+  <rect x="778" y="216" width="220" height="100" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="252" text-anchor="middle">Volatile Section</text>
+  <text class="node-sub" x="888" y="279" text-anchor="middle">MCP instructions legacy</text>
+  <text class="node-sub" x="888" y="302" text-anchor="middle">必要时破坏缓存</text>
+
+  <rect x="778" y="356" width="220" height="96" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="392" text-anchor="middle">API Prefix</text>
+  <text class="node-sub" x="888" y="419" text-anchor="middle">attribution header</text>
+  <text class="node-sub" x="888" y="442" text-anchor="middle">CLI sysprompt prefix</text>
+
+  <rect x="778" y="498" width="220" height="96" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="534" text-anchor="middle">splitSysPromptPrefix</text>
+  <text class="node-sub" x="888" y="561" text-anchor="middle">global / org / none</text>
+  <text class="node-sub" x="888" y="584" text-anchor="middle">最多少量 cache blocks</text>
+
+  <rect x="778" y="640" width="220" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="676" text-anchor="middle">Tool Schema Cache</text>
+  <text class="node-sub" x="888" y="703" text-anchor="middle">base schema 稳定</text>
+  <text class="node-sub" x="888" y="726" text-anchor="middle">overlay 每请求变化</text>
+
+  <rect x="1126" y="226" width="220" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="262" text-anchor="middle">system blocks</text>
+  <text class="node-sub" x="1236" y="289" text-anchor="middle">text + cache_control</text>
+
+  <rect x="1126" y="374" width="220" height="92" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="410" text-anchor="middle">messages</text>
+  <text class="node-sub" x="1236" y="437" text-anchor="middle">userContext + history</text>
+  <text class="node-sub" x="1236" y="460" text-anchor="middle">attachments</text>
+
+  <rect x="1126" y="522" width="220" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="558" text-anchor="middle">tools</text>
+  <text class="node-sub" x="1236" y="585" text-anchor="middle">core + discovered</text>
+  <text class="node-sub" x="1236" y="608" text-anchor="middle">defer loading overlay</text>
+
+  <rect x="1126" y="670" width="220" height="74" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="707" text-anchor="middle">streaming response</text>
+  <text class="node-sub" x="1236" y="732" text-anchor="middle">assistant / tool_use</text>
+
+  <path d="M302 268 C348 268 384 265 430 265" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M302 404 C350 404 382 404 430 404" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M302 548 C350 548 382 546 430 546" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M302 683 C354 690 378 688 430 688" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M540 316 C540 338 540 338 540 356" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M540 452 C540 474 540 476 540 498" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M540 594 C540 616 540 618 540 640" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M650 404 C704 404 724 270 778 266" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M650 688 C704 688 724 408 778 404" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M888 452 C888 474 888 476 888 498" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M998 546 C1048 546 1076 272 1126 272" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M998 688 C1048 688 1076 568 1126 568" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M650 688 C820 812 1048 460 1126 420" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M1236 318 C1236 346 1236 346 1236 374" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M1236 466 C1236 494 1236 494 1236 522" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M1236 614 C1236 642 1236 642 1236 670" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+
+  <g transform="translate(58, 850)">
+    <line x1="0" y1="0" x2="42" y2="0" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arr-blue)"/>
+    <text class="small" x="54" y="5">prompt 组合主链</text>
+    <line x1="210" y1="0" x2="252" y2="0" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arr-grn)"/>
+    <text class="small" x="264" y="5">缓存稳定路径</text>
+    <line x1="420" y1="0" x2="462" y2="0" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arr-rose)"/>
+    <text class="small" x="474" y="5">易变缓存风险</text>
+    <line x1="654" y1="0" x2="696" y2="0" stroke="#9333ea" stroke-width="2.2" marker-end="url(#arr-vlt)"/>
+    <text class="small" x="708" y="5">运行时 overlay</text>
+  </g>
+</svg>

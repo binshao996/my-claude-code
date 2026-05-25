@@ -1,0 +1,16 @@
+export {
+  createScrollContainerSnapshot,
+  drainPendingScrollDelta,
+  drainScrollContainerTick,
+  drainScrollContainerSnapshot,
+  maxScrollTop,
+  offsetFromEndFromScrollTop,
+  type PendingDeltaDrain,
+  ScrollBox,
+  type ScrollContainerTick,
+  type ScrollBoxHandle,
+  type ScrollContainerSnapshot,
+  scrollTopFromOffsetFromEnd,
+  type VirtualScrollWindow,
+  virtualScrollWindow,
+} from '@anthropic/ink'

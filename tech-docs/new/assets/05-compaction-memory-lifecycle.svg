@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 980" width="1440" height="980">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 28px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 16px; fill: #6b7280; }
+    .lane-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .lane-sub { font-size: 13px; fill: #6b7280; }
+    .node-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 13px; fill: #6b7280; }
+    .small { font-size: 12px; fill: #6b7280; }
+    .step { font-size: 12px; font-weight: 700; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#9333ea"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="980" fill="#ffffff"/>
+
+  <text class="title" x="44" y="54">Claude Code Compaction 与 Memory 生命周期</text>
+  <text class="subtitle" x="44" y="84">不是简单截断历史，而是在多级策略中保留 API 不变量、近期上下文、会话记忆和恢复附件</text>
+
+  <rect x="48" y="124" width="390" height="730" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="78" y="160">轻量清理层</text>
+  <text class="lane-sub" x="78" y="185">每轮 query 前先尽量不丢语义</text>
+
+  <rect x="525" y="124" width="390" height="730" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="555" y="160">压缩决策层</text>
+  <text class="lane-sub" x="555" y="185">token 阈值、session memory、legacy compact</text>
+
+  <rect x="1002" y="124" width="390" height="730" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="1032" y="160">恢复与下一轮</text>
+  <text class="lane-sub" x="1032" y="185">重建 active context，而不是只写 summary</text>
+
+  <rect x="110" y="228" width="266" height="84" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="243" y="262" text-anchor="middle">active messages</text>
+  <text class="node-sub" x="243" y="289" text-anchor="middle">compact boundary 之后的历史</text>
+
+  <rect x="110" y="360" width="266" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="243" y="394" text-anchor="middle">tool result budget</text>
+  <text class="node-sub" x="243" y="421" text-anchor="middle">大结果替换为引用</text>
+  <text class="node-sub" x="243" y="444" text-anchor="middle">释放 raw output</text>
+
+  <rect x="110" y="504" width="266" height="96" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="243" y="538" text-anchor="middle">snip / microcompact</text>
+  <text class="node-sub" x="243" y="565" text-anchor="middle">清掉旧 tool_result</text>
+  <text class="node-sub" x="243" y="588" text-anchor="middle">保留最近工作上下文</text>
+
+  <rect x="110" y="648" width="266" height="96" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="243" y="682" text-anchor="middle">context collapse</text>
+  <text class="node-sub" x="243" y="709" text-anchor="middle">实验性投影视图</text>
+  <text class="node-sub" x="243" y="732" text-anchor="middle">优先于 autocompact</text>
+
+  <rect x="585" y="226" width="270" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="720" y="260" text-anchor="middle">tokenCountWithEstimation</text>
+  <text class="node-sub" x="720" y="287" text-anchor="middle">last usage + 新消息估算</text>
+
+  <rect x="585" y="366" width="270" height="100" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="720" y="400" text-anchor="middle">shouldAutoCompact</text>
+  <text class="node-sub" x="720" y="427" text-anchor="middle">effective window - buffer</text>
+  <text class="node-sub" x="720" y="450" text-anchor="middle">递归与熔断保护</text>
+
+  <rect x="585" y="516" width="270" height="100" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="720" y="550" text-anchor="middle">session memory compact</text>
+  <text class="node-sub" x="720" y="577" text-anchor="middle">优先复用已提炼记忆</text>
+  <text class="node-sub" x="720" y="600" text-anchor="middle">不够安全则回退</text>
+
+  <rect x="585" y="666" width="270" height="100" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="720" y="700" text-anchor="middle">compactConversation</text>
+  <text class="node-sub" x="720" y="727" text-anchor="middle">forked agent 生成 summary</text>
+  <text class="node-sub" x="720" y="750" text-anchor="middle">禁止工具或只允许 Read</text>
+
+  <rect x="1062" y="228" width="266" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="1195" y="262" text-anchor="middle">compact boundary</text>
+  <text class="node-sub" x="1195" y="289" text-anchor="middle">标记压缩边界与 metadata</text>
+
+  <rect x="1062" y="368" width="266" height="100" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="1195" y="402" text-anchor="middle">summary message</text>
+  <text class="node-sub" x="1195" y="429" text-anchor="middle">isCompactSummary</text>
+  <text class="node-sub" x="1195" y="452" text-anchor="middle">可指向 transcript</text>
+
+  <rect x="1062" y="518" width="266" height="100" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="1195" y="552" text-anchor="middle">restore attachments</text>
+  <text class="node-sub" x="1195" y="579" text-anchor="middle">files / plan / skills / tools</text>
+  <text class="node-sub" x="1195" y="602" text-anchor="middle">SessionStart hooks</text>
+
+  <rect x="1062" y="668" width="266" height="100" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="1195" y="702" text-anchor="middle">post compact cleanup</text>
+  <text class="node-sub" x="1195" y="729" text-anchor="middle">清 cache / 重置 section</text>
+  <text class="node-sub" x="1195" y="752" text-anchor="middle">下一轮重新注入规则</text>
+
+  <path d="M243 312 C243 332 243 340 243 360" stroke="#2563eb" stroke-width="2.3" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M243 456 C243 480 243 480 243 504" stroke="#dc2626" stroke-width="2.3" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M243 600 C243 624 243 624 243 648" stroke="#dc2626" stroke-width="2.3" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M376 696 C470 696 480 272 585 272" stroke="#2563eb" stroke-width="2.3" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M720 318 C720 342 720 342 720 366" stroke="#2563eb" stroke-width="2.3" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M720 466 C720 490 720 492 720 516" stroke="#16a34a" stroke-width="2.3" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M720 616 C720 640 720 642 720 666" stroke="#dc2626" stroke-width="2.3" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M855 566 C950 566 966 274 1062 274" stroke="#16a34a" stroke-width="2.3" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M855 716 C952 716 968 420 1062 418" stroke="#dc2626" stroke-width="2.3" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M1195 320 C1195 344 1195 344 1195 368" stroke="#2563eb" stroke-width="2.3" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M1195 468 C1195 492 1195 494 1195 518" stroke="#16a34a" stroke-width="2.3" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M1195 618 C1195 642 1195 644 1195 668" stroke="#9333ea" stroke-width="2.3" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M1062 718 C936 840 494 840 376 696" stroke="#9333ea" stroke-width="2.3" fill="none" marker-end="url(#arr-vlt)" stroke-dasharray="7 7"/>
+
+  <rect x="482" y="820" width="476" height="74" rx="8" fill="#ecfeff" stroke="#99f6e4" stroke-width="1.6"/>
+  <text class="node-title" x="720" y="850" text-anchor="middle">session memory extraction</text>
+  <text class="node-sub" x="720" y="876" text-anchor="middle">post-sampling hook 根据 token 增量和工具调用数更新会话记忆文件</text>
+
+  <path d="M720 766 C720 786 720 800 720 820" stroke="#9333ea" stroke-width="2.3" fill="none" marker-end="url(#arr-vlt)" stroke-dasharray="7 7"/>
+
+  <g transform="translate(56, 930)">
+    <line x1="0" y1="0" x2="42" y2="0" stroke="#2563eb" stroke-width="2.3" marker-end="url(#arr-blue)"/>
+    <text class="small" x="54" y="5">主上下文链路</text>
+    <line x1="196" y1="0" x2="238" y2="0" stroke="#dc2626" stroke-width="2.3" marker-end="url(#arr-rose)"/>
+    <text class="small" x="250" y="5">压缩压力与回退</text>
+    <line x1="430" y1="0" x2="472" y2="0" stroke="#16a34a" stroke-width="2.3" marker-end="url(#arr-grn)"/>
+    <text class="small" x="484" y="5">session memory 快路</text>
+    <line x1="684" y1="0" x2="726" y2="0" stroke="#9333ea" stroke-width="2.3" marker-end="url(#arr-vlt)" stroke-dasharray="7 7"/>
+    <text class="small" x="738" y="5">异步提炼与清理</text>
+  </g>
+</svg>

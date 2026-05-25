@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="ttl desc">
+  <title id="ttl">第 11 章图 2：消息渲染与交互映射</title>
+  <desc id="desc">Messages 如何把 transcript、工具状态、权限队列、进度消息、后台任务和通知映射成终端 UI 组件。</desc>
+  <defs>
+    <marker id="arr-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#059669"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#e11d48"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 34px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .sub { font: 400 18px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .blue { fill: #eff6ff; stroke: #60a5fa; }
+      .green { fill: #ecfdf5; stroke: #34d399; }
+      .amber { fill: #fffbeb; stroke: #f59e0b; }
+      .rose { fill: #fff1f2; stroke: #fb7185; }
+      .violet { fill: #f5f3ff; stroke: #a78bfa; }
+      .slate { fill: #f1f5f9; stroke: #64748b; }
+      .hub { fill: #111827; stroke: #111827; stroke-width: 3; }
+      .hub-title { font: 700 26px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #ffffff; }
+      .hub-txt { font: 400 17px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #d1d5db; }
+      .card-title { font: 700 20px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .txt { font: 400 16px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .small { font: 400 14px Arial, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .mono { font: 600 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #1e293b; }
+      .arrow { fill: none; stroke: #2563eb; stroke-width: 3; marker-end: url(#arr-blue); }
+      .arrow-g { fill: none; stroke: #059669; stroke-width: 3; marker-end: url(#arr-grn); }
+      .arrow-r { fill: none; stroke: #e11d48; stroke-width: 3; marker-end: url(#arr-rose); }
+      .arrow-v { fill: none; stroke: #7c3aed; stroke-width: 3; marker-end: url(#arr-vlt); }
+      .dash { stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1080"/>
+  <text class="title" x="64" y="64">消息渲染与交互映射</text>
+  <text class="sub" x="64" y="96">同一份 transcript 经过归一化、分组、查表和状态叠加，最终变成用户看到的终端行、弹窗和底部控件。</text>
+
+  <rect class="hub" x="570" y="388" width="460" height="210" rx="18"/>
+  <text class="hub-title" x="626" y="452">Messages</text>
+  <text class="hub-txt" x="626" y="490">normalizeMessages</text>
+  <text class="hub-txt" x="626" y="524">reorder / group / collapse</text>
+  <text class="hub-txt" x="626" y="558">lookups + renderableMessages</text>
+
+  <rect class="card blue" x="82" y="154" width="350" height="136" rx="12"/>
+  <text class="card-title" x="112" y="194">Transcript 输入</text>
+  <text class="txt" x="112" y="226">user / assistant / system</text>
+  <text class="txt" x="112" y="254">attachment / progress</text>
+  <text class="small" x="112" y="276">messagesRef 同步保持最新</text>
+
+  <rect class="card green" x="82" y="360" width="350" height="152" rx="12"/>
+  <text class="card-title" x="112" y="400">运行时状态</text>
+  <text class="txt" x="112" y="432">inProgressToolUseIDs</text>
+  <text class="txt" x="112" y="460">streamingText / thinking</text>
+  <text class="txt" x="112" y="488">streamingToolUses / progress</text>
+
+  <rect class="card amber" x="82" y="582" width="350" height="152" rx="12"/>
+  <text class="card-title" x="112" y="622">交互队列</text>
+  <text class="txt" x="112" y="654">toolUseConfirmQueue</text>
+  <text class="txt" x="112" y="682">sandboxPermissionQueue</text>
+  <text class="txt" x="112" y="710">elicitation / prompt hook</text>
+
+  <rect class="card violet" x="82" y="804" width="350" height="132" rx="12"/>
+  <text class="card-title" x="112" y="844">性能边界</text>
+  <text class="txt" x="112" y="876">VirtualMessageList</text>
+  <text class="txt" x="112" y="904">OffscreenFreeze / cap slice</text>
+
+  <rect class="card blue" x="1168" y="154" width="350" height="136" rx="12"/>
+  <text class="card-title" x="1198" y="194">Assistant blocks</text>
+  <text class="txt" x="1198" y="226">text / thinking / tool_use</text>
+  <text class="txt" x="1198" y="254">AssistantToolUseMessage</text>
+  <text class="small" x="1198" y="276">ToolUseLoader 与进度消息</text>
+
+  <rect class="card green" x="1168" y="360" width="350" height="152" rx="12"/>
+  <text class="card-title" x="1198" y="400">User blocks</text>
+  <text class="txt" x="1198" y="432">text / image / tool_result</text>
+  <text class="txt" x="1198" y="460">UserToolResultMessage</text>
+  <text class="small" x="1198" y="488">success / error / reject / cancel</text>
+
+  <rect class="card amber" x="1168" y="582" width="350" height="152" rx="12"/>
+  <text class="card-title" x="1198" y="622">Overlay / bottom</text>
+  <text class="txt" x="1198" y="654">PermissionRequest</text>
+  <text class="txt" x="1198" y="682">SandboxPermissionRequest</text>
+  <text class="txt" x="1198" y="710">PromptInput / Notifications</text>
+
+  <rect class="card rose" x="1168" y="804" width="350" height="132" rx="12"/>
+  <text class="card-title" x="1198" y="844">用户可见结果</text>
+  <text class="txt" x="1198" y="876">消息行、缩进响应、加载点</text>
+  <text class="txt" x="1198" y="904">sticky prompt、新消息 pill</text>
+
+  <rect class="card slate" x="570" y="680" width="460" height="112" rx="12"/>
+  <text class="card-title" x="604" y="720">MessageRow</text>
+  <text class="txt" x="604" y="752">静态判断、进度查找、行级 memo</text>
+  <text class="small" x="604" y="776">Message 只负责按 type 分发组件</text>
+
+  <path class="arrow" d="M432 222 C500 270 520 402 570 444"/>
+  <path class="arrow-g" d="M432 436 H570"/>
+  <path class="arrow-v" d="M432 658 C522 640 532 558 570 540"/>
+  <path class="arrow-v dash" d="M432 870 C522 820 530 610 570 572"/>
+
+  <path class="arrow" d="M1030 452 C1088 390 1110 248 1168 222"/>
+  <path class="arrow-g" d="M1030 486 H1168"/>
+  <path class="arrow-v" d="M1030 536 C1094 566 1112 638 1168 658"/>
+  <path class="arrow-r" d="M800 598 V680"/>
+  <path class="arrow-r" d="M1030 736 C1100 754 1120 838 1168 870"/>
+</svg>

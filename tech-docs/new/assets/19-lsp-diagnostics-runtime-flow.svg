@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" width="1280" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane-title { font-size: 14px; font-weight: 700; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 12px; fill: #374151; }
+    .legend { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <filter id="shadow" x="-12%" y="-16%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="780" fill="#ffffff"/>
+  <text x="36" y="42" class="title">LSP Runtime：从插件配置到代码智能请求</text>
+  <text x="36" y="65" class="subtitle">LSP Server 由插件声明，Manager 按文件扩展名路由，Instance 懒启动子进程，Tool 把模型查询转换为 LSP JSON-RPC</text>
+
+  <g transform="translate(34,96)">
+    <rect x="0" y="0" width="214" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">插件配置</text>
+
+    <rect x="28" y="58" width="158" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="88" class="node-title">Plugin Manifest</text>
+    <text x="48" y="110" class="node-sub">lspServers 字段</text>
+    <text x="48" y="128" class="mono">manifest.json</text>
+
+    <rect x="28" y="188" width="158" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="48" y="218" class="node-title">.lsp.json</text>
+    <text x="48" y="240" class="node-sub">外部或内联配置</text>
+    <text x="48" y="258" class="mono">command + args</text>
+
+    <rect x="28" y="324" width="158" height="98" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="48" y="354" class="node-title">Env Resolve</text>
+    <text x="48" y="376" class="node-sub">插件变量与 user_config</text>
+    <text x="48" y="394" class="mono">CLAUDE_PLUGIN_ROOT</text>
+  </g>
+
+  <g transform="translate(294,96)">
+    <rect x="0" y="0" width="232" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">Manager 初始化</text>
+
+    <rect x="30" y="54" width="172" height="100" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="50" y="84" class="node-title">Trust Boundary</text>
+    <text x="50" y="106" class="node-sub">信任后才初始化</text>
+    <text x="50" y="124" class="mono">main.tsx</text>
+
+    <rect x="30" y="190" width="172" height="100" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="220" class="node-title">Singleton</text>
+    <text x="50" y="242" class="node-sub">pending / success / failed</text>
+    <text x="50" y="260" class="mono">manager.ts</text>
+
+    <rect x="30" y="326" width="172" height="104" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="356" class="node-title">Extension Map</text>
+    <text x="50" y="378" class="node-sub">.ts -> server list</text>
+    <text x="50" y="396" class="mono">extensionToLanguage</text>
+  </g>
+
+  <g transform="translate(572,96)">
+    <rect x="0" y="0" width="250" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">Server Instance</text>
+
+    <rect x="30" y="54" width="190" height="102" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="84" class="node-title">Lazy Start</text>
+    <text x="50" y="106" class="node-sub">首次请求或 didOpen 启动</text>
+    <text x="50" y="124" class="mono">ensureServerStarted()</text>
+
+    <rect x="30" y="192" width="190" height="108" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="50" y="222" class="node-title">Child Process</text>
+    <text x="50" y="244" class="node-sub">stdio + vscode-jsonrpc</text>
+    <text x="50" y="262" class="node-sub">initialize / initialized</text>
+    <text x="50" y="280" class="mono">LSPClient</text>
+
+    <rect x="30" y="338" width="190" height="110" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="50" y="368" class="node-title">State Machine</text>
+    <text x="50" y="390" class="node-sub">stopped -> running</text>
+    <text x="50" y="408" class="node-sub">error 可在下次请求恢复</text>
+    <text x="50" y="426" class="mono">maxRestarts</text>
+  </g>
+
+  <g transform="translate(868,96)">
+    <rect x="0" y="0" width="202" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">文件同步</text>
+
+    <rect x="26" y="62" width="150" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="46" y="92" class="node-title">didOpen</text>
+    <text x="46" y="114" class="node-sub">首次分析文件</text>
+    <text x="46" y="132" class="mono">openFile()</text>
+
+    <rect x="26" y="186" width="150" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="46" y="216" class="node-title">didChange</text>
+    <text x="46" y="238" class="node-sub">Edit / Write 后更新</text>
+    <text x="46" y="256" class="mono">changeFile()</text>
+
+    <rect x="26" y="310" width="150" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="46" y="340" class="node-title">didSave</text>
+    <text x="46" y="362" class="node-sub">触发 diagnostics</text>
+    <text x="46" y="380" class="mono">saveFile()</text>
+
+    <rect x="26" y="434" width="150" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="46" y="464" class="node-title">didClose</text>
+    <text x="46" y="486" class="node-sub">compact 后释放状态</text>
+    <text x="46" y="504" class="mono">closeAllFiles()</text>
+  </g>
+
+  <g transform="translate(1116,96)">
+    <rect x="0" y="0" width="130" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="18" y="30" class="lane-title">模型工具</text>
+
+    <rect x="18" y="70" width="94" height="94" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="36" y="100" class="node-title">LSP</text>
+    <text x="36" y="122" class="node-sub">definition</text>
+    <text x="36" y="140" class="node-sub">hover</text>
+
+    <rect x="18" y="214" width="94" height="96" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="36" y="244" class="node-title">Format</text>
+    <text x="36" y="266" class="node-sub">relative path</text>
+    <text x="36" y="284" class="node-sub">counts</text>
+
+    <rect x="18" y="360" width="94" height="96" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="36" y="390" class="node-title">Fallback</text>
+    <text x="36" y="412" class="node-sub">no server</text>
+    <text x="36" y="430" class="node-sub">too large</text>
+  </g>
+
+  <path d="M220 104 C260 104 254 104 294 104" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M220 236 C260 236 254 240 294 240" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M498 378 C536 378 534 106 572 106" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M762 246 C812 246 818 105 868 105" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M762 246 C812 246 818 229 868 229" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M762 246 C812 246 818 353 868 353" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M762 246 C812 246 818 477 868 477" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1044 105 C1080 105 1080 117 1116 117" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1044 353 C1080 353 1080 262 1116 262" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1044 477 C1080 477 1080 408 1116 408" stroke="#dc2626" stroke-width="1.7" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(38,704)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+    <text x="42" y="12" class="legend">配置加载与路由</text>
+    <line x1="168" y1="8" x2="200" y2="8" stroke="#16a34a" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+    <text x="210" y="12" class="legend">文件同步通知</text>
+    <line x1="334" y1="8" x2="366" y2="8" stroke="#9333ea" stroke-width="1.7" marker-end="url(#arrow-purple)"/>
+    <text x="376" y="12" class="legend">模型主动查询</text>
+    <line x1="504" y1="8" x2="536" y2="8" stroke="#dc2626" stroke-width="1.7" marker-end="url(#arrow-red)"/>
+    <text x="546" y="12" class="legend">降级与失败出口</text>
+  </g>
+</svg>

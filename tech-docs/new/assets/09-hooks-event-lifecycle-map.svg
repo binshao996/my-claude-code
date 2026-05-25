@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Hook Event Lifecycle Map</title>
+  <desc id="desc">Hook events cover session startup, prompt submission, tool permission and execution, model stopping, subagents, context changes, MCP elicitation, configuration, workspace changes, and session end.</desc>
+  <defs>
+    <filter id="fx" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#14213d" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arr-blue" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#2b6cb0"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#2f855a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#c05621"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#6b46c1"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#f6f8fb"/>
+  <rect x="64" y="54" width="1792" height="972" rx="28" fill="#ffffff" filter="url(#fx)"/>
+  <rect x="64" y="54" width="1792" height="118" rx="28" fill="#102a43"/>
+  <text x="112" y="126" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">第 9 章图 2：Hook Event 生命周期覆盖图</text>
+  <text x="112" y="158" fill="#bcccdc" font-family="Inter, Arial, sans-serif" font-size="19">核心思想：Claude Code 把关键运行时边界显式事件化，让策略、插件、SDK、技能和会话临时规则能在受控位置介入。</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="756" y="396" width="408" height="244" rx="24" fill="#0f172a" stroke="#334155" stroke-width="4"/>
+    <text x="825" y="470" fill="#ffffff" font-size="36" font-weight="800">Hook Event Bus</text>
+    <text x="814" y="518" fill="#cbd5e1" font-size="22">event input + matcher + policy</text>
+    <text x="814" y="555" fill="#cbd5e1" font-size="22">execute hooks + aggregate result</text>
+    <text x="814" y="592" fill="#cbd5e1" font-size="22">apply governance effect</text>
+
+    <rect x="120" y="228" width="390" height="162" rx="18" fill="#e3f2fd" stroke="#2b6cb0" stroke-width="3"/>
+    <text x="154" y="275" fill="#16324f" font-size="28" font-weight="800">Session &amp; Setup</text>
+    <text x="154" y="318" fill="#274c77" font-size="20">SessionStart / Setup / SessionEnd</text>
+    <text x="154" y="351" fill="#274c77" font-size="20">initial message / extra context / env</text>
+
+    <rect x="590" y="208" width="350" height="162" rx="18" fill="#e6fffa" stroke="#2f855a" stroke-width="3"/>
+    <text x="624" y="255" fill="#153e3b" font-size="28" font-weight="800">Prompt Line</text>
+    <text x="624" y="298" fill="#22543d" font-size="20">UserPromptSubmit</text>
+    <text x="624" y="331" fill="#22543d" font-size="20">validate or add prompt context</text>
+
+    <rect x="1010" y="208" width="390" height="162" rx="18" fill="#fff7ed" stroke="#c05621" stroke-width="3"/>
+    <text x="1044" y="255" fill="#5f370e" font-size="28" font-weight="800">Tool Governance</text>
+    <text x="1044" y="298" fill="#7c2d12" font-size="20">PermissionRequest / PreToolUse</text>
+    <text x="1044" y="331" fill="#7c2d12" font-size="20">PostToolUse / failure / denied</text>
+
+    <rect x="1478" y="228" width="326" height="162" rx="18" fill="#f3e8ff" stroke="#6b46c1" stroke-width="3"/>
+    <text x="1512" y="275" fill="#44337a" font-size="28" font-weight="800">Model Stop</text>
+    <text x="1512" y="318" fill="#553c9a" font-size="20">Stop / StopFailure</text>
+    <text x="1512" y="351" fill="#553c9a" font-size="20">continue, block, or recover</text>
+
+    <rect x="120" y="474" width="390" height="162" rx="18" fill="#eef2ff" stroke="#4c51bf" stroke-width="3"/>
+    <text x="154" y="521" fill="#2d3748" font-size="28" font-weight="800">Subagent &amp; Task</text>
+    <text x="154" y="564" fill="#4a5568" font-size="20">SubagentStart / SubagentStop</text>
+    <text x="154" y="597" fill="#4a5568" font-size="20">TaskCreated / TaskCompleted / idle</text>
+
+    <rect x="1410" y="474" width="394" height="162" rx="18" fill="#fff1f2" stroke="#be123c" stroke-width="3"/>
+    <text x="1444" y="521" fill="#5c1f2e" font-size="28" font-weight="800">Context Boundaries</text>
+    <text x="1444" y="564" fill="#9f1239" font-size="20">PreCompact / PostCompact</text>
+    <text x="1444" y="597" fill="#9f1239" font-size="20">InstructionsLoaded / Notification</text>
+
+    <rect x="120" y="720" width="390" height="162" rx="18" fill="#fefce8" stroke="#ca8a04" stroke-width="3"/>
+    <text x="154" y="767" fill="#5f3b00" font-size="28" font-weight="800">MCP Interaction</text>
+    <text x="154" y="810" fill="#854d0e" font-size="20">Elicitation / ElicitationResult</text>
+    <text x="154" y="843" fill="#854d0e" font-size="20">auto accept, decline, cancel, audit</text>
+
+    <rect x="590" y="740" width="350" height="162" rx="18" fill="#e9f7ef" stroke="#2f855a" stroke-width="3"/>
+    <text x="624" y="787" fill="#1f3d2b" font-size="28" font-weight="800">Workspace Change</text>
+    <text x="624" y="830" fill="#276749" font-size="20">CwdChanged / FileChanged</text>
+    <text x="624" y="863" fill="#276749" font-size="20">env file and watch paths</text>
+
+    <rect x="1010" y="740" width="390" height="162" rx="18" fill="#fdf2f8" stroke="#be185d" stroke-width="3"/>
+    <text x="1044" y="787" fill="#831843" font-size="28" font-weight="800">Config &amp; Worktree</text>
+    <text x="1044" y="830" fill="#9d174d" font-size="20">ConfigChange / WorktreeCreate</text>
+    <text x="1044" y="863" fill="#9d174d" font-size="20">WorktreeRemove / policy guard</text>
+
+    <rect x="1478" y="720" width="326" height="162" rx="18" fill="#f8fafc" stroke="#334155" stroke-width="3"/>
+    <text x="1512" y="767" fill="#1e293b" font-size="28" font-weight="800">SDK Visibility</text>
+    <text x="1512" y="810" fill="#475569" font-size="20">started / progress / response</text>
+    <text x="1512" y="843" fill="#475569" font-size="20">includeHookEvents option</text>
+
+    <path d="M510 340 C620 374 706 426 756 470" fill="none" stroke="#2b6cb0" stroke-width="5" marker-end="url(#arr-blue)"/>
+    <path d="M765 370 C800 388 830 405 858 426" fill="none" stroke="#2f855a" stroke-width="5" marker-end="url(#arr-grn)"/>
+    <path d="M1150 370 C1118 392 1086 414 1056 440" fill="none" stroke="#c05621" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M1478 342 C1320 376 1202 426 1164 470" fill="none" stroke="#6b46c1" stroke-width="5" marker-end="url(#arr-vlt)"/>
+    <path d="M510 555 C608 544 678 535 756 526" fill="none" stroke="#4c51bf" stroke-width="5" marker-end="url(#arr-vlt)"/>
+    <path d="M1410 555 C1320 546 1230 536 1164 526" fill="none" stroke="#be123c" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M510 790 C624 735 716 665 786 620" fill="none" stroke="#ca8a04" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M765 740 C798 700 832 660 866 620" fill="none" stroke="#2f855a" stroke-width="5" marker-end="url(#arr-grn)"/>
+    <path d="M1135 740 C1105 700 1074 660 1038 620" fill="none" stroke="#be185d" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M1478 790 C1340 724 1232 666 1132 604" fill="none" stroke="#334155" stroke-width="5" marker-end="url(#arr-blue)"/>
+
+    <rect x="116" y="950" width="1688" height="44" rx="22" fill="#e2e8f0"/>
+    <text x="146" y="979" fill="#334155" font-size="19">源码主线：HOOK_EVENTS → execute*Hooks wrappers → PermissionContext / query stop hooks / sessionStart / fileChangedWatcher / structuredIO</text>
+  </g>
+</svg>

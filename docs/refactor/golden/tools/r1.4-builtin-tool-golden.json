@@ -1,0 +1,995 @@
+{
+  "version": 1,
+  "description": "R1.4 builtin tool golden matrix. Covers every upstream builtin tool module mirror, provider schema exposure, permissions metadata, and representative execution/result side effects.",
+  "modules": [
+    {
+      "moduleName": "AgentTool",
+      "expectedToolNames": [
+        "Agent",
+        "BuiltinAgentList",
+        "BuiltinAgentRun",
+        "AgentMemorySnapshot"
+      ],
+      "expectedProviderToolNames": [
+        "Agent",
+        "BuiltinAgentList",
+        "BuiltinAgentRun",
+        "AgentMemorySnapshot"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "AskUserQuestionTool",
+      "expectedToolNames": [
+        "AskUserQuestion"
+      ],
+      "expectedProviderToolNames": [
+        "AskUserQuestion"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "BashTool",
+      "expectedToolNames": [
+        "Bash"
+      ],
+      "expectedProviderToolNames": [
+        "Bash"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "BriefTool",
+      "expectedToolNames": [
+        "BriefCreate",
+        "BriefList"
+      ],
+      "expectedProviderToolNames": [
+        "BriefCreate",
+        "BriefList"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ConfigTool",
+      "expectedToolNames": [
+        "ConfigTool"
+      ],
+      "expectedProviderToolNames": [
+        "ConfigTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "CtxInspectTool",
+      "expectedToolNames": [
+        "CtxInspect"
+      ],
+      "expectedProviderToolNames": [
+        "CtxInspect"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "DiscoverSkillsTool",
+      "expectedToolNames": [
+        "DiscoverSkillsTool",
+        "SearchExtraTools"
+      ],
+      "expectedProviderToolNames": [
+        "DiscoverSkillsTool",
+        "SearchExtraTools"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "EnterPlanModeTool",
+      "expectedToolNames": [
+        "EnterPlanMode"
+      ],
+      "expectedProviderToolNames": [
+        "EnterPlanMode"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "EnterWorktreeTool",
+      "expectedToolNames": [
+        "EnterWorktree"
+      ],
+      "expectedProviderToolNames": [
+        "EnterWorktree"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ExecuteTool",
+      "expectedToolNames": [
+        "ExecuteTool"
+      ],
+      "expectedProviderToolNames": [
+        "ExecuteTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ExitPlanModeTool",
+      "expectedToolNames": [
+        "ExitPlanModeV2"
+      ],
+      "expectedProviderToolNames": [
+        "ExitPlanModeV2"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ExitWorktreeTool",
+      "expectedToolNames": [
+        "ExitWorktree"
+      ],
+      "expectedProviderToolNames": [
+        "ExitWorktree"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "FileEditTool",
+      "expectedToolNames": [
+        "Edit"
+      ],
+      "expectedProviderToolNames": [
+        "Edit"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "FileReadTool",
+      "expectedToolNames": [
+        "Read"
+      ],
+      "expectedProviderToolNames": [
+        "Read"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "FileWriteTool",
+      "expectedToolNames": [
+        "Write"
+      ],
+      "expectedProviderToolNames": [
+        "Write"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "GlobTool",
+      "expectedToolNames": [
+        "Glob"
+      ],
+      "expectedProviderToolNames": [
+        "Glob"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "GrepTool",
+      "expectedToolNames": [
+        "Grep"
+      ],
+      "expectedProviderToolNames": [
+        "Grep"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "LSPTool",
+      "expectedToolNames": [
+        "LSP"
+      ],
+      "expectedProviderToolNames": [
+        "LSP"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ListMcpResourcesTool",
+      "expectedToolNames": [
+        "ListMcpResourcesTool"
+      ],
+      "expectedProviderToolNames": [
+        "ListMcpResourcesTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ListPeersTool",
+      "expectedToolNames": [
+        "ListPeersTool"
+      ],
+      "expectedProviderToolNames": [
+        "ListPeersTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "LocalMemoryRecallTool",
+      "expectedToolNames": [
+        "LocalMemoryRecall"
+      ],
+      "expectedProviderToolNames": [
+        "LocalMemoryRecall"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "MCPTool",
+      "expectedToolNames": [
+        "MCPTool"
+      ],
+      "expectedProviderToolNames": [
+        "MCPTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "McpAuthTool",
+      "expectedToolNames": [
+        "McpAuthTool"
+      ],
+      "expectedProviderToolNames": [
+        "McpAuthTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "MonitorTool",
+      "expectedToolNames": [
+        "MonitorStart",
+        "MonitorList",
+        "MonitorOutput",
+        "MonitorStop"
+      ],
+      "expectedProviderToolNames": [
+        "MonitorStart",
+        "MonitorList",
+        "MonitorOutput",
+        "MonitorStop"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "NotebookEditTool",
+      "expectedToolNames": [
+        "NotebookEdit"
+      ],
+      "expectedProviderToolNames": [
+        "NotebookEdit"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "OverflowTestTool",
+      "expectedToolNames": [
+        "OverflowTest"
+      ],
+      "expectedProviderToolNames": [
+        "OverflowTest"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "PowerShellTool",
+      "expectedToolNames": [
+        "PowerShell"
+      ],
+      "expectedProviderToolNames": [
+        "PowerShell"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "PushNotificationTool",
+      "expectedToolNames": [
+        "PushNotification",
+        "PushNotificationList"
+      ],
+      "expectedProviderToolNames": [
+        "PushNotification",
+        "PushNotificationList"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "REPLTool",
+      "expectedToolNames": [
+        "REPL"
+      ],
+      "expectedProviderToolNames": [
+        "REPL"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ReadMcpResourceTool",
+      "expectedToolNames": [
+        "ReadMcpResourceTool"
+      ],
+      "expectedProviderToolNames": [
+        "ReadMcpResourceTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "RemoteTriggerTool",
+      "expectedToolNames": [
+        "RemoteTriggerTool"
+      ],
+      "expectedProviderToolNames": [
+        "RemoteTriggerTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ReviewArtifactTool",
+      "expectedToolNames": [
+        "ReviewArtifact"
+      ],
+      "expectedProviderToolNames": [
+        "ReviewArtifact"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "ScheduleCronTool",
+      "expectedToolNames": [
+        "ScheduleCron",
+        "ScheduleCronList",
+        "ScheduleCronRunDue"
+      ],
+      "expectedProviderToolNames": [
+        "ScheduleCron",
+        "ScheduleCronList",
+        "ScheduleCronRunDue"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SearchExtraToolsTool",
+      "expectedToolNames": [
+        "SearchExtraTools"
+      ],
+      "expectedProviderToolNames": [
+        "SearchExtraTools"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SendMessageTool",
+      "expectedToolNames": [
+        "SendMessage"
+      ],
+      "expectedProviderToolNames": [
+        "SendMessage"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SendUserFileTool",
+      "expectedToolNames": [
+        "SendUserFile"
+      ],
+      "expectedProviderToolNames": [
+        "SendUserFile"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SkillTool",
+      "expectedToolNames": [
+        "SkillTool"
+      ],
+      "expectedProviderToolNames": [
+        "SkillTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SleepTool",
+      "expectedToolNames": [
+        "Sleep"
+      ],
+      "expectedProviderToolNames": [
+        "Sleep"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SnipTool",
+      "expectedToolNames": [
+        "Snip"
+      ],
+      "expectedProviderToolNames": [
+        "Snip"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SubscribePRTool",
+      "expectedToolNames": [
+        "SubscribePR",
+        "SubscribePRList"
+      ],
+      "expectedProviderToolNames": [
+        "SubscribePR",
+        "SubscribePRList"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SuggestBackgroundPRTool",
+      "expectedToolNames": [
+        "SuggestBackgroundPR",
+        "SuggestBackgroundPRList"
+      ],
+      "expectedProviderToolNames": [
+        "SuggestBackgroundPR",
+        "SuggestBackgroundPRList"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "SyntheticOutputTool",
+      "expectedToolNames": [
+        "SyntheticOutput"
+      ],
+      "expectedProviderToolNames": [
+        "SyntheticOutput"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TaskCreateTool",
+      "expectedToolNames": [
+        "TaskCreate"
+      ],
+      "expectedProviderToolNames": [
+        "TaskCreate"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TaskGetTool",
+      "expectedToolNames": [
+        "TaskGet"
+      ],
+      "expectedProviderToolNames": [
+        "TaskGet"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TaskListTool",
+      "expectedToolNames": [
+        "TaskList"
+      ],
+      "expectedProviderToolNames": [
+        "TaskList"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TaskOutputTool",
+      "expectedToolNames": [
+        "TaskOutput"
+      ],
+      "expectedProviderToolNames": [
+        "TaskOutput"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TaskStopTool",
+      "expectedToolNames": [
+        "TaskStop"
+      ],
+      "expectedProviderToolNames": [
+        "TaskStop"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TaskUpdateTool",
+      "expectedToolNames": [
+        "TaskUpdate"
+      ],
+      "expectedProviderToolNames": [
+        "TaskUpdate"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TeamCreateTool",
+      "expectedToolNames": [
+        "TeamCreate"
+      ],
+      "expectedProviderToolNames": [
+        "TeamCreate"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TeamDeleteTool",
+      "expectedToolNames": [
+        "TeamDelete"
+      ],
+      "expectedProviderToolNames": [
+        "TeamDelete"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TerminalCaptureTool",
+      "expectedToolNames": [
+        "TerminalCaptureTool"
+      ],
+      "expectedProviderToolNames": [
+        "TerminalCaptureTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TodoWriteTool",
+      "expectedToolNames": [
+        "TodoWrite"
+      ],
+      "expectedProviderToolNames": [
+        "TodoWrite"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "TungstenTool",
+      "expectedToolNames": [
+        "TungstenTool"
+      ],
+      "expectedProviderToolNames": [
+        "TungstenTool"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "VaultHttpFetchTool",
+      "expectedToolNames": [
+        "VaultHttpFetch"
+      ],
+      "expectedProviderToolNames": [
+        "VaultHttpFetch"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "VerifyPlanExecutionTool",
+      "expectedToolNames": [
+        "VerifyPlanExecution"
+      ],
+      "expectedProviderToolNames": [
+        "VerifyPlanExecution"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "WebBrowserTool",
+      "expectedToolNames": [
+        "WebBrowser"
+      ],
+      "expectedProviderToolNames": [
+        "WebBrowser"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "WebFetchTool",
+      "expectedToolNames": [
+        "WebFetch"
+      ],
+      "expectedProviderToolNames": [
+        "WebFetch"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "WebSearchTool",
+      "expectedToolNames": [
+        "WebSearch"
+      ],
+      "expectedProviderToolNames": [
+        "WebSearch"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    },
+    {
+      "moduleName": "WorkflowTool",
+      "expectedToolNames": [
+        "WorkflowScriptRun",
+        "WorkflowScriptList"
+      ],
+      "expectedProviderToolNames": [
+        "WorkflowScriptRun",
+        "WorkflowScriptList"
+      ],
+      "expectedRuntime": [
+        "local-runtime"
+      ]
+    }
+  ],
+  "executions": [
+    {
+      "toolName": "Read",
+      "input": {
+        "file_path": "hello.txt"
+      },
+      "setupFiles": {
+        "hello.txt": "hello\nworld\n"
+      },
+      "expectedContentIncludes": [
+        "1\thello",
+        "2\tworld"
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "Glob",
+      "input": {
+        "pattern": "**/*.ts"
+      },
+      "setupFiles": {
+        "src/a.ts": "export {}",
+        "README.md": "# hi"
+      },
+      "expectedContentIncludes": [
+        "src/a.ts"
+      ],
+      "expectedContentExcludes": [
+        "README.md"
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "Grep",
+      "input": {
+        "pattern": "needle",
+        "path": "."
+      },
+      "setupFiles": {
+        "src/a.ts": "needle\n",
+        "src/b.ts": "hay\n"
+      },
+      "expectedContentIncludes": [
+        "src/a.ts"
+      ],
+      "expectedContentExcludes": [
+        "src/b.ts:1"
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "Write",
+      "input": {
+        "file_path": "out.txt",
+        "content": "written"
+      },
+      "permissionMode": "acceptEdits",
+      "expectedContentIncludes": [
+        "Wrote "
+      ],
+      "expectedFiles": [
+        {
+          "path": "out.txt",
+          "includes": [
+            "written"
+          ]
+        }
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "Write",
+      "input": {
+        "file_path": "out.txt",
+        "content": "blocked"
+      },
+      "permissionMode": "default",
+      "expectedContentIncludes": [
+        "Write wants to modify out.txt"
+      ],
+      "expectedIsError": true,
+      "expectedPermissionDecision": "deny",
+      "expectedFiles": [
+        {
+          "path": "out.txt",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "toolName": "Bash",
+      "input": {
+        "command": "pwd"
+      },
+      "expectedContentIncludes": [
+        "<cwd>"
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "Bash",
+      "input": {
+        "command": "rm -rf ."
+      },
+      "expectedContentIncludes": [
+        "requires confirmation"
+      ],
+      "expectedIsError": true,
+      "expectedPermissionDecision": "deny"
+    },
+    {
+      "toolName": "TodoWrite",
+      "input": {
+        "todos": [
+          {
+            "id": "todo-1",
+            "content": "ship R1.4",
+            "status": "pending",
+            "priority": "high"
+          }
+        ]
+      },
+      "expectedContentIncludes": [
+        "Updated 1 todo"
+      ],
+      "expectedIsError": false,
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/todos/latest.json",
+          "includes": [
+            "ship R1.4"
+          ]
+        }
+      ]
+    },
+    {
+      "toolName": "TaskCreate",
+      "input": {
+        "title": "Mirror tools"
+      },
+      "expectedContentIncludes": [
+        "Mirror tools",
+        "pending"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/tasks/tasks.json",
+          "includes": [
+            "Mirror tools"
+          ]
+        }
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "TeamCreate",
+      "input": {
+        "team_name": "alpha",
+        "description": "mirror team",
+        "agent_type": "lead"
+      },
+      "expectedContentIncludes": [
+        "alpha",
+        "team_name"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/teams/current.json",
+          "includes": [
+            "alpha"
+          ]
+        },
+        {
+          "path": ".my-claude-code/teams/alpha/config.json",
+          "includes": [
+            "alpha"
+          ]
+        }
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "SendMessage",
+      "input": {
+        "to": "missing",
+        "message": "hello",
+        "summary": "hello missing teammate"
+      },
+      "expectedContentIncludes": [
+        "Not in a team context"
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "RemoteTriggerTool",
+      "input": {
+        "sessionId": "remote-one",
+        "name": "wake",
+        "payload": {
+          "reason": "golden"
+        }
+      },
+      "expectedContentIncludes": [
+        "remote-one",
+        "wake"
+      ],
+      "expectedContentExcludes": [],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/remote/bridge.jsonl",
+          "includes": [
+            "remote.trigger",
+            "wake"
+          ]
+        }
+      ],
+      "expectedIsError": false,
+      "setupFiles": {
+        ".my-claude-code/remote/sessions.json": "[{\"id\":\"remote-one\",\"name\":\"demo\",\"transport\":\"loopback\",\"root\":\".\",\"status\":\"connected\",\"tokenHash\":\"hash\",\"transcriptPath\":\"unused\",\"createdAt\":\"now\",\"updatedAt\":\"now\"}]\n"
+      }
+    },
+    {
+      "toolName": "ListPeersTool",
+      "input": {},
+      "expectedContentIncludes": [
+        "[]"
+      ],
+      "expectedIsError": false
+    },
+    {
+      "toolName": "SearchExtraTools",
+      "input": {
+        "query": "mcp"
+      },
+      "expectedContentIncludes": [
+        "requires a concrete deferred runtime"
+      ],
+      "expectedIsError": true,
+      "expectedPermissionDecision": "deny"
+    },
+    {
+      "toolName": "MCPTool",
+      "input": {
+        "server": "demo",
+        "tool": "ping"
+      },
+      "expectedContentIncludes": [
+        "requires a concrete deferred runtime"
+      ],
+      "expectedIsError": true,
+      "expectedPermissionDecision": "deny"
+    }
+  ]
+}

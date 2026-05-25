@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 780" width="1120" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane-title { font-size: 14px; font-weight: 700; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 12px; fill: #374151; }
+    .legend { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <filter id="shadow" x="-12%" y="-16%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1120" height="780" fill="#ffffff"/>
+  <text x="36" y="42" class="title">Cache Editing 与 Cache Break Detection：删旧上下文但不误报</text>
+  <text x="36" y="65" class="subtitle">cached microcompact 不改本地 messages，通过 cache_reference/cache_edits 让 API 删除旧 tool_result，并用 usage 解释 cache hit 变化</text>
+
+  <g transform="translate(34,98)">
+    <rect x="0" y="0" width="220" height="575" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">上下文膨胀来源</text>
+
+    <rect x="28" y="62" width="164" height="82" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="48" y="92" class="node-title">Tool Results</text>
+    <text x="48" y="114" class="node-sub">Read / Bash / Grep / Web</text>
+    <text x="48" y="132" class="mono">compactable ids</text>
+
+    <rect x="28" y="188" width="164" height="88" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="218" class="node-title">Cached MC State</text>
+    <text x="48" y="240" class="node-sub">登记 tool_use_id 顺序</text>
+    <text x="48" y="258" class="mono">toolOrder / deletedRefs</text>
+
+    <rect x="28" y="320" width="164" height="88" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="48" y="350" class="node-title">Cold Cache Gap</text>
+    <text x="48" y="372" class="node-sub">超过 TTL 后直接清内容</text>
+    <text x="48" y="390" class="mono">timeBasedMC</text>
+  </g>
+
+  <g transform="translate(296,98)">
+    <rect x="0" y="0" width="238" height="575" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">请求前动作</text>
+
+    <rect x="30" y="54" width="178" height="90" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="84" class="node-title">Delete Candidates</text>
+    <text x="50" y="106" class="node-sub">超过阈值，保留最近 N 个</text>
+    <text x="50" y="124" class="mono">getToolResultsToDelete()</text>
+
+    <rect x="30" y="186" width="178" height="90" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="216" class="node-title">cache_edits</text>
+    <text x="50" y="238" class="node-sub">删除旧 tool_result</text>
+    <text x="50" y="256" class="mono">delete_tool_result</text>
+
+    <rect x="30" y="318" width="178" height="90" rx="8" fill="#fef2f2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="50" y="348" class="node-title">Content Clear</text>
+    <text x="50" y="370" class="node-sub">cache 已冷，直接缩短请求</text>
+    <text x="50" y="388" class="mono">[Old tool result...]</text>
+  </g>
+
+  <g transform="translate(578,98)">
+    <rect x="0" y="0" width="236" height="575" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">API Payload</text>
+
+    <rect x="30" y="54" width="176" height="88" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="84" class="node-title">cache_reference</text>
+    <text x="50" y="106" class="node-sub">标记可编辑 tool_result</text>
+    <text x="50" y="124" class="mono">tool_use_id</text>
+
+    <rect x="30" y="184" width="176" height="88" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="50" y="214" class="node-title">Pinned Edits</text>
+    <text x="50" y="236" class="node-sub">后续请求固定位置重发</text>
+    <text x="50" y="254" class="mono">pinCacheEdits()</text>
+
+    <rect x="30" y="314" width="176" height="90" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="50" y="344" class="node-title">context_management</text>
+    <text x="50" y="366" class="node-sub">API 原生 clear 策略</text>
+    <text x="50" y="384" class="mono">apiMicrocompact.ts</text>
+  </g>
+
+  <g transform="translate(860,98)">
+    <rect x="0" y="0" width="226" height="575" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">响应与诊断</text>
+
+    <rect x="28" y="54" width="170" height="90" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="48" y="84" class="node-title">Deleted Tokens</text>
+    <text x="48" y="106" class="node-sub">API 返回累计删除量</text>
+    <text x="48" y="124" class="mono">cache_deleted</text>
+
+    <rect x="28" y="184" width="170" height="90" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="214" class="node-title">Prompt State</text>
+    <text x="48" y="236" class="node-sub">记录 system/tools/model</text>
+    <text x="48" y="254" class="mono">recordPromptState()</text>
+
+    <rect x="28" y="314" width="170" height="90" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="48" y="344" class="node-title">Break Detection</text>
+    <text x="48" y="366" class="node-sub">cache read 大幅下降才解释</text>
+    <text x="48" y="384" class="mono">checkResponse...</text>
+
+    <rect x="28" y="444" width="170" height="78" rx="8" fill="#ede9fe" stroke="#ddd6fe" filter="url(#shadow)"/>
+    <text x="48" y="474" class="node-title">User Signals</text>
+    <text x="48" y="496" class="node-sub">StatusLine / /context</text>
+    <text x="48" y="514" class="mono">cache hit rate</text>
+  </g>
+
+  <path d="M226 232 C258 232 258 99 326 99" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M226 103 C258 103 258 99 326 99" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M474 99 C520 99 522 98 608 98" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M474 231 C520 231 522 228 608 228" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M226 364 C260 364 260 363 326 363" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" fill="none" marker-end="url(#arrow-red)"/>
+
+  <path d="M784 98 C826 98 826 99 888 99" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M784 228 C828 228 828 229 888 229" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M784 359 C830 359 830 359 888 359" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <path d="M973 144 C973 162 973 166 973 184" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M973 274 C973 294 973 294 973 314" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M973 404 C973 424 973 424 973 444" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <rect x="292" y="614" width="528" height="36" rx="8" fill="#ffffff" stroke="#fecaca"/>
+  <text x="318" y="637" class="node-sub">关键保护：cache_deletion / compaction 会重置或抑制 break baseline，避免把预期下降误报成异常</text>
+  <path d="M948 314 C820 570 525 590 556 614" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="6 5" fill="none" marker-end="url(#arrow-red)"/>
+
+  <rect x="36" y="706" width="1048" height="44" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <line x1="70" y1="728" x2="104" y2="728" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="116" y="732" class="legend">tool_result 追踪</text>
+  <line x1="248" y1="728" x2="282" y2="728" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="294" y="732" class="legend">cache editing 正常路径</text>
+  <line x1="492" y1="728" x2="526" y2="728" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red)"/>
+  <text x="538" y="732" class="legend">冷缓存或异常下降</text>
+  <line x1="724" y1="728" x2="758" y2="728" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <text x="770" y="732" class="legend">诊断与用户可见信号</text>
+</svg>

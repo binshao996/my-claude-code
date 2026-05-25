@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" width="1280" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane-title { font-size: 14px; font-weight: 700; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 12px; fill: #374151; }
+    .legend { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <filter id="shadow" x="-12%" y="-16%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="780" fill="#ffffff"/>
+  <text x="36" y="42" class="title">Diff Preview 与 Staleness 防线</text>
+  <text x="36" y="65" class="subtitle">同一份工具输入会先被预览、允许用户修改，再在真正写盘前重新做读快照与 mtime 校验</text>
+
+  <g transform="translate(36,100)">
+    <rect x="0" y="0" width="236" height="530" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">快照来源</text>
+
+    <rect x="28" y="58" width="180" height="94" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="88" class="node-title">FileReadTool</text>
+    <text x="48" y="110" class="node-sub">文本读取后缓存</text>
+    <text x="48" y="128" class="mono">content + mtime</text>
+
+    <rect x="28" y="190" width="180" height="108" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="48" y="220" class="node-title">FileStateCache</text>
+    <text x="48" y="242" class="node-sub">LRU 100 项</text>
+    <text x="48" y="260" class="node-sub">默认 25MB</text>
+    <text x="48" y="278" class="mono">offset / limit</text>
+
+    <rect x="28" y="336" width="180" height="96" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="48" y="366" class="node-title">特殊快照</text>
+    <text x="48" y="388" class="node-sub">写后 offset 置空</text>
+    <text x="48" y="406" class="node-sub">partialView 不可替代 Read</text>
+  </g>
+
+  <g transform="translate(318,100)">
+    <rect x="0" y="0" width="280" height="530" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">预览与修改</text>
+
+    <rect x="32" y="54" width="216" height="104" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="52" y="84" class="node-title">FileEditToolDiff</text>
+    <text x="52" y="106" class="node-sub">scanForContext 或 readCapped</text>
+    <text x="52" y="124" class="node-sub">只截取需要展示的窗口</text>
+    <text x="52" y="142" class="mono">MAX_SCAN_BYTES</text>
+
+    <rect x="32" y="194" width="216" height="98" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="52" y="224" class="node-title">StructuredDiff</text>
+    <text x="52" y="246" class="node-sub">color-diff-napi</text>
+    <text x="52" y="264" class="node-sub">窄终端 fallback</text>
+
+    <rect x="32" y="328" width="216" height="104" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="52" y="358" class="node-title">IDE Diff</text>
+    <text x="52" y="380" class="node-sub">用户可在批准前改动</text>
+    <text x="52" y="398" class="node-sub">applyChanges 回写输入</text>
+    <text x="52" y="416" class="mono">updatedInput</text>
+  </g>
+
+  <g transform="translate(644,100)">
+    <rect x="0" y="0" width="278" height="530" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">真正执行前</text>
+
+    <rect x="30" y="54" width="218" height="106" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="84" class="node-title">Accept / Modify</text>
+    <text x="50" y="106" class="node-sub">toolExecution 接收 updatedInput</text>
+    <text x="50" y="124" class="node-sub">context.userModified</text>
+    <text x="50" y="142" class="mono">permissionDecision</text>
+
+    <rect x="30" y="194" width="218" height="118" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="224" class="node-title">二次安全校验</text>
+    <text x="50" y="246" class="node-sub">Read-first 与 mtime</text>
+    <text x="50" y="264" class="node-sub">完整读取且内容未变可放行</text>
+    <text x="50" y="282" class="mono">validateInput + call</text>
+
+    <rect x="30" y="350" width="218" height="96" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="50" y="380" class="node-title">失败出口</text>
+    <text x="50" y="402" class="node-sub">未读、陈旧、多匹配</text>
+    <text x="50" y="420" class="node-sub">settings schema、secret</text>
+  </g>
+
+  <g transform="translate(968,100)">
+    <rect x="0" y="0" width="276" height="530" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">应用与展示</text>
+
+    <rect x="30" y="60" width="216" height="106" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="50" y="90" class="node-title">Patch 计算</text>
+    <text x="50" y="112" class="node-sub">display diff 会把 tab 转空格</text>
+    <text x="50" y="130" class="node-sub">超时返回空 hunks</text>
+    <text x="50" y="148" class="mono">structuredPatch()</text>
+
+    <rect x="30" y="202" width="216" height="106" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="232" class="node-title">写盘成功</text>
+    <text x="50" y="254" class="node-sub">更新 readFileState</text>
+    <text x="50" y="272" class="node-sub">通知 LSP 和 IDE</text>
+    <text x="50" y="290" class="mono">updatedFile</text>
+
+    <rect x="30" y="344" width="216" height="108" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="374" class="node-title">结果渲染</text>
+    <text x="50" y="396" class="node-sub">Added / Removed 计数</text>
+    <text x="50" y="414" class="node-sub">rejected diff 或 create preview</text>
+    <text x="50" y="432" class="mono">FileEditToolUpdated</text>
+  </g>
+
+  <path d="M244 244 C286 244 276 108 318 108" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M598 106 C622 106 620 106 644 106" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M598 380 C622 380 620 112 644 112" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M892 254 C928 254 932 113 968 113" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M1076 166 L1076 202" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M1076 308 L1076 344" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M892 398 C928 398 930 398 968 398" stroke="#dc2626" stroke-width="1.7" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(152,660)">
+    <rect x="0" y="0" width="976" height="52" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="22" class="node-title">核心不变量</text>
+    <text x="120" y="22" class="node-sub">预览不是授权后直接写盘；授权只是把最新输入交给工具，工具仍必须重新验证 readFileState、mtime、唯一匹配与目标文件类型。</text>
+    <text x="120" y="40" class="node-sub">因此用户在 IDE 中修改 diff、外部 formatter 改文件、或 old_string 匹配多个位置，都会在写盘前被显式处理。</text>
+  </g>
+
+  <g transform="translate(38,724)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+    <text x="42" y="12" class="legend">预览到执行</text>
+    <line x1="154" y1="8" x2="186" y2="8" stroke="#16a34a" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+    <text x="196" y="12" class="legend">快照与成功回写</text>
+    <line x1="346" y1="8" x2="378" y2="8" stroke="#9333ea" stroke-width="1.7" marker-end="url(#arrow-purple)"/>
+    <text x="388" y="12" class="legend">用户修改输入</text>
+    <line x1="526" y1="8" x2="558" y2="8" stroke="#dc2626" stroke-width="1.7" marker-end="url(#arrow-red)"/>
+    <text x="568" y="12" class="legend">失败和拒绝</text>
+  </g>
+</svg>

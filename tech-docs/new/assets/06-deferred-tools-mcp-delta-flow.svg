@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 920" width="1440" height="920">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 28px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 16px; fill: #6b7280; }
+    .lane-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .lane-sub { font-size: 13px; fill: #6b7280; }
+    .node-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 13px; fill: #6b7280; }
+    .small { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#9333ea"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="920" fill="#ffffff"/>
+  <text class="title" x="44" y="54">Deferred Tools 与 MCP Instructions Delta</text>
+  <text class="subtitle" x="44" y="84">把巨大、会变的工具与 MCP 说明移出稳定前缀，用发现和增量附件保持能力可见</text>
+
+  <rect x="42" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="70" y="162">工具池</text>
+  <text class="lane-sub" x="70" y="187">constants/tools.ts / tools.ts</text>
+
+  <rect x="390" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="418" y="162">发现与调用</text>
+  <text class="lane-sub" x="418" y="187">SearchExtraTools / ExecuteExtraTool</text>
+
+  <rect x="738" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="766" y="162">增量附件</text>
+  <text class="lane-sub" x="766" y="187">attachments.ts / messages.ts</text>
+
+  <rect x="1086" y="126" width="300" height="660" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="1114" y="162">Provider 工具数组</text>
+  <text class="lane-sub" x="1114" y="187">claude.ts / openai adapter</text>
+
+  <rect x="82" y="226" width="220" height="86" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="262" text-anchor="middle">Core Tools</text>
+  <text class="node-sub" x="192" y="289" text-anchor="middle">Read / Edit / Bash</text>
+  <text class="node-sub" x="192" y="309" text-anchor="middle">始终加载 schema</text>
+
+  <rect x="82" y="356" width="220" height="98" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="392" text-anchor="middle">Deferred Tools</text>
+  <text class="node-sub" x="192" y="419" text-anchor="middle">非 core built-in</text>
+  <text class="node-sub" x="192" y="442" text-anchor="middle">MCP tools 默认可延迟</text>
+
+  <rect x="82" y="502" width="220" height="98" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="538" text-anchor="middle">MCP Clients</text>
+  <text class="node-sub" x="192" y="565" text-anchor="middle">connect / disconnect</text>
+  <text class="node-sub" x="192" y="588" text-anchor="middle">server instructions</text>
+
+  <rect x="82" y="648" width="220" height="86" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="192" y="684" text-anchor="middle">Tool Schema Cache</text>
+  <text class="node-sub" x="192" y="711" text-anchor="middle">base stable, overlay mutable</text>
+
+  <rect x="430" y="228" width="220" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="264" text-anchor="middle">isSearchExtraTools</text>
+  <text class="node-sub" x="540" y="291" text-anchor="middle">tst / auto / standard</text>
+  <text class="node-sub" x="540" y="314" text-anchor="middle">默认启用</text>
+
+  <rect x="430" y="372" width="220" height="92" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="408" text-anchor="middle">SearchExtraTools</text>
+  <text class="node-sub" x="540" y="435" text-anchor="middle">搜索 deferred tool</text>
+  <text class="node-sub" x="540" y="458" text-anchor="middle">返回可发现名称</text>
+
+  <rect x="430" y="516" width="220" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="552" text-anchor="middle">ExecuteExtraTool</text>
+  <text class="node-sub" x="540" y="579" text-anchor="middle">按 tool name 调用</text>
+  <text class="node-sub" x="540" y="602" text-anchor="middle">Runtime 查全量池</text>
+
+  <rect x="430" y="660" width="220" height="74" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="540" y="697" text-anchor="middle">发现历史</text>
+  <text class="node-sub" x="540" y="722" text-anchor="middle">compact boundary 携带</text>
+
+  <rect x="778" y="226" width="220" height="98" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="262" text-anchor="middle">deferred_tools_delta</text>
+  <text class="node-sub" x="888" y="289" text-anchor="middle">added / removed diff</text>
+  <text class="node-sub" x="888" y="312" text-anchor="middle">持久 attachment</text>
+
+  <rect x="778" y="374" width="220" height="98" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="410" text-anchor="middle">mcp_instructions_delta</text>
+  <text class="node-sub" x="888" y="437" text-anchor="middle">server instruction diff</text>
+  <text class="node-sub" x="888" y="460" text-anchor="middle">断开时撤销提醒</text>
+
+  <rect x="778" y="522" width="220" height="92" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="558" text-anchor="middle">System Reminder</text>
+  <text class="node-sub" x="888" y="585" text-anchor="middle">messages.ts 渲染</text>
+  <text class="node-sub" x="888" y="608" text-anchor="middle">meta user message</text>
+
+  <rect x="778" y="664" width="220" height="74" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="888" y="701" text-anchor="middle">Post Compact</text>
+  <text class="node-sub" x="888" y="726" text-anchor="middle">重新宣布当前 delta</text>
+
+  <rect x="1126" y="226" width="220" height="98" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="262" text-anchor="middle">Anthropic Path</text>
+  <text class="node-sub" x="1236" y="289" text-anchor="middle">core + discovered schema</text>
+  <text class="node-sub" x="1236" y="312" text-anchor="middle">defer_loading overlay</text>
+
+  <rect x="1126" y="374" width="220" height="98" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="410" text-anchor="middle">OpenAI Path</text>
+  <text class="node-sub" x="1236" y="437" text-anchor="middle">过滤 deferred schemas</text>
+  <text class="node-sub" x="1236" y="460" text-anchor="middle">注入可用工具列表</text>
+
+  <rect x="1126" y="522" width="220" height="92" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="558" text-anchor="middle">Prompt Cache</text>
+  <text class="node-sub" x="1236" y="585" text-anchor="middle">避免工具池变动</text>
+  <text class="node-sub" x="1236" y="608" text-anchor="middle">冲击稳定前缀</text>
+
+  <rect x="1126" y="664" width="220" height="74" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="1236" y="701" text-anchor="middle">Permission Runtime</text>
+  <text class="node-sub" x="1236" y="726" text-anchor="middle">最终执行仍走第四章链路</text>
+
+  <path d="M302 269 C350 269 382 272 430 274" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M302 405 C352 405 380 418 430 418" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M302 551 C352 551 382 422 430 418" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M302 691 C354 692 378 562 430 562" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M540 320 C540 346 540 348 540 372" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M540 464 C540 490 540 490 540 516" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M540 608 C540 634 540 636 540 660" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M650 418 C704 418 724 275 778 275" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M302 551 C498 760 704 426 778 423" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M888 324 C888 350 888 350 888 374" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M888 472 C888 498 888 498 888 522" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M888 614 C888 640 888 640 888 664" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M998 275 C1050 275 1074 275 1126 275" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M998 568 C1048 568 1076 423 1126 423" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M998 568 C1048 568 1076 568 1126 568" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M650 562 C710 792 940 824 1126 724" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M1236 324 C1236 348 1236 350 1236 374" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M1236 472 C1236 498 1236 498 1236 522" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M1236 614 C1236 640 1236 640 1236 664" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+
+  <g transform="translate(58, 850)">
+    <line x1="0" y1="0" x2="42" y2="0" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arr-blue)"/>
+    <text class="small" x="54" y="5">工具 schema 进入 API</text>
+    <line x1="260" y1="0" x2="302" y2="0" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arr-grn)"/>
+    <text class="small" x="314" y="5">能力发现与 MCP 说明</text>
+    <line x1="566" y1="0" x2="608" y2="0" stroke="#9333ea" stroke-width="2.2" marker-end="url(#arr-vlt)"/>
+    <text class="small" x="620" y="5">附件注入</text>
+    <line x1="780" y1="0" x2="822" y2="0" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arr-rose)"/>
+    <text class="small" x="834" y="5">执行与恢复边界</text>
+  </g>
+</svg>

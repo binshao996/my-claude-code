@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Sub Agent Task Runtime Flow</title>
+  <desc id="desc">AgentTool resolves agent definitions, registers task state, runs subagents through runAgent, and returns task notifications.</desc>
+  <defs>
+    <filter id="fx" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#14213d" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arr-blue" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#2b6cb0"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#2f855a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#c05621"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#6b46c1"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#f6f8fb"/>
+  <rect x="64" y="54" width="1792" height="972" rx="28" fill="#ffffff" filter="url(#fx)"/>
+  <rect x="64" y="54" width="1792" height="118" rx="28" fill="#102a43"/>
+  <text x="112" y="126" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">第 8 章图 1：AgentTool 到 Sub Agent Task 的运行时链路</text>
+  <text x="112" y="158" fill="#bcccdc" font-family="Inter, Arial, sans-serif" font-size="19">核心思想：AgentTool 不是直接“调用另一个模型”，而是把一次委托编译成 agent definition、tool pool、subagent context、task state、transcript 与通知闭环。</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="110" y="220" width="260" height="170" rx="18" fill="#e3f2fd" stroke="#2b6cb0" stroke-width="3"/>
+    <circle cx="150" cy="265" r="23" fill="#2b6cb0"/>
+    <text x="142" y="273" fill="#ffffff" font-size="24" font-weight="800">1</text>
+    <text x="184" y="263" fill="#16324f" font-size="27" font-weight="800">Parent Turn</text>
+    <text x="136" y="306" fill="#274c77" font-size="20">assistant 调用 AgentTool</text>
+    <text x="136" y="338" fill="#274c77" font-size="20">description / prompt</text>
+    <text x="136" y="370" fill="#274c77" font-size="20">subagent_type / model</text>
+
+    <rect x="470" y="220" width="292" height="170" rx="18" fill="#e6fffa" stroke="#2f855a" stroke-width="3"/>
+    <circle cx="512" cy="265" r="23" fill="#2f855a"/>
+    <text x="504" y="273" fill="#ffffff" font-size="24" font-weight="800">2</text>
+    <text x="548" y="263" fill="#153e3b" font-size="27" font-weight="800">Agent Resolution</text>
+    <text x="496" y="306" fill="#22543d" font-size="20">activeAgents / permission rules</text>
+    <text x="496" y="338" fill="#22543d" font-size="20">MCP requirement check</text>
+    <text x="496" y="370" fill="#22543d" font-size="20">model / isolation / memory</text>
+
+    <rect x="862" y="220" width="300" height="170" rx="18" fill="#fff7ed" stroke="#c05621" stroke-width="3"/>
+    <circle cx="904" cy="265" r="23" fill="#c05621"/>
+    <text x="896" y="273" fill="#ffffff" font-size="24" font-weight="800">3</text>
+    <text x="940" y="263" fill="#5f370e" font-size="27" font-weight="800">Execution Route</text>
+    <text x="888" y="306" fill="#7c2d12" font-size="20">sync foreground</text>
+    <text x="888" y="338" fill="#7c2d12" font-size="20">async background</text>
+    <text x="888" y="370" fill="#7c2d12" font-size="20">worktree / remote / teammate</text>
+
+    <rect x="1262" y="220" width="300" height="170" rx="18" fill="#f3e8ff" stroke="#6b46c1" stroke-width="3"/>
+    <circle cx="1304" cy="265" r="23" fill="#6b46c1"/>
+    <text x="1296" y="273" fill="#ffffff" font-size="24" font-weight="800">4</text>
+    <text x="1340" y="263" fill="#44337a" font-size="27" font-weight="800">Task Register</text>
+    <text x="1288" y="306" fill="#553c9a" font-size="20">registerAsyncAgent</text>
+    <text x="1288" y="338" fill="#553c9a" font-size="20">registerAgentForeground</text>
+    <text x="1288" y="370" fill="#553c9a" font-size="20">registerRemoteAgentTask</text>
+
+    <rect x="110" y="500" width="350" height="208" rx="18" fill="#eef2ff" stroke="#4c51bf" stroke-width="3"/>
+    <text x="136" y="545" fill="#2d3748" font-size="27" font-weight="800">Subagent Context</text>
+    <text x="136" y="589" fill="#4a5568" font-size="20">createSubagentContext()</text>
+    <text x="136" y="622" fill="#4a5568" font-size="20">cloned readFileState</text>
+    <text x="136" y="655" fill="#4a5568" font-size="20">isolated callbacks by default</text>
+    <text x="136" y="688" fill="#4a5568" font-size="20">agentId / agentType / queryTracking</text>
+
+    <rect x="590" y="500" width="350" height="208" rx="18" fill="#e9f7ef" stroke="#2f855a" stroke-width="3"/>
+    <text x="616" y="545" fill="#1f3d2b" font-size="27" font-weight="800">runAgent Query Loop</text>
+    <text x="616" y="589" fill="#276749" font-size="20">agent system prompt</text>
+    <text x="616" y="622" fill="#276749" font-size="20">resolved tools + MCP tools</text>
+    <text x="616" y="655" fill="#276749" font-size="20">query(maxTurns)</text>
+    <text x="616" y="688" fill="#276749" font-size="20">record sidechain transcript</text>
+
+    <rect x="1070" y="500" width="350" height="208" rx="18" fill="#fff1f2" stroke="#be123c" stroke-width="3"/>
+    <text x="1096" y="545" fill="#5c1f2e" font-size="27" font-weight="800">Progress &amp; Summary</text>
+    <text x="1096" y="589" fill="#9f1239" font-size="20">updateAgentProgress</text>
+    <text x="1096" y="622" fill="#9f1239" font-size="20">task_progress SDK event</text>
+    <text x="1096" y="655" fill="#9f1239" font-size="20">periodic AgentSummary</text>
+    <text x="1096" y="688" fill="#9f1239" font-size="20">TaskOutput reads transcript</text>
+
+    <rect x="1510" y="500" width="260" height="208" rx="18" fill="#fefce8" stroke="#ca8a04" stroke-width="3"/>
+    <text x="1536" y="545" fill="#5f3b00" font-size="27" font-weight="800">Terminal Event</text>
+    <text x="1536" y="589" fill="#854d0e" font-size="20">completeAgentTask</text>
+    <text x="1536" y="622" fill="#854d0e" font-size="20">failAgentTask</text>
+    <text x="1536" y="655" fill="#854d0e" font-size="20">killAsyncAgent</text>
+    <text x="1536" y="688" fill="#854d0e" font-size="20">cleanup hooks / tasks</text>
+
+    <rect x="490" y="820" width="940" height="110" rx="22" fill="#f8fafc" stroke="#334155" stroke-width="3"/>
+    <text x="548" y="868" fill="#1e293b" font-size="28" font-weight="800">返回主线程的不是完整子 Agent 上下文，而是 task-notification</text>
+    <text x="548" y="904" fill="#475569" font-size="21">task_id、status、summary、result、usage、output_file，主 Agent 再决定读取输出、继续 SendMessage、停止任务或综合结果。</text>
+
+    <path d="M370 305 C405 305 430 305 470 305" fill="none" stroke="#2b6cb0" stroke-width="5" marker-end="url(#arr-blue)"/>
+    <path d="M762 305 C800 305 824 305 862 305" fill="none" stroke="#2f855a" stroke-width="5" marker-end="url(#arr-grn)"/>
+    <path d="M1162 305 C1200 305 1224 305 1262 305" fill="none" stroke="#c05621" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M1412 390 C1370 445 1240 466 1060 470 C840 476 620 462 460 500" fill="none" stroke="#6b46c1" stroke-width="4" marker-end="url(#arr-vlt)"/>
+    <path d="M460 604 C505 604 544 604 590 604" fill="none" stroke="#4c51bf" stroke-width="5" marker-end="url(#arr-vlt)"/>
+    <path d="M940 604 C988 604 1024 604 1070 604" fill="none" stroke="#2f855a" stroke-width="5" marker-end="url(#arr-grn)"/>
+    <path d="M1420 604 C1452 604 1478 604 1510 604" fill="none" stroke="#be123c" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M1640 708 C1590 770 1440 812 1320 842" fill="none" stroke="#ca8a04" stroke-width="5" marker-end="url(#arr-rose)"/>
+    <path d="M740 708 C775 770 850 804 930 820" fill="none" stroke="#2f855a" stroke-width="5" marker-end="url(#arr-grn)"/>
+
+    <rect x="1262" y="410" width="300" height="46" rx="23" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+    <text x="1292" y="440" fill="#4c1d95" font-size="19" font-weight="700">AppState.tasks 是任务可见性总线</text>
+
+    <rect x="102" y="954" width="1716" height="42" rx="21" fill="#e2e8f0"/>
+    <text x="132" y="982" fill="#334155" font-size="19">源码主线：AgentTool.tsx → runAgent.ts → createSubagentContext → LocalAgentTask.tsx → task framework → task-notification</text>
+  </g>
+</svg>

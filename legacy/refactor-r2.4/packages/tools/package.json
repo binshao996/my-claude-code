@@ -1,0 +1,16 @@
+{
+  "name": "@my-claude-code/tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@my-claude-code/core": "workspace:*",
+    "@my-claude-code/model-provider": "workspace:*",
+    "@my-claude-code/remote-control-server": "workspace:*",
+    "@my-claude-code/settings": "workspace:*",
+    "audio-capture-napi": "workspace:*"
+  }
+}

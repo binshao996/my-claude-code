@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" width="1280" height="900">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .label { font-size: 15px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #4b5563; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #e9d5ff; }
+    .red { fill: #fef2f2; stroke: #fecaca; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .teal { fill: #f0fdfa; stroke: #99f6e4; }
+    .gray { fill: #f9fafb; stroke: #d1d5db; }
+    .rail { fill: none; stroke: #e5e7eb; stroke-width: 1.2; stroke-dasharray: 6 5; rx: 14; ry: 14; }
+    .arrowText { font-size: 11px; fill: #374151; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="900" fill="#ffffff"/>
+  <text x="44" y="48" class="title">Claude Code Settings Hot Reload And Policy Fan-out</text>
+  <text x="44" y="72" class="subtitle">配置变更先经过审计 Hook 与缓存失效，再同步到 AppState、权限规则、Hook 快照、Sandbox 与 headless SDK。</text>
+
+  <rect x="42" y="106" width="1188" height="132" class="rail"/>
+  <text x="64" y="132" class="small">变更来源</text>
+
+  <rect x="82" y="154" width="188" height="56" class="box blue"/>
+  <text x="104" y="178" class="label">settings 文件</text>
+  <text x="104" y="198" class="small">user/project/local</text>
+
+  <rect x="314" y="154" width="206" height="56" class="box red"/>
+  <text x="336" y="178" class="label">managed settings</text>
+  <text x="336" y="198" class="small">policy file / drop-ins</text>
+
+  <rect x="564" y="154" width="186" height="56" class="box orange"/>
+  <text x="586" y="178" class="label">MDM poll</text>
+  <text x="586" y="198" class="small">30 分钟轮询</text>
+
+  <rect x="794" y="154" width="190" height="56" class="box purple"/>
+  <text x="816" y="178" class="label">flag inline</text>
+  <text x="816" y="198" class="small">SDK 控制消息</text>
+
+  <rect x="1028" y="154" width="160" height="56" class="box red"/>
+  <text x="1050" y="178" class="label">remote policy</text>
+  <text x="1050" y="198" class="small">notifyChange</text>
+
+  <rect x="84" y="300" width="240" height="92" class="box green"/>
+  <text x="112" y="330" class="label">settingsChangeDetector</text>
+  <text x="112" y="352" class="small">chokidar + awaitWriteFinish</text>
+  <text x="112" y="370" class="small">internal write suppress</text>
+
+  <rect x="386" y="300" width="226" height="92" class="box orange"/>
+  <text x="414" y="330" class="label">ConfigChange Hook</text>
+  <text x="414" y="352" class="small">审计 / 阻断非 policy 变更</text>
+  <text x="414" y="370" class="small">policy 变更不可被阻断</text>
+
+  <rect x="674" y="300" width="220" height="92" class="box green"/>
+  <text x="702" y="330" class="label">fanOut(source)</text>
+  <text x="702" y="352" class="small">resetSettingsCache()</text>
+  <text x="702" y="370" class="small">emit settingsChanged</text>
+
+  <rect x="956" y="300" width="214" height="92" class="box teal"/>
+  <text x="984" y="330" class="label">listeners</text>
+  <text x="984" y="352" class="small">TUI / headless / sandbox</text>
+  <text x="984" y="370" class="small">hooks menu / warnings</text>
+
+  <path d="M176 210 L176 300" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M417 210 L417 256 L204 256 L204 300" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+  <path d="M657 210 L657 256 L204 256 L204 300" stroke="#ea580c" stroke-width="1.8" fill="none" marker-end="url(#arr-orange)"/>
+  <path d="M889 210 L889 300" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-purple)"/>
+  <path d="M1108 210 L1108 256 L784 256 L784 300" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+  <path d="M324 346 L386 346" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M612 346 L674 346" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M894 346 L956 346" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+
+  <rect x="42" y="456" width="1188" height="276" class="rail"/>
+  <text x="64" y="482" class="small">应用变更：重新读配置，再重建依赖配置快照</text>
+
+  <rect x="82" y="528" width="220" height="86" class="box purple"/>
+  <text x="108" y="558" class="label">applySettingsChange</text>
+  <text x="108" y="580" class="small">getInitialSettings()</text>
+  <text x="108" y="598" class="small">读取新 snapshot</text>
+
+  <rect x="354" y="500" width="220" height="76" class="box red"/>
+  <text x="380" y="530" class="label">Permission Rules</text>
+  <text x="380" y="552" class="small">loadAllPermissionRulesFromDisk</text>
+
+  <rect x="354" y="622" width="220" height="76" class="box orange"/>
+  <text x="380" y="652" class="label">Hooks Snapshot</text>
+  <text x="380" y="674" class="small">updateHooksConfigSnapshot</text>
+
+  <rect x="636" y="500" width="226" height="76" class="box green"/>
+  <text x="662" y="530" class="label">Tool Permission Context</text>
+  <text x="662" y="552" class="small">sync + bypass/auto 转换</text>
+
+  <rect x="636" y="622" width="226" height="76" class="box green"/>
+  <text x="662" y="652" class="label">AppState.settings</text>
+  <text x="662" y="674" class="small">React useSettings() 订阅</text>
+
+  <rect x="930" y="500" width="232" height="76" class="box teal"/>
+  <text x="956" y="530" class="label">Sandbox Config</text>
+  <text x="956" y="552" class="small">convertToSandboxRuntimeConfig</text>
+
+  <rect x="930" y="622" width="232" height="76" class="box teal"/>
+  <text x="956" y="652" class="label">Headless / SDK</text>
+  <text x="956" y="674" class="small">print.ts direct subscribe</text>
+
+  <path d="M1063 392 C1063 430, 192 430, 192 528" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-purple)"/>
+  <path d="M302 566 L354 538" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-purple)"/>
+  <path d="M302 576 L354 660" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-purple)"/>
+  <path d="M574 538 L636 538" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M574 660 L636 660" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M862 538 L930 538" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M862 660 L930 660" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+
+  <rect x="76" y="784" width="334" height="58" class="gray"/>
+  <text x="98" y="808" class="label">关键设计点</text>
+  <text x="98" y="830" class="tiny">缓存只在 fanOut 一处清空，避免 N 个订阅者触发 N 次磁盘重读。</text>
+
+  <rect x="470" y="784" width="334" height="58" class="gray"/>
+  <text x="492" y="808" class="label">安全边界</text>
+  <text x="492" y="830" class="tiny">ConfigChange 可阻断用户配置，但不能阻断企业 policy。</text>
+
+  <rect x="864" y="784" width="334" height="58" class="gray"/>
+  <text x="886" y="808" class="label">运行时一致性</text>
+  <text x="886" y="830" class="tiny">TUI 与 headless 共享 applySettingsChange，避免两套语义。</text>
+</svg>

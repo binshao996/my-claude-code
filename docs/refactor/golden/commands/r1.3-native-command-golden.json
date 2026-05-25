@@ -1,0 +1,2173 @@
+{
+  "version": 1,
+  "description": "R1.3 native command golden matrix. Covers every upstream command module plus argument, stdout/stderr, exit, error, and local side-effect assertions for agent/workflow/remote/platform/auth commands.",
+  "cases": [
+    {
+      "slash": "/add-dir",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Additional directories: (none)"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/agents",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"agents\"",
+        "\"builtInAgents\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/agents-platform",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/agents-platform\"",
+        "\"source\": \"claude-code/src/commands/agents-platform\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/ant-trace",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/ant-trace\"",
+        "\"source\": \"claude-code/src/commands/ant-trace\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/assistant",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"assistant\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/attach",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Usage: /attach <sessionId>"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/autofix-pr",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"plans\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/backfill-sessions",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/backfill-sessions\"",
+        "\"source\": \"claude-code/src/commands/backfill-sessions\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/branch",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Resume:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/break-cache",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/break-cache\"",
+        "\"source\": \"claude-code/src/commands/break-cache\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/remote-control",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"remote\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/btw",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/btw\"",
+        "\"source\": \"claude-code/src/commands/btw\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/buddy",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"buddies\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/bughunter",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/bughunter\"",
+        "\"source\": \"claude-code/src/commands/bughunter\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/chrome",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/chrome\"",
+        "\"source\": \"claude-code/src/commands/chrome\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/claim-main",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"pipes\"",
+        "\"udsInboxes\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/clear",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Cleared current terminal view. Session transcript is preserved."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/color",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Theme:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/compact",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No session context found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/config",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"model\"",
+        "\"permissionMode\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/context",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No session context found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/copy",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/copy\"",
+        "\"source\": \"claude-code/src/commands/copy\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/cost",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No cost found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/ctx_viz",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/ctx_viz\"",
+        "\"source\": \"claude-code/src/commands/ctx_viz\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/daemon",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"status\"",
+        "\"bridgePath\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/debug-tool-call",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/debug-tool-call\"",
+        "\"source\": \"claude-code/src/commands/debug-tool-call\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/desktop",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/desktop\"",
+        "\"source\": \"claude-code/src/commands/desktop\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/detach",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Usage: /detach <sessionId>"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/diff",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Diff:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/doctor",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Doctor:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/effort",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "deepseek-v4-flash"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/env",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Environment:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/exit",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": true,
+      "expectedStdoutIncludes": [
+        "bye"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/export",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/export\"",
+        "\"source\": \"claude-code/src/commands/export\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/extra-usage",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No usage found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/fast",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "deepseek-v4-flash"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/feedback",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/feedback\"",
+        "\"source\": \"claude-code/src/commands/feedback\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/files",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Diff:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/fork",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No session found: --fork"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/good-claude",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/good-claude\"",
+        "\"source\": \"claude-code/src/commands/good-claude\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/heapdump",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/heapdump\"",
+        "\"source\": \"claude-code/src/commands/heapdump\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/help",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Help:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/history",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Resume:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/hooks",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "permissionMode: default"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/ide",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/ide\"",
+        "\"source\": \"claude-code/src/commands/ide\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/install-github-app",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/install-github-app\"",
+        "\"source\": \"claude-code/src/commands/install-github-app\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/install-slack-app",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/install-slack-app\"",
+        "\"source\": \"claude-code/src/commands/install-slack-app\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/issue",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/issue\"",
+        "\"source\": \"claude-code/src/commands/issue\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/job",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/job\"",
+        "\"source\": \"claude-code/src/commands/job\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/keybindings",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Keybindings:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/lang",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"model\"",
+        "\"permissionMode\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/local-memory",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Memory:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/local-vault",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/local-vault\"",
+        "\"source\": \"claude-code/src/commands/local-vault\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/login",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/login\"",
+        "\"source\": \"claude-code/src/commands/login\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/logout",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/logout\"",
+        "\"source\": \"claude-code/src/commands/logout\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/mcp",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"servers\"",
+        "\"tools\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/memory",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Memory:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/memory-stores",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Memory:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/mobile",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/mobile\"",
+        "\"source\": \"claude-code/src/commands/mobile\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/mock-limits",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/mock-limits\"",
+        "\"source\": \"claude-code/src/commands/mock-limits\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/model",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "deepseek-v4-flash"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/oauth-refresh",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/oauth-refresh\"",
+        "\"source\": \"claude-code/src/commands/oauth-refresh\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/onboarding",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Onboarding:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/output-style",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Output style:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/passes",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/passes\"",
+        "\"source\": \"claude-code/src/commands/passes\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/peers",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"peers\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/perf-issue",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/perf-issue\"",
+        "\"source\": \"claude-code/src/commands/perf-issue\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/permissions",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "permissionMode: default"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/pipe-status",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"pipes\"",
+        "\"udsInboxes\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/pipes",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"pipes\"",
+        "\"udsInboxes\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/plan",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"ultraplans\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/plugin",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"plugins\"",
+        "\"installed\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/poor",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/poor\"",
+        "\"source\": \"claude-code/src/commands/poor\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/pr-comments",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/pr-comments\"",
+        "\"source\": \"claude-code/src/commands/pr-comments\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/privacy-settings",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"model\"",
+        "\"permissionMode\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/rate-limit-options",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"balances\"",
+        "\"providers\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/recap",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No session context found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/release-notes",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/release-notes\"",
+        "\"source\": \"claude-code/src/commands/release-notes\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/reload-plugins",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/reload-plugins\"",
+        "\"source\": \"claude-code/src/commands/reload-plugins\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/remote-env",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"env\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/web-setup",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "{\n  \"status\": \"ready\",\n  \"cwd\": \"<cwd>\","
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/remote-control-server",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"status\"",
+        "\"bridgePath\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/rename",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Resume:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/reset-limits",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No usage found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/resume",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Resume:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/review",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/review\"",
+        "\"source\": \"claude-code/src/commands/review\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/rewind",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No session found: --rewind"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/sandbox",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Sandbox:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/schedule",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"messageActions\"",
+        "\"verificationAgents\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/send",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Usage: /remote send <pipeName> <message>"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/session",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Resume:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/share",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/share\"",
+        "\"source\": \"claude-code/src/commands/share\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/skill-learning",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Usage: /skills learn <skill> -- <lesson>"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/skill-search",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"query\"",
+        "\"results\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/skill-store",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"version\"",
+        "\"entries\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/skills",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"skills\"",
+        "\"feedbackCount\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/stats",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No usage found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/status",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"version\"",
+        "\"model\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/stickers",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/stickers\"",
+        "\"source\": \"claude-code/src/commands/stickers\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/summary",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No session context found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/tag",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/tag\"",
+        "\"source\": \"claude-code/src/commands/tag\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/tasks",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"tasks\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/teleport",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/teleport\"",
+        "\"source\": \"claude-code/src/commands/teleport\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/terminal-setup",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Keybindings:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/theme",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Theme:"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/think-back",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/think-back\"",
+        "\"source\": \"claude-code/src/commands/think-back\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/thinkback-play",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/thinkback-play\"",
+        "\"source\": \"claude-code/src/commands/thinkback-play\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/tui",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"version\"",
+        "\"model\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/upgrade",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/upgrade\"",
+        "\"source\": \"claude-code/src/commands/upgrade\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/usage",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "No usage found."
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/vault",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"command\": \"/vault\"",
+        "\"source\": \"claude-code/src/commands/vault\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/vim",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "vimMode: off"
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/voice",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"voice\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/workflows",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "\"workflows\""
+      ],
+      "expectedStderrIncludes": [],
+      "expectedStderrExcludes": [
+        "Error:"
+      ]
+    },
+    {
+      "slash": "/add-dir",
+      "args": [
+        "src,docs"
+      ],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Additional directories: src, docs"
+      ],
+      "expectedAdditionalDirectories": [
+        "src",
+        "docs"
+      ],
+      "expectedStderrIncludes": []
+    },
+    {
+      "slash": "/theme",
+      "args": [
+        "dark"
+      ],
+      "expectedExitCode": 0,
+      "expectedExitRequested": false,
+      "expectedStdoutIncludes": [
+        "Theme:",
+        "active: dark",
+        "Saved project theme."
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/settings.json",
+          "includes": [
+            "\"theme\": \"dark\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/theme",
+      "args": [
+        "unknown-theme"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Unknown theme: unknown-theme",
+        "Available themes:"
+      ]
+    },
+    {
+      "slash": "/output-style",
+      "args": [
+        "Explanatory"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "active: Explanatory",
+        "Saved project output style."
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/settings.json",
+          "includes": [
+            "\"outputStyle\": \"Explanatory\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/output-style",
+      "args": [
+        "NotAStyle"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Unknown output style: NotAStyle",
+        "Available output styles:"
+      ]
+    },
+    {
+      "slash": "/vim",
+      "args": [
+        "on"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "vimMode: on",
+        "Saved project vim mode."
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/settings.json",
+          "includes": [
+            "\"vimMode\": true"
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/exit",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedExitRequested": true,
+      "expectedStdoutIncludes": [
+        "bye"
+      ]
+    },
+    {
+      "slash": "/assistant",
+      "args": [
+        "proactive"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"active\": true",
+        "\"mode\": \"proactive\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/assistant/state.json",
+          "includes": [
+            "\"mode\": \"proactive\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/agents",
+      "args": [
+        "builtin"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"builtInAgents\"",
+        "\"name\": \"explore\""
+      ]
+    },
+    {
+      "slash": "/agents",
+      "args": [
+        "run",
+        "explore"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /agents run <explore|plan> <prompt>"
+      ]
+    },
+    {
+      "slash": "/buddy",
+      "args": [
+        "start",
+        "review",
+        "docs"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"objective\": \"review docs\"",
+        "\"status\": \"active\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/ecosystem/buddy.json",
+          "includes": [
+            "\"objective\": \"review docs\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/autofix-pr",
+      "args": [
+        "plan",
+        "repo",
+        "fix",
+        "tests"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"repo\": \"repo\"",
+        "\"summary\": \"fix tests\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/ecosystem/autofix-pr.json",
+          "includes": [
+            "\"summary\": \"fix tests\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/autofix-pr",
+      "args": [
+        "mutate"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /autofix-pr mutate <repo> <summary>"
+      ]
+    },
+    {
+      "slash": "/plan",
+      "args": [
+        "build",
+        "feature"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"prompt\": \"build feature\"",
+        "\"phase\": \"ready\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/ultraplan/plans.json",
+          "includes": [
+            "\"prompt\": \"build feature\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/tasks",
+      "args": [
+        "create",
+        "Fix",
+        "bug"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"title\": \"Fix bug\"",
+        "\"status\": \"pending\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/tasks/tasks.json",
+          "includes": [
+            "\"title\": \"Fix bug\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/tasks",
+      "args": [
+        "create"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /tasks create <title>"
+      ]
+    },
+    {
+      "slash": "/workflows",
+      "args": [
+        "run",
+        "smoke",
+        "echo",
+        "ok"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"name\": \"smoke\"",
+        "\"command\": \"echo\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/workflows/runs.json",
+          "includes": [
+            "\"name\": \"smoke\"",
+            "\"command\": \"echo\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/schedule",
+      "args": [
+        "add",
+        "daily-check"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"name\": \"daily-check\"",
+        "\"status\": \"scheduled\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/agent-workflows/cron-schedules.json",
+          "includes": [
+            "\"name\": \"daily-check\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/voice",
+      "args": [
+        "on",
+        "deepseek"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"provider\": \"deepseek\"",
+        "\"stt\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/ecosystem/voice.json",
+          "includes": [
+            "\"provider\": \"deepseek\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/voice",
+      "args": [
+        "stop"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /voice stop <sessionId>"
+      ]
+    },
+    {
+      "slash": "/remote-env",
+      "args": [
+        "TOKEN",
+        "secret-value"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"name\": \"TOKEN\"",
+        "\"valueHash\""
+      ],
+      "expectedStdoutExcludes": [
+        "secret-value"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/remote/env.json",
+          "includes": [
+            "\"name\": \"TOKEN\"",
+            "\"valueHash\""
+          ],
+          "excludes": [
+            "secret-value"
+          ]
+        },
+        {
+          "path": ".my-claude-code/remote/bridge.jsonl",
+          "includes": [
+            "remote.env"
+          ],
+          "excludes": [
+            "secret-value"
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/remote-control",
+      "args": [
+        "connect",
+        "demo",
+        "/tmp"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"name\": \"demo\"",
+        "\"transport\": \"loopback\"",
+        "\"tokenHash\""
+      ],
+      "expectedStdoutExcludes": [
+        "tokenSecret"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/remote/sessions.json",
+          "includes": [
+            "\"name\": \"demo\"",
+            "\"transport\": \"loopback\""
+          ],
+          "excludes": [
+            "tokenSecret"
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/remote-control",
+      "args": [
+        "run"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /remote run <sessionId> <command> [args...]"
+      ]
+    },
+    {
+      "slash": "/remote-control",
+      "args": [
+        "pipe-register",
+        "main"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"name\": \"main\"",
+        "\"status\": \"listening\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/remote/pipes.json",
+          "includes": [
+            "\"name\": \"main\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/send",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /remote send <pipeName> <message>"
+      ]
+    },
+    {
+      "slash": "/daemon",
+      "args": [
+        "start"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"status\": \"running\"",
+        "\"endpoint\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/remote/daemon.json",
+          "includes": [
+            "\"status\": \"running\""
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/daemon",
+      "args": [
+        "invalid"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /daemon [start|heartbeat|status|stop]"
+      ]
+    },
+    {
+      "slash": "/login",
+      "args": [],
+      "env": {
+        "DEEPSEEK_API_KEY": "golden-secret"
+      },
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"authenticated\": true",
+        "\"provider\": \"deepseek\"",
+        "\"credentialSource\": \"env:DEEPSEEK_API_KEY\""
+      ],
+      "expectedStdoutExcludes": [
+        "golden-secret"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/auth.json",
+          "includes": [
+            "\"provider\": \"deepseek\"",
+            "\"tokenHash\""
+          ],
+          "excludes": [
+            "golden-secret"
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/login",
+      "args": [],
+      "unsetEnv": [
+        "ANTHROPIC_API_KEY",
+        "DEEPSEEK_API_KEY",
+        "MY_CLAUDE_CODE_OAUTH_TOKEN"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"authenticated\": false",
+        "\"behaviorStatus\": \"auth-required\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/auth.json",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "slash": "/logout",
+      "args": [],
+      "setupFiles": {
+        ".my-claude-code/auth.json": "{\"version\":1,\"provider\":\"deepseek\",\"tokenHash\":\"abc\"}"
+      },
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"authenticated\": false",
+        "removed local auth state"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/auth.json",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "slash": "/oauth-refresh",
+      "args": [],
+      "env": {
+        "DEEPSEEK_API_KEY": "golden-secret"
+      },
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"authenticated\": true",
+        "refreshed local auth state metadata"
+      ],
+      "expectedStdoutExcludes": [
+        "golden-secret"
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/auth.json",
+          "includes": [
+            "\"provider\": \"deepseek\""
+          ],
+          "excludes": [
+            "golden-secret"
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/plugin",
+      "args": [
+        "run",
+        "missing",
+        "command"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Plugin command not found: missing command"
+      ]
+    },
+    {
+      "slash": "/skills",
+      "args": [
+        "store",
+        "invalid"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /skills store [summary|index|cache|refresh]"
+      ]
+    },
+    {
+      "slash": "/skills",
+      "args": [
+        "learn",
+        "demo",
+        "--",
+        "Prefer small diffs"
+      ],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "\"skillName\": \"demo\"",
+        "\"lesson\": \"Prefer small diffs\""
+      ],
+      "expectedFiles": [
+        {
+          "path": ".my-claude-code/skill-learning.jsonl",
+          "includes": [
+            "\"skillName\":\"demo\"",
+            "Prefer small diffs"
+          ]
+        }
+      ]
+    },
+    {
+      "slash": "/attach",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /attach <sessionId>"
+      ]
+    },
+    {
+      "slash": "/detach",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "Usage: /detach <sessionId>"
+      ]
+    },
+    {
+      "slash": "/rewind",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "No session found: --rewind"
+      ]
+    },
+    {
+      "slash": "/fork",
+      "args": [],
+      "expectedExitCode": 0,
+      "expectedStdoutIncludes": [
+        "No session found: --fork"
+      ]
+    }
+  ]
+}

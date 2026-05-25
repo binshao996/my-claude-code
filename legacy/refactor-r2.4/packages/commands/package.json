@@ -1,0 +1,17 @@
+{
+  "name": "@my-claude-code/commands",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@my-claude-code/agent-runtime": "workspace:*",
+    "@my-claude-code/core": "workspace:*",
+    "@my-claude-code/model-provider": "workspace:*",
+    "@my-claude-code/session": "workspace:*",
+    "@my-claude-code/settings": "workspace:*",
+    "@my-claude-code/tools": "workspace:*"
+  }
+}

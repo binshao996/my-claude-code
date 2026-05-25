@@ -1,0 +1,80 @@
+{
+  "version": "r1.6",
+  "provider": {
+    "defaultProvider": "deepseek",
+    "adapterPolicy": "DeepSeek remains an adapter behind Claude-compatible provider semantics.",
+    "requiredCapabilities": [
+      "supportsTextStreaming",
+      "supportsToolCallDelta",
+      "supportsThinking",
+      "supportsUsageMapping",
+      "supportsPromptCache",
+      "supportsTools"
+    ]
+  },
+  "cases": [
+    {
+      "name": "provider-resolve",
+      "kind": "provider",
+      "expect": {
+        "provider": "anthropic",
+        "requestedModel": "sonnet",
+        "model": "claude-3-5-sonnet-latest",
+        "supportsThinking": true,
+        "supportsPromptCache": true
+      }
+    },
+    {
+      "name": "provider-usage-balance-cache",
+      "kind": "provider",
+      "expect": {
+        "requestCount": 1,
+        "totalTokens": 20,
+        "cacheBreakReason": "explicit",
+        "requestsRemaining": 1
+      }
+    },
+    {
+      "name": "provider-error-taxonomy",
+      "kind": "provider",
+      "expect": {
+        "rateLimit": "rate_limit",
+        "authentication": "authentication",
+        "contextLength": "context_length",
+        "network": "network"
+      }
+    },
+    {
+      "name": "query-tool-loop",
+      "kind": "query",
+      "expect": {
+        "terminal": "completed",
+        "requestCount": 2,
+        "tool": "Read",
+        "resultContains": "hello from runtime golden"
+      }
+    },
+    {
+      "name": "query-max-turns",
+      "kind": "query",
+      "expect": {
+        "terminal": "max_turns"
+      }
+    },
+    {
+      "name": "query-abort",
+      "kind": "query",
+      "expect": {
+        "terminal": "aborted_streaming"
+      }
+    },
+    {
+      "name": "compact-retry",
+      "kind": "compact",
+      "expect": {
+        "compacted": true,
+        "summaryContains": "first message"
+      }
+    }
+  ]
+}

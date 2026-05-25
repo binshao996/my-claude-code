@@ -1,0 +1,20 @@
+{
+  "name": "@my-claude-code/tui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic/ink": "workspace:*",
+    "@my-claude-code/agent-runtime": "workspace:*",
+    "@my-claude-code/commands": "workspace:*",
+    "@my-claude-code/mcp-client": "workspace:*",
+    "@my-claude-code/settings": "workspace:*",
+    "@my-claude-code/session": "workspace:*",
+    "@my-claude-code/tools": "workspace:*",
+    "react": "^19",
+    "react-devtools-core": "^7.0.1"
+  }
+}

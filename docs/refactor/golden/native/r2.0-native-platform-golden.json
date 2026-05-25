@@ -1,0 +1,45 @@
+{
+  "version": "r2.0",
+  "source": "claude-code native and platform package surfaces",
+  "cases": [
+    {
+      "name": "native-package-load",
+      "expect": {
+        "audioAvailableType": "boolean",
+        "modifierShift": false,
+        "diffIncludesInsert": true,
+        "pngWidth": 2,
+        "pngHeight": 3
+      }
+    },
+    {
+      "name": "url-handler-protocol",
+      "expect": {
+        "accepted": true,
+        "rejected": false,
+        "source": "env",
+        "url": "claude://open?session=r2"
+      }
+    },
+    {
+      "name": "computer-use-platform",
+      "expect": {
+        "inputSupported": false,
+        "blockedStatus": "blocked",
+        "toolCount": 6,
+        "targetWidth": 100,
+        "targetHeight": 50,
+        "pixelEqual": true
+      }
+    },
+    {
+      "name": "chrome-mcp-platform",
+      "expect": {
+        "serverName": "claude-for-chrome",
+        "toolCount": 5,
+        "unsupportedStatus": "unsupported",
+        "decodedMethod": "tools/list"
+      }
+    }
+  ]
+}

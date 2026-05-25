@@ -1,0 +1,53 @@
+{
+  "version": "r1.9",
+  "scope": "remote-bridge-daemon-acp",
+  "cases": [
+    {
+      "name": "daemon-bridge-lifecycle",
+      "expect": {
+        "daemonStatus": "stopped",
+        "reconnectCount": 1,
+        "events": ["daemon.start", "daemon.heartbeat", "daemon.reconnect", "bridge.kick", "daemon.stop"]
+      }
+    },
+    {
+      "name": "remote-session-runner",
+      "expect": {
+        "transport": "loopback",
+        "stdoutIncludes": "remote-ready",
+        "detachedError": "remote session is detached",
+        "finalStatus": "connected",
+        "terminalLinesAtLeast": 2
+      }
+    },
+    {
+      "name": "remote-control-http-sse",
+      "expect": {
+        "healthStatus": "running",
+        "postEventType": "remote.trigger",
+        "transport": "http-bridge",
+        "redactsBody": true
+      }
+    },
+    {
+      "name": "pipe-uds-env",
+      "expect": {
+        "setupStatus": "ready",
+        "pipeMessageCount": 1,
+        "lanTransport": "lan",
+        "udsMessageCount": 1,
+        "envName": "REMOTE_TOKEN",
+        "redactsEnvValue": true
+      }
+    },
+    {
+      "name": "acp-jsonl-protocol",
+      "expect": {
+        "messageTypes": ["session.start", "prompt", "tool.permission", "result"],
+        "permissionDecision": "allow",
+        "resultStatus": "ok",
+        "redactsToken": true
+      }
+    }
+  ]
+}

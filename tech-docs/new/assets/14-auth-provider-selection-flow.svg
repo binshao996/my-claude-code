@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 780" width="1120" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .section { font-size: 13px; font-weight: 700; fill: #374151; }
+    .label { font-size: 13px; font-weight: 600; fill: #111827; }
+    .small { font-size: 11px; fill: #6b7280; }
+    .tiny { font-size: 10px; fill: #6b7280; }
+    .code { font-size: 11px; fill: #374151; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
+  </style>
+  <defs>
+    <marker id="arrow-blue-14a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green-14a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple-14a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red-14a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="shadow-14a" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1120" height="780" fill="#ffffff"/>
+  <text class="title" x="36" y="42">认证、模型供应商与 API Client 选择流</text>
+  <text class="small" x="36" y="65">Settings、环境变量、OAuth、API Key、云凭据共同决定最终 Provider Client</text>
+
+  <rect x="32" y="92" width="272" height="600" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="52" y="122">输入来源</text>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="56" y="146" width="224" height="78" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="76" y="172">Settings 快照</text>
+    <text class="small" x="76" y="194">modelType, model, apiKeyHelper</text>
+    <text class="code" x="76" y="211">getInitialSettings()</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="56" y="250" width="224" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="76" y="276">Provider 环境变量</text>
+    <text class="small" x="76" y="298">USE_BEDROCK, USE_VERTEX</text>
+    <text class="small" x="76" y="316">USE_OPENAI, USE_GEMINI</text>
+    <text class="code" x="76" y="333">OPENAI_BASE_URL 等</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="56" y="368" width="224" height="92" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="76" y="394">本机身份材料</text>
+    <text class="small" x="76" y="416">OAuth secure storage</text>
+    <text class="small" x="76" y="434">macOS keychain, GlobalConfig</text>
+    <text class="code" x="76" y="451">CLAUDE_CODE_OAUTH_TOKEN</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="56" y="486" width="224" height="92" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="76" y="512">运行模式</text>
+    <text class="small" x="76" y="534">Bare, SSH remote, Desktop</text>
+    <text class="small" x="76" y="552">non-interactive, managed OAuth</text>
+    <text class="code" x="76" y="569">isManagedOAuthContext()</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="56" y="604" width="224" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text class="label" x="76" y="630">信任状态</text>
+    <text class="small" x="76" y="652">project/local settings 是否已信任</text>
+  </g>
+
+  <rect x="348" y="92" width="342" height="600" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="368" y="122">选择与认证控制层</text>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="386" y="146" width="266" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="410" y="173">getAPIProvider()</text>
+    <text class="small" x="410" y="195">settings.modelType 优先</text>
+    <text class="small" x="410" y="212">再读 provider env，默认 firstParty</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="386" y="252" width="266" height="78" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="410" y="279">isAnthropicAuthEnabled()</text>
+    <text class="small" x="410" y="301">非 Anthropic Provider 关闭 Claude auth</text>
+    <text class="small" x="410" y="318">Bare 和 remote 有专门约束</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="386" y="360" width="266" height="88" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="410" y="387">getAuthTokenSource()</text>
+    <text class="small" x="410" y="409">ANTHROPIC_AUTH_TOKEN, OAuth env</text>
+    <text class="small" x="410" y="427">FD token, CCR token, apiKeyHelper</text>
+    <text class="small" x="410" y="444">secure storage Claude.ai OAuth</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="386" y="478" width="266" height="88" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="410" y="505">getAnthropicApiKeyWithSource()</text>
+    <text class="small" x="410" y="527">env key, FD key, apiKeyHelper</text>
+    <text class="small" x="410" y="545">macOS keychain, GlobalConfig</text>
+    <text class="small" x="410" y="562">apiKeyHelper 支持缓存和预取</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="386" y="596" width="266" height="66" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text class="label" x="410" y="622">Trust Gate</text>
+    <text class="small" x="410" y="644">project/local helper 或云刷新命令未信任前不执行</text>
+  </g>
+
+  <rect x="736" y="92" width="344" height="600" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="756" y="122">Provider Client Factory</text>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="770" y="146" width="276" height="78" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="792" y="173">First Party Anthropic</text>
+    <text class="small" x="792" y="195">OAuth subscriber 用 authToken</text>
+    <text class="small" x="792" y="212">否则用 API key 或 apiKeyHelper</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="770" y="248" width="276" height="76" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="792" y="275">Bedrock Client</text>
+    <text class="small" x="792" y="297">region, inference profile, AWS bearer</text>
+    <text class="small" x="792" y="314">awsAuthRefresh 和 credential export</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="770" y="348" width="276" height="76" rx="8" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5"/>
+    <text class="label" x="792" y="375">Vertex Client</text>
+    <text class="small" x="792" y="397">GoogleAuth, projectId, region</text>
+    <text class="small" x="792" y="414">gcpAuthRefresh 受信任边界保护</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="770" y="448" width="276" height="76" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="792" y="475">Foundry Client</text>
+    <text class="small" x="792" y="497">Azure API key 或 DefaultAzureCredential</text>
+    <text class="small" x="792" y="514">skip auth 时只保留请求封装</text>
+  </g>
+
+  <g filter="url(#shadow-14a)">
+    <rect x="770" y="548" width="276" height="88" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="792" y="575">OpenAI, Gemini, Grok</text>
+    <text class="small" x="792" y="597">queryModel 先分流到适配器</text>
+    <text class="small" x="792" y="615">provider key 与 Anthropic key 分离</text>
+    <text class="code" x="792" y="632">@ant/model-provider</text>
+  </g>
+
+  <path d="M280 185 C326 185, 338 184, 386 184" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M280 296 C326 296, 338 184, 386 184" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M280 414 C322 414, 342 399, 386 404" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14a)"/>
+  <path d="M280 532 C322 532, 342 291, 386 291" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-14a)"/>
+  <path d="M280 633 C324 633, 342 629, 386 629" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-14a)"/>
+
+  <path d="M652 184 C704 184, 718 185, 770 185" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M652 184 C704 184, 718 286, 770 286" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M652 184 C704 184, 718 386, 770 386" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M652 184 C704 184, 718 486, 770 486" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M652 184 C704 184, 718 592, 770 592" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <path d="M652 404 C708 404, 716 190, 770 190" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14a)"/>
+  <path d="M652 522 C710 522, 716 190, 770 190" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14a)"/>
+  <path d="M652 629 C704 629, 720 286, 770 286" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-14a)"/>
+  <path d="M652 629 C704 629, 720 386, 770 386" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-14a)"/>
+
+  <rect x="36" y="716" width="1032" height="38" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="58" y1="735" x2="88" y2="735" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-14a)"/>
+  <text class="tiny" x="96" y="739">Provider 选择</text>
+  <line x1="206" y1="735" x2="236" y2="735" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-14a)"/>
+  <text class="tiny" x="244" y="739">身份材料解析</text>
+  <line x1="374" y1="735" x2="404" y2="735" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-14a)"/>
+  <text class="tiny" x="412" y="739">运行模式约束</text>
+  <line x1="552" y1="735" x2="582" y2="735" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-14a)"/>
+  <text class="tiny" x="590" y="739">信任边界</text>
+  <text class="tiny" x="742" y="739">Host Guard: workspace key 和 subscription OAuth 只允许发往 api.anthropic.com</text>
+</svg>

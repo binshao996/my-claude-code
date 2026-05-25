@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 28px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 16px; fill: #6b7280; }
+    .lane-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .lane-sub { font-size: 13px; fill: #6b7280; }
+    .node-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 13px; fill: #6b7280; }
+    .small { font-size: 12px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-grn" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-rose" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-vlt" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#9333ea"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="900" fill="#ffffff"/>
+
+  <text class="title" x="44" y="54">Claude Code Context Engineering 管线</text>
+  <text class="subtitle" x="44" y="84">从静态规则、会话消息、工具结果、记忆召回到 API 请求前的上下文装配</text>
+
+  <rect x="36" y="122" width="305" height="646" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="64" y="158">静态与半静态输入</text>
+  <text class="lane-sub" x="64" y="183">context.ts / claudemd.ts</text>
+
+  <rect x="386" y="122" width="305" height="646" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="414" y="158">Prompt Builder</text>
+  <text class="lane-sub" x="414" y="183">prompts.ts / api.ts</text>
+
+  <rect x="736" y="122" width="305" height="646" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="764" y="158">Query Loop 视图</text>
+  <text class="lane-sub" x="764" y="183">query.ts 每轮进入模型前</text>
+
+  <rect x="1086" y="122" width="305" height="646" rx="8" fill="#f9fafb" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="8 7"/>
+  <text class="lane-title" x="1114" y="158">API 请求边界</text>
+  <text class="lane-sub" x="1114" y="183">Claude / OpenAI / Gemini Provider</text>
+
+  <rect x="74" y="226" width="230" height="94" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="189" y="262" text-anchor="middle">System Prompt</text>
+  <text class="node-sub" x="189" y="289" text-anchor="middle">systemPromptSection</text>
+  <text class="node-sub" x="189" y="312" text-anchor="middle">缓存到 clear 或 compact</text>
+
+  <rect x="74" y="378" width="230" height="94" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="189" y="414" text-anchor="middle">systemContext</text>
+  <text class="node-sub" x="189" y="441" text-anchor="middle">git status / cache breaker</text>
+  <text class="node-sub" x="189" y="464" text-anchor="middle">append 到 system</text>
+
+  <rect x="74" y="530" width="230" height="110" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="189" y="566" text-anchor="middle">userContext</text>
+  <text class="node-sub" x="189" y="593" text-anchor="middle">CLAUDE.md / rules</text>
+  <text class="node-sub" x="189" y="616" text-anchor="middle">AutoMem / TeamMem index</text>
+
+  <rect x="74" y="678" width="230" height="66" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="189" y="717" text-anchor="middle">当前日期</text>
+  <text class="node-sub" x="189" y="739" text-anchor="middle">currentDate 用户态上下文</text>
+
+  <rect x="424" y="220" width="230" height="100" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="539" y="257" text-anchor="middle">buildEffectiveSystemPrompt</text>
+  <text class="node-sub" x="539" y="284" text-anchor="middle">default / agent / custom</text>
+  <text class="node-sub" x="539" y="307" text-anchor="middle">appendSystemPrompt</text>
+
+  <rect x="424" y="378" width="230" height="94" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="539" y="414" text-anchor="middle">appendSystemContext</text>
+  <text class="node-sub" x="539" y="441" text-anchor="middle">key: value 拼接</text>
+  <text class="node-sub" x="539" y="464" text-anchor="middle">进入 systemPrompt 数组</text>
+
+  <rect x="424" y="532" width="230" height="108" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="539" y="568" text-anchor="middle">prependUserContext</text>
+  <text class="node-sub" x="539" y="595" text-anchor="middle">project-instructions</text>
+  <text class="node-sub" x="539" y="618" text-anchor="middle">system-reminder meta message</text>
+
+  <rect x="774" y="206" width="230" height="90" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="889" y="242" text-anchor="middle">Active Messages</text>
+  <text class="node-sub" x="889" y="269" text-anchor="middle">getMessagesAfterCompactBoundary</text>
+
+  <rect x="774" y="334" width="230" height="108" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.8"/>
+  <text class="node-title" x="889" y="370" text-anchor="middle">Context Cleanup</text>
+  <text class="node-sub" x="889" y="397" text-anchor="middle">tool result budget</text>
+  <text class="node-sub" x="889" y="420" text-anchor="middle">snip / microcompact</text>
+
+  <rect x="774" y="486" width="230" height="108" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+  <text class="node-title" x="889" y="522" text-anchor="middle">Memory Prefetch</text>
+  <text class="node-sub" x="889" y="549" text-anchor="middle">findRelevantMemories</text>
+  <text class="node-sub" x="889" y="572" text-anchor="middle">dedupe readFileState</text>
+
+  <rect x="774" y="636" width="230" height="86" rx="8" fill="#ecfeff" stroke="#99f6e4" stroke-width="1.8"/>
+  <text class="node-title" x="889" y="672" text-anchor="middle">Attachments</text>
+  <text class="node-sub" x="889" y="699" text-anchor="middle">files / skills / memories</text>
+
+  <rect x="1124" y="250" width="230" height="108" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+  <text class="node-title" x="1239" y="286" text-anchor="middle">messages</text>
+  <text class="node-sub" x="1239" y="313" text-anchor="middle">meta userContext + active history</text>
+  <text class="node-sub" x="1239" y="336" text-anchor="middle">attachments / tool_result</text>
+
+  <rect x="1124" y="430" width="230" height="108" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+  <text class="node-title" x="1239" y="466" text-anchor="middle">system</text>
+  <text class="node-sub" x="1239" y="493" text-anchor="middle">systemPrompt blocks</text>
+  <text class="node-sub" x="1239" y="516" text-anchor="middle">+ systemContext</text>
+
+  <rect x="1124" y="610" width="230" height="94" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+  <text class="node-title" x="1239" y="646" text-anchor="middle">Context Window</text>
+  <text class="node-sub" x="1239" y="673" text-anchor="middle">tokens + cache + tools</text>
+  <text class="node-sub" x="1239" y="696" text-anchor="middle">超限触发压缩策略</text>
+
+  <path d="M304 273 C348 273 380 270 424 270" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M304 425 C348 425 380 425 424 425" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M304 585 C348 585 380 586 424 586" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M539 320 C539 342 539 356 539 378" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M654 425 C700 425 728 380 774 388" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M654 586 C700 586 728 274 774 251" stroke="#16a34a" stroke-width="2.2" fill="none" marker-end="url(#arr-grn)"/>
+  <path d="M889 296 C889 318 889 318 889 334" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M889 442 C889 462 889 466 889 486" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M889 594 C889 614 889 616 889 636" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M1004 680 C1050 680 1078 648 1124 657" stroke="#9333ea" stroke-width="2.2" fill="none" marker-end="url(#arr-vlt)"/>
+  <path d="M1004 388 C1060 388 1074 312 1124 304" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+  <path d="M654 270 C840 164 1036 180 1124 284" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M654 425 C852 466 940 482 1124 484" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M1239 358 C1239 386 1239 402 1239 430" stroke="#2563eb" stroke-width="2.2" fill="none" marker-end="url(#arr-blue)"/>
+  <path d="M1239 538 C1239 566 1239 582 1239 610" stroke="#dc2626" stroke-width="2.2" fill="none" marker-end="url(#arr-rose)"/>
+
+  <g transform="translate(56, 820)">
+    <line x1="0" y1="0" x2="42" y2="0" stroke="#2563eb" stroke-width="2.2" marker-end="url(#arr-blue)"/>
+    <text class="small" x="54" y="5">system prompt / API 装配</text>
+    <line x1="238" y1="0" x2="280" y2="0" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arr-grn)"/>
+    <text class="small" x="292" y="5">用户记忆与规则注入</text>
+    <line x1="486" y1="0" x2="528" y2="0" stroke="#dc2626" stroke-width="2.2" marker-end="url(#arr-rose)"/>
+    <text class="small" x="540" y="5">上下文压力与清理</text>
+    <line x1="720" y1="0" x2="762" y2="0" stroke="#9333ea" stroke-width="2.2" marker-end="url(#arr-vlt)"/>
+    <text class="small" x="774" y="5">记忆召回与附件</text>
+  </g>
+</svg>

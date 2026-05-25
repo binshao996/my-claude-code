@@ -1,0 +1,2395 @@
+{
+  "version": "r2.7",
+  "generatedAt": "2026-05-25T10:54:47.314Z",
+  "status": "pass",
+  "upstreamFixtureCount": 393,
+  "byteIdenticalFixtureCount": 393,
+  "executedFixtureCount": 393,
+  "missingExecutionCount": 0,
+  "nonDefaultFixtureCount": 6,
+  "missingFixtureCount": 0,
+  "mismatchedFixtureCount": 0,
+  "goldenSubstituteCount": 0,
+  "execution": {
+    "command": "bun run test:upstream-fixtures",
+    "status": "pass",
+    "exitCode": 0,
+    "pass": 5316,
+    "fail": 0,
+    "errors": 0,
+    "files": 393,
+    "duration": "40.84s + 834.00ms + 717.00ms",
+    "logPath": "/tmp/r2.7-upstream-mirror-test.log"
+  },
+  "coverage": [
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/providers/gemini/__tests__/convertMessages.test.ts",
+      "local": "packages/@ant/model-provider/src/providers/gemini/__tests__/convertMessages.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7680a8043bb211164b3d1026afd3c84aeca3d0cbf9c2a7fda6459750199d9a4e"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/providers/gemini/__tests__/convertTools.test.ts",
+      "local": "packages/@ant/model-provider/src/providers/gemini/__tests__/convertTools.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "982fa35ab03de33f490e35b0d2c447a9717aa4c6c723f106b41ea56a8eff1343"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/providers/gemini/__tests__/modelMapping.test.ts",
+      "local": "packages/@ant/model-provider/src/providers/gemini/__tests__/modelMapping.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0d6be8169461b1e368b12495bc00366ca32e8aabb56263dce857cd8c2cbaf530"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/providers/gemini/__tests__/streamAdapter.test.ts",
+      "local": "packages/@ant/model-provider/src/providers/gemini/__tests__/streamAdapter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fd699cefe7656ab9626e54011fa141cd6f10ddabff96220a470f29cde7274132"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/providers/grok/__tests__/modelMapping.test.ts",
+      "local": "packages/@ant/model-provider/src/providers/grok/__tests__/modelMapping.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "18dcf6456e78dfc20e0113526514e373026172087300c9601d5698e5ccdd20d5"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/providers/openai/__tests__/modelMapping.test.ts",
+      "local": "packages/@ant/model-provider/src/providers/openai/__tests__/modelMapping.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c2363eafe72902a8d0102a1c86e07ef9a56dbf1887f099c5eb921565b9d9684d"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/shared/__tests__/openaiConvertMessages.test.ts",
+      "local": "packages/@ant/model-provider/src/shared/__tests__/openaiConvertMessages.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8b75b7feb379bd8fff5eb491e8b1bba685b66504b15bf8b3c0163d8233e78359"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/shared/__tests__/openaiConvertTools.test.ts",
+      "local": "packages/@ant/model-provider/src/shared/__tests__/openaiConvertTools.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "edc37a29de153cee134477835d0a71689adeb19d60019d6cfc0268808f27b69f"
+    },
+    {
+      "upstream": "claude-code/packages/@ant/model-provider/src/shared/__tests__/openaiStreamAdapter.test.ts",
+      "local": "packages/@ant/model-provider/src/shared/__tests__/openaiStreamAdapter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "da291425401da62cc35a73b70355585ea9867c086a8e8c6f3f09285b6d3361c0"
+    },
+    {
+      "upstream": "claude-code/packages/acp-link/src/__tests__/cert.test.ts",
+      "local": "packages/acp-link/src/__tests__/cert.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d34b7eb9fafc55890434839271acdc07825c7fe2ea4614cbd79dd4378fb491e8"
+    },
+    {
+      "upstream": "claude-code/packages/acp-link/src/__tests__/server.test.ts",
+      "local": "packages/acp-link/src/__tests__/server.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a69e9a66a5bcf2c40b5075d445f85e96a7a0a47c496ddc978febb51b88522ce9"
+    },
+    {
+      "upstream": "claude-code/packages/acp-link/src/__tests__/types.test.ts",
+      "local": "packages/acp-link/src/__tests__/types.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0ad5ece43e6728e84a2de9e8a3c6e34ab8734c5099cd940389c95ca50440508e"
+    },
+    {
+      "upstream": "claude-code/packages/agent-tools/src/__tests__/compat.test.ts",
+      "local": "packages/agent-tools/src/__tests__/compat.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "db86300a68306ad4e2ce7553d319be72ec6bea08196ab940f7528dddf602e813"
+    },
+    {
+      "upstream": "claude-code/packages/agent-tools/src/__tests__/registry.test.ts",
+      "local": "packages/agent-tools/src/__tests__/registry.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cd4a4f6ee1c10915690a38dabd6e326fc31abcf9919dbf5d6ca305d709a30a2f"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/AgentTool/__tests__/agentDisplay.test.ts",
+      "local": "packages/builtin-tools/src/tools/AgentTool/__tests__/agentDisplay.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "19e5e6b4b1c8dcb176f95804c3f78c9136f11ef6bb29f6ce93d22b297770bb80"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/AgentTool/__tests__/agentToolUtils.test.ts",
+      "local": "packages/builtin-tools/src/tools/AgentTool/__tests__/agentToolUtils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8038dd8ff639fabfbd94b347a6a5b1ac434446f35fd0852ff04c8e29d71e8a7a"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/AgentTool/__tests__/filterIncompleteToolCalls.test.ts",
+      "local": "packages/builtin-tools/src/tools/AgentTool/__tests__/filterIncompleteToolCalls.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "55f1e56a1cde1333785e991d826ef01f80abe10d6959bd8772318bd560224d58"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/AgentTool/__tests__/prompt.test.ts",
+      "local": "packages/builtin-tools/src/tools/AgentTool/__tests__/prompt.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "778193cd390b233ef661e57af5dedeaf27ebc453e170f73f9dd1f345288b09ed"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/AgentTool/__tests__/resumeAgent.test.ts",
+      "local": "packages/builtin-tools/src/tools/AgentTool/__tests__/resumeAgent.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fb8d0d911bd49c3fea625df380a4280a4e2bc200ef78ae6e705af6d853922b7d"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/BashTool/__tests__/backslashEscaping.test.ts",
+      "local": "packages/builtin-tools/src/tools/BashTool/__tests__/backslashEscaping.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d8cf586b36104f62a8c1e3d7d7b40cf46693c65b985c8fc52f0847a48fbf96b6"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/BashTool/__tests__/commandSemantics.test.ts",
+      "local": "packages/builtin-tools/src/tools/BashTool/__tests__/commandSemantics.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f15ceea03add1a236ec315f2dc28944ff6201cbb06090a6d4e55c2c76a1314da"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/BashTool/__tests__/compoundCommandSecurity.test.ts",
+      "local": "packages/builtin-tools/src/tools/BashTool/__tests__/compoundCommandSecurity.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "239831001eb7b2abd7219660fd164e2b170353025a354a80302c35c9f6f00f0f"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/BashTool/__tests__/destructiveCommandWarning.test.ts",
+      "local": "packages/builtin-tools/src/tools/BashTool/__tests__/destructiveCommandWarning.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b99ae124f9d31dc260d4be4ec2595e336ead962866edce6e827798cd1b102fa3"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/BashTool/__tests__/networkDeviceRedirect.test.ts",
+      "local": "packages/builtin-tools/src/tools/BashTool/__tests__/networkDeviceRedirect.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "27bd11facf0e687896eb8a651b57138c94ee67032164b5ea847412ec242e496c"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/CtxInspectTool/__tests__/CtxInspectTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/CtxInspectTool/__tests__/CtxInspectTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a616c5d6a9e9d18bdce9cdd91c3d190ea4d519364aeae2f5eb148abf112b4f90"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/DiscoverSkillsTool/__tests__/DiscoverSkillsTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/DiscoverSkillsTool/__tests__/DiscoverSkillsTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "29fe9cd2ff29fdeee5a5c7082cbf5eebbf1c50015a07e3694cbc085fa7a3db8f"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/ExecuteTool/__tests__/ExecuteTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/ExecuteTool/__tests__/ExecuteTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2e7ee78e6a1a99cb78272e5aba6fe02ca9ac578348188e4bc765bfc3640489a1"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/FileEditTool/__tests__/utils.test.ts",
+      "local": "packages/builtin-tools/src/tools/FileEditTool/__tests__/utils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b1c47a4edde9e4a8fbd79e208aa92e9c9271e538284de0e14ae4810f7a88707d"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/LSPTool/__tests__/formatters.test.ts",
+      "local": "packages/builtin-tools/src/tools/LSPTool/__tests__/formatters.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2bcdf8edd1e3872bfa1b70bbd6e8cbbaee564a6882a2d47945fe30063e158886"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/LSPTool/__tests__/schemas.test.ts",
+      "local": "packages/builtin-tools/src/tools/LSPTool/__tests__/schemas.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bbce0cef44466487619cf3fc58526165e529efd451f2c688a77a67c5d52083b5"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/LocalMemoryRecallTool/__tests__/LocalMemoryRecallTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/LocalMemoryRecallTool/__tests__/LocalMemoryRecallTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d278830806cdd998084fde254d57798b309105e98afca2b14faa0650dd87b995"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/LocalMemoryRecallTool/__tests__/stripUntrusted.test.ts",
+      "local": "packages/builtin-tools/src/tools/LocalMemoryRecallTool/__tests__/stripUntrusted.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "47f88df82a5185cd9324e539bad0406013eae39fdc1367fa9d06e6a12be3de86"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/MCPTool/__tests__/classifyForCollapse.test.ts",
+      "local": "packages/builtin-tools/src/tools/MCPTool/__tests__/classifyForCollapse.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "eb5163df3eecab820d3d69753e25f3d8a779d7853852245d0bfe612400737248"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/PowerShellTool/__tests__/commandSemantics.test.ts",
+      "local": "packages/builtin-tools/src/tools/PowerShellTool/__tests__/commandSemantics.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "160413ee4d3ed9ac2cb6cda8c8eabf929151f6e99e27319b8e81e4af4b9f4f8a"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/PowerShellTool/__tests__/destructiveCommandWarning.test.ts",
+      "local": "packages/builtin-tools/src/tools/PowerShellTool/__tests__/destructiveCommandWarning.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9bb3904aea2ddde726d728392f17735ac24ec07603af895c39bed2145c6fb38a"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/PowerShellTool/__tests__/gitSafety.test.ts",
+      "local": "packages/builtin-tools/src/tools/PowerShellTool/__tests__/gitSafety.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5cc2e9a155c9ec42d52ee3f7f81bfd24ff485fe1798df1066c19bcea1f169cb9"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/PowerShellTool/__tests__/powershellSecurity.test.ts",
+      "local": "packages/builtin-tools/src/tools/PowerShellTool/__tests__/powershellSecurity.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6497cd719c88d54029f247ec33bc7f9557dbda873c00d56473ca7bd6ccd2f0c5"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/RemoteTriggerTool/__tests__/RemoteTriggerTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/RemoteTriggerTool/__tests__/RemoteTriggerTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7b9ce4e60c19706ec731f692b1c3b68222bda31374dbd7770a0b940571d380dd"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/SearchExtraToolsTool/__tests__/SearchExtraToolsTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/SearchExtraToolsTool/__tests__/SearchExtraToolsTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "92096ad0eb180351822d6c53971e7152330fd34d84f97e00956aa8774c3e3d35"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/SendMessageTool/__tests__/udsRecipientSanitization.test.ts",
+      "local": "packages/builtin-tools/src/tools/SendMessageTool/__tests__/udsRecipientSanitization.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f8e461bd378d43f3ea4b33c28fe0e6e0ec81325af40926b8dd0a131bd10e80b1"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/SkillTool/__tests__/prompt.test.ts",
+      "local": "packages/builtin-tools/src/tools/SkillTool/__tests__/prompt.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a987157bc239f494508b5dd6e3b7c1113fc51f5c474e1f2e571bb93c1cc17679"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/SleepTool/__tests__/SleepTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/SleepTool/__tests__/SleepTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "46b11e86b48489bc3045e7007c1771160ff2f9f26340ac9c45588a3beeade770"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/VaultHttpFetchTool/__tests__/VaultHttpFetchTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/VaultHttpFetchTool/__tests__/VaultHttpFetchTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "84aa00631ef609cc588337906a0f5d939ab8d2f954577090395b9d006312aa0b"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/VaultHttpFetchTool/__tests__/scrub.test.ts",
+      "local": "packages/builtin-tools/src/tools/VaultHttpFetchTool/__tests__/scrub.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6662532d34f1f82e9d87143831c49314035289cea2b1e67bfc64b37c9a5b040f"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebBrowserTool/__tests__/WebBrowserTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebBrowserTool/__tests__/WebBrowserTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2da920b12503c6b2889b42682217e4228c9659409402c02a073528dc73769dc2"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebFetchTool/__tests__/headers.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebFetchTool/__tests__/headers.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9a5c310a20a26e64d307b86e12847c3af7d956c381f458bf48cb7a30ea86a4e2"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebFetchTool/__tests__/preapproved.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebFetchTool/__tests__/preapproved.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4b8844e21d77f3a9b92bfad7925c69fb3becce8f5ce990fb178cc638dc649879"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebFetchTool/__tests__/urlValidation.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebFetchTool/__tests__/urlValidation.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "22744e6676a080a016f3a622639c1ffeed7beb4651effa23e7a8ef8b1aaeb19e"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/adapterFactory.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebSearchTool/__tests__/adapterFactory.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "73378579a27f171a371066421bde49d50349c13629ae9c85f13bba8e0ed9ef52"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/bingAdapter.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebSearchTool/__tests__/bingAdapter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "62cab463d477e6f145da48c8b656dd3af82be2e773cc84916c6d6ff9124b05c2"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/braveAdapter.extract.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebSearchTool/__tests__/braveAdapter.extract.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cdf4655b233013a6c5f7f38f4c5d493ba71156c4edb538a7cda73c815c4381a1"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/braveAdapter.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebSearchTool/__tests__/braveAdapter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "519cc9c5e20e1de89addd4d98b4b912e1fee170c3baef1fab48d4656d1073502"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/exaAdapter.test.ts",
+      "local": "packages/builtin-tools/src/tools/WebSearchTool/__tests__/exaAdapter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9728e821ee422a159e1ae05025d027da1cf4ae63d81bc747893da091489a53c5"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/WorkflowTool/__tests__/WorkflowTool.test.ts",
+      "local": "packages/builtin-tools/src/tools/WorkflowTool/__tests__/WorkflowTool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b3c542df7bff52b49e33e1ce2ac7f7d79156e07c8f7c9ebadea4d6482032d2b5"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/shared/__tests__/gitOperationTracking.test.ts",
+      "local": "packages/builtin-tools/src/tools/shared/__tests__/gitOperationTracking.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "45716c2cb2d69ee19df20e03c25627cf208f20aa1a7d0044c2b081bb5f809633"
+    },
+    {
+      "upstream": "claude-code/packages/builtin-tools/src/tools/shared/__tests__/spawnMultiAgent.test.ts",
+      "local": "packages/builtin-tools/src/tools/shared/__tests__/spawnMultiAgent.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e0f453a22c7b4eeb4532ef4d9d5cb31f7689710caba9e4ce98ac16a8682f5c9d"
+    },
+    {
+      "upstream": "claude-code/packages/color-diff-napi/src/__tests__/color-diff.test.ts",
+      "local": "packages/color-diff-napi/src/__tests__/color-diff.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a7206880db99f56a58b8546b8b978d86ec9e230294d3f56c53644740b96229b4"
+    },
+    {
+      "upstream": "claude-code/packages/color-diff-napi/src/__tests__/language-registration.test.ts",
+      "local": "packages/color-diff-napi/src/__tests__/language-registration.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cc24cdaae33d7fbef49b35695d931c15524eed54230226e285cbb7525dcfe1d0"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/InProcessTransport.test.ts",
+      "local": "packages/mcp-client/src/__tests__/InProcessTransport.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "dab0c146fde5749a90c80b2de8a2a2ae1c614257d90d82f85e1d49f240bb2837"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/cache.test.ts",
+      "local": "packages/mcp-client/src/__tests__/cache.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "77570a5de36629855a148e30eae0d55f2ea5c5669ac2b6a5fb8fb3ac452e1378"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/connection.test.ts",
+      "local": "packages/mcp-client/src/__tests__/connection.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1771c5ed5c01c37abc88ad9838db1a127a9c1ecdcb131c7c3c962431e797c379"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/discovery.test.ts",
+      "local": "packages/mcp-client/src/__tests__/discovery.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "39692a8d0a89c838082735ff334019c70c9ee54d4bb76daf900286d6e623f62d"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/errors.test.ts",
+      "local": "packages/mcp-client/src/__tests__/errors.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a3ab9ea0a14e2ea74970864ded1ddd22d8a64054810a76546ca1b2bab32deb6c"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/execution.test.ts",
+      "local": "packages/mcp-client/src/__tests__/execution.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7cf9758442ce0ffe1653294da648b93535097ba26519c31a1dc60fb01f7b5cff"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/manager.test.ts",
+      "local": "packages/mcp-client/src/__tests__/manager.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c5e6b6a04b0da4e1745896d33c15ba4fd9bc3d3b331b064a2c6e24414aafef94"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/sanitization.test.ts",
+      "local": "packages/mcp-client/src/__tests__/sanitization.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cb2e110ea282c926d2297a332c6a63992a5461373856bb6eb341c0b34fbfc4be"
+    },
+    {
+      "upstream": "claude-code/packages/mcp-client/src/__tests__/strings.test.ts",
+      "local": "packages/mcp-client/src/__tests__/strings.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "20d6ff8a6e6ffafe8585581e5a839c7efcd23b2a296ce6c4ace19dbb6ea4629c"
+    },
+    {
+      "upstream": "claude-code/packages/modifiers-napi/src/__tests__/index.test.ts",
+      "local": "packages/modifiers-napi/src/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4afd2291868312fc4b491c080a1882300a88ab4c3e9adcf97bd926d617cbc7be"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/auth.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/auth.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b28b91a581f4316210572866d4f383268d948154e0feb2b94c6349f636d60f0b"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/automationState.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/automationState.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5409dd7d6713c533c24d34734782306af0dad66fa3acb5eee1fcdeb92bf1e004"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/client-payload.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/client-payload.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a3cc3e7394704c200cb37a028725e55a6daead39c5e1caa6d2e4ccfe018f2444"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/disconnect-monitor.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/disconnect-monitor.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bbd86e798a111fb8edf51d8b6e152653bcf2a196e6c1c1b246d05ce44fa77b73"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/event-bus.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/event-bus.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1d727f0fdb9e2dbc8a43d1ac8799872a33ef9d726503fb1eea4254def8bcfd34"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/middleware.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/middleware.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bc560ce64974ff35c8a3631b051d8c60c44912f54b922c75daef8dd8abf46636"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/routes.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/routes.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cf0ba276c9532931c8dc6103f76fb4f502d9d23ec9c5df21ecfad7fe8c6bbce2"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/services.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/services.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ef7b25ad736f0c57c524c4a34b284f26e239d68fdbb59e684136b9e3075196b5"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/sse-writer.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/sse-writer.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b5f243a389c583b0ab67b752a9c6bdf6138cb4c7934893e0707b77cfa7b3ccc1"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/store.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/store.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ccd03a553f4ec3168c50b9bd7874376fd66763b977a98ecec59cdb9e412c78fb"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/transport-normalize.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/transport-normalize.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "78b7eeba659886225b8fd55f8fccc6966f824a96a8638ae582c46ec9bef6ed92"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/work-dispatch.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/work-dispatch.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "78ff61fbc920364ea1a02061c430a3fc35e00b0de79263438f123dfba4ab8952"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/src/__tests__/ws-handler.test.ts",
+      "local": "packages/remote-control-server/src/__tests__/ws-handler.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7c2c3675a6524fd86e8a011e0093ea6f9840114ccff5839df73d0e53dd343d29"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/web/src/__tests__/api-client.test.ts",
+      "local": "packages/remote-control-server/web/src/__tests__/api-client.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7c4c57b8aea10dfa87f099099cef4b9395f3e03fba80277763f038123f4788b7"
+    },
+    {
+      "upstream": "claude-code/packages/remote-control-server/web/src/__tests__/utils.test.ts",
+      "local": "packages/remote-control-server/web/src/__tests__/utils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fbc3441823aebba5d1c2cfb707fca3d18af9826c964df4d89a0f9e5418db570e"
+    },
+    {
+      "upstream": "claude-code/packages/url-handler-napi/src/__tests__/index.test.ts",
+      "local": "packages/url-handler-napi/src/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b8185aaef4a111ce0a9352d0eb0b493e287a591d223230af85abb2ca7099f917"
+    },
+    {
+      "upstream": "claude-code/packages/weixin/src/__tests__/accounts.test.ts",
+      "local": "packages/weixin/src/__tests__/accounts.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6c7a232232d4cf24166d69999fc472915b436803e3c7884c23f97a30129e2573"
+    },
+    {
+      "upstream": "claude-code/packages/weixin/src/__tests__/media.test.ts",
+      "local": "packages/weixin/src/__tests__/media.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0dc68d01d9a802550f6e17ab9d7e8547a336770c5baecad5d9f053ba5f63940d"
+    },
+    {
+      "upstream": "claude-code/packages/weixin/src/__tests__/monitor.test.ts",
+      "local": "packages/weixin/src/__tests__/monitor.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "96704e57627ac062b1af40b2c9f3f20187ada966c538917740829140eed698e6"
+    },
+    {
+      "upstream": "claude-code/packages/weixin/src/__tests__/pairing.test.ts",
+      "local": "packages/weixin/src/__tests__/pairing.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2e63a7b5dcc82d77fd2c1c1170becd680cfa5aa08ad20a70023d8946ea3a6514"
+    },
+    {
+      "upstream": "claude-code/packages/weixin/src/__tests__/permissions.test.ts",
+      "local": "packages/weixin/src/__tests__/permissions.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "583733f3112a940c9356fa6067e2226d784873c0785e02bb98c243c7120b34ec"
+    },
+    {
+      "upstream": "claude-code/packages/weixin/src/__tests__/send.test.ts",
+      "local": "packages/weixin/src/__tests__/send.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "199b11c93f4ceaa2be28dee2813567d9a6391ee0b25ae4e6e1cb33878425ecac"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/Tool.test.ts",
+      "local": "src/__tests__/Tool.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e9cc9c071f9f049247bfdc352b65b851e8dcd81c17ee5db3225fac84d9225307"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/commandsBridgeSafety.test.ts",
+      "local": "src/__tests__/commandsBridgeSafety.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d209cc0899c11dfe99bb739b28f741b5073a7e929ab0787ae9812e19639b1d6a"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/context.baseline.test.ts",
+      "local": "src/__tests__/context.baseline.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b6b1ce8f24642f9d274f0c84a7764993e132f70d251dfa65e5031ee64e0f8acf"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/handlePromptSubmit.test.ts",
+      "local": "src/__tests__/handlePromptSubmit.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f0182119642081c9ebc8d3e0a18e9af9892e30711143398d4104dbb2d80f617c"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/history.test.ts",
+      "local": "src/__tests__/history.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c78495aa661638ca256f27d4d94277f377eacae3a5bc70587cfac50bc48b7664"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/queryAutonomyProviderBoundary.test.ts",
+      "local": "src/__tests__/queryAutonomyProviderBoundary.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f813a7ba24b32f432a9a230ccc7081c1e00eda1b30def06afa530318151789d9"
+    },
+    {
+      "upstream": "claude-code/src/__tests__/tools.test.ts",
+      "local": "src/__tests__/tools.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fcd46551a61699d7ab27c5f3ae986f2db1112dc450765230089bc343e695b493"
+    },
+    {
+      "upstream": "claude-code/src/assistant/__tests__/index.test.ts",
+      "local": "src/assistant/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "216c16cb854dad521bacf05d539ef040acff67ba57c6c65ac3fa4f5d83c44548"
+    },
+    {
+      "upstream": "claude-code/src/bridge/__tests__/bridgeMessaging.test.ts",
+      "local": "src/bridge/__tests__/bridgeMessaging.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "473a047589eac0c608281a957154661353e4d9340b64281410611eaf07ee51dd"
+    },
+    {
+      "upstream": "claude-code/src/bridge/__tests__/bridgePermissionCallbacks.test.ts",
+      "local": "src/bridge/__tests__/bridgePermissionCallbacks.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "45f2491cccd3defd3ce4c82242a079a4d131694d4deab81d65ee534f0f6134d7"
+    },
+    {
+      "upstream": "claude-code/src/bridge/__tests__/bridgeResultScheduling.test.ts",
+      "local": "src/bridge/__tests__/bridgeResultScheduling.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5c7455f34de89ad37c323ec340d30168ad84b2ebce22e3d1df1d5b98a1ea0e3a"
+    },
+    {
+      "upstream": "claude-code/src/bridge/__tests__/remoteInterruptHandling.test.ts",
+      "local": "src/bridge/__tests__/remoteInterruptHandling.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bb0db14ff229d21f92ecb8cb58473dd309fb9f4690612f7244b2fcbead9e6376"
+    },
+    {
+      "upstream": "claude-code/src/buddy/__tests__/companion.test.ts",
+      "local": "src/buddy/__tests__/companion.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f99e7155d2674797f3c5e1b04221c7916a2f988cc652599109dc0631fe1d6f32"
+    },
+    {
+      "upstream": "claude-code/src/cli/__tests__/userFacingErrorMessages.test.ts",
+      "local": "src/cli/__tests__/userFacingErrorMessages.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "78db5ff21afcf9ef3898caf5e8bab906cf64e8d498c7d7eb57ef611b505ffbda"
+    },
+    {
+      "upstream": "claude-code/src/cli/bg/__tests__/detached.test.ts",
+      "local": "src/cli/bg/__tests__/detached.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2f9f6e84fb2842f2d7071f71b7cd22e7c569d1b1f7f1af43896a13bc9a588939"
+    },
+    {
+      "upstream": "claude-code/src/cli/bg/__tests__/engine.test.ts",
+      "local": "src/cli/bg/__tests__/engine.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a257233183e193e448e5f9ac60d1ccbc9db909d9ed2afa1802974b8da4e82951"
+    },
+    {
+      "upstream": "claude-code/src/cli/bg/__tests__/tail.test.ts",
+      "local": "src/cli/bg/__tests__/tail.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9de49daf8042fad57387015e09c86ae3189311fba7aada60d08c54dc42dc172f"
+    },
+    {
+      "upstream": "claude-code/src/cli/handlers/__tests__/autonomy.test.ts",
+      "local": "src/cli/handlers/__tests__/autonomy.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cb0cdd2990aa3381c9d9f97aef033d3d34d4aabc4200ffc2001dc0f3b671cfea"
+    },
+    {
+      "upstream": "claude-code/src/cli/transports/__tests__/SSETransport.test.ts",
+      "local": "src/cli/transports/__tests__/SSETransport.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5b9c7d7476e43f3c850738d8bcedc3cca858001951834b07364d2a9077eeb902"
+    },
+    {
+      "upstream": "claude-code/src/commands/__tests__/autonomy.test.ts",
+      "local": "src/commands/__tests__/autonomy.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4a2b2c615670dcea4dcf9cdcad1a4fb12c2890d7243cef6799d8974e3633a4dc"
+    },
+    {
+      "upstream": "claude-code/src/commands/__tests__/bridge-kick.test.ts",
+      "local": "src/commands/__tests__/bridge-kick.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "85d06631a401e4988224e68cc43090eecbb33916e4c85a04a5c33baa27370d4d"
+    },
+    {
+      "upstream": "claude-code/src/commands/__tests__/commit-push-pr.test.ts",
+      "local": "src/commands/__tests__/commit-push-pr.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "204e81f5d2613c39d1f61e7f9021de47afc337188f2cfbc4651694c6cf61f949"
+    },
+    {
+      "upstream": "claude-code/src/commands/__tests__/commit.test.ts",
+      "local": "src/commands/__tests__/commit.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7c20e0a2154df2cc870427ad1d3ab3f9628cb396291f7bbe52c21dddc5f3d44c"
+    },
+    {
+      "upstream": "claude-code/src/commands/__tests__/init-verifiers.test.ts",
+      "local": "src/commands/__tests__/init-verifiers.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ce06c0f7c4c951216a61c36877b2a27befac3772f4ac989d7d0c525e356d8a52"
+    },
+    {
+      "upstream": "claude-code/src/commands/__tests__/proactive.baseline.test.ts",
+      "local": "src/commands/__tests__/proactive.baseline.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4c7bd3f583c0c51c5d9e44ea91f2cf65d7f152019d9eec35fdb50d6b225546c0"
+    },
+    {
+      "upstream": "claude-code/src/commands/_shared/__tests__/launchCommand.test.ts",
+      "local": "src/commands/_shared/__tests__/launchCommand.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e86fd4921cf46862ab49060a0b17c71c01ac363094046887c19f0c4fb1e6af4d"
+    },
+    {
+      "upstream": "claude-code/src/commands/agents-platform/__tests__/agentsApi.test.ts",
+      "local": "src/commands/agents-platform/__tests__/agentsApi.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cf153467a1e3eddb9bc071cffd8b7f8d62d1c332897e60c2163ba8e659e4aca2"
+    },
+    {
+      "upstream": "claude-code/src/commands/agents-platform/__tests__/index.test.ts",
+      "local": "src/commands/agents-platform/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7a04196b9dcfa5d6c006f32666acb61db61ca0787bbeac6c31e4a1f7a9e8596f"
+    },
+    {
+      "upstream": "claude-code/src/commands/agents-platform/__tests__/launchAgentsPlatform.test.ts",
+      "local": "src/commands/agents-platform/__tests__/launchAgentsPlatform.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f8ab2412349d5527e1556715134e33dcac2422deba72927ac6813020bf8e9e1a"
+    },
+    {
+      "upstream": "claude-code/src/commands/agents-platform/__tests__/parseArgs.test.ts",
+      "local": "src/commands/agents-platform/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4b673cd830c4c73d72dd352ca7d10a69d5fed61291863326dd2270bce09684f5"
+    },
+    {
+      "upstream": "claude-code/src/commands/autofix-pr/__tests__/AutofixProgress.test.tsx",
+      "local": "src/commands/autofix-pr/__tests__/AutofixProgress.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1745cacd16d242650fbd2841f1e6f2c117ed9eb0b60571cccdb3724aff6f6996"
+    },
+    {
+      "upstream": "claude-code/src/commands/autofix-pr/__tests__/index.test.ts",
+      "local": "src/commands/autofix-pr/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "82023ef2302ffdf17a2006b1282129fc5d90f97a689ff6cb5570453902dc7005"
+    },
+    {
+      "upstream": "claude-code/src/commands/autofix-pr/__tests__/launchAutofixPr.test.ts",
+      "local": "src/commands/autofix-pr/__tests__/launchAutofixPr.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f8524f2bbb7b33a661b387816f543e923e7f551a49cd14e15e1f2c83e8715f46"
+    },
+    {
+      "upstream": "claude-code/src/commands/autofix-pr/__tests__/monitorState.test.ts",
+      "local": "src/commands/autofix-pr/__tests__/monitorState.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "57f9fcae60b9175752ebf0e60754fc728f470410a1cd6c3ed67da572b1924202"
+    },
+    {
+      "upstream": "claude-code/src/commands/autofix-pr/__tests__/parseArgs.test.ts",
+      "local": "src/commands/autofix-pr/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1d20e096c7b22debf10af9e45d45acb4613623d31ae6cc05b1ce0a2d082de15b"
+    },
+    {
+      "upstream": "claude-code/src/commands/break-cache/__tests__/break-cache.test.ts",
+      "local": "src/commands/break-cache/__tests__/break-cache.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1195aec51752ef60dfe25243ad9852097ffef4a359cc305db0db5293a75df6c4"
+    },
+    {
+      "upstream": "claude-code/src/commands/daemon/__tests__/daemon.test.ts",
+      "local": "src/commands/daemon/__tests__/daemon.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "51044f0e730309b19a82a717fcc80b3e0651ee22b209ad37b3e15ee4c11769bc"
+    },
+    {
+      "upstream": "claude-code/src/commands/debug-tool-call/__tests__/debug-tool-call.test.ts",
+      "local": "src/commands/debug-tool-call/__tests__/debug-tool-call.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6e566ec5578a124783bbe4dfac84e3c1397060ee2bb8ae1fb8cbb863c7e98a60"
+    },
+    {
+      "upstream": "claude-code/src/commands/env/__tests__/env.test.ts",
+      "local": "src/commands/env/__tests__/env.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "12754e2ef42fa0247da5909e280f5d4064a981be3e16fbbde3ae17f53cfcbad0"
+    },
+    {
+      "upstream": "claude-code/src/commands/job/__tests__/job.test.ts",
+      "local": "src/commands/job/__tests__/job.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1c0c875c91120a6e0f2486ea4e9dd4d6ba3d1938b0b0430a8ff9cd1cb8ad5fd2"
+    },
+    {
+      "upstream": "claude-code/src/commands/local-memory/__tests__/launchLocalMemory.test.ts",
+      "local": "src/commands/local-memory/__tests__/launchLocalMemory.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2bdc861d73722850ef36daefff2c7c4253e8a52ea5a0a19eeef029a126baa086"
+    },
+    {
+      "upstream": "claude-code/src/commands/local-memory/__tests__/parseArgs.test.ts",
+      "local": "src/commands/local-memory/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e75a17fe83ae8bdea12d22eef908cddcad8ae905eea47fcb1245cb0205785e1d"
+    },
+    {
+      "upstream": "claude-code/src/commands/local-vault/__tests__/launchLocalVault.test.ts",
+      "local": "src/commands/local-vault/__tests__/launchLocalVault.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9c0e66498cf884f36d09c0f5efae705d3e7db9c8f454413a57607de307adc9bd"
+    },
+    {
+      "upstream": "claude-code/src/commands/local-vault/__tests__/parseArgs.test.ts",
+      "local": "src/commands/local-vault/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1faf055abfbbf065f97ef04bdd05cf529b5dc87e875fc115666f97ac0999ef5d"
+    },
+    {
+      "upstream": "claude-code/src/commands/login/__tests__/WorkspaceKeyInput.test.tsx",
+      "local": "src/commands/login/__tests__/WorkspaceKeyInput.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f242b9916c3adbc39db75465ac05f219f8b74ef6d69c1f96b9cf433ba42c681b"
+    },
+    {
+      "upstream": "claude-code/src/commands/login/__tests__/getAuthStatus.test.ts",
+      "local": "src/commands/login/__tests__/getAuthStatus.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ece9db32fdf48fc4b98f205cfabe653a0ad99d6e3c2fd5f8ae47f543018bd7a3"
+    },
+    {
+      "upstream": "claude-code/src/commands/memory-stores/__tests__/api.test.ts",
+      "local": "src/commands/memory-stores/__tests__/api.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7dcfde3a151c6879af4a82e3f1e67cc5a57698ead1d87aab86a56e145ede2bf4"
+    },
+    {
+      "upstream": "claude-code/src/commands/memory-stores/__tests__/index.test.ts",
+      "local": "src/commands/memory-stores/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "65f4275ceeb1cbcf3e66ae0b5ee23b3cc80fe4693e60b90ee52ab5e89aa242a3"
+    },
+    {
+      "upstream": "claude-code/src/commands/memory-stores/__tests__/launchMemoryStores.test.ts",
+      "local": "src/commands/memory-stores/__tests__/launchMemoryStores.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1c7e88f7ef46e66d1abd793269824ed4779bc9384d92d8071d437897def7562b"
+    },
+    {
+      "upstream": "claude-code/src/commands/memory-stores/__tests__/parseArgs.test.ts",
+      "local": "src/commands/memory-stores/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "08cdda6f4d88e56bfc60c80991346abafff2aefbcb85311616d026c1c34ace27"
+    },
+    {
+      "upstream": "claude-code/src/commands/onboarding/__tests__/onboarding.test.tsx",
+      "local": "src/commands/onboarding/__tests__/onboarding.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "755318aff002b4f27cb33ca07180c81b6d520decaa58e5ca1f98390c4e985009"
+    },
+    {
+      "upstream": "claude-code/src/commands/perf-issue/__tests__/perf-issue.test.ts",
+      "local": "src/commands/perf-issue/__tests__/perf-issue.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f5bc93fbd3a5116e7ef729a781af9f61d1e0b4248d8a73af629b8fb6bc4d5745"
+    },
+    {
+      "upstream": "claude-code/src/commands/plan/index.test.ts",
+      "local": "src/commands/plan/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "560e0f30668a7dcf7a9c5e60255dbaa8c144949c194dfe1e45513a2b074bf741"
+    },
+    {
+      "upstream": "claude-code/src/commands/plugin/__tests__/parseArgs.test.ts",
+      "local": "src/commands/plugin/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fa4d1e37fcab57863df95f05e9143ea3d4f5a9eff07f69bf1cde4d353cb8c2c7"
+    },
+    {
+      "upstream": "claude-code/src/commands/poor/__tests__/poorMode.test.ts",
+      "local": "src/commands/poor/__tests__/poorMode.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f57e52627ebcd45ef5178000e4b132716e01711bedbc0b5c54d705ea34fefa9d"
+    },
+    {
+      "upstream": "claude-code/src/commands/recap/__tests__/recap.test.ts",
+      "local": "src/commands/recap/__tests__/recap.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "113fce4dffe12933e41edbe025deaba45777116083378cee528a037c34a6d1e3"
+    },
+    {
+      "upstream": "claude-code/src/commands/resume/__tests__/resume.test.ts",
+      "local": "src/commands/resume/__tests__/resume.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "82fb990eaa2c4769c6e8bdae661ad8000ea06bae345f3a72dc25f080b6c22bfa"
+    },
+    {
+      "upstream": "claude-code/src/commands/review/__tests__/ultrareviewCommand.test.tsx",
+      "local": "src/commands/review/__tests__/ultrareviewCommand.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8a6bf3a24e665dae7f96203e5cb4ea0f83d0c030364de148ffb7877ab1ef728b"
+    },
+    {
+      "upstream": "claude-code/src/commands/schedule/__tests__/api.test.ts",
+      "local": "src/commands/schedule/__tests__/api.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a3171c48ba28e14fab0a230d8017b44f30e7bbb57755d5e4101c028d94ce638e"
+    },
+    {
+      "upstream": "claude-code/src/commands/schedule/__tests__/index.test.ts",
+      "local": "src/commands/schedule/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "173936f9d46c5a5069f9cd270a3cc8900bb372192ace387d335ff35d11cc1060"
+    },
+    {
+      "upstream": "claude-code/src/commands/schedule/__tests__/launchSchedule.test.ts",
+      "local": "src/commands/schedule/__tests__/launchSchedule.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "682e826078034f2dcba6152ce87634493ef37cb6134606d4b890a3f5bb9fcff4"
+    },
+    {
+      "upstream": "claude-code/src/commands/schedule/__tests__/parseArgs.test.ts",
+      "local": "src/commands/schedule/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "60726ac208ce5b4ff780d5345d1ec0478b58961b2577045661c74c825893ebaa"
+    },
+    {
+      "upstream": "claude-code/src/commands/share/__tests__/share-gh.test.ts",
+      "local": "src/commands/share/__tests__/share-gh.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1291805e02bd19fbd2423e09701c5ee8d229b70eaded2a5ff16fc34382c8c95a"
+    },
+    {
+      "upstream": "claude-code/src/commands/share/__tests__/share-projectdir.test.ts",
+      "local": "src/commands/share/__tests__/share-projectdir.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "62c83b27170ca0468085833ef1d50aa2321e9dc4f5a1d29eecb72e9c0703c525"
+    },
+    {
+      "upstream": "claude-code/src/commands/share/__tests__/share.test.ts",
+      "local": "src/commands/share/__tests__/share.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "87bf20185653eb40c3a806c28469b8b9b31369625f240b496045e89300cad757"
+    },
+    {
+      "upstream": "claude-code/src/commands/skill-learning/__tests__/skill-learning.test.ts",
+      "local": "src/commands/skill-learning/__tests__/skill-learning.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cd1f79bcca03f1cd940088ad27853261399d6992f7dd0488f8e37d94c8b6f082"
+    },
+    {
+      "upstream": "claude-code/src/commands/skill-store/__tests__/api.test.ts",
+      "local": "src/commands/skill-store/__tests__/api.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "02dc5b0467cc0169c9edabd39e29df92bf56ed434f45cfc096ad597268700c61"
+    },
+    {
+      "upstream": "claude-code/src/commands/skill-store/__tests__/index.test.ts",
+      "local": "src/commands/skill-store/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "124841eab6ccadf11cf60a398e375dc773e9045ce336fe201c34438249419f16"
+    },
+    {
+      "upstream": "claude-code/src/commands/skill-store/__tests__/launchSkillStore.test.ts",
+      "local": "src/commands/skill-store/__tests__/launchSkillStore.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e6ac8c49f82eedc648744109121fbbf1d9ff99d1ae39a18f4205e0a6f1b723cb"
+    },
+    {
+      "upstream": "claude-code/src/commands/skill-store/__tests__/parseArgs.test.ts",
+      "local": "src/commands/skill-store/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b74b17be2c99dbd8bc6cfa8720990faef5e8f473f0fb859ef28256299e7d069b"
+    },
+    {
+      "upstream": "claude-code/src/commands/summary/__tests__/summary.test.ts",
+      "local": "src/commands/summary/__tests__/summary.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5e17495d7f6776de8cf37765958e4db91c8e6ae6b57173c247926958f2f2d6df"
+    },
+    {
+      "upstream": "claude-code/src/commands/teleport/__tests__/index.test.ts",
+      "local": "src/commands/teleport/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "149db52e4967580458c4f67095a20c84308d1939430ba2547352c697959ae77a"
+    },
+    {
+      "upstream": "claude-code/src/commands/teleport/__tests__/launchTeleport.test.ts",
+      "local": "src/commands/teleport/__tests__/launchTeleport.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ecebbc2433a548c4770ee975dedd12c498e9731380b292b9a5220c4451738ae1"
+    },
+    {
+      "upstream": "claude-code/src/commands/tui/__tests__/tui.test.ts",
+      "local": "src/commands/tui/__tests__/tui.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "83b37dc8065139b876674a8a02a590c4bb369cb675ee4be9adc40346413a960f"
+    },
+    {
+      "upstream": "claude-code/src/commands/usage/__tests__/usage.test.ts",
+      "local": "src/commands/usage/__tests__/usage.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fd2ae0cac76798cee7cb29e5681b169007330c0701a7886db0848cb97670dcb6"
+    },
+    {
+      "upstream": "claude-code/src/commands/vault/__tests__/api.test.ts",
+      "local": "src/commands/vault/__tests__/api.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3082bb9b73e3d1d56a34de9b4a58470b0029e2def567b611563409fb1997d333"
+    },
+    {
+      "upstream": "claude-code/src/commands/vault/__tests__/index.test.ts",
+      "local": "src/commands/vault/__tests__/index.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "923a188dc7a17a86d2ae98b2a608d434f3897a95e67e035de4d50e3914e44e14"
+    },
+    {
+      "upstream": "claude-code/src/commands/vault/__tests__/launchVault.test.ts",
+      "local": "src/commands/vault/__tests__/launchVault.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "db878f410e0780c3b6c0323a45b02f3f9bd7105a2fb5a2515092612034af76ab"
+    },
+    {
+      "upstream": "claude-code/src/commands/vault/__tests__/parseArgs.test.ts",
+      "local": "src/commands/vault/__tests__/parseArgs.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "43df3040bd05c4d063d40e205ce1281b7c3adf3ac45290415baf331863894498"
+    },
+    {
+      "upstream": "claude-code/src/components/FeedbackSurvey/__tests__/useFrustrationDetection.test.tsx",
+      "local": "src/components/FeedbackSurvey/__tests__/useFrustrationDetection.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7a8127446824ef67285347bdd65d0be5296e643883dc40c4968e0e2d8ad571c0"
+    },
+    {
+      "upstream": "claude-code/src/components/HelpV2/__tests__/General.test.ts",
+      "local": "src/components/HelpV2/__tests__/General.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8da174e09b9838866a6270cd66d36ac9b411423fee09c5d4db7b130420c60554"
+    },
+    {
+      "upstream": "claude-code/src/components/LogoV2/__tests__/ChannelsNotice.test.ts",
+      "local": "src/components/LogoV2/__tests__/ChannelsNotice.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bd09376d9a167d3edb6bc0c1198a0a3e887f0f4a2ec445261a4a9a7981d60c36"
+    },
+    {
+      "upstream": "claude-code/src/components/__tests__/SearchExtraToolsHint.test.ts",
+      "local": "src/components/__tests__/SearchExtraToolsHint.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "70f508f8ce283f77779f719705579c7863ee0cf7d6e16454b83eebe6227beb75"
+    },
+    {
+      "upstream": "claude-code/src/components/__tests__/StatusLine.test.tsx",
+      "local": "src/components/__tests__/StatusLine.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bb605bb329853526f689667ded1fd0279eee1437952b0af03a1ce33de8574147"
+    },
+    {
+      "upstream": "claude-code/src/components/__tests__/compactMessages.test.ts",
+      "local": "src/components/__tests__/compactMessages.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "86f5803eebb4dc7e57978b95709f70a0e5c99309cf1a58a5b9f0af7fe733cf5d"
+    },
+    {
+      "upstream": "claude-code/src/components/agents/__tests__/SnapshotUpdateDialog.test.tsx",
+      "local": "src/components/agents/__tests__/SnapshotUpdateDialog.test.tsx",
+      "status": "byte-identical-upstream-test",
+      "sha256": "19b4be2e56bc8851d03abb720bb7835beeb1628cff675b9799530dbae23b10ce"
+    },
+    {
+      "upstream": "claude-code/src/components/skills/__tests__/filterSkills.test.ts",
+      "local": "src/components/skills/__tests__/filterSkills.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "154d455e17787b90ebe49e0df494b01fb13c80e6a98205b89c772f8d672021ea"
+    },
+    {
+      "upstream": "claude-code/src/constants/__tests__/promptEngineeringAudit.test.ts",
+      "local": "src/constants/__tests__/promptEngineeringAudit.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ec5423af80885bed6db62bbe82a99fe859ca9e6a8e46993fb46ca1728b863b0a"
+    },
+    {
+      "upstream": "claude-code/src/constants/__tests__/tools.test.ts",
+      "local": "src/constants/__tests__/tools.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "318084b6616bdcc9ac99e048f01ac01caddd09613d112460d9c4d6cda2673b35"
+    },
+    {
+      "upstream": "claude-code/src/daemon/__tests__/daemonMain.test.ts",
+      "local": "src/daemon/__tests__/daemonMain.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "dcc3f6eeab85aa5124032dea1eb4d40db93635e7dad5736f9f4d10ec1cecce4c"
+    },
+    {
+      "upstream": "claude-code/src/daemon/__tests__/state.test.ts",
+      "local": "src/daemon/__tests__/state.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a65d1708434cb10d825105962fd1b8b44b681108f2ecdf9104e587109b33f190"
+    },
+    {
+      "upstream": "claude-code/src/hooks/__tests__/replBridgePermissionHandlers.test.ts",
+      "local": "src/hooks/__tests__/replBridgePermissionHandlers.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6a7c9f6cd3b580284367a70a040ca5d83793c88cf81fbf03986d5a68fa68438b"
+    },
+    {
+      "upstream": "claude-code/src/hooks/__tests__/swarmPermissionPoller.test.ts",
+      "local": "src/hooks/__tests__/swarmPermissionPoller.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "97fbcf9684373c471007d719de0f6946e0ca6476ea062c34fe9edd3266bcbace"
+    },
+    {
+      "upstream": "claude-code/src/hooks/__tests__/useMasterMonitor.test.ts",
+      "local": "src/hooks/__tests__/useMasterMonitor.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5524eb3d57fc3a910e7fb144b41fe6e06b3f238c1b86dc4bfb15099e5a6f2058"
+    },
+    {
+      "upstream": "claude-code/src/hooks/__tests__/useScheduledTasks.test.ts",
+      "local": "src/hooks/__tests__/useScheduledTasks.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1c1b0640f950bdd96293ab39613a63edfee05d601aac03531a5314f9f41b3caa"
+    },
+    {
+      "upstream": "claude-code/src/hooks/toolPermission/handlers/__tests__/interactiveHandler.test.ts",
+      "local": "src/hooks/toolPermission/handlers/__tests__/interactiveHandler.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "544986423e0ad80c27d546f25751b546416b764b7b0f1b6d26cc63d539b3cd5e"
+    },
+    {
+      "upstream": "claude-code/src/jobs/__tests__/classifier.test.ts",
+      "local": "src/jobs/__tests__/classifier.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6df2aeaa53728b8c584550a25d8b5c3c689dade75c11a6b5fb8dc89c1f89fc83"
+    },
+    {
+      "upstream": "claude-code/src/jobs/__tests__/state.test.ts",
+      "local": "src/jobs/__tests__/state.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1c7d7d49bac37cbd2128b20c130c203bd5b7f5da753d9b8445c5db61eb40ba6f"
+    },
+    {
+      "upstream": "claude-code/src/jobs/__tests__/templates.test.ts",
+      "local": "src/jobs/__tests__/templates.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c8d8d068825ba398149562aca1c73f64f72b7e18c59c6ab067be3873f3145ea5"
+    },
+    {
+      "upstream": "claude-code/src/keybindings/__tests__/confirmation-keybindings.test.ts",
+      "local": "src/keybindings/__tests__/confirmation-keybindings.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "33b93924c97ae6869f7863ce341498b0127143b5408caf9ee80e91d4952f791b"
+    },
+    {
+      "upstream": "claude-code/src/proactive/__tests__/state.baseline.test.ts",
+      "local": "src/proactive/__tests__/state.baseline.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "10936e87cdabebf9cee706068a3c577dd278ed7b23dcda2a8244437cd37c1e5c"
+    },
+    {
+      "upstream": "claude-code/src/services/AgentSummary/__tests__/agentSummary.test.ts",
+      "local": "src/services/AgentSummary/__tests__/agentSummary.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "666d1127718faea0d55daaba6be054141c8586a6e391273c913685b81b5b64fc"
+    },
+    {
+      "upstream": "claude-code/src/services/AgentSummary/__tests__/summaryContext.test.ts",
+      "local": "src/services/AgentSummary/__tests__/summaryContext.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "df0acbc21f62e682de8c84cfd67193a5ea2eff7a4e7f0b30817f729245c2dfaf"
+    },
+    {
+      "upstream": "claude-code/src/services/AgentSummary/__tests__/summaryPrompt.test.ts",
+      "local": "src/services/AgentSummary/__tests__/summaryPrompt.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e2b05a0e55f1c32235f375d395a8b870172750810d5cf32994c06fe204efafca"
+    },
+    {
+      "upstream": "claude-code/src/services/MagicDocs/__tests__/prompts.test.ts",
+      "local": "src/services/MagicDocs/__tests__/prompts.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3b54be7596a9f8955be7ac6ca32ddfdfc2a54b399253e3b9ada970956e5cb05e"
+    },
+    {
+      "upstream": "claude-code/src/services/SessionMemory/__tests__/multiStore.test.ts",
+      "local": "src/services/SessionMemory/__tests__/multiStore.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e837e5767cfe87190a8a71891192380ea0fa921ff8c7023b89277fd24d7cf88e"
+    },
+    {
+      "upstream": "claude-code/src/services/SessionMemory/__tests__/prompts.test.ts",
+      "local": "src/services/SessionMemory/__tests__/prompts.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9343043c08d8c3dceaedccc79e1140e49379efee812df18ee47ff85130dac6be"
+    },
+    {
+      "upstream": "claude-code/src/services/acp/__tests__/agent.test.ts",
+      "local": "src/services/acp/__tests__/agent.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9c4837e095fa5024d6c2e57d1ca0e4b3abb17760c60dcf087dd2c88527d04509"
+    },
+    {
+      "upstream": "claude-code/src/services/acp/__tests__/bridge.test.ts",
+      "local": "src/services/acp/__tests__/bridge.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f90ae6c7f6e8e9f6c9f6d8047ad59612e7ac533498d3c06f50774a028cb21e4d"
+    },
+    {
+      "upstream": "claude-code/src/services/acp/__tests__/permissions.test.ts",
+      "local": "src/services/acp/__tests__/permissions.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "aeacdf7012a3fcdf1a1e6614d1b54fc6357e04d52ea0033a144306fbd03eadc6"
+    },
+    {
+      "upstream": "claude-code/src/services/acp/__tests__/promptConversion.test.ts",
+      "local": "src/services/acp/__tests__/promptConversion.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8cde4c646bfd24973400bc93bce4574d4c1f6e74f4ec7adf09d8cb57a96b6c59"
+    },
+    {
+      "upstream": "claude-code/src/services/api/__tests__/bedrockClient.test.ts",
+      "local": "src/services/api/__tests__/bedrockClient.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6112eb031037efcc014e0dd5353a87a36209058b7703cecaefb12bdc345123f5"
+    },
+    {
+      "upstream": "claude-code/src/services/api/__tests__/betaHeaders.test.ts",
+      "local": "src/services/api/__tests__/betaHeaders.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "39ffdbd8381b0b51287356d33c72d5982c73d8e7df3cc4df3bc281797a26038e"
+    },
+    {
+      "upstream": "claude-code/src/services/api/__tests__/ultrareviewPreflight.test.ts",
+      "local": "src/services/api/__tests__/ultrareviewPreflight.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d78d8e820bcb79ab1ccc4ea12534c9932183926a7354884cc848b53e324a0a06"
+    },
+    {
+      "upstream": "claude-code/src/services/api/grok/__tests__/client.test.ts",
+      "local": "src/services/api/grok/__tests__/client.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "af6e53b22a84e70b3195be35361a824ef30c4f8e52532b96035e420f236bb9e8"
+    },
+    {
+      "upstream": "claude-code/src/services/api/openai/__tests__/responsesAdapter.test.ts",
+      "local": "src/services/api/openai/__tests__/responsesAdapter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "6dc3a3869e72f737f8e86f530300e5658456833c28a9c2cd7dee4705fd3606da"
+    },
+    {
+      "upstream": "claude-code/src/services/api/openai/__tests__/thinking.test.ts",
+      "local": "src/services/api/openai/__tests__/thinking.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8a874de8a9bef628d405bb83ea3f8b64a6333b7b433e855bc9462cc50b0d3930"
+    },
+    {
+      "upstream": "claude-code/src/services/auth/__tests__/hostGuard.test.ts",
+      "local": "src/services/auth/__tests__/hostGuard.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "dc6246754db4a0c965d88868514594a29940273515dac0425b1019ebe748e82c"
+    },
+    {
+      "upstream": "claude-code/src/services/auth/__tests__/saveWorkspaceKey.test.ts",
+      "local": "src/services/auth/__tests__/saveWorkspaceKey.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9d80aa9f2af2bc2c07cf7bde5fae9e9bee3842c2a5ed4d4a1e8bb31278c868eb"
+    },
+    {
+      "upstream": "claude-code/src/services/compact/__tests__/cachedMicrocompact.test.ts",
+      "local": "src/services/compact/__tests__/cachedMicrocompact.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "185af7eea04aec807e2900a400d864e82d595bed66c5b3bc971a0d02c31a2a9f"
+    },
+    {
+      "upstream": "claude-code/src/services/compact/__tests__/grouping.test.ts",
+      "local": "src/services/compact/__tests__/grouping.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "70c7399c222e65bd74fdbec28604d1cfcd201a832c0da6330825eba13ce5b593"
+    },
+    {
+      "upstream": "claude-code/src/services/compact/__tests__/prompt.test.ts",
+      "local": "src/services/compact/__tests__/prompt.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c6b3cf97db8f8a82a8b026355e8b8ec33a1d9d36a8dc46a3b42652ac541f99c1"
+    },
+    {
+      "upstream": "claude-code/src/services/compact/__tests__/snipCompact.test.ts",
+      "local": "src/services/compact/__tests__/snipCompact.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1b42eacc9c1dcd53f0b26c8f7dbfe58e80fc65d08a38b244b387d03f16456f19"
+    },
+    {
+      "upstream": "claude-code/src/services/compact/__tests__/snipProjection.test.ts",
+      "local": "src/services/compact/__tests__/snipProjection.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d571b719468a983ed34968f772316627f450be968a2337f67c82d51616dd0a89"
+    },
+    {
+      "upstream": "claude-code/src/services/langfuse/__tests__/langfuse.test.ts",
+      "local": "src/services/langfuse/__tests__/langfuse.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "89dbb0bf45b1e0021e7d57b3250d054443afc5e4b9000dd0616fc487bc2d37c0"
+    },
+    {
+      "upstream": "claude-code/src/services/localVault/__tests__/keychain.test.ts",
+      "local": "src/services/localVault/__tests__/keychain.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "24f137be5791cbb3bc31e9dc2be01c3de409988c011bd1bef8a32b6d7db35611"
+    },
+    {
+      "upstream": "claude-code/src/services/localVault/__tests__/store.test.ts",
+      "local": "src/services/localVault/__tests__/store.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8404020e5451a96df4a504a8b2276487e798473134e8ced619aaea9ae649fa87"
+    },
+    {
+      "upstream": "claude-code/src/services/lsp/__tests__/closeAllFiles.test.ts",
+      "local": "src/services/lsp/__tests__/closeAllFiles.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a15e2534638e11bf4fb83759d45ed9932595643ddbd72cb11ba5e7cc43fe630b"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/channelAllowlist.test.ts",
+      "local": "src/services/mcp/__tests__/channelAllowlist.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "faa3d2b2f30d941a9797709fef00951caa51970da64995221c4f3f08ed21017d"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/channelNotification.test.ts",
+      "local": "src/services/mcp/__tests__/channelNotification.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0f2dc270ff6ca58aed67615ea05dc318dcb82c3c2b9d482cf7549f4e09a67eca"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/channelPermissions.test.ts",
+      "local": "src/services/mcp/__tests__/channelPermissions.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "44b1899b09172c3037206b7375e9d72a5c69a1cff1a5e11e5ad0fb965399c27b"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/envExpansion.test.ts",
+      "local": "src/services/mcp/__tests__/envExpansion.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5a956ee1af54ae1247cf1018c1927ee9c62492a0ae07503cf2a47d344857b01d"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/filterUtils.test.ts",
+      "local": "src/services/mcp/__tests__/filterUtils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "20460238fa6c1ab57f1d14e6947ba02a694e17a97a366a623f3bbd6dc090e263"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/mcpStringUtils.test.ts",
+      "local": "src/services/mcp/__tests__/mcpStringUtils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f6e04d2b4b5cf53dd4d6ec0a1afb1cc1b49d2f7287fbb2ffefe517df7f1bfa5c"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/normalization.test.ts",
+      "local": "src/services/mcp/__tests__/normalization.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4cd20aab2b25e6d7b6019d2b54cb3fe827ecdf1d1947323b109b843c35902f91"
+    },
+    {
+      "upstream": "claude-code/src/services/mcp/__tests__/officialRegistry.test.ts",
+      "local": "src/services/mcp/__tests__/officialRegistry.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f39762b35e15ed135ce01571994091cf1b316e6313abdd06d617aefdba4d81f4"
+    },
+    {
+      "upstream": "claude-code/src/services/providerRegistry/__tests__/loader.test.ts",
+      "local": "src/services/providerRegistry/__tests__/loader.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a49f50bd5bf0cef303b1afe26baa001cd957ff1fa2bf14a7473b08f5aa50c89f"
+    },
+    {
+      "upstream": "claude-code/src/services/providerRegistry/__tests__/providerCompatMatrix.test.ts",
+      "local": "src/services/providerRegistry/__tests__/providerCompatMatrix.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "46ae9d6468e386821ae5fd4cfb7959432d9ad8005a5d5b8f53a8cd31de4fed2d"
+    },
+    {
+      "upstream": "claude-code/src/services/providerRegistry/__tests__/switcher.test.ts",
+      "local": "src/services/providerRegistry/__tests__/switcher.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c2a4ce7b2f2b2f39efd90487cf04a12427b4841655087c4cbbe836c7a8865e5b"
+    },
+    {
+      "upstream": "claude-code/src/services/providerUsage/__tests__/providerUsage.test.ts",
+      "local": "src/services/providerUsage/__tests__/providerUsage.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ffc4e91fcb60b64571a43a821bdfdd980759dbd86c62c679af993a406c22dd6a"
+    },
+    {
+      "upstream": "claude-code/src/services/searchExtraTools/__tests__/prefetch.test.ts",
+      "local": "src/services/searchExtraTools/__tests__/prefetch.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5df8598ae5a43f407572955b0a79e0f088bb722f0dbeb44fc258da911217c8a5"
+    },
+    {
+      "upstream": "claude-code/src/services/searchExtraTools/__tests__/toolIndex.test.ts",
+      "local": "src/services/searchExtraTools/__tests__/toolIndex.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "903b0574b309e821cc1ede4f00a9d7f848540b6d6ef3bce9ce610e08db14f2d6"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/evolution.test.ts",
+      "local": "src/services/skillLearning/__tests__/evolution.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bb3111f6193271b72f0ce05360e6886b561048c4f972974ef2f86420fa4dbd8d"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/instinctStore.test.ts",
+      "local": "src/services/skillLearning/__tests__/instinctStore.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "edcb495a11723c4c27a205687c4ab703065e0cc50b4b8a4bf47d7da7505aba0a"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/learningPolicy.test.ts",
+      "local": "src/services/skillLearning/__tests__/learningPolicy.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2427e5b60164e23412613c70d3234ee3363bc53a09aaba2a8167295318cd73fa"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/observationStore.test.ts",
+      "local": "src/services/skillLearning/__tests__/observationStore.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e789526aade3490e0cf6fa45317928bacd551af4b56d0fa81bb55376b78f65e4"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/observerBackend.test.ts",
+      "local": "src/services/skillLearning/__tests__/observerBackend.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c2c6ae8f7f7df6aee0bd1274552a38547142547cc3321338c0258f23fe454514"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/projectContext.test.ts",
+      "local": "src/services/skillLearning/__tests__/projectContext.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "de1823978643e4634b48fa504866317222b61e4126bb366e7be874442ee13d65"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/promotion.test.ts",
+      "local": "src/services/skillLearning/__tests__/promotion.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e7890e532c0b7107c9cdde32f8bce77f6f7ee73f324529d12d58ba979ff3128b"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/runtimeObserver.test.ts",
+      "local": "src/services/skillLearning/__tests__/runtimeObserver.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4fdb627b81f49c2c3ad47f861a7d28be1377aac44085ae9329039eafee78e426"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/sessionObserver.test.ts",
+      "local": "src/services/skillLearning/__tests__/sessionObserver.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "dc5ac0a1ac4df86b8d560b37bfb036c47f269892f86359dbcbb9b20524656f8d"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/skillDedup.test.ts",
+      "local": "src/services/skillLearning/__tests__/skillDedup.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "481e7dd909693d42f8f05ea62e9389318d322e521dbae03d55ce6199101b3a93"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/skillGapStore.test.ts",
+      "local": "src/services/skillLearning/__tests__/skillGapStore.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bd3b7dddc0e527773d72c792b9e2b36235d2913aebb8ff3f7ce73eb4d0fa3279"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/skillGenerator.test.ts",
+      "local": "src/services/skillLearning/__tests__/skillGenerator.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "aedf71b050e2bbdff5f46ad32b09b81e392351a8ccf5ad9220a533c8bf7ba6d0"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/skillLearningSmoke.test.ts",
+      "local": "src/services/skillLearning/__tests__/skillLearningSmoke.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "848bbb668443ca2208722b6d2a4bfd599d3d4016a4fd7adce4516d695b33311e"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/skillLifecycle.test.ts",
+      "local": "src/services/skillLearning/__tests__/skillLifecycle.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a0ce1cfae16dcb89bbeebb0bc230d73cd79b2ea8918a43169156ce3f461e9a2f"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/throttleAndCircuitBreaker.test.ts",
+      "local": "src/services/skillLearning/__tests__/throttleAndCircuitBreaker.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "77807cc2657447038f80f0fc3a5207f581d6285ac33e721c35b3d1e8eab8034c"
+    },
+    {
+      "upstream": "claude-code/src/services/skillLearning/__tests__/toolEventObserver.test.ts",
+      "local": "src/services/skillLearning/__tests__/toolEventObserver.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "77a152edf2ae3ee1ed844aaff4aaf8fa252709e4b506b937ecdb4e13eae124b1"
+    },
+    {
+      "upstream": "claude-code/src/services/skillSearch/__tests__/intentNormalize.test.ts",
+      "local": "src/services/skillSearch/__tests__/intentNormalize.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "96aed38a42f859b1b6f33137b50d2949c9c42577602fa1e6fffa77c295190f95"
+    },
+    {
+      "upstream": "claude-code/src/services/skillSearch/__tests__/localSearch.test.ts",
+      "local": "src/services/skillSearch/__tests__/localSearch.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a7675c1a7aca99d269f1c1ca54b3e4481b70cae1034b53289b1c746189e2ef8e"
+    },
+    {
+      "upstream": "claude-code/src/services/skillSearch/__tests__/prefetch.extractQuery.test.ts",
+      "local": "src/services/skillSearch/__tests__/prefetch.extractQuery.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "eac20e8ebabf28da1da1ba4f1b58ffc552e6f2bfdac10a216a875a3793d2aff8"
+    },
+    {
+      "upstream": "claude-code/src/services/skillSearch/__tests__/prefetch.test.ts",
+      "local": "src/services/skillSearch/__tests__/prefetch.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f5bec1eb97305019ad634edb69168f070177d2865e1793a2b16c49c6a9c3139a"
+    },
+    {
+      "upstream": "claude-code/src/services/tools/__tests__/StreamingToolExecutor.test.ts",
+      "local": "src/services/tools/__tests__/StreamingToolExecutor.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bf39e0b57816fdf84621092da1bc9335035805be6f08be84d10bd6c27c29f4a1"
+    },
+    {
+      "upstream": "claude-code/src/ssh/__tests__/SSHSessionManager.test.ts",
+      "local": "src/ssh/__tests__/SSHSessionManager.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5fd343940131e74112f3efa88bf50a2eccf36be33b4ddc51d85382a3cfff1ad8"
+    },
+    {
+      "upstream": "claude-code/src/state/__tests__/store.test.ts",
+      "local": "src/state/__tests__/store.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ad6885434cb4d7e724f45b48884069ac8b21fb1d2aa446ecaf03862aacd51543"
+    },
+    {
+      "upstream": "claude-code/src/tasks/LocalAgentTask/__tests__/LocalAgentTask.test.ts",
+      "local": "src/tasks/LocalAgentTask/__tests__/LocalAgentTask.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2622639a4bb8d901a5c65cc63f11eee55132e13286a6128781a8531d834120dc"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/CircularBuffer.test.ts",
+      "local": "src/utils/__tests__/CircularBuffer.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9f7009c3b61fb37dbbfd54b073725b3fbb56bae01318b81aeb8aa56711dc1afb"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/abortController.test.ts",
+      "local": "src/utils/__tests__/abortController.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3b82489c8068eca12b09a95825f43dd837e5500d8225ef34370edc386af437b2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/agentToolFilter.test.ts",
+      "local": "src/utils/__tests__/agentToolFilter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ba7264183ff39747b0e05e67e886f918461b6ae4e83ec992b6b631bdfc957bd2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/argumentSubstitution.test.ts",
+      "local": "src/utils/__tests__/argumentSubstitution.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "15db56307753eaa9ebd92026f026ae56adb8e61bd865f02d46d4980ffad1bb23"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/array.test.ts",
+      "local": "src/utils/__tests__/array.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bf0eca2aefb8d927969532218fccc5a3c6d18869e659f357be08d7e3c69bc125"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/autonomyAuthority.test.ts",
+      "local": "src/utils/__tests__/autonomyAuthority.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "48455a22607ee3881eaaf8b6f705e8c50b15c83986f73b1fcc99bf4ab43ba0c0"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/autonomyCommandSpec.test.ts",
+      "local": "src/utils/__tests__/autonomyCommandSpec.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1cb6fcbcde5645c853b782571b6b5b0f7e2d5e084466b9db6ac86cd8f1095a96"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/autonomyFlows.test.ts",
+      "local": "src/utils/__tests__/autonomyFlows.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4634b3413aff98c6c88865505e7467bc8b45aee659bd183bbee7d150811b21f7"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/autonomyPersistence.test.ts",
+      "local": "src/utils/__tests__/autonomyPersistence.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7f6acda0a28bb593e44ca2273108b04bc08a33a86dc3c1f3e9ebaa586a67eda0"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/autonomyQueueLifecycle.test.ts",
+      "local": "src/utils/__tests__/autonomyQueueLifecycle.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "10905fcf8949e6db3b9897dbf4b3bb48fef8f2df3a5db6039b74610ccdc4a1b9"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/autonomyRuns.test.ts",
+      "local": "src/utils/__tests__/autonomyRuns.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9929986dccadaf10cfea3a3814f6aba6b739240b1ddbc99dd8df657314a1b530"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/bufferedWriter.test.ts",
+      "local": "src/utils/__tests__/bufferedWriter.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "df1ff02f254d7073796ae334ab9cb68a20a6356031fd8ee2b62923fd3cfd859f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/bunHashPolyfill.test.ts",
+      "local": "src/utils/__tests__/bunHashPolyfill.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5ba21172cc7daec10ecd864c1bd096168d17cf638ee8408c85ac6e40d5c72db4"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/cacheStats.test.ts",
+      "local": "src/utils/__tests__/cacheStats.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "20cc5d704c1148158ee9ea13708f229ad5452ca4f0bb9e7fc41dcfa592f6e557"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/claudemd.test.ts",
+      "local": "src/utils/__tests__/claudemd.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "62f2c101a17bbfda19adcdb91ecdc404474573f5b1a0c687b16d9ab32eb4f18c"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/collapseHookSummaries.test.ts",
+      "local": "src/utils/__tests__/collapseHookSummaries.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d9c858e0335cabbd4df3db2d2828ca559155589625d4a1a77b4880e5b0182856"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/collapseTeammateShutdowns.test.ts",
+      "local": "src/utils/__tests__/collapseTeammateShutdowns.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "aade52e52c7fd7c6a4a37b0b3b05f7cedee1b332544050ecfda9d78d0886e10c"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/configConstants.test.ts",
+      "local": "src/utils/__tests__/configConstants.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d1dfe1178aa5e19fe5c74345ac74fc42acb7cd76cfe14008d28b71d5aaf50061"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/contentArray.test.ts",
+      "local": "src/utils/__tests__/contentArray.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7b97f3a4294672a832a126e0602c6680a5e9774bdb753ef3ee292ecb02675f24"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/controlMessageCompat.test.ts",
+      "local": "src/utils/__tests__/controlMessageCompat.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5b787312f0bbf5be2c84b49ff25a39936df5f180e25b32e59ec6e1c19577ee2f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/cron.test.ts",
+      "local": "src/utils/__tests__/cron.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d353b536d2046a214b345814af9527b4f9b18098173817dabf72d5bf154533f2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/cronScheduler.baseline.test.ts",
+      "local": "src/utils/__tests__/cronScheduler.baseline.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "608d003f19eace5bdc47210b9995b25d1d7d6d6ce96f5069e445af9a290611e2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/cronTasks.baseline.test.ts",
+      "local": "src/utils/__tests__/cronTasks.baseline.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9a9b58fec527816645e5b70216ca639d10b4e85b8ae03771efa4d63d74d2fbe5"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/detectRepository.test.ts",
+      "local": "src/utils/__tests__/detectRepository.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "15fa6a08051098586c0b7a9f792075d1b947fb89b1160965b49c560a84a0244d"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/diff.test.ts",
+      "local": "src/utils/__tests__/diff.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "058ade887026650b754262caef401fe69c1ca23b12fb715db70fd69f4d792fce"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/directMemberMessage.test.ts",
+      "local": "src/utils/__tests__/directMemberMessage.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "757a6ae5453cecbc9ad0009968af739480437b0322831e5fa5c869b463912f9b"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/displayTags.test.ts",
+      "local": "src/utils/__tests__/displayTags.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3dca201111f54bb3628f2e15bbb3c2060ed05bfb14951db7334c6efaff1da045"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/earlyInput.test.ts",
+      "local": "src/utils/__tests__/earlyInput.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "84ae9038bbfc233abb7442dc32cab96ab0c09345fed28f3e911f6931cf5bab9d"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/effort.test.ts",
+      "local": "src/utils/__tests__/effort.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a522d0468fe67c15e97d7c6424af76d22733a1ea8ead0acc7b2fdaadc5d933d1"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/envUtils.test.ts",
+      "local": "src/utils/__tests__/envUtils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3b5908e0cc4c8065cd85e7fb649a3863c6956c1c6f8c328c62e1e5f562997b75"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/envValidation.test.ts",
+      "local": "src/utils/__tests__/envValidation.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c6ceb77a39f74803c303b1873e6f0424a4acc6c4a42356b179fba9b63aa2fd97"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/errors.test.ts",
+      "local": "src/utils/__tests__/errors.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8f709c9130703cdf62511cf94316f2822b5f665968eae8aa1f4a30a2e278bfbe"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/file.test.ts",
+      "local": "src/utils/__tests__/file.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "36df403e9deabfa77209441f6ca13ba7f095e8cf6b6da87fd212ee8f7f218bc8"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/fileStateCache.test.ts",
+      "local": "src/utils/__tests__/fileStateCache.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a70ac212531c4664af3705893172adb8a9ac044421335cdb9e4ec87789abcfa9"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/fingerprint.test.ts",
+      "local": "src/utils/__tests__/fingerprint.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1472030b7c0487772a9aaf5b325108a0bd59bbea740d0c6691561811e45b5b8f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/format.test.ts",
+      "local": "src/utils/__tests__/format.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "ce661725fa16f67119efd880c999b5bb79f3e2dc4ebcf01884e3527820de5f6f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/formatBriefTimestamp.test.ts",
+      "local": "src/utils/__tests__/formatBriefTimestamp.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "658f5460baa3834362a136efae000903ffc0064fea483aa7448fec98907297b2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/frontmatterParser.test.ts",
+      "local": "src/utils/__tests__/frontmatterParser.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3c15feac6b6341abac6c6ff1cd9326af1f87ff273e98dfe20c95673006522e8f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/generators.test.ts",
+      "local": "src/utils/__tests__/generators.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "014a253fbc382cbec5c34bf4a565728b0076617b5af42cc6707aa32531d9e794"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/git.test.ts",
+      "local": "src/utils/__tests__/git.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "15f067009cead005a2012073d609071b263e6bc80a17df4659a294d1f5074ead"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/gitDiff.test.ts",
+      "local": "src/utils/__tests__/gitDiff.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d4711262569fa83fede029542bd214877a46dfe2ef821e4591870c1b5d34c9be"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/glob.test.ts",
+      "local": "src/utils/__tests__/glob.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5dbc0d5b245f0162985ac7d3a1abe52b6f58c89fb776e79247fda0e0d08b7d4e"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/groupToolUses.test.ts",
+      "local": "src/utils/__tests__/groupToolUses.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "31ed3bbc91ad2fe627fe8fdfd9b58e815744c557eb34c8431b2a58dbc5251051"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/hash.test.ts",
+      "local": "src/utils/__tests__/hash.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a722fb598a051f6488cc7c35ecf608cd63e6d3405d518717579db1a2ba868eba"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/horizontalScroll.test.ts",
+      "local": "src/utils/__tests__/horizontalScroll.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "edee1c7e13dd046756ee32e50b2b7c0736c450c3af5bcff37a36bf7390075c4f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/hyperlink.test.ts",
+      "local": "src/utils/__tests__/hyperlink.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "52c8e03cc40939f3d082e9c048b185cc4636b46df35b158554c6015cdf63761c"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/imageResizer.test.ts",
+      "local": "src/utils/__tests__/imageResizer.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "52699ce348c65dce45452cb450cfa6a61083f10aaf5808c9592a32d5bc8a2420"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/json.test.ts",
+      "local": "src/utils/__tests__/json.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f5f4cc3d485346fe532e288c3867de388815340d0f659c7cf45d23ca5964ce53"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/lanBeacon.test.ts",
+      "local": "src/utils/__tests__/lanBeacon.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5a9b99d3a56beefc8fde027443c386958b3384d5d4408fdea7c700fc611c3b9d"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/language.test.ts",
+      "local": "src/utils/__tests__/language.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "229a09cc5fca2cc7123b346c0c33a890ccdac74800384b180ac85b443c9f0297"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/lazySchema.test.ts",
+      "local": "src/utils/__tests__/lazySchema.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "dcb04bad2375e0ab19f347161ca562e2291c355612bb4a17000d80b8fcb30950"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/localValidate.test.ts",
+      "local": "src/utils/__tests__/localValidate.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "08079dc7dbdcfcb006a2baa287a5369aaead98dc780aba16be11437270347dbb"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/markdown.test.ts",
+      "local": "src/utils/__tests__/markdown.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2ae0d3d557a0cd9698828634d29855e83a1a5d6190749cd5f9d8d8b8e6959675"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/memoize.test.ts",
+      "local": "src/utils/__tests__/memoize.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c62e6ee21bf974fb3b07f3182b400c982f925d9f22e0425a2bf163f786a9c380"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/messageQueueManager.test.ts",
+      "local": "src/utils/__tests__/messageQueueManager.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8531d83896dfb1770b178b4e39096d51856cbd9300cf98f234581b95d642e142"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/messages.test.ts",
+      "local": "src/utils/__tests__/messages.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f976cae0548cd96e0da63c0c778ee0c615c7d3c2a5344a0790d2eb084c404a30"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/modelCost.test.ts",
+      "local": "src/utils/__tests__/modelCost.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c4986f48420e56efc0ca09b91d0177aba7803e649e7849579001b16791ed81b6"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/modifiers.test.ts",
+      "local": "src/utils/__tests__/modifiers.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7515e153ff8e4c20ab4b917b353b62519be199a83414cb798b7917fb486adf2b"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/ndjsonFramer.test.ts",
+      "local": "src/utils/__tests__/ndjsonFramer.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0353fdccd1d8781d9cd3f7a2f9d6895b92e1b2a40373d79cd889dc63236d4924"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/notebook.test.ts",
+      "local": "src/utils/__tests__/notebook.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3b6a4f70cc08b0e477ef3af0dec0187d69f3eac622cb2716d95e1c92714e0153"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/objectGroupBy.test.ts",
+      "local": "src/utils/__tests__/objectGroupBy.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c2464f97d638ca9c223a4b1dcd0b46b681878cb9d22707d2bc32e9b5e431eeb2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/path.test.ts",
+      "local": "src/utils/__tests__/path.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c5fe48500cf4186537e6c393d4892f0d13fe3126db2376d729392fb13f076bf8"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/peerAddress.test.ts",
+      "local": "src/utils/__tests__/peerAddress.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "63d3ca7b3e6111a1a7f066934827c4480e545613a0520732ccc0080074c5f2e5"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/pipeMuteState.test.ts",
+      "local": "src/utils/__tests__/pipeMuteState.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f36068c455646bd25bbebf8997793392d477db71fbf079539cf49b63322ac684"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/pipePermissionRelay.test.ts",
+      "local": "src/utils/__tests__/pipePermissionRelay.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7cf477bd44b58b66bc3a151ce863d7963eba3a0bf5d5c6e930103dfd9eff5fdb"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/pipeStatus.test.ts",
+      "local": "src/utils/__tests__/pipeStatus.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cf9c31fb00b00809f8f6af8c77ed149df72b168f5e4ac98c0c1f60a13271bfbf"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/pipeTransport.test.ts",
+      "local": "src/utils/__tests__/pipeTransport.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1f0ad46661213c60742e670ec2743293681246b7b63327eb1fc135ba0e14d87d"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/privacyLevel.test.ts",
+      "local": "src/utils/__tests__/privacyLevel.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e0d2b649ad6fe8ba4747c8d1d4f275c6830b5a4636d99611fc9cccaf432c7591"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/queueProcessor.test.ts",
+      "local": "src/utils/__tests__/queueProcessor.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4dcc66d5551eefb8b0b5caf136ff84e09040a575b5ba5c6e1e6dad6075c32ec3"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/remoteControlStatus.test.ts",
+      "local": "src/utils/__tests__/remoteControlStatus.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7f89b88cbf81e8f625f4a52ed1805158ed8ea2054f15d0949f258571f5687aed"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/remoteTriggerAudit.test.ts",
+      "local": "src/utils/__tests__/remoteTriggerAudit.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0f832cdba0c550e3dd1ee2c82a2a4be0de79469614fe3ea18c1bd76d769cc1a8"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/sanitization.test.ts",
+      "local": "src/utils/__tests__/sanitization.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "eaa1504c8087996d3c4e5894746308e0f92f1b8536fc89d14be478c391a6b3da"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/semanticBoolean.test.ts",
+      "local": "src/utils/__tests__/semanticBoolean.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "326169a509b56d6c37b9bea72ff88d2fdb7a6c42050d72396e97db5ab57d65af"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/semanticNumber.test.ts",
+      "local": "src/utils/__tests__/semanticNumber.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "81fd9b114736bdeba2c41dbe0347ca53d9a42ee1213935aaf382bcde553ed9ec"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/semver.test.ts",
+      "local": "src/utils/__tests__/semver.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "41072b036e3e19eb2a06dcb6af447b33af197db77b151ed26c859ec058828c34"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/sequential.test.ts",
+      "local": "src/utils/__tests__/sequential.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a9d62bb2d52f52169e1d3342526ec09fc2d3535691fa0bf21bd086bfd2281225"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/sessionState.test.ts",
+      "local": "src/utils/__tests__/sessionState.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "7e9f82ebae252f11fe014149448938ad994a8e5aff799c17446dc05860742a68"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/set.test.ts",
+      "local": "src/utils/__tests__/set.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4242033cd475c844b643c32771a563a88211b0d45d57293ec390019f9fd8eebd"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/slashCommandParsing.test.ts",
+      "local": "src/utils/__tests__/slashCommandParsing.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4bffa3c2cf21f27227d7fd7ba98d73d041338a90bbd28db9dd9cfff91a34d60a"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/sleep.test.ts",
+      "local": "src/utils/__tests__/sleep.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1e6c99e303a448b7ca9fc6e1b34d9aefe3d002e0beb6dce7027f573954fe9cb4"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/sliceAnsi.test.ts",
+      "local": "src/utils/__tests__/sliceAnsi.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4b642b64f2a55bc2df17eb5a9b5e25e972e21ec8a676cc303f1e72690094b26a"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/stream.test.ts",
+      "local": "src/utils/__tests__/stream.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2ae97092f2172073b25f25aaee5f95375a8ac6fe98f96ecb585b54d3af2d65a2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/stringUtils.test.ts",
+      "local": "src/utils/__tests__/stringUtils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "44a032a9c1acda190e00675e6610140b40aa4fdd29e362371d3a573fa8ed26af"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/systemPrompt.test.ts",
+      "local": "src/utils/__tests__/systemPrompt.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cbba120f306c69bd94d466155bd9c15007856f5413093ae626525ff8e4174b08"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/taggedId.test.ts",
+      "local": "src/utils/__tests__/taggedId.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f2ab14479d16e18da4a9c1447c9298f815505bfaceed193ed0595a1f6f3dd245"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/taskStateMessage.test.ts",
+      "local": "src/utils/__tests__/taskStateMessage.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d6803000e0abd6e3e6acc21641e787539537cfbbad5b22443118c0bf4385f654"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/taskSummary.test.ts",
+      "local": "src/utils/__tests__/taskSummary.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "718656ea007932ddeeef0f3e3101c7841f41153c10e7a729f18b7a8f288d37a2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/tasks.test.ts",
+      "local": "src/utils/__tests__/tasks.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2d5cadd9136b746df5f025bd970bb13d74d40774354cf25b3b12a639c7bd29d8"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/teamDiscovery.test.ts",
+      "local": "src/utils/__tests__/teamDiscovery.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1b25851784e1e05e02bfe9b064a06b093c3589389b569c18dee99c0b149117e2"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/teammateMailbox.test.ts",
+      "local": "src/utils/__tests__/teammateMailbox.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "83074e923540e9db485073444cff0cfd36fae68ce525c643d02b35a94b70fb3d"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/textHighlighting.test.ts",
+      "local": "src/utils/__tests__/textHighlighting.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "265150b1e0ca4b4dd1aa26fafdb2c89d4f077910564a15ca6646d962d71ee570"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/tokenBudget.test.ts",
+      "local": "src/utils/__tests__/tokenBudget.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "4c9b1f91aba97640377588a8a68a4aa6e2e539a6d90fd74e3af20b11b64e0d58"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/tokens.test.ts",
+      "local": "src/utils/__tests__/tokens.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "bfcdac1a1d468194449243e1455942a519d52a037ffe9042f63878e4f47cba75"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/treeify.test.ts",
+      "local": "src/utils/__tests__/treeify.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3c8dfbb10830a6974ecfb585809a2e46e84568dc857d27633ffd0148e2c2952f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/truncate.test.ts",
+      "local": "src/utils/__tests__/truncate.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "150128e92df1e246afc5e301088e34ef6070d128a8b8cdd7c53d5da31cef49ea"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/udsMessaging.test.ts",
+      "local": "src/utils/__tests__/udsMessaging.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d76b90c135f084062ffee38b4b4e970bbd0c5cfee6c7df7a88e972aa01fa704f"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/udsResponseReader.test.ts",
+      "local": "src/utils/__tests__/udsResponseReader.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "53696e7a351983c4201d6a3f5f8f23d8b3f9e045a9b7940e9da755d53a11f95d"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/userPromptKeywords.test.ts",
+      "local": "src/utils/__tests__/userPromptKeywords.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "629bee7643f75cf7cac0c8832a0e42b795828910fc5685a492a3c1c2feaddcdd"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/uuid.test.ts",
+      "local": "src/utils/__tests__/uuid.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f2d7fb896ed344591b5999751ea413cbdb71ebcb8e4f1e282bb5f3e7c62f037b"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/windowsPaths.test.ts",
+      "local": "src/utils/__tests__/windowsPaths.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "02348a9bfe5a8ff7e8b168f52b42e1871707cd1ae07e1b97e69989b0cb1ae5e8"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/withResolvers.test.ts",
+      "local": "src/utils/__tests__/withResolvers.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "79e356fc96c4f54efbba655fae4597988ca4da36f462ec32cb85fd5948da4151"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/words.test.ts",
+      "local": "src/utils/__tests__/words.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "82a50753139d281a6bb95b5066397e5498a21354eac802f31d87d851f10e1e1a"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/xdg.test.ts",
+      "local": "src/utils/__tests__/xdg.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "c08c26cfc61fbc02a41fba96ad52ada0049caa02fc37103530115d794f323d2b"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/xml.test.ts",
+      "local": "src/utils/__tests__/xml.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8a61d0ba577ff536c4f6cac5e63960db7a34106216da58ae7e6c1bc4acaed7d6"
+    },
+    {
+      "upstream": "claude-code/src/utils/__tests__/zodToJsonSchema.test.ts",
+      "local": "src/utils/__tests__/zodToJsonSchema.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2eb45891ce5b7666866c4b5e830479ccdb803077e231bc82e10181703bf051c5"
+    },
+    {
+      "upstream": "claude-code/src/utils/deepLink/__tests__/protocolHandler.test.ts",
+      "local": "src/utils/deepLink/__tests__/protocolHandler.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "212c42dbc2e671d353b00e084ff94996f078c4294a09e4b7ba5873dfcc4f8d97"
+    },
+    {
+      "upstream": "claude-code/src/utils/git/__tests__/gitConfigParser.test.ts",
+      "local": "src/utils/git/__tests__/gitConfigParser.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "646e786ba48629e8fb33439a156a392fa283601b35fe31036786f3c238da3ffa"
+    },
+    {
+      "upstream": "claude-code/src/utils/hooks/__tests__/skillImprovement.test.ts",
+      "local": "src/utils/hooks/__tests__/skillImprovement.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "e79d6bbdc3bf96ce736c1deb4b5bbbb62ae55cbdb88eb278949a7dcb4f2cb9a1"
+    },
+    {
+      "upstream": "claude-code/src/utils/model/__tests__/aliases.test.ts",
+      "local": "src/utils/model/__tests__/aliases.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "27a9c03f4d15cd0b6c371e293a9d198cbbd5e491226a9762f8c54757f8fba1de"
+    },
+    {
+      "upstream": "claude-code/src/utils/model/__tests__/getDefaultOpusModel.test.ts",
+      "local": "src/utils/model/__tests__/getDefaultOpusModel.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "05ec5519f1fa4fb9b8adab2c0fda52bc76b8bcb7d6ac2ed36b61e963a64b92c6"
+    },
+    {
+      "upstream": "claude-code/src/utils/model/__tests__/model.test.ts",
+      "local": "src/utils/model/__tests__/model.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "3bc249a80aff0a47d6518c56781125fd5f500537d58983050243a22439d25e46"
+    },
+    {
+      "upstream": "claude-code/src/utils/model/__tests__/providers.test.ts",
+      "local": "src/utils/model/__tests__/providers.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "badf0a1900a43933d8313a354879fee87b068c756b8f0f5a5ec47cd9c9898d31"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/PermissionMode.test.ts",
+      "local": "src/utils/permissions/__tests__/PermissionMode.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9938c37b0ad8f58f50b972a0f027db0b98eab8ffff1870d2df0219908c4512dd"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/dangerousPatterns.test.ts",
+      "local": "src/utils/permissions/__tests__/dangerousPatterns.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "aa2b2fe6dddb16e043b44950e7d99e91998370cd9cf4f36130008267137f85a3"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/getNextPermissionMode.test.ts",
+      "local": "src/utils/permissions/__tests__/getNextPermissionMode.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d5e11df063ff7af5c132524a2682a9482dda2fc88aad8f2218470f346f9d32fb"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/permissionRuleParser.test.ts",
+      "local": "src/utils/permissions/__tests__/permissionRuleParser.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "1db4b5250be00d7701c6fa63efed3b7d24e5429df3deca3d643fab9f557b1389"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/permissionSetup.test.ts",
+      "local": "src/utils/permissions/__tests__/permissionSetup.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "fd03a0694f0ea1f13b834fd0ad8ef8ff2f6f541fb926b2b10224ef86403c2ced"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/permissions.test.ts",
+      "local": "src/utils/permissions/__tests__/permissions.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "214d9bb5683f29ead9dc487dc7e4354c9a7df548efbf0feee2cfbd1602eae4af"
+    },
+    {
+      "upstream": "claude-code/src/utils/permissions/__tests__/shellRuleMatching.test.ts",
+      "local": "src/utils/permissions/__tests__/shellRuleMatching.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "cdc46c6020ddb0261cea78b0a21b430c14cf418728a754b1f9c16c3c9d0fbd6d"
+    },
+    {
+      "upstream": "claude-code/src/utils/processUserInput/__tests__/processSlashCommand.test.ts",
+      "local": "src/utils/processUserInput/__tests__/processSlashCommand.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "29af3e747f02286ffc52c3e255a1e0c47f5c1070ff6904cfeb38981ec034dc43"
+    },
+    {
+      "upstream": "claude-code/src/utils/settings/__tests__/config.test.ts",
+      "local": "src/utils/settings/__tests__/config.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "0390a5b13f2cd23bea64b4b5080769afdd58a6f08fa0df726eeb4c4225a59575"
+    },
+    {
+      "upstream": "claude-code/src/utils/settings/__tests__/permissionValidation-vault.test.ts",
+      "local": "src/utils/settings/__tests__/permissionValidation-vault.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "d94fac98b9c3b51f16758febc2b2082a3dc870fb407af409a1deb9e8ba592a31"
+    },
+    {
+      "upstream": "claude-code/src/utils/shell/__tests__/outputLimits.test.ts",
+      "local": "src/utils/shell/__tests__/outputLimits.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "9ea75fe707aa23cf639838eba16cb9abdbdc446bb98d483f3cb242299e46fc12"
+    },
+    {
+      "upstream": "claude-code/src/utils/suggestions/__tests__/commandSuggestions.test.ts",
+      "local": "src/utils/suggestions/__tests__/commandSuggestions.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "edc87a0a3ab80ae6c53574e4e35d64c8aa1142f5be7302d93162cc6cf92ac262"
+    },
+    {
+      "upstream": "claude-code/src/utils/swarm/__tests__/agentTeamsLifecycle.test.ts",
+      "local": "src/utils/swarm/__tests__/agentTeamsLifecycle.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "95bf4d439f0c19d6d261a562defb4d83afdbe1b60cdf697ef58a73546aa6e649"
+    },
+    {
+      "upstream": "claude-code/src/utils/swarm/__tests__/spawnInProcess.test.ts",
+      "local": "src/utils/swarm/__tests__/spawnInProcess.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "a761702412918a8aaba613ec31a76dd502b0e6ae10851c94e14ec4ca27424c5e"
+    },
+    {
+      "upstream": "claude-code/src/utils/swarm/__tests__/spawnUtils.test.ts",
+      "local": "src/utils/swarm/__tests__/spawnUtils.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2db47b4ff6ff1c2f2e0ddba651d2bb24d56ac5ed1d1d07cc95e7cfb9e2af2c7e"
+    },
+    {
+      "upstream": "claude-code/src/utils/swarm/backends/__tests__/PaneBackendExecutor.test.ts",
+      "local": "src/utils/swarm/backends/__tests__/PaneBackendExecutor.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "89bbe807c1bb9e24ab5c99fe70541feff6c4b1f5a5933266b47c29fc3d2a2e4e"
+    },
+    {
+      "upstream": "claude-code/src/utils/swarm/backends/__tests__/WindowsTerminalBackend.test.ts",
+      "local": "src/utils/swarm/backends/__tests__/WindowsTerminalBackend.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "936a97fe4231de2bae35d8146aa52ab53aad76911cecbe15abacfcd46dd4c05f"
+    },
+    {
+      "upstream": "claude-code/src/utils/task/__tests__/framework.test.ts",
+      "local": "src/utils/task/__tests__/framework.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "5a9900f624d9d502a3157bf7264c8f205050d81a4b94bac5fcc48299bb3d8073"
+    },
+    {
+      "upstream": "claude-code/src/utils/teleport/__tests__/api.test.ts",
+      "local": "src/utils/teleport/__tests__/api.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "316ea7ff3cf3250358357370c44287b6e4d0b4577113a89ec74d1ab36e39fe9d"
+    },
+    {
+      "upstream": "claude-code/tests/integration/autonomy-lifecycle-user-flow.test.ts",
+      "local": "tests/integration/autonomy-lifecycle-user-flow.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "2dd8448181163cc9161303035276f731c713cf853f3cf5cd9ddd99465fd80574"
+    },
+    {
+      "upstream": "claude-code/tests/integration/cli-arguments.test.ts",
+      "local": "tests/integration/cli-arguments.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "34440bdd5daeab9790a3e795fa6c32af529c56e618a096744ea1933c0b227ee6"
+    },
+    {
+      "upstream": "claude-code/tests/integration/context-build.test.ts",
+      "local": "tests/integration/context-build.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "aa3eddde269a47de0381ed65de3af0cf3d24585ac79d12cfb235b4931ab592bb"
+    },
+    {
+      "upstream": "claude-code/tests/integration/dependency-overrides.test.ts",
+      "local": "tests/integration/dependency-overrides.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "f02c696d8894ead295e34d536bceb15b5b37025b4bff0946cdfa8a29da007636"
+    },
+    {
+      "upstream": "claude-code/tests/integration/message-pipeline.test.ts",
+      "local": "tests/integration/message-pipeline.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "8b5aee4a4bf608dd6845aaf652fa2250ccb5a7c5076317ac7dd9ab9ddc3af8f2"
+    },
+    {
+      "upstream": "claude-code/tests/integration/tool-chain.test.ts",
+      "local": "tests/integration/tool-chain.test.ts",
+      "status": "byte-identical-upstream-test",
+      "sha256": "b148b3f428a86d9ae6b26f12b397d7c22140fedb8037760d668304757894c5bd"
+    }
+  ],
+  "missingExecution": [],
+  "nonDefaultFixtures": [
+    "claude-code/packages/builtin-tools/src/tools/ExecuteTool/__tests__/ExecuteTool.runner.ts",
+    "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/bingAdapter.integration.ts",
+    "claude-code/packages/builtin-tools/src/tools/WebSearchTool/__tests__/braveAdapter.integration.ts",
+    "claude-code/src/services/api/openai/__tests__/queryModelOpenAI.isolated.ts",
+    "claude-code/src/services/langfuse/__tests__/langfuse.isolated.ts",
+    "claude-code/src/services/searchExtraTools/__tests__/prefetch.runner.ts"
+  ],
+  "missing": [],
+  "mismatched": []
+}

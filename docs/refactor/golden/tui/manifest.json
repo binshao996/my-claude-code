@@ -1,0 +1,57 @@
+{
+  "version": "r1.5",
+  "terminal": {
+    "columns": 120,
+    "rows": 36,
+    "theme": "dark"
+  },
+  "componentMirrors": [
+    "src/components/PromptInput",
+    "src/components/messages",
+    "src/components/permissions"
+  ],
+  "scenarios": [
+    {
+      "name": "startup",
+      "ansi": "docs/refactor/golden/tui/ansi/startup.ansi",
+      "screenshot": "docs/refactor/golden/tui/screenshots/startup.txt",
+      "mustContain": ["my-claude-code", "SessionStart:startup", ">"],
+      "mustNotContain": ["structure-only"]
+    },
+    {
+      "name": "streaming",
+      "ansi": "docs/refactor/golden/tui/ansi/streaming.ansi",
+      "screenshot": "docs/refactor/golden/tui/screenshots/streaming.txt",
+      "mustContain": ["Unravelling", "answer still renders", ">"],
+      "mustNotContain": ["WebSearch running", "Glob running"]
+    },
+    {
+      "name": "permission",
+      "ansi": "docs/refactor/golden/tui/ansi/permission.ansi",
+      "screenshot": "docs/refactor/golden/tui/screenshots/permission.txt",
+      "mustContain": ["Permission required", "Bash", "allow once", "deny once"],
+      "mustNotContain": ["undefined"]
+    },
+    {
+      "name": "overlay",
+      "ansi": "docs/refactor/golden/tui/ansi/overlay.ansi",
+      "screenshot": "docs/refactor/golden/tui/screenshots/overlay.txt",
+      "mustContain": ["Settings", "Theme", "Permissions", "Esc"],
+      "mustNotContain": ["structure-only"]
+    },
+    {
+      "name": "markdown",
+      "ansi": "docs/refactor/golden/tui/ansi/markdown.ansi",
+      "screenshot": "docs/refactor/golden/tui/screenshots/markdown.txt",
+      "mustContain": ["Key facts", "Milestone", "Co-founded Alibaba"],
+      "mustNotContain": ["|---", "**Born:**"]
+    },
+    {
+      "name": "scroll-selection",
+      "ansi": "docs/refactor/golden/tui/ansi/scroll-selection.ansi",
+      "screenshot": "docs/refactor/golden/tui/screenshots/scroll-selection.txt",
+      "mustContain": ["SessionStart:startup", "Jack Ma", "selected text"],
+      "mustNotContain": ["SGR"]
+    }
+  ]
+}

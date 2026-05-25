@@ -1,0 +1,61 @@
+{
+  "version": "r1.7",
+  "scope": "session-context-memory",
+  "cases": [
+    {
+      "name": "transcript-resume-graph",
+      "expect": {
+        "graphRestored": true,
+        "branchDepth": 1,
+        "parentSessionIds": ["session_parent"],
+        "transcriptHydration": "complete",
+        "providerMessagesAtLeast": 2
+      }
+    },
+    {
+      "name": "fork-rewind-restore-plan",
+      "expect": {
+        "forkReason": "rewind",
+        "rewindRecordId": "rec_tool_result",
+        "replayedRecordCount": 8,
+        "additionalDirectoriesRestored": true
+      }
+    },
+    {
+      "name": "file-snapshot-coverage",
+      "expect": {
+        "changed": 1,
+        "available": 1,
+        "missing": 0,
+        "restoredFiles": ["notes.txt"]
+      }
+    },
+    {
+      "name": "context-request",
+      "expect": {
+        "hasProjectMemory": true,
+        "hasAdditionalDirectory": true,
+        "hasCacheBreak": true,
+        "sectionCountAtLeast": 5
+      }
+    },
+    {
+      "name": "memory-ranking",
+      "expect": {
+        "topStore": "project",
+        "topKey": "alice",
+        "extractedAtLeast": 1,
+        "sessionMemory": "session summary",
+        "teamEventCount": 1
+      }
+    },
+    {
+      "name": "provider-cache-break",
+      "expect": {
+        "reason": "cache_read_dropped",
+        "previousCacheReadInputTokens": 12,
+        "cacheReadInputTokens": 0
+      }
+    }
+  ]
+}

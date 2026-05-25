@@ -1,0 +1,20 @@
+{
+  "version": "r2.2",
+  "generatedAt": "2026-05-25T07:58:23.748Z",
+  "strictParityManifest": {
+    "path": "docs/strict-parity-manifest.json",
+    "role": "legacy migration inventory only",
+    "refactorCompletionGate": false
+  },
+  "manyToOneDebt": {
+    "path": "docs/refactor/many-to-one-debt.md",
+    "status": "zero"
+  },
+  "legacyAdapterPolicy": {
+    "status": "blocked from final refactor gates",
+    "evidence": [
+      "scripts/refactor-parity.ts",
+      "docs/refactor/fixture-migration-report.json"
+    ]
+  }
+}

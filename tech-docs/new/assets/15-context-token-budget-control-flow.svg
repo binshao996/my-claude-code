@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 790" width="1120" height="790">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .section { font-size: 13px; font-weight: 700; fill: #374151; }
+    .label { font-size: 13px; font-weight: 600; fill: #111827; }
+    .small { font-size: 11px; fill: #6b7280; }
+    .tiny { font-size: 10px; fill: #6b7280; }
+    .code { font-size: 11px; fill: #374151; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
+  </style>
+  <defs>
+    <marker id="arrow-blue-15a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green-15a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple-15a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red-15a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="shadow-15a" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1120" height="790" fill="#ffffff"/>
+  <text class="title" x="36" y="42">上下文预算 Runtime：估算、裁剪、压缩、恢复</text>
+  <text class="small" x="36" y="65">query.ts 在每次 API 请求前把原始历史投影成模型可见上下文，并按阈值决定是否 compact 或阻断</text>
+
+  <rect x="34" y="98" width="214" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="54" y="128">上下文输入</text>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="62" y="154" width="158" height="78" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="82" y="181">REPL History</text>
+    <text class="small" x="82" y="203">messages, attachments</text>
+    <text class="small" x="82" y="220">compact boundaries</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="62" y="266" width="158" height="82" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="82" y="293">Tool Results</text>
+    <text class="small" x="82" y="315">Read, Bash, Grep</text>
+    <text class="small" x="82" y="333">large outputs, media</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="62" y="382" width="158" height="82" rx="8" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5"/>
+    <text class="label" x="82" y="409">Model Limits</text>
+    <text class="small" x="82" y="431">200k / 1M window</text>
+    <text class="small" x="82" y="449">max output tokens</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="62" y="498" width="158" height="82" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="82" y="525">Turn Budget</text>
+    <text class="small" x="82" y="547">+500k / use 2M tokens</text>
+    <text class="code" x="82" y="565">parseTokenBudget()</text>
+  </g>
+
+  <rect x="292" y="98" width="240" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="312" y="128">Pre-API 投影</text>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="322" y="154" width="180" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="344" y="181">Compact Boundary</text>
+    <text class="small" x="344" y="203">只保留最近 compact 后消息</text>
+    <text class="code" x="344" y="220">getMessagesAfterCompactBoundary</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="322" y="260" width="180" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="344" y="287">Tool Result Budget</text>
+    <text class="small" x="344" y="309">大结果落盘 + preview</text>
+    <text class="small" x="344" y="327">per-message 决策冻结</text>
+    <text class="code" x="344" y="344">applyToolResultBudget()</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="322" y="376" width="180" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="344" y="403">Snip / Microcompact</text>
+    <text class="small" x="344" y="425">snip boundary</text>
+    <text class="small" x="344" y="443">cache_edits 或时间触发清理</text>
+    <text class="code" x="344" y="460">microcompactMessages()</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="322" y="492" width="180" height="78" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text class="label" x="344" y="519">Token Estimate</text>
+    <text class="small" x="344" y="541">last API usage + rough delta</text>
+    <text class="code" x="344" y="558">tokenCountWithEstimation()</text>
+  </g>
+
+  <rect x="576" y="98" width="248" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="596" y="128">阈值决策</text>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="608" y="154" width="184" height="78" rx="8" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5"/>
+    <text class="label" x="630" y="181">Effective Window</text>
+    <text class="small" x="630" y="203">context window - summary reserve</text>
+    <text class="code" x="630" y="220">getEffectiveContextWindowSize()</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="608" y="260" width="184" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="630" y="287">Auto Compact</text>
+    <text class="small" x="630" y="309">threshold = window - buffer</text>
+    <text class="small" x="630" y="327">predictive turn growth check</text>
+    <text class="code" x="630" y="344">autoCompactIfNeeded()</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="608" y="376" width="184" height="86" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text class="label" x="630" y="403">Blocking Limit</text>
+    <text class="small" x="630" y="425">auto compact off 时阻断</text>
+    <text class="small" x="630" y="443">保留手动 /compact 空间</text>
+    <text class="code" x="630" y="460">calculateTokenWarningState()</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="608" y="492" width="184" height="86" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="630" y="519">Task / Output Budget</text>
+    <text class="small" x="630" y="541">API task_budget.remaining</text>
+    <text class="small" x="630" y="559">本地 token budget auto-continue</text>
+  </g>
+
+  <rect x="868" y="98" width="218" height="574" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text class="section" x="888" y="128">执行结果</text>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="898" y="154" width="158" height="78" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text class="label" x="920" y="181">Compact Summary</text>
+    <text class="small" x="920" y="203">summary + boundary</text>
+    <text class="small" x="920" y="220">restore files / plan / skills</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="898" y="260" width="158" height="86" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text class="label" x="920" y="287">API Request</text>
+    <text class="small" x="920" y="309">messages + tools</text>
+    <text class="small" x="920" y="327">context_management</text>
+    <text class="small" x="920" y="344">max_tokens / thinking</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="898" y="376" width="158" height="86" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text class="label" x="920" y="403">Recovery Loop</text>
+    <text class="small" x="920" y="425">prompt too long</text>
+    <text class="small" x="920" y="443">reactive compact / truncate</text>
+    <text class="small" x="920" y="460">max_tokens retry</text>
+  </g>
+
+  <g filter="url(#shadow-15a)">
+    <rect x="898" y="492" width="158" height="86" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text class="label" x="920" y="519">Continuation</text>
+    <text class="small" x="920" y="541">nudge meta message</text>
+    <text class="small" x="920" y="559">or stop with completion event</text>
+  </g>
+
+  <path d="M220 193 C255 193, 281 192, 322 192" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15a)"/>
+  <path d="M220 307 C257 307, 281 303, 322 303" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15a)"/>
+  <path d="M220 423 C257 423, 281 419, 322 419" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15a)"/>
+  <path d="M220 539 C257 539, 280 535, 322 535" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15a)"/>
+
+  <path d="M502 532 C546 532, 566 193, 608 193" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15a)"/>
+  <path d="M502 532 C546 532, 566 303, 608 303" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15a)"/>
+  <path d="M502 532 C546 532, 566 419, 608 419" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-15a)"/>
+  <path d="M502 532 C546 532, 566 535, 608 535" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15a)"/>
+
+  <path d="M792 303 C832 303, 856 193, 898 193" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15a)"/>
+  <path d="M792 193 C832 193, 856 303, 898 303" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15a)"/>
+  <path d="M792 419 C832 419, 856 419, 898 419" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-15a)"/>
+  <path d="M792 535 C832 535, 856 535, 898 535" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15a)"/>
+
+  <path d="M977 462 L977 650 L412 650 L412 570" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-15a)"/>
+  <rect x="622" y="635" width="196" height="28" rx="6" fill="#ffffff" stroke="#fecaca" stroke-width="1"/>
+  <text class="tiny" x="634" y="653">失败恢复后回到 Pre-API 投影重新请求</text>
+
+  <rect x="36" y="716" width="1032" height="42" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="58" y1="738" x2="88" y2="738" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-15a)"/>
+  <text class="tiny" x="96" y="742">模型请求路径</text>
+  <line x1="210" y1="738" x2="240" y2="738" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-15a)"/>
+  <text class="tiny" x="248" y="742">压缩/裁剪决策</text>
+  <line x1="386" y1="738" x2="416" y2="738" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-15a)"/>
+  <text class="tiny" x="424" y="742">预算控制</text>
+  <line x1="556" y1="738" x2="586" y2="738" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow-red-15a)"/>
+  <text class="tiny" x="594" y="742">阻断或恢复循环</text>
+  <text class="tiny" x="748" y="742">核心原则：先缩小模型可见上下文，再决定是否请求 API</text>
+</svg>

@@ -1,0 +1,7 @@
+my-claude-code v1.0.0
+deepseek-v4-flash · API Usage Billing
+~/my-compony/my-claude-code
+└ Session 0000000 · idle · tokens - · cache - · permission default
+└ SessionStart:startup says: # my-claude-code status
+>
+[CAVEMAN]

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" width="1280" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Code 权限决策流</title>
+  <desc id="desc">展示工具执行前从 deny/ask 规则、tool.checkPermissions、bypass、allow 规则、auto classifier 到交互确认的权限链路。</desc>
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { fill: #111827; font-size: 22px; font-weight: 600; }
+    .subtitle { fill: #6b7280; font-size: 13px; }
+    .box-title { fill: #111827; font-size: 14px; font-weight: 600; }
+    .box-sub { fill: #6b7280; font-size: 12px; }
+    .small { fill: #6b7280; font-size: 11px; }
+    .section { fill: #f9fafb; stroke: #d1d5db; stroke-width: 1.3; stroke-dasharray: 7 5; rx: 12; ry: 12; }
+    .node { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .decision { fill: #fff7ed; stroke: #fed7aa; stroke-width: 1.5; }
+    .allow { fill: #f0fdf4; stroke: #bbf7d0; }
+    .deny { fill: #fef2f2; stroke: #fecaca; }
+    .ask { fill: #eff6ff; stroke: #bfdbfe; }
+    .auto { fill: #faf5ff; stroke: #e9d5ff; }
+  </style>
+  <defs>
+    <marker id="p-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+    <marker id="p-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+    <marker id="p-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/></marker>
+    <marker id="p-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+  </defs>
+
+  <rect width="1280" height="900" fill="#ffffff"/>
+  <text x="42" y="44" class="title">Claude Code 权限决策流</text>
+  <text x="42" y="68" class="subtitle">hasPermissionsToUseToolInner() 先做硬规则和工具自检，再由 useCanUseTool() 处理 auto、headless、coordinator、interactive 场景</text>
+
+  <rect x="36" y="104" width="356" height="690" class="section"/>
+  <text x="60" y="132" class="box-title">规则与工具自检</text>
+  <text x="60" y="152" class="small">utils/permissions/permissions.ts</text>
+
+  <rect x="442" y="104" width="386" height="690" class="section"/>
+  <text x="466" y="132" class="box-title">模式与自动化决策</text>
+  <text x="466" y="152" class="small">permission modes / auto classifier / headless hooks</text>
+
+  <rect x="878" y="104" width="350" height="690" class="section"/>
+  <text x="902" y="132" class="box-title">最终行为</text>
+  <text x="902" y="152" class="small">allow / deny / ask → toolExecution</text>
+
+  <rect x="92" y="190" width="244" height="74" class="node ask"/>
+  <text x="214" y="218" text-anchor="middle" class="box-title">tool_use 请求</text>
+  <text x="214" y="240" text-anchor="middle" class="box-sub">runToolUse → canUseTool</text>
+
+  <rect x="92" y="312" width="244" height="86" class="node decision"/>
+  <text x="214" y="340" text-anchor="middle" class="box-title">deny / ask 规则</text>
+  <text x="214" y="362" text-anchor="middle" class="box-sub">getDenyRuleForTool</text>
+  <text x="214" y="380" text-anchor="middle" class="box-sub">getAskRuleForTool</text>
+
+  <rect x="92" y="450" width="244" height="96" class="node decision"/>
+  <text x="214" y="478" text-anchor="middle" class="box-title">tool.checkPermissions()</text>
+  <text x="214" y="500" text-anchor="middle" class="box-sub">工具级语义检查</text>
+  <text x="214" y="518" text-anchor="middle" class="box-sub">Bash 子命令 / 文件安全</text>
+
+  <rect x="92" y="602" width="244" height="86" class="node decision"/>
+  <text x="214" y="630" text-anchor="middle" class="box-title">bypass 免疫检查</text>
+  <text x="214" y="652" text-anchor="middle" class="box-sub">requiresUserInteraction</text>
+  <text x="214" y="670" text-anchor="middle" class="box-sub">content ask / safetyCheck</text>
+
+  <rect x="496" y="190" width="276" height="84" class="node allow"/>
+  <text x="634" y="218" text-anchor="middle" class="box-title">bypassPermissions?</text>
+  <text x="634" y="240" text-anchor="middle" class="box-sub">bypass 模式或 plan 原本可绕过</text>
+  <text x="634" y="258" text-anchor="middle" class="box-sub">未命中免疫规则才 allow</text>
+
+  <rect x="496" y="326" width="276" height="84" class="node allow"/>
+  <text x="634" y="354" text-anchor="middle" class="box-title">always allow rule?</text>
+  <text x="634" y="376" text-anchor="middle" class="box-sub">toolAlwaysAllowedRule</text>
+  <text x="634" y="394" text-anchor="middle" class="box-sub">支持 MCP server 级规则</text>
+
+  <rect x="496" y="462" width="276" height="94" class="node auto"/>
+  <text x="634" y="490" text-anchor="middle" class="box-title">ask → 模式转换</text>
+  <text x="634" y="512" text-anchor="middle" class="box-sub">dontAsk: ask 转 deny</text>
+  <text x="634" y="530" text-anchor="middle" class="box-sub">auto/plan: 进入 classifier</text>
+
+  <rect x="496" y="610" width="276" height="96" class="node auto"/>
+  <text x="634" y="638" text-anchor="middle" class="box-title">auto classifier / hooks</text>
+  <text x="634" y="660" text-anchor="middle" class="box-sub">acceptEdits fast-path</text>
+  <text x="634" y="678" text-anchor="middle" class="box-sub">safe allowlist / yolo classifier</text>
+
+  <rect x="920" y="178" width="254" height="84" class="node allow"/>
+  <text x="1047" y="206" text-anchor="middle" class="box-title">allow</text>
+  <text x="1047" y="228" text-anchor="middle" class="box-sub">updatedInput 可覆盖输入</text>
+  <text x="1047" y="246" text-anchor="middle" class="box-sub">继续 tool.call()</text>
+
+  <rect x="920" y="334" width="254" height="84" class="node deny"/>
+  <text x="1047" y="362" text-anchor="middle" class="box-title">deny</text>
+  <text x="1047" y="384" text-anchor="middle" class="box-sub">生成 is_error tool_result</text>
+  <text x="1047" y="402" text-anchor="middle" class="box-sub">模型下一轮读取失败原因</text>
+
+  <rect x="920" y="502" width="254" height="112" class="node ask"/>
+  <text x="1047" y="530" text-anchor="middle" class="box-title">ask</text>
+  <text x="1047" y="552" text-anchor="middle" class="box-sub">coordinator / swarm worker</text>
+  <text x="1047" y="570" text-anchor="middle" class="box-sub">Bash classifier grace period</text>
+  <text x="1047" y="588" text-anchor="middle" class="box-sub">interactive permission dialog</text>
+
+  <rect x="920" y="682" width="254" height="76" class="node deny"/>
+  <text x="1047" y="710" text-anchor="middle" class="box-title">headless auto-deny</text>
+  <text x="1047" y="732" text-anchor="middle" class="box-sub">无交互能力时先跑 hooks</text>
+  <text x="1047" y="750" text-anchor="middle" class="box-sub">无决策则拒绝</text>
+
+  <line x1="214" y1="264" x2="214" y2="312" stroke="#2563eb" stroke-width="2" marker-end="url(#p-blue)"/>
+  <line x1="214" y1="398" x2="214" y2="450" stroke="#2563eb" stroke-width="2" marker-end="url(#p-blue)"/>
+  <line x1="214" y1="546" x2="214" y2="602" stroke="#2563eb" stroke-width="2" marker-end="url(#p-blue)"/>
+  <path d="M336 355 C398 355 426 232 496 232" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#p-green)"/>
+  <path d="M336 646 C398 646 426 368 496 368" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#p-green)"/>
+  <line x1="634" y1="274" x2="634" y2="326" stroke="#16a34a" stroke-width="2" marker-end="url(#p-green)"/>
+  <line x1="634" y1="410" x2="634" y2="462" stroke="#9333ea" stroke-width="2" marker-end="url(#p-purple)"/>
+  <line x1="634" y1="556" x2="634" y2="610" stroke="#9333ea" stroke-width="2" marker-end="url(#p-purple)"/>
+  <path d="M772 232 C836 232 862 220 920 220" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#p-green)"/>
+  <path d="M772 368 C836 368 862 220 920 220" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#p-green)"/>
+  <path d="M336 355 C466 310 802 320 920 376" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#p-rose)"/>
+  <path d="M336 498 C492 498 802 394 920 376" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#p-rose)"/>
+  <path d="M772 509 C836 509 862 558 920 558" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#p-blue)"/>
+  <path d="M772 658 C842 658 862 220 920 220" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#p-green)"/>
+  <path d="M772 658 C842 658 862 376 920 376" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#p-rose)"/>
+  <path d="M772 658 C842 658 862 720 920 720" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#p-rose)"/>
+  <path d="M920 558 C848 558 842 720 920 720" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#p-rose)"/>
+
+  <rect x="50" y="836" width="720" height="34" fill="#ffffff"/>
+  <line x1="64" y1="854" x2="94" y2="854" stroke="#2563eb" stroke-width="2" marker-end="url(#p-blue)"/>
+  <text x="106" y="858" class="small">常规检查链</text>
+  <line x1="224" y1="854" x2="254" y2="854" stroke="#16a34a" stroke-width="2" marker-end="url(#p-green)"/>
+  <text x="266" y="858" class="small">允许路径</text>
+  <line x1="372" y1="854" x2="402" y2="854" stroke="#dc2626" stroke-width="2" marker-end="url(#p-rose)"/>
+  <text x="414" y="858" class="small">拒绝路径</text>
+  <line x1="520" y1="854" x2="550" y2="854" stroke="#9333ea" stroke-width="2" marker-end="url(#p-purple)"/>
+  <text x="562" y="858" class="small">auto/classifier 路径</text>
+</svg>

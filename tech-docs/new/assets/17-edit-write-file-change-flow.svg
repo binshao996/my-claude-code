@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" width="1280" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane-title { font-size: 14px; font-weight: 700; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; font-size: 12px; fill: #374151; }
+    .legend { font-size: 12px; fill: #6b7280; }
+    .small { font-size: 11px; fill: #6b7280; }
+  </style>
+  <defs>
+    <filter id="shadow" x="-12%" y="-16%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="780" fill="#ffffff"/>
+  <text x="36" y="42" class="title">Edit / Write 文件变更主链路</text>
+  <text x="36" y="65" class="subtitle">FileRead 建立快照，FileEdit / FileWrite 在权限确认后进入同步读改写临界区，并把结果回写给 UI、LSP、缓存与日志</text>
+
+  <g transform="translate(34,96)">
+    <rect x="0" y="0" width="214" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="20" y="30" class="lane-title">模型输入</text>
+
+    <rect x="26" y="56" width="162" height="90" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="46" y="86" class="node-title">Tool Use</text>
+    <text x="46" y="108" class="node-sub">Edit: old / new</text>
+    <text x="46" y="126" class="node-sub">Write: full content</text>
+
+    <rect x="26" y="186" width="162" height="92" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="46" y="216" class="node-title">Read Snapshot</text>
+    <text x="46" y="238" class="node-sub">必须先 Read 已有文件</text>
+    <text x="46" y="256" class="mono">readFileState</text>
+
+    <rect x="26" y="318" width="162" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="46" y="348" class="node-title">输入约束</text>
+    <text x="46" y="370" class="node-sub">absolute path</text>
+    <text x="46" y="388" class="node-sub">unique old_string</text>
+    <text x="46" y="406" class="mono">replace_all?</text>
+  </g>
+
+  <g transform="translate(290,96)">
+    <rect x="0" y="0" width="222" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">权限与校验</text>
+
+    <rect x="28" y="54" width="166" height="96" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="48" y="84" class="node-title">Permission</text>
+    <text x="48" y="106" class="node-sub">终端 diff 或 IDE diff</text>
+    <text x="48" y="124" class="mono">FilePermissionDialog</text>
+
+    <rect x="28" y="190" width="166" height="104" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="220" class="node-title">validateInput</text>
+    <text x="48" y="242" class="node-sub">deny / secret / size</text>
+    <text x="48" y="260" class="node-sub">stale / ipynb / settings</text>
+    <text x="48" y="278" class="mono">errorCode</text>
+
+    <rect x="28" y="338" width="166" height="92" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="48" y="368" class="node-title">阻断路径</text>
+    <text x="48" y="390" class="node-sub">reject 或校验失败</text>
+    <text x="48" y="408" class="mono">tool_use_error</text>
+  </g>
+
+  <g transform="translate(552,96)">
+    <rect x="0" y="0" width="270" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">同步临界区</text>
+
+    <rect x="30" y="50" width="210" height="88" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="50" y="80" class="node-title">准备写入</text>
+    <text x="50" y="102" class="node-sub">mkdir 与 file history 在外层</text>
+    <text x="50" y="120" class="mono">fileHistoryTrackEdit()</text>
+
+    <rect x="30" y="164" width="210" height="118" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="194" class="node-title">Read / MTime / Stale</text>
+    <text x="50" y="216" class="node-sub">同步读取文件和 mtime</text>
+    <text x="50" y="234" class="node-sub">不得插入 await</text>
+    <text x="50" y="252" class="mono">readFileForEdit()</text>
+
+    <rect x="30" y="308" width="210" height="116" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="50" y="338" class="node-title">生成新内容</text>
+    <text x="50" y="360" class="node-sub">findActualString</text>
+    <text x="50" y="378" class="node-sub">preserveQuoteStyle</text>
+    <text x="50" y="396" class="mono">getPatchForEdit()</text>
+
+    <rect x="30" y="450" width="210" height="82" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="50" y="480" class="node-title">写回磁盘</text>
+    <text x="50" y="502" class="node-sub">Edit 保留 EOL，Write 用 LF</text>
+    <text x="50" y="520" class="mono">writeTextContent()</text>
+  </g>
+
+  <g transform="translate(862,96)">
+    <rect x="0" y="0" width="210" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">副作用通知</text>
+
+    <rect x="26" y="60" width="158" height="88" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="46" y="90" class="node-title">LSP</text>
+    <text x="46" y="112" class="node-sub">clear / change / save</text>
+    <text x="46" y="130" class="mono">getLSPClient()</text>
+
+    <rect x="26" y="184" width="158" height="88" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="46" y="214" class="node-title">VSCode Diff</text>
+    <text x="46" y="236" class="node-sub">通知扩展更新</text>
+    <text x="46" y="254" class="mono">notifyVscode...</text>
+
+    <rect x="26" y="308" width="158" height="88" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="46" y="338" class="node-title">Snapshot</text>
+    <text x="46" y="360" class="node-sub">写后缓存新内容</text>
+    <text x="46" y="378" class="mono">offset undefined</text>
+
+    <rect x="26" y="432" width="158" height="88" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="46" y="462" class="node-title">Observability</text>
+    <text x="46" y="484" class="node-sub">lines changed / git diff</text>
+    <text x="46" y="502" class="mono">logFileOperation()</text>
+  </g>
+
+  <g transform="translate(1110,96)">
+    <rect x="0" y="0" width="136" height="560" rx="10" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="18" y="30" class="lane-title">返回结果</text>
+
+    <rect x="18" y="72" width="100" height="92" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="36" y="102" class="node-title">Output</text>
+    <text x="36" y="124" class="node-sub">patch</text>
+    <text x="36" y="142" class="node-sub">original</text>
+
+    <rect x="18" y="214" width="100" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="36" y="244" class="node-title">UI</text>
+    <text x="36" y="266" class="node-sub">added</text>
+    <text x="36" y="284" class="node-sub">removed</text>
+
+    <rect x="18" y="356" width="100" height="92" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="36" y="386" class="node-title">API</text>
+    <text x="36" y="408" class="node-sub">tool_result</text>
+    <text x="36" y="426" class="node-sub">message</text>
+  </g>
+
+  <path d="M222 141 C252 141 260 144 290 144" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M222 232 C252 232 260 142 290 142" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M484 245 C520 245 516 222 552 222" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M687 424 L687 450" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M762 491 C808 491 816 104 862 104" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M762 491 C808 491 816 228 862 228" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M762 491 C808 491 816 352 862 352" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M762 491 C808 491 816 476 862 476" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1046 260 C1080 260 1076 118 1110 118" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1046 352 C1080 352 1076 260 1110 260" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1046 476 C1080 476 1076 402 1110 402" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M484 388 C520 388 520 388 552 388" stroke="#dc2626" stroke-width="1.7" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(38,704)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+    <text x="42" y="12" class="legend">主执行链路</text>
+    <line x1="144" y1="8" x2="176" y2="8" stroke="#16a34a" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+    <text x="186" y="12" class="legend">快照与结果回写</text>
+    <line x1="324" y1="8" x2="356" y2="8" stroke="#9333ea" stroke-width="1.7" marker-end="url(#arrow-purple)"/>
+    <text x="366" y="12" class="legend">编辑后的副作用</text>
+    <line x1="504" y1="8" x2="536" y2="8" stroke="#dc2626" stroke-width="1.7" marker-end="url(#arrow-red)"/>
+    <text x="546" y="12" class="legend">拒绝或失败</text>
+  </g>
+</svg>

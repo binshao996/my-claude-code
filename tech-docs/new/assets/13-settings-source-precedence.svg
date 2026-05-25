@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" width="1280" height="900">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .label { font-size: 15px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #4b5563; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #e9d5ff; }
+    .red { fill: #fef2f2; stroke: #fecaca; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .teal { fill: #f0fdfa; stroke: #99f6e4; }
+    .gray { fill: #f9fafb; stroke: #d1d5db; }
+    .rail { fill: none; stroke: #e5e7eb; stroke-width: 1.2; stroke-dasharray: 6 5; rx: 14; ry: 14; }
+    .arrowText { font-size: 11px; fill: #374151; }
+  </style>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="900" fill="#ffffff"/>
+  <text x="44" y="48" class="title">Claude Code Settings Source Precedence</text>
+  <text x="44" y="72" class="subtitle">插件设置作为最低优先级基座；user/project/local/flag/policy 按顺序合并；policySettings 内部采用 first-source-wins。</text>
+
+  <rect x="42" y="106" width="420" height="666" class="rail"/>
+  <text x="64" y="132" class="small">普通 Settings 合并链路：后者覆盖前者</text>
+
+  <rect x="82" y="158" width="310" height="64" class="box teal"/>
+  <text x="108" y="183" class="label">Plugin Settings Base</text>
+  <text x="108" y="204" class="small">插件 loader 缓存的最低优先级默认值</text>
+
+  <rect x="82" y="252" width="310" height="64" class="box blue"/>
+  <text x="108" y="277" class="label">userSettings</text>
+  <text x="108" y="298" class="small">~/.claude/settings.json 或 cowork_settings.json</text>
+
+  <rect x="82" y="346" width="310" height="64" class="box blue"/>
+  <text x="108" y="371" class="label">projectSettings</text>
+  <text x="108" y="392" class="small">项目内 .claude/settings.json，可共享</text>
+
+  <rect x="82" y="440" width="310" height="64" class="box blue"/>
+  <text x="108" y="465" class="label">localSettings</text>
+  <text x="108" y="486" class="small">项目内 .claude/settings.local.json，gitignored</text>
+
+  <rect x="82" y="534" width="310" height="64" class="box purple"/>
+  <text x="108" y="559" class="label">flagSettings</text>
+  <text x="108" y="580" class="small">--settings 文件 + SDK inline settings</text>
+
+  <rect x="82" y="628" width="310" height="64" class="box red"/>
+  <text x="108" y="653" class="label">policySettings</text>
+  <text x="108" y="674" class="small">企业托管策略，合并链最高优先级</text>
+
+  <path d="M237 222 L237 252" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M237 316 L237 346" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M237 410 L237 440" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M237 504 L237 534" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M237 598 L237 628" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+
+  <rect x="552" y="106" width="650" height="392" class="rail"/>
+  <text x="574" y="132" class="small">policySettings 内部：first source wins，只取第一个有内容的来源</text>
+
+  <rect x="590" y="166" width="230" height="70" class="box red"/>
+  <text x="616" y="193" class="label">Remote Managed</text>
+  <text x="616" y="214" class="small">~/.claude/remote-settings.json 缓存</text>
+
+  <rect x="914" y="166" width="230" height="70" class="box orange"/>
+  <text x="940" y="193" class="label">MDM / Admin</text>
+  <text x="940" y="214" class="small">macOS plist 或 Windows HKLM</text>
+
+  <rect x="590" y="306" width="230" height="70" class="box orange"/>
+  <text x="616" y="333" class="label">Managed File</text>
+  <text x="616" y="354" class="small">managed-settings.json</text>
+
+  <rect x="914" y="306" width="230" height="70" class="box orange"/>
+  <text x="940" y="333" class="label">Drop-ins / HKCU</text>
+  <text x="940" y="354" class="small">managed-settings.d/*.json 或 HKCU</text>
+
+  <rect x="742" y="420" width="278" height="54" class="box red"/>
+  <text x="776" y="452" class="label">Winning Policy Settings</text>
+
+  <path d="M790 236 L790 260 L850 260 L850 420" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+  <path d="M1029 236 L1029 260 L880 260 L880 420" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+  <path d="M705 376 L705 394 L810 394 L810 420" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+  <path d="M1029 376 L1029 394 L952 394 L952 420" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+
+  <rect x="560" y="558" width="632" height="132" class="box green"/>
+  <text x="594" y="592" class="label">loadSettingsFromDisk()</text>
+  <text x="594" y="616" class="small">mergeWith(settingsMergeCustomizer)：对象深合并，数组跨来源 concat + dedupe</text>
+  <text x="594" y="638" class="small">updateSettingsForSource() 写文件时数组替换，undefined 表示删除键</text>
+  <text x="594" y="660" class="small">SettingsSchema().passthrough() 保留未知字段，strict 校验只用于编辑验证</text>
+
+  <path d="M392 660 L560 616" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arr-green)"/>
+  <path d="M881 474 L881 558" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arr-red)"/>
+
+  <rect x="560" y="740" width="632" height="86" class="box purple"/>
+  <text x="594" y="772" class="label">Effective Settings Snapshot</text>
+  <text x="594" y="796" class="small">AppState.settings / getInitialSettings() / getSettingsWithSources()</text>
+  <text x="594" y="814" class="small">供权限、MCP、Hook、Sandbox、插件、模型与 UI 消费</text>
+
+  <path d="M876 690 L876 740" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arr-purple)"/>
+
+  <rect x="58" y="806" width="396" height="46" class="gray"/>
+  <line x1="78" y1="822" x2="112" y2="822" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arr-green)"/>
+  <text x="122" y="826" class="tiny">普通来源合并：后者覆盖前者</text>
+  <line x1="78" y1="842" x2="112" y2="842" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr-red)"/>
+  <text x="122" y="846" class="tiny">policy 内部选择：第一个有效来源胜出</text>
+</svg>

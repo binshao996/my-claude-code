@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" width="1280" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 26px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .lane-title { font-size: 15px; font-weight: 700; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-text { font-size: 12px; fill: #6b7280; }
+    .code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 12px; fill: #374151; }
+  </style>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="780" fill="#ffffff"/>
+  <text x="36" y="42" class="title">Code Context Pipeline：从搜索定位到可编辑上下文</text>
+  <text x="36" y="66" class="subtitle">Glob / Grep / Read 负责文本级上下文构建；readFileState 把“模型看过什么版本”变成后续编辑的安全账本</text>
+
+  <g transform="translate(34, 98)">
+    <rect x="0" y="0" width="205" height="550" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">问题与意图</text>
+
+    <rect x="30" y="62" width="145" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="50" y="90" class="node-title">User Task</text>
+    <text x="50" y="114" class="node-text">“修这个 bug”</text>
+    <text x="50" y="136" class="code">query.ts?</text>
+
+    <rect x="30" y="218" width="145" height="92" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="50" y="246" class="node-title">Agent Plan</text>
+    <text x="50" y="270" class="node-text">先定位文件</text>
+    <text x="50" y="292" class="node-text">再读取关键片段</text>
+  </g>
+
+  <g transform="translate(278, 98)">
+    <rect x="0" y="0" width="220" height="550" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">搜索定位工具</text>
+
+    <rect x="28" y="58" width="164" height="92" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="86" class="node-title">Glob</text>
+    <text x="48" y="110" class="node-text">按文件名匹配</text>
+    <text x="48" y="132" class="code">**/*.tsx</text>
+
+    <rect x="28" y="206" width="164" height="110" rx="8" fill="#f0fdf4" stroke="#bbf7d0" filter="url(#shadow)"/>
+    <text x="48" y="234" class="node-title">Grep</text>
+    <text x="48" y="258" class="node-text">按内容正则搜索</text>
+    <text x="48" y="280" class="code">content / files</text>
+    <text x="48" y="300" class="code">count</text>
+
+    <rect x="28" y="374" width="164" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="48" y="402" class="node-title">Agent Tool</text>
+    <text x="48" y="426" class="node-text">开放式多轮搜索</text>
+    <text x="48" y="448" class="node-text">避免主上下文膨胀</text>
+  </g>
+
+  <g transform="translate(538, 98)">
+    <rect x="0" y="0" width="220" height="550" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">ripgrep 执行层</text>
+
+    <rect x="28" y="58" width="164" height="104" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="48" y="86" class="node-title">ripGrep()</text>
+    <text x="48" y="110" class="node-text">system / builtin</text>
+    <text x="48" y="132" class="node-text">embedded 三模式</text>
+    <text x="48" y="152" class="code">utils/ripgrep.ts</text>
+
+    <rect x="28" y="214" width="164" height="116" rx="8" fill="#fee2e2" stroke="#fecaca" filter="url(#shadow)"/>
+    <text x="48" y="242" class="node-title">Safety Args</text>
+    <text x="48" y="266" class="node-text">排除 VCS 目录</text>
+    <text x="48" y="288" class="node-text">read deny patterns</text>
+    <text x="48" y="310" class="node-text">plugin cache excludes</text>
+
+    <rect x="28" y="390" width="164" height="98" rx="8" fill="#faf5ff" stroke="#e9d5ff" filter="url(#shadow)"/>
+    <text x="48" y="418" class="node-title">Failure Model</text>
+    <text x="48" y="442" class="node-text">timeout 可暴露</text>
+    <text x="48" y="464" class="node-text">EAGAIN 单线程重试</text>
+  </g>
+
+  <g transform="translate(798, 98)">
+    <rect x="0" y="0" width="220" height="550" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="22" y="30" class="lane-title">文件读取</text>
+
+    <rect x="28" y="58" width="164" height="104" rx="8" fill="#eff6ff" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="48" y="86" class="node-title">Read</text>
+    <text x="48" y="110" class="node-text">absolute path</text>
+    <text x="48" y="132" class="node-text">offset / limit</text>
+    <text x="48" y="152" class="node-text">cat -n 行号</text>
+
+    <rect x="28" y="214" width="164" height="116" rx="8" fill="#f0fdfa" stroke="#ccfbf1" filter="url(#shadow)"/>
+    <text x="48" y="242" class="node-title">readFileInRange</text>
+    <text x="48" y="266" class="node-text">小文件 fast path</text>
+    <text x="48" y="288" class="node-text">大文件 stream path</text>
+    <text x="48" y="310" class="node-text">BOM / CRLF 归一</text>
+
+    <rect x="28" y="390" width="164" height="98" rx="8" fill="#fff7ed" stroke="#fed7aa" filter="url(#shadow)"/>
+    <text x="48" y="418" class="node-title">Media Branch</text>
+    <text x="48" y="442" class="node-text">image / PDF</text>
+    <text x="48" y="464" class="node-text">notebook / text</text>
+  </g>
+
+  <g transform="translate(1058, 98)">
+    <rect x="0" y="0" width="188" height="550" rx="8" fill="#f9fafb" stroke="#d1d5db"/>
+    <text x="20" y="30" class="lane-title">上下文账本</text>
+
+    <rect x="24" y="58" width="140" height="104" rx="8" fill="#dcfce7" stroke="#86efac" filter="url(#shadow)"/>
+    <text x="42" y="86" class="node-title">FileStateCache</text>
+    <text x="42" y="110" class="node-text">100 entries</text>
+    <text x="42" y="132" class="node-text">25MB LRU</text>
+    <text x="42" y="152" class="code">content + mtime</text>
+
+    <rect x="24" y="214" width="140" height="116" rx="8" fill="#ede9fe" stroke="#ddd6fe" filter="url(#shadow)"/>
+    <text x="42" y="242" class="node-title">Tool Result</text>
+    <text x="42" y="266" class="node-text">模型可见内容</text>
+    <text x="42" y="288" class="node-text">重复读取 stub</text>
+    <text x="42" y="310" class="node-text">大结果持久化</text>
+
+    <rect x="24" y="390" width="140" height="98" rx="8" fill="#dbeafe" stroke="#bfdbfe" filter="url(#shadow)"/>
+    <text x="42" y="418" class="node-title">Downstream</text>
+    <text x="42" y="442" class="node-text">Edit stale check</text>
+    <text x="42" y="464" class="node-text">compact restore</text>
+  </g>
+
+  <path d="M209 202 C235 202, 244 104, 304 104" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M209 262 C243 262, 250 260, 304 260" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M470 104 C498 104, 510 110, 566 110" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M470 260 C504 260, 508 270, 566 270" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M730 270 C766 270, 770 110, 826 110" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M990 110 C1024 110, 1030 110, 1082 110" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M990 270 C1022 270, 1034 270, 1082 270" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1148 390 C1148 354, 1148 350, 1148 330" stroke="#9333ea" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M990 438 C1018 438, 1030 438, 1082 438" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M706 330 C736 360, 754 394, 826 438" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(38, 704)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="40" y="12" class="node-text">搜索定位</text>
+    <line x1="170" y1="8" x2="202" y2="8" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="210" y="12" class="node-text">内容与缓存</text>
+    <line x1="350" y1="8" x2="382" y2="8" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple)"/>
+    <text x="390" y="12" class="node-text">上下文注入</text>
+    <line x1="530" y1="8" x2="562" y2="8" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="570" y="12" class="node-text">保护与降级</text>
+  </g>
+</svg>

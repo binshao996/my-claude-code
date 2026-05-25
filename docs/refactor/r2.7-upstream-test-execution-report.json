@@ -1,0 +1,11 @@
+{
+  "command": "bun run test:upstream-fixtures",
+  "status": "pass",
+  "exitCode": 0,
+  "pass": 5316,
+  "fail": 0,
+  "errors": 0,
+  "files": 393,
+  "duration": "40.84s + 834.00ms + 717.00ms",
+  "logPath": "/tmp/r2.7-upstream-mirror-test.log"
+}
