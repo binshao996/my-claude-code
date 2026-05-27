@@ -1,0 +1,34 @@
+[38;2;215;119;87m ▐[48;2;0;0;0m▛███▜[49m▌[3C[39;1mClaude[1CCode[1C[38;2;153;153;153;22mv2.4.4
+[38;2;215;119;87m▝▜[48;2;0;0;0m█████[49m▛▘[2C[38;2;153;153;153mdeepseek-v4-pro[1C·[1CAPI[1CUsage[1CBilling
+[38;2;215;119;87m [1C▘▘[1C▝▝[4C[38;2;153;153;153m~/my-compony/my-claude-code/claude-code
+  ⎿  SessionStart:startup says: # claude-mem status
+[0m                                                                                                    
+     [38;2;153;153;153mThis project has no memory yet. The current session will seed it; subsequent sessions will 
+[0m     [38;2;153;153;153mreceive auto-injected context for relevant past work.[0m                                          
+[2C                  [60C                  
+[2C   [38;2;153;153;153mMemory[1Cinjection starts on your second session in a project.
+
+[5C`/learn-codebase`[1Cis[1Cavailable[1Cif[1Cthe[1Cuser[1Cwants[1Cto[1Cfront-load[1Cthe[1Centire[1Crepo[1Cinto[1Cmemory[1Cin[1Ca
+[5C single[1Cpass[1C(~5[1Cminutes[1Con[1Ca[1Ctypical[1Crepo,[1Coptional).[1COtherwise[1Cmemory[1Cbuilds[1Cpassively[1Cas
+[5Cwork[1Chappens.
+
+[5CLive[1Cactivity:[1Chttp://localhost:37702
+[5CHow[1Cit[1Cworks:[1C`/how-it-works`
+
+[5CThis[1Cmessage[1Cdisappears[1Conce[1Cthe[1Cfirst[1Cobservation[1Clands.
+
+[5CView[1CObservations[1CLive[1C@[1Chttp://localhost:37702
+
+[38;2;80;80;80;48;2;55;55;55m❯ [38;2;255;255;255m/mcp[39m                                                                                              
+[0m                                                                                                    
+[38;2;177;185;249m────────────────────────────────────────────────────────────────────────────────────────────────────
+[0m  [38;2;177;185;249;1mManage[0m [38;2;177;185;249;1mMCP[0m [38;2;177;185;249;1mservers[0m                                                                                
+  [38;2;153;153;153m2[0m [38;2;153;153;153mservers[0m                                                                                         
+                                                                                                    
+    [1mBuilt-in[0m [1mMCPs[38;2;153;153;153;22m (always[0m [38;2;153;153;153mavailable)[0m                                                                
+  [38;2;177;185;249m❯[0m [38;2;177;185;249mmcp-chrome[0m · [38;2;153;153;153m◯[0m disabled                                                                         
+    tui-fixture[38;2;153;153;153m ·[0m [38;2;78;186;101m✔[38;2;153;153;153m connected[0m                                                                       
+
+[2C[38;2;153;153;153mhttps://code.claude.com/docs/en/mcp[1Cfor[1Chelp
+[1C[3m↑↓[1Cto[1Cnavigate[1C·[1CEnter[1Cto[1Cconfirm[1C·[1CEsc[1Cto[1Ccancel
+[0m[?2004h[?1004h

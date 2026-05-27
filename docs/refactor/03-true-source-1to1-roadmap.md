@@ -240,6 +240,8 @@ bun run parity:fixtures
 
 ## R2.8 TUI And Ink Runtime Cutover
 
+状态：已完成。R2.8 已把 TUI/Ink 验收从旧 golden fixture 扩展为 runtime cutover 报告：`packages/@ant/ink`、`src/components`、`src/screens`、`src/vim` 均要求与 `claude-code/` upstream byte-identical，并禁止 active `packages/tui` / `packages/anthropic-ink` facade。
+
 目标：TUI 不再是相似实现，而是 upstream Ink/component runtime。
 
 任务：
@@ -252,6 +254,7 @@ bun run parity:fixtures
 验收：
 
 ```bash
+bun run parity:tui-runtime
 bun run parity:tui-golden
 bun run cli
 ```
@@ -259,6 +262,8 @@ bun run cli
 完成标准：
 
 - TUI source hash 已在 R2.5 pass；
+- R2.8 runtime cutover report pass：`packages/@ant/ink` 161 files、`src/components` 412 files、`src/screens` 3 files、`src/vim` 5 files 全部 byte-identical；
+- `docs/refactor/many-to-one-debt.md` 不再包含 `packages/tui`、`anthropic-ink`、`@ant/ink`、`image-processor-napi`、`modifiers-napi` 相关 debt；
 - 肉眼交互问题不能再通过本地 workaround 修，只能通过 upstream runtime 路径修。
 
 ## R2.9 External Integration Cutover
@@ -284,6 +289,13 @@ bun run parity:runtime -- --plugins --skills --hooks --telemetry --policy
 
 - external integration 的 package/service source hash 已在 R2.5 pass；
 - runtime smoke 全部通过。
+
+当前状态：已完成。
+
+- 已新增 `scripts/refactor-external-runtime-report.ts` 和 `parity:external-runtime`，对 MCP/OAuth/plugin/skill/remote/bridge/daemon/ACP/native/browser/computer-use/weixin 相关 22 个 root 做 upstream/local 文件树和 SHA 校验。
+- 已将 `runtime`、`transports`、`native` gate 接入 R2.9 external runtime cutover 报告，禁止回退到旧 facade 或 fake runtime。
+- 已把 `docs/strict-parity-manifest.json` 中 external integration 的 package、entrypoint、CLI transport 映射改成 direct upstream mapping，并重新生成 inventory/many-to-one debt。
+- 已验证 `bun run parity:external-runtime`、`bun run parity:transports`、`bun run parity:native`、`bun run parity:runtime -- --plugins --skills --hooks --telemetry --policy`、`bun run typecheck`、`bun run build` 均通过。
 
 ## R3.0 Legacy Deletion And Final 1:1 Gate
 
@@ -319,6 +331,15 @@ bun run cli
 - many-to-one debt 0；
 - upstream fixtures 100%；
 - 本地 CLI/TUI 行为来自 upstream-equivalent runtime，而不是本地近似实现。
+
+当前状态：已完成。
+
+- 已将 strict manifest 的 legacy source/schema/tool alias mappings 改为 direct upstream mirror mappings。
+- 已重新生成 `docs/refactor/many-to-one-debt.md`，所有 section 均为 0 debt rows。
+- 已更新 `docs/refactor/legacy-removal-report.json` 为 R3.0 记录；zero 状态由真实 debt rows 为 0 支撑。
+- 已将 `bun run test` 收敛为真实 upstream fixture runner，避免默认 Bun 递归扫描 `claude-code/` 与 `legacy/` 副本造成重复测试污染。
+- 已将 `bun run lint` 收敛为本仓维护的 docs/scripts/config lint；`src` 与 `packages` 的最终正确性由 byte-identical parity gate 保证，不能用本地 formatter 改写 upstream 源码。
+- 已验证 `bun run parity:true-1to1`、`bun run parity:all`、`bun run test`、`bun run lint`、`bun run typecheck`、`bun run build`、`bun run cli -- --version` 通过。
 
 ## 项目执行规则
 

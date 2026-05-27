@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" role="img" aria-labelledby="title desc">
+  <title id="title">Transcript Persistence and Resume Flow</title>
+  <desc id="desc">Claude Code transcript persistence and resume recovery architecture.</desc>
+  <style>
+    text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif;
+    }
+    .title { font-size: 22px; font-weight: 600; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .lane { font-size: 13px; font-weight: 600; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 600; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .small { font-size: 11px; fill: #6b7280; }
+    .code { font-size: 11px; fill: #374151; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="soft-shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#111827" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1180" height="760" fill="#ffffff"/>
+  <text x="40" y="44" class="title">Transcript 持久化与 Resume 恢复链路</text>
+  <text x="40" y="67" class="subtitle">runtime message stream -&gt; append-only JSONL -&gt; compact-aware chain load -&gt; AppState 恢复</text>
+
+  <rect x="40" y="96" width="250" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="320" y="96" width="250" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="600" y="96" width="250" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="880" y="96" width="250" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="62" y="124" class="lane">1. Runtime 事件来源</text>
+  <text x="342" y="124" class="lane">2. 清洗、去重与链写入</text>
+  <text x="622" y="124" class="lane">3. Session Storage</text>
+  <text x="902" y="124" class="lane">4. Resume 恢复入口</text>
+
+  <g filter="url(#soft-shadow)">
+    <rect x="70" y="156" width="190" height="86" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <circle cx="94" cy="184" r="12" fill="#2563eb"/>
+    <path d="M89 184h10M94 179v10" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <text x="116" y="181" class="node-title">Interactive REPL</text>
+    <text x="116" y="203" class="node-sub">useLogMessages 监听</text>
+    <text x="116" y="221" class="node-sub">增量 slice 写入</text>
+
+    <rect x="70" y="285" width="190" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <rect x="82" y="309" width="24" height="18" rx="3" fill="#16a34a"/>
+    <path d="M87 318h14" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <text x="116" y="310" class="node-title">QueryEngine</text>
+    <text x="116" y="332" class="node-sub">headless / SDK</text>
+    <text x="116" y="350" class="node-sub">用户输入先落盘</text>
+
+    <rect x="70" y="414" width="190" height="86" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <path d="M89 449c0-10 6-18 15-18s15 8 15 18-6 18-15 18-15-8-15-18z" fill="#9333ea"/>
+    <circle cx="98" cy="444" r="2" fill="#ffffff"/>
+    <circle cx="110" cy="444" r="2" fill="#ffffff"/>
+    <path d="M98 456c4 3 8 3 12 0" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="128" y="439" class="node-title">AgentTool</text>
+    <text x="128" y="461" class="node-sub">sidechain transcript</text>
+    <text x="128" y="479" class="node-sub">agent 元数据 sidecar</text>
+
+    <rect x="350" y="156" width="190" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="372" y="181" class="node-title">cleanMessagesForLogging</text>
+    <text x="372" y="203" class="node-sub">过滤 progress / 附件</text>
+    <text x="372" y="221" class="node-sub">外部用户隐藏 REPL 包装</text>
+
+    <rect x="350" y="285" width="190" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="372" y="310" class="node-title">recordTranscript</text>
+    <text x="372" y="332" class="node-sub">dedupe + parent hint</text>
+    <text x="372" y="350" class="node-sub">compact 后维护链头</text>
+
+    <rect x="350" y="414" width="190" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="372" y="439" class="node-title">Project.writeQueue</text>
+    <text x="372" y="461" class="node-sub">延迟 materialize file</text>
+    <text x="372" y="479" class="node-sub">append-only JSONL</text>
+
+    <rect x="630" y="146" width="190" height="96" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <path d="M652 164h60c12 0 22 8 22 18v38c0 10-10 18-22 18h-60c-12 0-22-8-22-18v-38c0-10 10-18 22-18z" fill="#ffffff" stroke="#f97316" stroke-width="1.5"/>
+    <ellipse cx="682" cy="182" rx="52" ry="18" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+    <text x="654" y="275" class="node-title">主 session JSONL</text>
+    <text x="654" y="297" class="node-sub">~/.claude/projects/.../&lt;id&gt;.jsonl</text>
+
+    <rect x="630" y="328" width="190" height="82" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="654" y="354" class="node-title">subagent sidechain</text>
+    <text x="654" y="376" class="node-sub">agent-&lt;agentId&gt;.jsonl</text>
+    <text x="654" y="394" class="node-sub">.meta.json 保存 agentType</text>
+
+    <rect x="630" y="456" width="190" height="82" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text x="654" y="482" class="node-title">metadata entries</text>
+    <text x="654" y="504" class="node-sub">title / tag / mode / worktree</text>
+    <text x="654" y="522" class="node-sub">file history / attribution</text>
+
+    <rect x="630" y="574" width="190" height="62" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text x="654" y="600" class="node-title">remote ingress / CCR</text>
+    <text x="654" y="622" class="node-sub">internal event writer / reader</text>
+
+    <rect x="910" y="146" width="190" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="932" y="172" class="node-title">/resume picker</text>
+    <text x="932" y="194" class="node-sub">lite head/tail metadata</text>
+    <text x="932" y="212" class="node-sub">同项目优先</text>
+
+    <rect x="910" y="270" width="190" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="932" y="296" class="node-title">loadTranscriptFile</text>
+    <text x="932" y="318" class="node-sub">compact-aware parse</text>
+    <text x="932" y="336" class="node-sub">leafUuid 选择链尾</text>
+
+    <rect x="910" y="394" width="190" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="932" y="420" class="node-title">conversationRecovery</text>
+    <text x="932" y="442" class="node-sub">迁移 / 过滤 / 中断修复</text>
+    <text x="932" y="460" class="node-sub">API-valid messages</text>
+
+    <rect x="910" y="518" width="190" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="932" y="544" class="node-title">sessionRestore</text>
+    <text x="932" y="566" class="node-sub">AppState / worktree / agent</text>
+    <text x="932" y="584" class="node-sub">adoptResumedSessionFile</text>
+  </g>
+
+  <path d="M260 199 C300 199 310 199 350 199" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M260 328 C300 328 310 328 350 328" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M260 457 C300 457 310 457 350 457" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <path d="M540 199 C575 199 595 199 630 199" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M445 242 L445 285" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M445 371 L445 414" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M540 457 C575 457 595 456 630 373" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M540 457 C575 457 595 497 630 497" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M725 538 L725 574" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <path d="M820 194 C858 194 872 187 910 187" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M820 194 C858 194 872 311 910 311" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M820 605 C862 605 876 558 910 558" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1005 228 L1005 270" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1005 352 L1005 394" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1005 476 L1005 518" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+
+  <g transform="translate(50 690)">
+    <line x1="0" y1="8" x2="34" y2="8" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+    <text x="44" y="12" class="small">主会话消息流</text>
+    <line x1="160" y1="8" x2="194" y2="8" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+    <text x="204" y="12" class="small">恢复 / 状态数据</text>
+    <line x1="330" y1="8" x2="364" y2="8" stroke="#9333ea" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+    <text x="374" y="12" class="small">sidechain / remote</text>
+    <line x1="510" y1="8" x2="544" y2="8" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="554" y="12" class="small">异常 / 兼容路径</text>
+  </g>
+
+  <text x="40" y="725" class="small">关键源码：claude-code/src/utils/sessionStorage.ts、conversationRecovery.ts、sessionRestore.ts、commands/resume/index.ts、hooks/useLogMessages.ts、QueryEngine.ts</text>
+</svg>

@@ -1,0 +1,26 @@
+#!/usr/bin/expect -f
+match_max 10000000
+log_user 1
+set timeout -1
+log_file -noappend "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/upstream.raw"
+spawn -noecho /bin/bash "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/upstream.driver.sh"
+set timeout 10
+catch {expect { eof {} timeout {} }}
+catch {send -- "Reply exactly: INPUT_OK"}
+set timeout 1
+catch {expect { eof {} timeout {} }}
+catch {send -- "\r"}
+set timeout 16
+catch {expect { eof {} timeout {} }}
+catch {send -- "\004"}
+set timeout 19
+catch {expect { eof {} timeout {} }}
+catch {send -- "\003"}
+set timeout 1
+catch {expect { eof {} timeout {} }}
+catch {send -- "\003"}
+set timeout 1
+catch {expect { eof {} timeout {} }}
+catch {close}
+catch {wait}
+exit 0

@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 800" width="1220" height="800">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 20px; font-weight: 600; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane { font-size: 13px; font-weight: 600; fill: #374151; }
+    .label { font-size: 14px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #6b7280; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1220" height="800" fill="#ffffff"/>
+  <text x="42" y="42" class="title">Team / Swarm 多 Agent 协作生命周期</text>
+  <text x="42" y="64" class="subtitle">TeamCreate 建账、AgentTool 生成 teammate、backend 执行、Task V2 协作、TeamDelete 收尾</text>
+
+  <rect x="30" y="94" width="1160" height="120" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="240" width="1160" height="172" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="438" width="1160" height="150" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="614" width="1160" height="96" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+
+  <text x="48" y="120" class="lane">团队建账</text>
+  <text x="48" y="266" class="lane">成员生成与执行后端</text>
+  <text x="48" y="464" class="lane">协作执行</text>
+  <text x="48" y="640" class="lane">关闭与清理</text>
+
+  <g transform="translate(84,134)">
+    <rect width="160" height="58" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <circle cx="30" cy="29" r="14" fill="#2563eb" opacity="0.15"/>
+    <path d="M24 29h12M30 23v12" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <text x="58" y="24" class="label">用户目标</text>
+    <text x="58" y="44" class="small">需要并行协作</text>
+  </g>
+
+  <g transform="translate(312,134)">
+    <rect width="178" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="15" width="30" height="28" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M24 24h14M24 32h14M24 40h8" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="58" y="24" class="label">TeamCreate</text>
+    <text x="58" y="44" class="small">创建 team + lead</text>
+  </g>
+
+  <g transform="translate(558,134)">
+    <rect width="212" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <path d="M34 18c16 0 28 6 28 13s-12 13-28 13S6 38 6 31s12-13 28-13z" transform="translate(12,2)" fill="#faf5ff" stroke="#ddd6fe"/>
+    <path d="M18 37c0 8 12 14 28 14s28-6 28-14" fill="none" stroke="#c4b5fd"/>
+    <text x="76" y="24" class="label">team config</text>
+    <text x="76" y="44" class="small">~/.claude/teams/&lt;team&gt;</text>
+  </g>
+
+  <g transform="translate(836,134)">
+    <rect width="196" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <path d="M34 18c16 0 28 6 28 13s-12 13-28 13S6 38 6 31s12-13 28-13z" transform="translate(12,2)" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <path d="M18 37c0 8 12 14 28 14s28-6 28-14" fill="none" stroke="#86efac"/>
+    <text x="76" y="24" class="label">TaskList</text>
+    <text x="76" y="44" class="small">~/.claude/tasks/&lt;team&gt;</text>
+  </g>
+
+  <path d="M244 163h68" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M490 163h68" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M770 163h66" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+
+  <g transform="translate(84,300)">
+    <rect width="174" height="72" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="20" width="32" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M24 35h16M32 27v16" stroke="#2563eb" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="60" y="28" class="label">AgentTool</text>
+    <text x="60" y="50" class="small">name + team_name</text>
+  </g>
+
+  <g transform="translate(326,300)">
+    <rect width="204" height="72" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="20" width="32" height="32" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
+    <path d="M24 30h16M24 39h16M24 48h9" stroke="#0f766e" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="60" y="28" class="label">spawnTeammate</text>
+    <text x="60" y="50" class="small">命名、模型、颜色、cwd</text>
+  </g>
+
+  <g transform="translate(604,284)">
+    <rect width="206" height="104" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="22" width="32" height="32" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+    <path d="M25 38h18M34 28v20" stroke="#9333ea" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="62" y="28" class="label">Backend Registry</text>
+    <text x="62" y="50" class="small">auto / tmux / WT</text>
+    <text x="62" y="68" class="small">iTerm2 / in-process</text>
+    <text x="62" y="88" class="tiny">无 pane 后端时 fallback</text>
+  </g>
+
+  <g transform="translate(886,278)">
+    <rect width="224" height="118" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="34" height="34" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+    <path d="M26 31h16M26 40h16M26 49h9" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="66" y="28" class="label">Executor</text>
+    <text x="66" y="50" class="small">PaneBackendExecutor</text>
+    <text x="66" y="68" class="small">InProcessBackend</text>
+    <text x="66" y="90" class="tiny">启动 CLI 或注册 AppState task</text>
+  </g>
+
+  <path d="M258 336h68" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M530 336h74" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M810 336h76" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M664 192v92" stroke="#9333ea" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <g transform="translate(90,486)">
+    <rect width="194" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <path d="M24 31h14M31 24v16" stroke="#16a34a" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">Task V2 协作</text>
+    <text x="58" y="48" class="small">owner / blocks / claim</text>
+  </g>
+
+  <g transform="translate(356,486)">
+    <rect width="194" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M24 29h16M24 37h10" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">SendMessage</text>
+    <text x="58" y="48" class="small">name / broadcast / peer</text>
+  </g>
+
+  <g transform="translate(622,486)">
+    <rect width="206" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+    <path d="M24 29h16M24 37h16M24 45h8" stroke="#9333ea" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">Mailbox / Inbox</text>
+    <text x="58" y="48" class="small">自动投递为新 turn</text>
+  </g>
+
+  <g transform="translate(900,486)">
+    <rect width="196" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+    <path d="M31 24v14M31 44h.1" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">权限与计划桥</text>
+    <text x="58" y="48" class="small">leader approval</text>
+  </g>
+
+  <path d="M998 396v70c0 11-9 20-20 20H284" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M284 518h72" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M550 518h72" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M828 518h72" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M934 192v286" stroke="#16a34a" stroke-width="1.3" fill="none" marker-end="url(#arrow-green)"/>
+
+  <g transform="translate(156,654)">
+    <rect width="190" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">shutdown_request</text>
+  </g>
+
+  <g transform="translate(416,654)">
+    <rect width="190" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">shutdown_approved</text>
+  </g>
+
+  <g transform="translate(678,654)">
+    <rect width="178" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">TeamDelete</text>
+    <text x="104" y="26" class="small">wait_ms</text>
+  </g>
+
+  <g transform="translate(926,654)">
+    <rect width="176" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">cleanup</text>
+    <text x="86" y="26" class="small">team/tasks/worktree</text>
+  </g>
+
+  <path d="M998 550v82c0 12-10 22-22 22H346" stroke="#dc2626" stroke-width="1.4" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M346 675h70" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M606 675h72" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M856 675h70" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(44,748)">
+    <line x1="0" y1="8" x2="30" y2="8" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+    <text x="38" y="12" class="small">建账和显式工具调用</text>
+    <line x1="196" y1="8" x2="226" y2="8" stroke="#9333ea" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+    <text x="234" y="12" class="small">spawn / backend / 消息通道</text>
+    <line x1="464" y1="8" x2="494" y2="8" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+    <text x="502" y="12" class="small">任务协作与执行推进</text>
+    <line x1="700" y1="8" x2="730" y2="8" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+    <text x="738" y="12" class="small">审批、关闭和清理</text>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+ ▐▛███▜▌ClaudeCodev2.4.4
+▝▜█████▛▘deepseek-v4-pro·APIUsageBilling
+ ▘▘▝▝~/my-compony/my-claude-code
+
+✻Conversationcompacted(ctrl+oforhistory)
+
+
+❯ /compact                                                                                          
+ ⎿Compacted(ctrl+otoseefullsummary)
+ ⎿ SessionStart:compactsays:#claude-memstatus
+
+Thisprojecthasnomemoryyet.Thecurrentsessionwillseedit;subsequentsessionswill
+receiveauto-injectedcontextforrelevantpastwork.
+
+Memoryinjectionstartsonyoursecondsessioninaproject.
+
+`/learn-codebase`isavailableiftheuserwantstofront-loadtheentirerepointomemoryina
+ singlepass(~5minutesonatypicalrepo,optional).Otherwisememorybuildspassivelyas
+workhappens.
+
+Liveactivity:http://localhost:37702
+Howitworks:`/how-it-works`
+
+Thismessagedisappearsoncethefirstobservationlands.
+
+ViewObservationsLive@http://localhost:37702
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+❯  
+────────────────────────────────────────────────────────────────────────────────────────────────────
+[CAVEMAN]                 

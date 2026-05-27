@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 820" width="1240" height="820" role="img" aria-labelledby="title desc">
+  <title id="title">Agent transcript input routing</title>
+  <desc id="desc">How Claude Code switches from leader transcript to a teammate transcript and routes typed input to the active agent.</desc>
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .head { font-size: 14px; font-weight: 700; fill: #111827; }
+    .small { font-size: 12px; fill: #4b5563; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #ddd6fe; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .red { fill: #fef2f2; stroke: #fecaca; }
+    .teal { fill: #f0fdfa; stroke: #99f6e4; }
+    .panel { fill: #f9fafb; stroke: #d1d5db; stroke-width: 1.4; rx: 12; ry: 12; }
+    .terminal { fill: #111827; stroke: #374151; rx: 6; ry: 6; }
+    .terminal-text { fill: #e5e7eb; font-size: 12px; }
+    .term-title { fill: #93c5fd; font-size: 13px; font-weight: 700; }
+    .decision { fill: #fff7ed; stroke: #fb923c; stroke-width: 1.5; }
+  </style>
+  <defs>
+    <marker id="arrow-blue-23b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green-23b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple-23b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red-23b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="820" fill="#ffffff"/>
+  <text x="40" y="46" class="title">teammate transcript 与输入路由</text>
+  <text x="40" y="70" class="subtitle">viewingAgentTaskId changes what is displayed and where PromptInput submits the next message</text>
+
+  <rect x="50" y="112" width="250" height="112" class="terminal"/>
+  <text x="74" y="142" class="term-title">User action</text>
+  <text x="74" y="168" class="terminal-text">Shift+Down opens tree</text>
+  <text x="74" y="190" class="terminal-text">Enter / f chooses agent</text>
+  <text x="74" y="212" class="terminal-text">Esc returns to leader</text>
+
+  <rect x="360" y="112" width="268" height="112" class="box blue"/>
+  <text x="386" y="143" class="head">useBackgroundTaskNavigation</text>
+  <text x="386" y="168" class="small">maps selection index</text>
+  <text x="386" y="190" class="small">leader = -1, teammate = 0..n</text>
+  <text x="386" y="212" class="small">hide row = n</text>
+
+  <rect x="688" y="112" width="236" height="112" class="box purple"/>
+  <text x="714" y="143" class="head">enterTeammateView</text>
+  <text x="714" y="168" class="small">set viewingAgentTaskId</text>
+  <text x="714" y="190" class="small">mode = viewing-agent</text>
+  <text x="714" y="212" class="small">retain local_agent</text>
+
+  <rect x="984" y="112" width="206" height="112" class="box green"/>
+  <text x="1010" y="143" class="head">AppState view</text>
+  <text x="1010" y="168" class="small">viewingAgentTaskId</text>
+  <text x="1010" y="190" class="small">viewSelectionMode</text>
+  <text x="1010" y="212" class="small">selectedIPAgentIndex</text>
+
+  <rect x="66" y="304" width="356" height="176" class="panel"/>
+  <text x="92" y="334" class="head">Display branch</text>
+  <rect x="96" y="360" width="286" height="82" class="terminal"/>
+  <text x="118" y="386" class="term-title">REPL + FullscreenLayout</text>
+  <text x="118" y="410" class="terminal-text">TeammateViewHeader</text>
+  <text x="118" y="432" class="terminal-text">Messages(displayedAgentMessages)</text>
+
+  <rect x="482" y="304" width="300" height="176" class="panel"/>
+  <text x="508" y="334" class="head">Transcript source</text>
+  <rect x="520" y="360" width="224" height="82" class="box teal"/>
+  <text x="544" y="386" class="head">task.messages</text>
+  <text x="544" y="410" class="small">in-process: capped mirror</text>
+  <text x="544" y="432" class="small">local agent: disk bootstrap</text>
+
+  <rect x="842" y="304" width="332" height="176" class="panel"/>
+  <text x="868" y="334" class="head">Input branch</text>
+  <polygon points="1008,360 1118,402 1008,444 898,402" class="decision"/>
+  <text x="952" y="398" class="head">active agent?</text>
+  <text x="944" y="420" class="tiny">getActiveAgentForInput</text>
+
+  <rect x="80" y="568" width="270" height="116" class="box orange"/>
+  <text x="106" y="599" class="head">getAgentTranscript</text>
+  <text x="106" y="624" class="small">local_agent sidechain JSONL</text>
+  <text x="106" y="646" class="small">UUID merge with live suffix</text>
+  <text x="106" y="668" class="small">diskLoaded = true</text>
+
+  <rect x="430" y="568" width="270" height="116" class="box purple"/>
+  <text x="456" y="599" class="head">injectUserMessageToTeammate</text>
+  <text x="456" y="624" class="small">append pendingUserMessages</text>
+  <text x="456" y="646" class="small">append capped UI message</text>
+  <text x="456" y="668" class="small">runner consumes next turn</text>
+
+  <rect x="780" y="568" width="270" height="116" class="box green"/>
+  <text x="806" y="599" class="head">append / queue local agent</text>
+  <text x="806" y="624" class="small">appendMessageToLocalAgent</text>
+  <text x="806" y="646" class="small">queuePendingMessage</text>
+  <text x="806" y="668" class="small">drain at tool boundary</text>
+
+  <rect x="1042" y="568" width="126" height="116" class="box red"/>
+  <text x="1064" y="599" class="head">leader</text>
+  <text x="1064" y="624" class="small">normal</text>
+  <text x="1064" y="646" class="small">onSubmit</text>
+
+  <path d="M300 168 L360 168" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23b)"/>
+  <path d="M628 168 L688 168" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23b)"/>
+  <path d="M924 168 L984 168" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23b)"/>
+
+  <path d="M1087 224 C1087 272 226 252 226 304" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23b)"/>
+  <path d="M1087 224 C1087 272 632 254 632 304" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23b)"/>
+  <path d="M1087 224 C1087 268 1008 268 1008 304" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23b)"/>
+
+  <path d="M220 480 L215 568" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23b)"/>
+  <path d="M632 442 C608 493 492 514 540 568" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23b)"/>
+  <path d="M1008 444 C950 490 592 510 565 568" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23b)"/>
+  <path d="M1046 438 C1024 498 910 514 915 568" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23b)"/>
+  <path d="M1110 420 C1164 474 1140 524 1105 568" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23b)"/>
+
+  <text x="628" y="532" class="tiny">viewed teammate</text>
+  <text x="900" y="532" class="tiny">named local agent</text>
+  <text x="1084" y="532" class="tiny">none</text>
+
+  <g transform="translate(62 758)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23b)"/>
+    <text x="42" y="12" class="tiny">selection event</text>
+    <line x1="170" y1="8" x2="202" y2="8" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23b)"/>
+    <text x="212" y="12" class="tiny">view state</text>
+    <line x1="332" y1="8" x2="364" y2="8" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23b)"/>
+    <text x="374" y="12" class="tiny">transcript data</text>
+    <line x1="520" y1="8" x2="552" y2="8" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23b)"/>
+    <text x="562" y="12" class="tiny">input routing</text>
+  </g>
+</svg>

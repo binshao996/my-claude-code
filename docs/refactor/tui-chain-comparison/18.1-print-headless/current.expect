@@ -1,0 +1,17 @@
+#!/usr/bin/expect -f
+match_max 10000000
+log_user 1
+set timeout -1
+log_file -noappend "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/current.raw"
+spawn -noecho /bin/bash "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/current.driver.sh"
+set timeout 35
+catch {expect { eof {} timeout {} }}
+catch {send -- "\003"}
+set timeout 1
+catch {expect { eof {} timeout {} }}
+catch {send -- "\003"}
+set timeout 1
+catch {expect { eof {} timeout {} }}
+catch {close}
+catch {wait}
+exit 0

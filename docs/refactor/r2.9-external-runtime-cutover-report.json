@@ -1,0 +1,561 @@
+{
+  "version": "r2.9",
+  "generatedAt": "2026-05-25T11:16:59.587Z",
+  "status": "pass",
+  "roots": [
+    {
+      "upstreamRoot": "claude-code/src/services/mcp",
+      "localRoot": "src/services/mcp",
+      "upstreamFileCount": 31,
+      "localFileCount": 31,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/services/oauth",
+      "localRoot": "src/services/oauth",
+      "upstreamFileCount": 6,
+      "localFileCount": 6,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/services/plugins",
+      "localRoot": "src/services/plugins",
+      "upstreamFileCount": 3,
+      "localFileCount": 3,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/plugins",
+      "localRoot": "src/plugins",
+      "upstreamFileCount": 3,
+      "localFileCount": 3,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/skills",
+      "localRoot": "src/skills",
+      "upstreamFileCount": 26,
+      "localFileCount": 26,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/bridge",
+      "localRoot": "src/bridge",
+      "upstreamFileCount": 40,
+      "localFileCount": 40,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/daemon",
+      "localRoot": "src/daemon",
+      "upstreamFileCount": 5,
+      "localFileCount": 5,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/remote",
+      "localRoot": "src/remote",
+      "upstreamFileCount": 4,
+      "localFileCount": 4,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/server",
+      "localRoot": "src/server",
+      "upstreamFileCount": 11,
+      "localFileCount": 11,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/services/acp",
+      "localRoot": "src/services/acp",
+      "upstreamFileCount": 10,
+      "localFileCount": 10,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/ssh",
+      "localRoot": "src/ssh",
+      "upstreamFileCount": 6,
+      "localFileCount": 6,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/cli/transports",
+      "localRoot": "src/cli/transports",
+      "upstreamFileCount": 9,
+      "localFileCount": 9,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/mcp-client",
+      "localRoot": "packages/mcp-client",
+      "upstreamFileCount": 23,
+      "localFileCount": 23,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/remote-control-server",
+      "localRoot": "packages/remote-control-server",
+      "upstreamFileCount": 150,
+      "localFileCount": 150,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/acp-link",
+      "localRoot": "packages/acp-link",
+      "upstreamFileCount": 23,
+      "localFileCount": 23,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/agent-tools",
+      "localRoot": "packages/agent-tools",
+      "upstreamFileCount": 7,
+      "localFileCount": 7,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/audio-capture-napi",
+      "localRoot": "packages/audio-capture-napi",
+      "upstreamFileCount": 3,
+      "localFileCount": 3,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/@ant/claude-for-chrome-mcp",
+      "localRoot": "packages/@ant/claude-for-chrome-mcp",
+      "upstreamFileCount": 10,
+      "localFileCount": 10,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/@ant/computer-use-input",
+      "localRoot": "packages/@ant/computer-use-input",
+      "upstreamFileCount": 7,
+      "localFileCount": 7,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/@ant/computer-use-mcp",
+      "localRoot": "packages/@ant/computer-use-mcp",
+      "upstreamFileCount": 14,
+      "localFileCount": 14,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/@ant/computer-use-swift",
+      "localRoot": "packages/@ant/computer-use-swift",
+      "upstreamFileCount": 7,
+      "localFileCount": 7,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/packages/weixin",
+      "localRoot": "packages/weixin",
+      "upstreamFileCount": 20,
+      "localFileCount": 20,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "path": "src/services/mcp/client.ts",
+      "upstream": "claude-code/src/services/mcp/client.ts",
+      "local": "src/services/mcp/client.ts",
+      "sha256": "f6e8a3960e8e0dcbd116116db058820a9cf2c777a4da268151263a931af9d9d2",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/mcp/MCPConnectionManager.tsx",
+      "upstream": "claude-code/src/services/mcp/MCPConnectionManager.tsx",
+      "local": "src/services/mcp/MCPConnectionManager.tsx",
+      "sha256": "293365205bed0505a2b4b17e7dc11f116c95c9d39ae2b0a921b2eabe8730f0d5",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/mcp/auth.ts",
+      "upstream": "claude-code/src/services/mcp/auth.ts",
+      "local": "src/services/mcp/auth.ts",
+      "sha256": "deef55e52eb9301ba69401d31270ed644f412f79f2d89e31fc590f30a7e47676",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/oauth/client.ts",
+      "upstream": "claude-code/src/services/oauth/client.ts",
+      "local": "src/services/oauth/client.ts",
+      "sha256": "28f1a385902dcc9d73e31b2ad0adeba05dfea5831df1421fd87938338084340e",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/oauth/auth-code-listener.ts",
+      "upstream": "claude-code/src/services/oauth/auth-code-listener.ts",
+      "local": "src/services/oauth/auth-code-listener.ts",
+      "sha256": "a46ac6e7c1c3f662aec66fffc4e22d56de34136ae279b4a27963240b7460fd49",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/plugins/PluginInstallationManager.ts",
+      "upstream": "claude-code/src/services/plugins/PluginInstallationManager.ts",
+      "local": "src/services/plugins/PluginInstallationManager.ts",
+      "sha256": "667fdbb572985ceb841678facadfe31bc0d89a041b037667a4daf5775c854ae6",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/plugins/pluginOperations.ts",
+      "upstream": "claude-code/src/services/plugins/pluginOperations.ts",
+      "local": "src/services/plugins/pluginOperations.ts",
+      "sha256": "697e1fb65d733eac6df56ebfa42e08ccb45cfe3e6c04d52fa19b8c8ad128dceb",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/plugins/builtinPlugins.ts",
+      "upstream": "claude-code/src/plugins/builtinPlugins.ts",
+      "local": "src/plugins/builtinPlugins.ts",
+      "sha256": "80ab9558ba03766b2fbd0478da00e7dadd1685904b4559c7bb3c5de51f44fbec",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/skills/bundledSkills.ts",
+      "upstream": "claude-code/src/skills/bundledSkills.ts",
+      "local": "src/skills/bundledSkills.ts",
+      "sha256": "f38f5225689d6d587d61fcc3ca4568603d6363114ace71d5cae30dc82cc1e525",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/skills/mcpSkills.ts",
+      "upstream": "claude-code/src/skills/mcpSkills.ts",
+      "local": "src/skills/mcpSkills.ts",
+      "sha256": "2b43513ccd249cb614c189657de23cb78feae6ddf613aa54fa9d2e495f349a44",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/bridge/bridgeApi.ts",
+      "upstream": "claude-code/src/bridge/bridgeApi.ts",
+      "local": "src/bridge/bridgeApi.ts",
+      "sha256": "ec0ab960b4e278bda225b4eaffdab225173736e79d8fb6fa10299a5730e8a47a",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/bridge/bridgeMain.ts",
+      "upstream": "claude-code/src/bridge/bridgeMain.ts",
+      "local": "src/bridge/bridgeMain.ts",
+      "sha256": "b3d16acb7aae5a777089b2be7845b12ca6791d856507322d4b26d77eaf1dae78",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/bridge/remoteBridgeCore.ts",
+      "upstream": "claude-code/src/bridge/remoteBridgeCore.ts",
+      "local": "src/bridge/remoteBridgeCore.ts",
+      "sha256": "1db911c93248ac33f7dcfbcec201f2de007cdc446e8778618e1af2ea33a56807",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/daemon/main.ts",
+      "upstream": "claude-code/src/daemon/main.ts",
+      "local": "src/daemon/main.ts",
+      "sha256": "967b6a2bca9387439a02b6f11b71b972b36b9def7a9dfe8126cc39c40cd3e9e5",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/remote/RemoteSessionManager.ts",
+      "upstream": "claude-code/src/remote/RemoteSessionManager.ts",
+      "local": "src/remote/RemoteSessionManager.ts",
+      "sha256": "8b579fa4b318b0b4fc699e091bcb3161424828bd9b4d65c09615f4bfedfd2ecd",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/server/server.ts",
+      "upstream": "claude-code/src/server/server.ts",
+      "local": "src/server/server.ts",
+      "sha256": "225c27716616bd8d79de2d99ee20fdeecf4203a02bc0563bca1876d9ae088e30",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/services/acp/bridge.ts",
+      "upstream": "claude-code/src/services/acp/bridge.ts",
+      "local": "src/services/acp/bridge.ts",
+      "sha256": "df6f4ee3827751c1041fcc891f9e35cb3cca88eea00fe9282c718fba5a9f9da7",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/ssh/SSHSessionManager.ts",
+      "upstream": "claude-code/src/ssh/SSHSessionManager.ts",
+      "local": "src/ssh/SSHSessionManager.ts",
+      "sha256": "45879f15b77e6e5ea0722f7fa898f70748475fd65b2d7496b167a40b69991de5",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/cli/remoteIO.ts",
+      "upstream": "claude-code/src/cli/remoteIO.ts",
+      "local": "src/cli/remoteIO.ts",
+      "sha256": "86e7ef1548fc154116515b93e3e12e341c1b23cb259c7eea6641e2a5245dd1f9",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/cli/transports/SSETransport.ts",
+      "upstream": "claude-code/src/cli/transports/SSETransport.ts",
+      "local": "src/cli/transports/SSETransport.ts",
+      "sha256": "ed3e650e06dde7cc117fae37795f1d668038a5362e01a47dfb1acf8b6a0a3abd",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/cli/transports/WebSocketTransport.ts",
+      "upstream": "claude-code/src/cli/transports/WebSocketTransport.ts",
+      "local": "src/cli/transports/WebSocketTransport.ts",
+      "sha256": "4e904de8b7afedee6dad203ecb6a00df4f113384fb2fc7d0fa81572544969e9c",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/cli/transports/HybridTransport.ts",
+      "upstream": "claude-code/src/cli/transports/HybridTransport.ts",
+      "local": "src/cli/transports/HybridTransport.ts",
+      "sha256": "731c6e30ba5a7b4cbaf14bf68b553394a66f8f6d17e3a140ee2a28e4fbaca2be",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/cli/transports/SerialBatchEventUploader.ts",
+      "upstream": "claude-code/src/cli/transports/SerialBatchEventUploader.ts",
+      "local": "src/cli/transports/SerialBatchEventUploader.ts",
+      "sha256": "a1b0a8da8290f3bc5cffc412b55c07f923f837d25c117897116cd905e8e0c055",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/cli/transports/WorkerStateUploader.ts",
+      "upstream": "claude-code/src/cli/transports/WorkerStateUploader.ts",
+      "local": "src/cli/transports/WorkerStateUploader.ts",
+      "sha256": "e0a0ed660fb6dc843941a2442b36ec2ab89d456df0c3899a9631c49a92faec2e",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/mcp-client/src/index.ts",
+      "upstream": "claude-code/packages/mcp-client/src/index.ts",
+      "local": "packages/mcp-client/src/index.ts",
+      "sha256": "deca6b0e184ff4bda5269e8b1b1cde7fce6ef121c68bddb204c9ad6ca9144c19",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/mcp-client/src/transport/InProcessTransport.ts",
+      "upstream": "claude-code/packages/mcp-client/src/transport/InProcessTransport.ts",
+      "local": "packages/mcp-client/src/transport/InProcessTransport.ts",
+      "sha256": "33fdfa0c958a7e11ce2e38ec958ed7d7b6a054bb21df7b772d61c45077b7da85",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/remote-control-server/src/index.ts",
+      "upstream": "claude-code/packages/remote-control-server/src/index.ts",
+      "local": "packages/remote-control-server/src/index.ts",
+      "sha256": "32b711fc4b336573547e3d593dbd7c68b75fae6f3361d48945960ad0be599347",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/remote-control-server/src/transport/sse-writer.ts",
+      "upstream": "claude-code/packages/remote-control-server/src/transport/sse-writer.ts",
+      "local": "packages/remote-control-server/src/transport/sse-writer.ts",
+      "sha256": "e90c2d8aaa934f2a0f6360545c0de9e8fc33c17e80d3d0d8267dd7279afdece6",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/remote-control-server/src/transport/ws-handler.ts",
+      "upstream": "claude-code/packages/remote-control-server/src/transport/ws-handler.ts",
+      "local": "packages/remote-control-server/src/transport/ws-handler.ts",
+      "sha256": "21bd76656442f7762c9e854c28c00ff67ddc8d3eef61823b441dea85c4f33c60",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/acp-link/src/server.ts",
+      "upstream": "claude-code/packages/acp-link/src/server.ts",
+      "local": "packages/acp-link/src/server.ts",
+      "sha256": "c36668c1f840c8b1849c808a14162ddc56f18f13c3bb3445dcac1979fa2b61b5",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/agent-tools/src/registry.ts",
+      "upstream": "claude-code/packages/agent-tools/src/registry.ts",
+      "local": "packages/agent-tools/src/registry.ts",
+      "sha256": "e1b8f2a53388777098467023c27e41079ce6c06bac2edaf8dd387827fc58bc51",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/audio-capture-napi/src/index.ts",
+      "upstream": "claude-code/packages/audio-capture-napi/src/index.ts",
+      "local": "packages/audio-capture-napi/src/index.ts",
+      "sha256": "e39d812071f13ebb6269cb144ff021cb91c501636b1fd2222e9a137e5c9eedab",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/claude-for-chrome-mcp/src/mcpServer.ts",
+      "upstream": "claude-code/packages/@ant/claude-for-chrome-mcp/src/mcpServer.ts",
+      "local": "packages/@ant/claude-for-chrome-mcp/src/mcpServer.ts",
+      "sha256": "d5f683ba7b74c772707b8b901a3e75e9f0bca6c42c77e51c3b6810665950c064",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/computer-use-input/src/index.ts",
+      "upstream": "claude-code/packages/@ant/computer-use-input/src/index.ts",
+      "local": "packages/@ant/computer-use-input/src/index.ts",
+      "sha256": "1cc7e4010fe94b5ff6def4f32c18b07d1fa7f55ac3e7c1891ea4b12b2ed2fe73",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/computer-use-mcp/src/mcpServer.ts",
+      "upstream": "claude-code/packages/@ant/computer-use-mcp/src/mcpServer.ts",
+      "local": "packages/@ant/computer-use-mcp/src/mcpServer.ts",
+      "sha256": "cf4e4aee2923ca774d4f23d3e35a46ea45c984453f91f5a91fdff7ede286392a",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/computer-use-swift/src/index.ts",
+      "upstream": "claude-code/packages/@ant/computer-use-swift/src/index.ts",
+      "local": "packages/@ant/computer-use-swift/src/index.ts",
+      "sha256": "6a68c6139279c554a4692249acb3fb325fe93f44554ba9d4212b3ed150790eb9",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/weixin/src/index.ts",
+      "upstream": "claude-code/packages/weixin/src/index.ts",
+      "local": "packages/weixin/src/index.ts",
+      "sha256": "e474748ae5bad4fb4bf0fe1e70c691252becd3cd86da4b56ed2a9b6bd17ecc24",
+      "status": "byte-identical"
+    }
+  ],
+  "workspaceDependencies": [
+    {
+      "name": "@ant/claude-for-chrome-mcp",
+      "packageRoot": "packages/@ant/claude-for-chrome-mcp",
+      "upstreamPackageName": "@ant/claude-for-chrome-mcp",
+      "packageName": "@ant/claude-for-chrome-mcp",
+      "status": "workspace"
+    },
+    {
+      "name": "@ant/computer-use-input",
+      "packageRoot": "packages/@ant/computer-use-input",
+      "upstreamPackageName": "@ant/computer-use-input",
+      "packageName": "@ant/computer-use-input",
+      "status": "workspace"
+    },
+    {
+      "name": "@ant/computer-use-mcp",
+      "packageRoot": "packages/@ant/computer-use-mcp",
+      "upstreamPackageName": "@ant/computer-use-mcp",
+      "packageName": "@ant/computer-use-mcp",
+      "status": "workspace"
+    },
+    {
+      "name": "@ant/computer-use-swift",
+      "packageRoot": "packages/@ant/computer-use-swift",
+      "upstreamPackageName": "@ant/computer-use-swift",
+      "packageName": "@ant/computer-use-swift",
+      "status": "workspace"
+    },
+    {
+      "name": "acp-link",
+      "packageRoot": "packages/acp-link",
+      "upstreamPackageName": "acp-link",
+      "packageName": "acp-link",
+      "status": "workspace"
+    },
+    {
+      "name": "agent-tools",
+      "packageRoot": "packages/agent-tools",
+      "upstreamPackageName": "@claude-code-best/agent-tools",
+      "packageName": "@claude-code-best/agent-tools",
+      "status": "workspace"
+    },
+    {
+      "name": "audio-capture-napi",
+      "packageRoot": "packages/audio-capture-napi",
+      "upstreamPackageName": "audio-capture-napi",
+      "packageName": "audio-capture-napi",
+      "status": "workspace"
+    },
+    {
+      "name": "mcp-client",
+      "packageRoot": "packages/mcp-client",
+      "upstreamPackageName": "@claude-code-best/mcp-client",
+      "packageName": "@claude-code-best/mcp-client",
+      "status": "workspace"
+    },
+    {
+      "name": "remote-control-server",
+      "packageRoot": "packages/remote-control-server",
+      "upstreamPackageName": "@anthropic/remote-control-server",
+      "packageName": "@anthropic/remote-control-server",
+      "status": "workspace"
+    },
+    {
+      "name": "weixin",
+      "packageRoot": "packages/weixin",
+      "upstreamPackageName": "@claude-code-best/weixin",
+      "packageName": "@claude-code-best/weixin",
+      "status": "workspace"
+    }
+  ],
+  "legacyActivePaths": []
+}

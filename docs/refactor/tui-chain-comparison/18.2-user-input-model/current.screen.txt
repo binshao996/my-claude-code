@@ -1,0 +1,30 @@
+ ▐▛███▜▌ClaudeCodev2.4.4
+▝▜█████▛▘deepseek-v4-pro·APIUsageBilling
+ ▘▘▝▝~/my-compony/my-claude-code
+ ⎿ SessionStart:startupsays:#claude-memstatus
+
+Thisprojecthasnomemoryyet.Thecurrentsessionwillseedit;subsequentsessionswill
+receiveauto-injectedcontextforrelevantpastwork.
+
+Memoryinjectionstartsonyoursecondsessioninaproject.
+
+`/learn-codebase`isavailableiftheuserwantstofront-loadtheentirerepointomemoryina
+ singlepass(~5minutesonatypicalrepo,optional).Otherwisememorybuildspassivelyas
+workhappens.
+
+Liveactivity:http://localhost:37702
+Howitworks:`/how-it-works`
+
+Thismessagedisappearsoncethefirstobservationlands.
+
+ViewObservationsLive@http://localhost:37702
+
+❯ Reply exactly: INPUT_OK                                                                           
+
+⏺INPUT_OK
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+❯  
+────────────────────────────────────────────────────────────────────────────────────────────────────
+[CAVEMAN]                                           
+                                                                                                    

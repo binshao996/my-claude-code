@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 20px; font-weight: 600; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane { font-size: 13px; font-weight: 600; fill: #374151; }
+    .label { font-size: 14px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #6b7280; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="760" fill="#ffffff"/>
+  <text x="40" y="42" class="title">Plan Mode / Todo / Task V2 生命周期</text>
+  <text x="40" y="64" class="subtitle">从需求澄清、计划审批，到任务拆解、依赖阻塞、UI 观察和完成校验</text>
+
+  <rect x="30" y="92" width="1120" height="124" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="242" width="1120" height="188" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="456" width="1120" height="158" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="48" y="118" class="lane">计划与权限层</text>
+  <text x="48" y="268" class="lane">任务表达层</text>
+  <text x="48" y="482" class="lane">存储、观察与反馈层</text>
+
+  <g transform="translate(76,132)">
+    <rect width="160" height="64" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <circle cx="28" cy="32" r="14" fill="#2563eb" opacity="0.15"/>
+    <path d="M24 31h8M28 27v8" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+    <text x="52" y="25" class="label">用户需求</text>
+    <text x="52" y="46" class="small">非平凡实现 / 多路径</text>
+  </g>
+
+  <g transform="translate(304,132)">
+    <rect width="176" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="18" width="25" height="28" rx="4" fill="#dbeafe" stroke="#93c5fd"/>
+    <path d="M21 25h15M21 32h12M21 39h9" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="55" y="25" class="label">EnterPlanMode</text>
+    <text x="55" y="46" class="small">进入 plan 权限模式</text>
+  </g>
+
+  <g transform="translate(548,132)">
+    <rect width="176" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="26" height="30" rx="4" fill="#faf5ff" stroke="#d8b4fe"/>
+    <path d="M24 25h10M24 32h10M24 39h6" stroke="#9333ea" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="55" y="25" class="label">Plan Markdown</text>
+    <text x="55" y="46" class="small">plansDirectory / ~/.claude</text>
+  </g>
+
+  <g transform="translate(792,132)">
+    <rect width="176" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <circle cx="29" cy="32" r="15" fill="#ede9fe" stroke="#c4b5fd"/>
+    <path d="M22 33l5 5 10-13" stroke="#9333ea" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="55" y="25" class="label">ExitPlanMode</text>
+    <text x="55" y="46" class="small">审批后恢复原权限</text>
+  </g>
+
+  <g transform="translate(1012,132)">
+    <rect width="104" height="64" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <path d="M24 36h24M40 28l10 8-10 8" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="23" y="25" class="label">执行回路</text>
+    <text x="22" y="47" class="small">coding loop</text>
+  </g>
+
+  <path d="M236 164H304" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M480 164H548" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M724 164H792" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M968 164h44" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+
+  <g transform="translate(92,302)">
+    <rect width="190" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="20" width="30" height="30" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+    <path d="M23 28h16M23 36h16M23 44h10" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="58" y="28" class="label">TodoWrite V1</text>
+    <text x="58" y="50" class="small">AppState.todos</text>
+    <text x="58" y="68" class="tiny">V2 关闭时启用</text>
+  </g>
+
+  <g transform="translate(376,302)">
+    <rect width="204" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="20" width="30" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <path d="M24 35h14M31 28v14" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+    <text x="58" y="28" class="label">TaskCreate / Update</text>
+    <text x="58" y="50" class="small">pending / in_progress / completed</text>
+    <text x="58" y="68" class="tiny">V2 默认交互会话启用</text>
+  </g>
+
+  <g transform="translate(676,286)">
+    <rect width="206" height="114" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="22" width="32" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M26 32h16M26 41h12" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="62" y="30" class="label">任务结构</text>
+    <text x="62" y="52" class="small">owner / blocks / blockedBy</text>
+    <text x="62" y="72" class="small">metadata / activeForm</text>
+    <text x="62" y="92" class="tiny">Claim 前校验阻塞和忙碌状态</text>
+  </g>
+
+  <g transform="translate(966,302)">
+    <rect width="126" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="22" width="28" height="28" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+    <path d="M32 28v12M32 46h.1" stroke="#dc2626" stroke-width="2" stroke-linecap="round"/>
+    <text x="58" y="30" class="label">校验提示</text>
+    <text x="58" y="52" class="small">全完成后</text>
+    <text x="58" y="70" class="tiny">verification nudge</text>
+  </g>
+
+  <path d="M1064 196v88" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1064 384v38c0 27-27 48-60 48H890" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M1012 196c-70 66-154 92-240 108" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1012 196c-252 22-508 46-730 110" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M580 343h96" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M882 343h84" stroke="#dc2626" stroke-width="1.7" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(104,512)">
+    <rect width="210" height="72" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <path d="M34 22c16 0 28 6 28 14s-12 14-28 14S6 44 6 36s12-14 28-14z" transform="translate(12,4)" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M18 40c0 8 12 14 28 14s28-6 28-14" fill="none" stroke="#93c5fd"/>
+    <text x="76" y="28" class="label">tasks JSON store</text>
+    <text x="76" y="50" class="small">~/.claude/tasks/&lt;listId&gt;</text>
+  </g>
+
+  <g transform="translate(390,512)">
+    <rect width="198" height="72" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="32" height="32" rx="6" fill="#f0fdfa" stroke="#99f6e4"/>
+    <path d="M25 36h18M34 27v18" stroke="#0f766e" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="64" y="28" class="label">lock + highwatermark</text>
+    <text x="64" y="50" class="small">并发写入和 ID 不复用</text>
+  </g>
+
+  <g transform="translate(664,512)">
+    <rect width="194" height="72" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="32" height="32" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+    <path d="M25 38c6-10 12-10 18 0M25 45c6-6 12-6 18 0" stroke="#9333ea" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <text x="64" y="28" class="label">useTasksV2</text>
+    <text x="64" y="50" class="small">fs.watch + fallback poll</text>
+  </g>
+
+  <g transform="translate(920,512)">
+    <rect width="180" height="72" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="32" height="32" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+    <path d="M26 29h16M26 37h16M26 45h9" stroke="#ea580c" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="64" y="28" class="label">TaskList / TaskGet</text>
+    <text x="64" y="50" class="small">下一轮模型可见状态</text>
+  </g>
+
+  <path d="M478 384v104c0 13-10 24-24 24H314" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M314 548h76" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M588 548h76" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M858 548h62" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M190 384v88c0 22 18 40 40 40h22" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+  <g transform="translate(44,662)">
+    <line x1="0" y1="8" x2="30" y2="8" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+    <text x="38" y="12" class="small">计划模式流转</text>
+    <line x1="160" y1="8" x2="190" y2="8" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+    <text x="198" y="12" class="small">任务状态和执行推进</text>
+    <line x1="370" y1="8" x2="400" y2="8" stroke="#9333ea" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+    <text x="408" y="12" class="small">审批、观察和反馈</text>
+    <line x1="582" y1="8" x2="612" y2="8" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+    <text x="620" y="12" class="small">校验或风险提示</text>
+  </g>
+</svg>

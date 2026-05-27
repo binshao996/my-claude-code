@@ -1,0 +1,47 @@
+[?2004h[?1004h[?25l[?2026h[38;2;215;119;87m ▐[48;2;0;0;0m▛███▜[49m▌[3C[39m[1mClaude[1CCode[1C[22m[38;2;153;153;153mv2.4.4[39m
+[38;2;215;119;87m▝▜[48;2;0;0;0m█████[49m▛▘[2C[38;2;153;153;153mdeepseek-v4-pro[1C·[1CAPI[1CUsage[1CBilling[39m
+[38;2;215;119;87m [1C▘▘[1C▝▝[4C[38;2;153;153;153m~/my-compony/my-claude-code[39m
+
+[38;2;136;136;136m────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+❯ [7mT[27m[2mry[1C"edit[1C<filepath>[1Cto..."[22m
+[38;2;136;136;136m────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[2C[38;2;153;153;153m326MB[1C·[1Cpid:2978[62C◐[1Cmedium[1C·[1C/effort[39m
+[2C[3A[?2026l[>0q[c[?2026h[2D[3B[2C[1A[38;5;172m[CAVEMAN][39m       
+[2C[38;2;153;153;153m326MB[1C·[1Cpid:2978[39m
+[2C[4A[?2026l[?2026h[2D[4B[6A[38;2;153;153;153m  ⎿  SessionStart:startup says: # claude-mem status[1B[39m                                                                                                    [1B     [38;2;153;153;153mThis project has no memory yet. The current session will seed it; subsequent sessions will [1B[39m     [38;2;153;153;153mreceive auto-injected context for relevant past work.[39m                                          [2C[1B         [69C                  [2C[1B   [1C[38;2;153;153;153memory injection starts on your second session in a project.[39m
+
+[5C[38;2;153;153;153m`/learn-codebase`[1Cis[1Cavailable[1Cif[1Cthe[1Cuser[1Cwants[1Cto[1Cfront-load[1Cthe[1Centire[1Crepo[1Cinto[1Cmemory[1Cin[1Ca[39m
+[5C[38;2;153;153;153m single[1Cpass[1C(~5[1Cminutes[1Con[1Ca[1Ctypical[1Crepo,[1Coptional).[1COtherwise[1Cmemory[1Cbuilds[1Cpassively[1Cas[39m
+[5C[38;2;153;153;153mwork[1Chappens.[39m
+
+[5C[38;2;153;153;153mLive[1Cactivity:[1Chttp://localhost:37702[39m
+[5C[38;2;153;153;153mHow[1Cit[1Cworks:[1C`/how-it-works`[39m
+
+[5C[38;2;153;153;153mThis[1Cmessage[1Cdisappears[1Conce[1Cthe[1Cfirst[1Cobservation[1Clands.[39m
+
+[5C[38;2;153;153;153mView[1CObservations[1CLive[1C@[1Chttp://localhost:37702[39m
+
+[38;2;136;136;136m────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+❯ [7mT[27m[2mry[1C"edit[1C<filepath>[1Cto..."[22m
+[38;2;136;136;136m────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[2C[38;5;172m[CAVEMAN][69C[38;2;153;153;153m◐[1Cmedium[1C·[1C/effort[39m
+[2C[38;2;153;153;153m326MB[1C·[1Cpid:2978[39m
+[2C[4A[?2026l[?2026h[2D[4B[3C[1A[38;2;153;153;153m52.2MB[1C· pid:2978[39m
+[2C[4A[?2026l[?2026h[2D[4B[2C[4A[38;2;177;185;249m/mcp[39m[7m [27m                      [2C[2B[38;2;177;185;249m/mcp                                  Manage MCP servers[22C[39m                  [2C[1B[38;2;153;153;153m/mcp-integration                      (plugin-dev) This skill should be used when the user asks…[39m
+[2C[38;2;153;153;153m/onboarding[27CRe-run[1Cthe[1Cfirst-run[1Csetup[1C(theme,[1Ctrust,[1Cmodel,[1CMCP)[39m
+[2C[38;2;153;153;153m/tui-fixture:fixture-prompt[1C(MCP)[5CFixture[1Cprompt[39m
+[6C[6A[?2026l[?2026h[6D[6B[7A[48;2;55;55;55m[38;2;80;80;80m❯ [38;2;255;255;255m/mcp[39m                                                                                              [1B[49m       [1B[38;2;215;119;87m✻[39m [38;2;215;119;87mTransmut[38;2;235;159;127ming[38;2;215;119;87m… [39m                                                                                     [2C[1B                                                        [1B[38;2;136;136;136m────────────────────────────────────────────────────────────────────────────────────────────────────[1B[38;2;153;153;153m❯ [39m[7m [27m                                                                                          [1B[38;2;136;136;136m────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[2C[38;5;172m[CAVEMAN][69C[38;2;153;153;153m◐[1Cmedium[1C·[1C/effort[39m
+[2C[38;2;153;153;153m378MB[1C·[1Cpid:2978[39m
+[2C[4A[?2026l[?2026h[2D[4B[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[1A                                                                                                    [1B                                                                                                    [1B                                                                                                    [1B                                                                                                    [1B                                                                                                    [1B                                                                                                    [1B                                                                                                    [1B                                                                                                    [7A[?2026l[?2026h
+[38;2;177;185;249m────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[2C[38;2;177;185;249m[1mManage[1CMCP[1Cservers[22m[39m
+[2C[38;2;153;153;153m2[1Cservers[39m
+
+[4C[1mBuilt-in[1CMCPs[22m[38;2;153;153;153m (always[1Cavailable)[39m
+[2C[38;2;177;185;249m❯[1Cmcp-chrome[1C[39m·[1C[38;2;153;153;153m◯[1C[39mdisabled
+[4Ctui-fixture[38;2;153;153;153m ·[1C[38;2;78;186;101m✔[38;2;153;153;153m connected[39m
+
+[2C[38;2;153;153;153mhttps://code.claude.com/docs/en/mcp[1Cfor[1Chelp[39m
+[1C[38;2;153;153;153m[3m↑↓[1Cto[1Cnavigate[1C·[1CEnter[1Cto[1Cconfirm[1C·[1CEsc[1Cto[1Ccancel[23m[39m
+[?2026l

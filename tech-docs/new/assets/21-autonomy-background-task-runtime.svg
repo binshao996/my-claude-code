@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 780" width="1220" height="780">
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 20px; font-weight: 600; fill: #111827; }
+    .subtitle { font-size: 12px; fill: #6b7280; }
+    .lane { font-size: 13px; font-weight: 600; fill: #374151; }
+    .label { font-size: 14px; font-weight: 600; fill: #111827; }
+    .small { font-size: 12px; fill: #6b7280; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1220" height="780" fill="#ffffff"/>
+  <text x="42" y="42" class="title">后台任务与 Autonomy 长任务运行时</text>
+  <text x="42" y="64" class="subtitle">定时、心跳、后台 Shell/Agent、输出文件、通知队列和持久化恢复的协作关系</text>
+
+  <rect x="30" y="94" width="1160" height="120" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="240" width="1160" height="156" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="422" width="1160" height="142" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="30" y="590" width="1160" height="98" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="48" y="120" class="lane">触发源</text>
+  <text x="48" y="266" class="lane">队列、Run Record 与 Flow</text>
+  <text x="48" y="448" class="lane">运行时任务与输出</text>
+  <text x="48" y="616" class="lane">通知、读取与恢复</text>
+
+  <g transform="translate(86,134)">
+    <rect width="170" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="15" width="30" height="28" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M24 24h14M24 32h14M24 40h8" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="58" y="24" class="label">CronCreate</text>
+    <text x="58" y="44" class="small">scheduled_tasks.json</text>
+  </g>
+
+  <g transform="translate(326,134)">
+    <rect width="170" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <circle cx="31" cy="29" r="15" fill="#faf5ff" stroke="#ddd6fe"/>
+    <path d="M24 29h14M31 22v14" stroke="#9333ea" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="58" y="24" class="label">Heartbeat</text>
+    <text x="58" y="44" class="small">proactive tick</text>
+  </g>
+
+  <g transform="translate(566,134)">
+    <rect width="184" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="15" width="30" height="28" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <path d="M24 29h15M34 23l7 6-7 6" stroke="#16a34a" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="24" class="label">后台 Shell / Agent</text>
+    <text x="58" y="44" class="small">background task</text>
+  </g>
+
+  <g transform="translate(820,134)">
+    <rect width="206" height="58" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="15" width="30" height="28" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+    <path d="M23 36l8-14 8 14" stroke="#ea580c" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="24" class="label">Managed Flow</text>
+    <text x="58" y="44" class="small">多步骤自治流程</text>
+  </g>
+
+  <g transform="translate(120,292)">
+    <rect width="208" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="34" height="34" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M26 30h18M26 39h18M26 48h10" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="66" y="28" class="label">Autonomy Authority</text>
+    <text x="66" y="50" class="small">AGENTS / HEARTBEAT</text>
+    <text x="66" y="66" class="tiny">prepare + commit prompt</text>
+  </g>
+
+  <g transform="translate(430,292)">
+    <rect width="210" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="34" height="34" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+    <path d="M27 30h16M27 38h16M27 46h10" stroke="#9333ea" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="66" y="28" class="label">autonomy/runs.json</text>
+    <text x="66" y="50" class="small">queued -> running -> done</text>
+    <text x="66" y="66" class="tiny">owner pid / session id</text>
+  </g>
+
+  <g transform="translate(736,292)">
+    <rect width="192" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="18" y="20" width="34" height="34" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <path d="M25 38h18M35 28v20" stroke="#16a34a" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="66" y="28" class="label">QueuedCommand</text>
+    <text x="66" y="50" class="small">claim consumable runs</text>
+    <text x="66" y="66" class="tiny">过滤 stale command</text>
+  </g>
+
+  <g transform="translate(1000,292)">
+    <rect width="150" height="76" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="20" width="32" height="34" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+    <path d="M25 30h14M25 38h14M25 46h8" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="60" y="28" class="label">flows.json</text>
+    <text x="60" y="50" class="small">step 状态机</text>
+    <text x="60" y="66" class="tiny">waitFor boundary</text>
+  </g>
+
+  <path d="M256 163c74 28 6 98-28 128" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M496 163c42 28-36 92-128 140" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M923 192c84 36 108 68 130 100" stroke="#9333ea" stroke-width="1.6" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M328 330h102" stroke="#2563eb" stroke-width="1.7" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M640 330h96" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M928 330h72" stroke="#9333ea" stroke-width="1.7" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <g transform="translate(92,470)">
+    <rect width="178" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#111827" stroke="#374151"/>
+    <path d="M24 28l6 5-6 5M32 39h8" stroke="#f9fafb" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="26" class="label">LocalShellTask</text>
+    <text x="58" y="48" class="small">spawn / Ctrl+B / watchdog</text>
+  </g>
+
+  <g transform="translate(348,470)">
+    <rect width="188" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <path d="M23 35h16M31 27v16" stroke="#16a34a" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">LocalAgentTask</text>
+    <text x="58" y="48" class="small">progress / result / messages</text>
+  </g>
+
+  <g transform="translate(610,470)">
+    <rect width="174" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M24 27h14M24 35h14M24 43h8" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">DiskTaskOutput</text>
+    <text x="58" y="48" class="small">output file / delta read</text>
+  </g>
+
+  <g transform="translate(858,470)">
+    <rect width="190" height="64" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="16" y="17" width="30" height="30" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+    <path d="M25 25l13 13M38 25L25 38" stroke="#dc2626" stroke-width="1.7" stroke-linecap="round"/>
+    <text x="58" y="26" class="label">TaskStop / Kill</text>
+    <text x="58" y="48" class="small">terminal status + cleanup</text>
+  </g>
+
+  <path d="M730 192c-82 62-270 150-292 278" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M750 163c-160 62-455 148-540 307" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M536 502h74" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M270 502h78" stroke="#16a34a" stroke-width="1.7" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M784 502h74" stroke="#dc2626" stroke-width="1.6" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(126,632)">
+    <rect width="204" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">task-notification</text>
+    <text x="140" y="26" class="small">入队</text>
+  </g>
+
+  <g transform="translate(416,632)">
+    <rect width="204" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">Read output file</text>
+    <text x="142" y="26" class="small">推荐读取</text>
+  </g>
+
+  <g transform="translate(708,632)">
+    <rect width="206" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">finalize run</text>
+    <text x="128" y="26" class="small">完成/失败/取消</text>
+  </g>
+
+  <g transform="translate(996,632)">
+    <rect width="154" height="42" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="18" y="26" class="label">stale recovery</text>
+  </g>
+
+  <path d="M697 534v54c0 24-20 44-44 44h-33" stroke="#9333ea" stroke-width="1.6" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M697 534v54c0 24-20 44-44 44H330" stroke="#9333ea" stroke-width="1.6" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M228 632c86-54 156-82 382-98" stroke="#9333ea" stroke-width="1.4" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M811 632c-36-58-58-128-75-264" stroke="#16a34a" stroke-width="1.4" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1073 632c-36-88-60-166-68-264" stroke="#dc2626" stroke-width="1.4" fill="none" marker-end="url(#arrow-red)"/>
+
+  <g transform="translate(44,724)">
+    <line x1="0" y1="8" x2="30" y2="8" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+    <text x="38" y="12" class="small">触发和权限准备</text>
+    <line x1="176" y1="8" x2="206" y2="8" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+    <text x="214" y="12" class="small">任务调度和状态推进</text>
+    <line x1="398" y1="8" x2="428" y2="8" stroke="#9333ea" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+    <text x="436" y="12" class="small">输出、通知和用户可见反馈</text>
+    <line x1="674" y1="8" x2="704" y2="8" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+    <text x="712" y="12" class="small">停止、失败和陈旧恢复</text>
+  </g>
+</svg>

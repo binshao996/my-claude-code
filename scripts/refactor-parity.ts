@@ -239,7 +239,6 @@ function toolsGate(): GateReport {
     readFileSync(join(cwd, path), 'utf8').includes(structureMirrorMarker),
   )
   const missingGolden = requiredImplementedPaths([
-    'packages/builtin-tools/src/toolMirror.ts',
     'scripts/refactor-tool-golden.ts',
     'docs/refactor/golden/tools/r1.4-builtin-tool-golden.json',
   ])
@@ -270,6 +269,8 @@ function toolsGate(): GateReport {
 function tuiGoldenGate(): GateReport {
   const goldenPaths = requiredImplementedPaths([
     'scripts/refactor-tui-golden.ts',
+    'scripts/refactor-tui-runtime-report.ts',
+    'docs/refactor/r2.8-tui-runtime-cutover-report.json',
     'docs/refactor/golden/tui/manifest.json',
     'docs/refactor/golden/tui/ansi/startup.ansi',
     'docs/refactor/golden/tui/ansi/streaming.ansi',
@@ -294,12 +295,18 @@ function tuiGoldenGate(): GateReport {
       readFileSync(join(cwd, path), 'utf8').includes(structureMirrorMarker),
     ),
   )
+  const runtimeCutoverErrors = validateTuiRuntimeReport()
 
   return report('tui-golden', [
     checkMissing(
       'TUI golden fixtures',
       goldenPaths,
       'TUI golden coverage requires ANSI frames, screenshots, and upstream-shaped component mirrors',
+    ),
+    checkMissing(
+      'TUI runtime cutover',
+      runtimeCutoverErrors,
+      'R2.8 requires upstream @ant/ink source, upstream component/screen roots, and no active legacy TUI facade',
     ),
     checkMissing(
       'TUI component mirror roots',
@@ -316,6 +323,11 @@ function tuiGoldenGate(): GateReport {
 
 function runtimeGate(): GateReport {
   const controlPlaneOnly = args.includes('--hooks') || args.includes('--telemetry') || args.includes('--policy')
+  const externalRuntimeReportPaths = [
+    'scripts/refactor-external-runtime-report.ts',
+    'docs/refactor/r2.9-external-runtime-cutover-report.json',
+  ]
+  const externalRuntimeErrors = validateExternalRuntimeReport()
   if (controlPlaneOnly) {
     const controlRoots = [
       'src/hooks',
@@ -359,6 +371,14 @@ function runtimeGate(): GateReport {
         'hooks telemetry policy structure markers',
         controlRemainingStructureMarkers,
         'R2.1 hook, telemetry, and policy mirrors cannot leave R1.1 structure-only markers',
+      ),
+      checkMissing(
+        'external integration runtime cutover',
+        [
+          ...requiredImplementedPaths(externalRuntimeReportPaths),
+          ...externalRuntimeErrors,
+        ],
+        'R2.9 requires MCP/OAuth/plugin/skill/remote/bridge/native/browser/computer-use/weixin runtime to use upstream paths',
       ),
     ])
   }
@@ -469,6 +489,14 @@ function runtimeGate(): GateReport {
       extensionRemainingStructureMarkers,
       'R1.8 MCP/OAuth/plugin/skill mirrors cannot leave R1.1 structure-only markers',
     ),
+    checkMissing(
+      'external integration runtime cutover',
+      [
+        ...requiredImplementedPaths(externalRuntimeReportPaths),
+        ...externalRuntimeErrors,
+      ],
+      'R2.9 requires MCP/OAuth/plugin/skill/remote/bridge/native/browser/computer-use/weixin runtime to use upstream paths',
+    ),
   ])
 }
 
@@ -546,6 +574,17 @@ function transportsGate(): GateReport {
         : 'stdio, HTTP, SSE, WebSocket, OAuth, MCP, bridge, remote, and ACP transport mirrors must exist',
     ),
     checkMissing(
+      'external integration runtime cutover',
+      [
+        ...requiredImplementedPaths([
+          'scripts/refactor-external-runtime-report.ts',
+          'docs/refactor/r2.9-external-runtime-cutover-report.json',
+        ]),
+        ...validateExternalRuntimeReport(),
+      ],
+      'R2.9 transport parity requires upstream MCP/OAuth/CLI transport/remote/bridge/ACP runtime paths',
+    ),
+    checkMissing(
       'transport structure markers',
       remoteBridgeAcpOnly
         ? [
@@ -618,6 +657,17 @@ function nativeGate(): GateReport {
       'native package structure markers',
       nativeRemainingStructureMarkers,
       'R2.0 native and platform mirrors cannot leave R1.1 structure-only markers',
+    ),
+    checkMissing(
+      'external integration runtime cutover',
+      [
+        ...requiredImplementedPaths([
+          'scripts/refactor-external-runtime-report.ts',
+          'docs/refactor/r2.9-external-runtime-cutover-report.json',
+        ]),
+        ...validateExternalRuntimeReport(),
+      ],
+      'R2.9 native parity requires browser, computer-use, audio, and weixin runtime paths to use upstream packages',
     ),
   ])
 }
@@ -1113,6 +1163,9 @@ function commandMirrorRegistrationErrors(commandModules: string[]): string[] {
   const registered = readRegisteredSlashCommands()
   const errors: string[] = []
   for (const name of commandModules) {
+    if (isDirectCommandMirror(name)) {
+      continue
+    }
     const mirrorPath = join(cwd, 'src/commands', name, 'index.ts')
     if (!existsSync(mirrorPath)) {
       errors.push(`${name}: missing index.ts`)
@@ -1138,6 +1191,9 @@ function commandMirrorRegistrationErrors(commandModules: string[]): string[] {
 function commandNativeImplementationErrors(commandModules: string[]): string[] {
   const errors: string[] = []
   for (const name of commandModules) {
+    if (isDirectCommandMirror(name)) {
+      continue
+    }
     const path = join(cwd, 'src/commands', name, 'index.ts')
     if (!existsSync(path)) {
       errors.push(`${name}: missing index.ts`)
@@ -1155,6 +1211,11 @@ function commandNativeImplementationErrors(commandModules: string[]): string[] {
     }
   }
   return errors
+}
+
+function isDirectCommandMirror(name: string): boolean {
+  const diff = compareFileTree(`claude-code/src/commands/${name}`, `src/commands/${name}`)
+  return diff.missing.length === 0 && diff.extra.length === 0 && diff.different.length === 0
 }
 
 function readRegisteredSlashCommands(): Set<string> {
@@ -1281,6 +1342,251 @@ function validateFixtureMigrationReport(upstreamFixtures: string[]): string[] {
     }
     if (!item.sha256) {
       errors.push(`${upstream}: missing sha256`)
+    }
+  }
+  return errors.slice(0, 50)
+}
+
+function validateTuiRuntimeReport(): string[] {
+  const path = join(cwd, 'docs/refactor/r2.8-tui-runtime-cutover-report.json')
+  if (!existsSync(path)) {
+    return ['docs/refactor/r2.8-tui-runtime-cutover-report.json: missing']
+  }
+  const report = JSON.parse(readFileSync(path, 'utf8')) as {
+    version?: string
+    status?: string
+    inkPackageName?: string | null
+    inkWorkspaceDependency?: string | null
+    roots?: Array<{
+      upstreamRoot?: string
+      localRoot?: string
+      upstreamFileCount?: number
+      localFileCount?: number
+      missing?: string[]
+      extra?: string[]
+      different?: string[]
+      status?: string
+    }>
+    runtimeFiles?: Array<{ path?: string; status?: string; sha256?: string | null }>
+    legacyActivePaths?: string[]
+  }
+  const errors: string[] = []
+  if (report.version !== 'r2.8') {
+    errors.push(`TUI runtime report version is ${report.version ?? 'missing'}, expected r2.8`)
+  }
+  if (report.status !== 'pass') {
+    errors.push(`TUI runtime report status is ${report.status ?? 'missing'}, expected pass`)
+  }
+  if (report.inkPackageName !== '@anthropic/ink') {
+    errors.push(`packages/@ant/ink package name is ${report.inkPackageName ?? 'missing'}, expected @anthropic/ink`)
+  }
+  if (report.inkWorkspaceDependency !== 'workspace:*') {
+    errors.push(`root @anthropic/ink dependency is ${report.inkWorkspaceDependency ?? 'missing'}, expected workspace:*`)
+  }
+  const expectedRoots = new Set([
+    'packages/@ant/ink',
+    'src/components',
+    'src/screens',
+    'src/vim',
+  ])
+  const rootsByLocal = new Map((report.roots ?? []).map(root => [root.localRoot, root]))
+  for (const root of expectedRoots) {
+    const item = rootsByLocal.get(root)
+    if (!item) {
+      errors.push(`${root}: missing TUI runtime root report`)
+      continue
+    }
+    if (item.status !== 'pass') {
+      errors.push(`${root}: runtime root status is ${item.status ?? 'missing'}`)
+    }
+    if ((item.missing?.length ?? 0) !== 0 || (item.extra?.length ?? 0) !== 0 || (item.different?.length ?? 0) !== 0) {
+      errors.push(`${root}: root diff remains missing=${item.missing?.length ?? 'missing'} extra=${item.extra?.length ?? 'missing'} different=${item.different?.length ?? 'missing'}`)
+    }
+    const upstreamRoot = `claude-code/${root}`
+    const diff = compareFileTree(upstreamRoot, root)
+    if (diff.missing.length !== 0 || diff.extra.length !== 0 || diff.different.length !== 0) {
+      errors.push(`${root}: current file tree/hash no longer matches ${upstreamRoot}`)
+    }
+  }
+  const runtimeFiles = report.runtimeFiles ?? []
+  if (runtimeFiles.length < 20) {
+    errors.push(`TUI runtime file evidence is too small: ${runtimeFiles.length}`)
+  }
+  const badRuntimeFiles = runtimeFiles.filter(item => item.status !== 'byte-identical' || !item.sha256)
+  if (badRuntimeFiles.length !== 0) {
+    errors.push(`TUI runtime file evidence has ${badRuntimeFiles.length} non-byte-identical item(s)`)
+  }
+  const requiredRuntimeFiles = [
+    'packages/@ant/ink/src/core/reconciler.ts',
+    'packages/@ant/ink/src/core/renderer.ts',
+    'packages/@ant/ink/src/core/render-to-screen.ts',
+    'packages/@ant/ink/src/core/screen.ts',
+    'packages/@ant/ink/src/core/selection.ts',
+    'packages/@ant/ink/src/components/NoSelect.tsx',
+    'packages/@ant/ink/src/components/ScrollBox.tsx',
+    'src/components/PromptInput/PromptInput.tsx',
+    'src/components/Messages.tsx',
+    'src/components/Markdown.tsx',
+    'src/components/Spinner/index.ts',
+    'src/screens/REPL.tsx',
+  ]
+  const runtimeByPath = new Set(runtimeFiles.map(item => item.path))
+  for (const runtimeFile of requiredRuntimeFiles) {
+    if (!runtimeByPath.has(runtimeFile)) {
+      errors.push(`${runtimeFile}: missing TUI runtime evidence`)
+    }
+  }
+  if ((report.legacyActivePaths?.length ?? 0) !== 0) {
+    errors.push(`active legacy TUI paths remain: ${report.legacyActivePaths?.join(', ')}`)
+  }
+  for (const legacyPath of ['packages/anthropic-ink', 'packages/tui']) {
+    if (existsSync(join(cwd, legacyPath))) {
+      errors.push(`${legacyPath}: active legacy path exists`)
+    }
+  }
+  return errors.slice(0, 50)
+}
+
+function validateExternalRuntimeReport(): string[] {
+  const path = join(cwd, 'docs/refactor/r2.9-external-runtime-cutover-report.json')
+  if (!existsSync(path)) {
+    return ['docs/refactor/r2.9-external-runtime-cutover-report.json: missing']
+  }
+  const report = JSON.parse(readFileSync(path, 'utf8')) as {
+    version?: string
+    status?: string
+    roots?: Array<{
+      upstreamRoot?: string
+      localRoot?: string
+      missing?: string[]
+      extra?: string[]
+      different?: string[]
+      status?: string
+    }>
+    runtimeFiles?: Array<{ path?: string; status?: string; sha256?: string | null }>
+    workspaceDependencies?: Array<{
+      name?: string
+      packageRoot?: string
+      upstreamPackageName?: string | null
+      packageName?: string | null
+      status?: string
+    }>
+    legacyActivePaths?: string[]
+  }
+  const errors: string[] = []
+  if (report.version !== 'r2.9') {
+    errors.push(`external runtime report version is ${report.version ?? 'missing'}, expected r2.9`)
+  }
+  if (report.status !== 'pass') {
+    errors.push(`external runtime report status is ${report.status ?? 'missing'}, expected pass`)
+  }
+  const expectedRoots = new Set([
+    'src/services/mcp',
+    'src/services/oauth',
+    'src/services/plugins',
+    'src/plugins',
+    'src/skills',
+    'src/bridge',
+    'src/daemon',
+    'src/remote',
+    'src/server',
+    'src/services/acp',
+    'src/ssh',
+    'src/cli/transports',
+    'packages/mcp-client',
+    'packages/remote-control-server',
+    'packages/acp-link',
+    'packages/agent-tools',
+    'packages/audio-capture-napi',
+    'packages/@ant/claude-for-chrome-mcp',
+    'packages/@ant/computer-use-input',
+    'packages/@ant/computer-use-mcp',
+    'packages/@ant/computer-use-swift',
+    'packages/weixin',
+  ])
+  const rootsByLocal = new Map((report.roots ?? []).map(root => [root.localRoot, root]))
+  for (const root of expectedRoots) {
+    const item = rootsByLocal.get(root)
+    if (!item) {
+      errors.push(`${root}: missing external runtime root report`)
+      continue
+    }
+    if (item.status !== 'pass') {
+      errors.push(`${root}: external runtime root status is ${item.status ?? 'missing'}`)
+    }
+    if ((item.missing?.length ?? 0) !== 0 || (item.extra?.length ?? 0) !== 0 || (item.different?.length ?? 0) !== 0) {
+      errors.push(`${root}: root diff remains missing=${item.missing?.length ?? 'missing'} extra=${item.extra?.length ?? 'missing'} different=${item.different?.length ?? 'missing'}`)
+    }
+    const upstreamRoot = `claude-code/${root}`
+    const diff = compareFileTree(upstreamRoot, root)
+    if (diff.missing.length !== 0 || diff.extra.length !== 0 || diff.different.length !== 0) {
+      errors.push(`${root}: current file tree/hash no longer matches ${upstreamRoot}`)
+    }
+  }
+  const runtimeFiles = report.runtimeFiles ?? []
+  if (runtimeFiles.length < 30) {
+    errors.push(`external runtime file evidence is too small: ${runtimeFiles.length}`)
+  }
+  const badRuntimeFiles = runtimeFiles.filter(item => item.status !== 'byte-identical' || !item.sha256)
+  if (badRuntimeFiles.length !== 0) {
+    errors.push(`external runtime file evidence has ${badRuntimeFiles.length} non-byte-identical item(s)`)
+  }
+  const requiredRuntimeFiles = [
+    'src/services/mcp/client.ts',
+    'src/services/oauth/client.ts',
+    'src/services/plugins/PluginInstallationManager.ts',
+    'src/bridge/bridgeApi.ts',
+    'src/daemon/main.ts',
+    'src/remote/RemoteSessionManager.ts',
+    'src/server/server.ts',
+    'src/services/acp/bridge.ts',
+    'src/cli/transports/SSETransport.ts',
+    'packages/mcp-client/src/index.ts',
+    'packages/remote-control-server/src/index.ts',
+    'packages/acp-link/src/server.ts',
+    'packages/@ant/claude-for-chrome-mcp/src/mcpServer.ts',
+    'packages/@ant/computer-use-mcp/src/mcpServer.ts',
+    'packages/weixin/src/index.ts',
+  ]
+  const runtimeByPath = new Set(runtimeFiles.map(item => item.path))
+  for (const runtimeFile of requiredRuntimeFiles) {
+    if (!runtimeByPath.has(runtimeFile)) {
+      errors.push(`${runtimeFile}: missing external runtime evidence`)
+    }
+  }
+  const expectedWorkspaceDependencies = new Map([
+    ['@ant/claude-for-chrome-mcp', 'packages/@ant/claude-for-chrome-mcp'],
+    ['@ant/computer-use-input', 'packages/@ant/computer-use-input'],
+    ['@ant/computer-use-mcp', 'packages/@ant/computer-use-mcp'],
+    ['@ant/computer-use-swift', 'packages/@ant/computer-use-swift'],
+    ['acp-link', 'packages/acp-link'],
+    ['agent-tools', 'packages/agent-tools'],
+    ['audio-capture-napi', 'packages/audio-capture-napi'],
+    ['mcp-client', 'packages/mcp-client'],
+    ['remote-control-server', 'packages/remote-control-server'],
+    ['weixin', 'packages/weixin'],
+  ])
+  const dependencyByName = new Map((report.workspaceDependencies ?? []).map(dependency => [dependency.name, dependency]))
+  for (const [dependency, packageRoot] of expectedWorkspaceDependencies) {
+    const item = dependencyByName.get(dependency)
+    if (!item) {
+      errors.push(`${dependency}: missing workspace dependency evidence`)
+      continue
+    }
+    if (item.status !== 'workspace' || item.packageName !== item.upstreamPackageName || item.packageRoot !== packageRoot) {
+      errors.push(`${dependency}: expected upstream package at ${packageRoot}, got ${item.packageRoot ?? 'missing'} name=${item.packageName ?? 'missing'} upstreamName=${item.upstreamPackageName ?? 'missing'}`)
+    }
+  }
+  if ((report.legacyActivePaths?.length ?? 0) !== 0) {
+    errors.push(`active legacy external paths remain: ${report.legacyActivePaths?.join(', ')}`)
+  }
+  for (const legacyPath of [
+    'packages/tools/src/extensions.ts',
+    'packages/tools/src/remote.ts',
+    'packages/mcp-client/src/mockTransport.ts',
+  ]) {
+    if (existsSync(join(cwd, legacyPath))) {
+      errors.push(`${legacyPath}: active legacy path exists`)
     }
   }
   return errors.slice(0, 50)

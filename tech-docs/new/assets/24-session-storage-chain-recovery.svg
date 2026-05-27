@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" role="img" aria-labelledby="title desc">
+  <title id="title">Session Storage Chain Recovery</title>
+  <desc id="desc">Compaction-aware JSONL loading, relinking and conversation chain recovery.</desc>
+  <style>
+    text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif;
+    }
+    .title { font-size: 22px; font-weight: 600; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .section { font-size: 13px; font-weight: 600; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 600; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .mono { font-size: 11px; fill: #374151; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="soft-shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#111827" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1180" height="760" fill="#ffffff"/>
+  <text x="40" y="44" class="title">JSONL 加载、压缩边界与 parentUuid 链恢复</text>
+  <text x="40" y="67" class="subtitle">不是简单 replay 全文件，而是在大文件、compact、snip、parallel tool result 场景下恢复一条可继续请求模型的消息链</text>
+
+  <rect x="48" y="103" width="226" height="112" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <path d="M72 126h70c14 0 25 9 25 20v42c0 11-11 20-25 20H72c-14 0-25-9-25-20v-42c0-11 11-20 25-20z" fill="#ffffff" stroke="#f97316" stroke-width="1.5"/>
+  <ellipse cx="107" cy="146" rx="60" ry="20" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+  <text x="188" y="145" class="node-title">JSONL 文件</text>
+  <text x="188" y="168" class="node-sub">message + metadata</text>
+  <text x="188" y="186" class="node-sub">append-only entries</text>
+
+  <rect x="344" y="105" width="202" height="86" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="366" y="131" class="node-title">readLiteMetadata</text>
+  <text x="366" y="153" class="node-sub">head/tail chunk 读取</text>
+  <text x="366" y="171" class="node-sub">/resume 列表不全量 parse</text>
+
+  <rect x="638" y="105" width="202" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="660" y="131" class="node-title">readTranscriptForLoad</text>
+  <text x="660" y="153" class="node-sub">大文件跳过 pre-compact</text>
+  <text x="660" y="171" class="node-sub">保留 metadata 与边界</text>
+
+  <rect x="932" y="105" width="202" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="954" y="131" class="node-title">loadTranscriptFile</text>
+  <text x="954" y="153" class="node-sub">逐行 JSON parse</text>
+  <text x="954" y="171" class="node-sub">归类 messages / metadata</text>
+
+  <path d="M274 159 C303 159 315 148 344 148" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M546 148 C584 148 600 148 638 148" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M840 148 C878 148 894 148 932 148" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+
+  <text x="58" y="258" class="section">边界修复层</text>
+  <rect x="58" y="282" width="250" height="102" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="82" y="309" class="node-title">progressBridge</text>
+  <text x="82" y="331" class="node-sub">兼容旧 progress 入链</text>
+  <text x="82" y="349" class="node-sub">避免 parentUuid 断裂</text>
+
+  <rect x="340" y="282" width="250" height="102" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="364" y="309" class="node-title">compact boundary</text>
+  <text x="364" y="331" class="node-sub">清理旧 context-collapse</text>
+  <text x="364" y="349" class="node-sub">preservedSegment relink</text>
+
+  <rect x="622" y="282" width="250" height="102" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="646" y="309" class="node-title">snip removal replay</text>
+  <text x="646" y="331" class="node-sub">删除 removedUuids</text>
+  <text x="646" y="349" class="node-sub">跨 gap 重新接链</text>
+
+  <rect x="904" y="282" width="230" height="102" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="928" y="309" class="node-title">leafUuids</text>
+  <text x="928" y="331" class="node-sub">选择 terminal message</text>
+  <text x="928" y="349" class="node-sub">定位最新可恢复链尾</text>
+
+  <path d="M1033 191 C1033 228 183 228 183 282" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M308 333 L340 333" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M590 333 L622 333" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M872 333 L904 333" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+
+  <text x="58" y="443" class="section">链构造与恢复层</text>
+  <rect x="58" y="467" width="250" height="104" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="82" y="494" class="node-title">buildConversationChain</text>
+  <text x="82" y="516" class="node-sub">沿 parentUuid 回溯到 root</text>
+  <text x="82" y="534" class="node-sub">cycle protection</text>
+
+  <rect x="340" y="467" width="250" height="104" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="364" y="494" class="node-title">recoverParallelToolResults</text>
+  <text x="364" y="516" class="node-sub">补回并行 tool_use 分支</text>
+  <text x="364" y="534" class="node-sub">避免 sibling 结果丢失</text>
+
+  <rect x="622" y="467" width="250" height="104" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="646" y="494" class="node-title">deserializeMessages</text>
+  <text x="646" y="516" class="node-sub">迁移 legacy attachments</text>
+  <text x="646" y="534" class="node-sub">过滤 unresolved tool_use</text>
+
+  <rect x="904" y="467" width="230" height="104" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="928" y="494" class="node-title">interruption repair</text>
+  <text x="928" y="516" class="node-sub">Continue from where left off</text>
+  <text x="928" y="534" class="node-sub">NO_RESPONSE_REQUESTED sentinel</text>
+
+  <path d="M1019 384 C1019 424 183 424 183 467" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M308 519 L340 519" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M590 519 L622 519" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M872 519 L904 519" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <rect x="338" y="625" width="508" height="72" rx="8" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5" filter="url(#soft-shadow)"/>
+  <text x="368" y="653" class="node-title">processResumedConversation / REPL resume callback / print mode</text>
+  <text x="368" y="675" class="node-sub">恢复 file history、attribution、agent setting、mode、worktree、content replacement，并把 sessionFile 指向被恢复 JSONL</text>
+
+  <path d="M1019 571 C1019 654 888 661 846 661" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+
+  <g transform="translate(52 706)">
+    <line x1="0" y1="8" x2="34" y2="8" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+    <text x="44" y="12" class="tiny">主加载流程</text>
+    <line x1="150" y1="8" x2="184" y2="8" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+    <text x="194" y="12" class="tiny">恢复状态输出</text>
+    <line x1="320" y1="8" x2="354" y2="8" stroke="#9333ea" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+    <text x="364" y="12" class="tiny">压缩 / 裁剪修复</text>
+    <line x1="500" y1="8" x2="534" y2="8" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="544" y="12" class="tiny">非法链路兜底</text>
+  </g>
+</svg>

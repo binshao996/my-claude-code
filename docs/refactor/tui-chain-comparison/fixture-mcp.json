@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "tui-fixture": {
+      "command": "node",
+      "args": [
+        "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/fixture-mcp-server.mjs"
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "version": "r2.2",
-  "generatedAt": "2026-05-25T07:58:23.748Z",
+  "version": "r3.0",
+  "generatedAt": "2026-05-25T11:41:13.676Z",
   "strictParityManifest": {
     "path": "docs/strict-parity-manifest.json",
     "role": "legacy migration inventory only",

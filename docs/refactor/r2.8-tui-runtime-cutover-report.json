@@ -1,0 +1,290 @@
+{
+  "version": "r2.8",
+  "generatedAt": "2026-05-25T11:07:09.830Z",
+  "status": "pass",
+  "inkPackageName": "@anthropic/ink",
+  "inkWorkspaceDependency": "workspace:*",
+  "roots": [
+    {
+      "upstreamRoot": "claude-code/packages/@ant/ink",
+      "localRoot": "packages/@ant/ink",
+      "upstreamFileCount": 161,
+      "localFileCount": 161,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/components",
+      "localRoot": "src/components",
+      "upstreamFileCount": 412,
+      "localFileCount": 412,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/screens",
+      "localRoot": "src/screens",
+      "upstreamFileCount": 3,
+      "localFileCount": 3,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    },
+    {
+      "upstreamRoot": "claude-code/src/vim",
+      "localRoot": "src/vim",
+      "upstreamFileCount": 5,
+      "localFileCount": 5,
+      "missing": [],
+      "extra": [],
+      "different": [],
+      "status": "pass"
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "path": "packages/@ant/ink/package.json",
+      "upstream": "claude-code/packages/@ant/ink/package.json",
+      "local": "packages/@ant/ink/package.json",
+      "sha256": "1899efae7df4429d0fa2ac8bc3cf719c18590c7c720e4b18b978c9e7d00f04a3",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/index.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/index.ts",
+      "local": "packages/@ant/ink/src/index.ts",
+      "sha256": "a0bdeb9a1d999257675cfb44ac169b30d14a69dd774939dd59aa70a07e84c6be",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/core/reconciler.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/core/reconciler.ts",
+      "local": "packages/@ant/ink/src/core/reconciler.ts",
+      "sha256": "534ad697f156b3d084f2908765fa1e7cf777abf845d1f73b3332a1249cfbd223",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/core/renderer.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/core/renderer.ts",
+      "local": "packages/@ant/ink/src/core/renderer.ts",
+      "sha256": "ae8bdc27c0ea0acc6a0a11a9f8272586a988bfd47cebcb8bf19d308e270a26eb",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/core/render-to-screen.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/core/render-to-screen.ts",
+      "local": "packages/@ant/ink/src/core/render-to-screen.ts",
+      "sha256": "22b4b991644646408fbad2fe866ab210f369b642e8ccbfcdb6cbf412c55172c9",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/core/screen.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/core/screen.ts",
+      "local": "packages/@ant/ink/src/core/screen.ts",
+      "sha256": "fd5618300c43010d6a29b72370be3f4b616cb8d4470100ba796d6c8bcb03f522",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/core/selection.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/core/selection.ts",
+      "local": "packages/@ant/ink/src/core/selection.ts",
+      "sha256": "67d18ddf9189c6ef431214bd01c422eb357c0cf9cf4c38beada62926192e794d",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/core/termio/parser.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/core/termio/parser.ts",
+      "local": "packages/@ant/ink/src/core/termio/parser.ts",
+      "sha256": "acfa3d25b02d7324c5adcc0549d0c9898788d4600d6513de784f8eb6ef0321e7",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/components/AlternateScreen.tsx",
+      "upstream": "claude-code/packages/@ant/ink/src/components/AlternateScreen.tsx",
+      "local": "packages/@ant/ink/src/components/AlternateScreen.tsx",
+      "sha256": "3341262830a6be1d6bf611497ba0b253d12b4c11ea3892403a9217205f2295ab",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/components/NoSelect.tsx",
+      "upstream": "claude-code/packages/@ant/ink/src/components/NoSelect.tsx",
+      "local": "packages/@ant/ink/src/components/NoSelect.tsx",
+      "sha256": "372d00057efb53716515dafd6b9cc3a997805bd673ee4e4bd586704884e55e32",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/components/ScrollBox.tsx",
+      "upstream": "claude-code/packages/@ant/ink/src/components/ScrollBox.tsx",
+      "local": "packages/@ant/ink/src/components/ScrollBox.tsx",
+      "sha256": "182995eae93c43419dbd611f670e24861df19c6561b0fbcd7b200df6a3b3aed9",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/hooks/use-input.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/hooks/use-input.ts",
+      "local": "packages/@ant/ink/src/hooks/use-input.ts",
+      "sha256": "2aaf86d7429eae0ab32f387e1abfd51fd07e121eaafa541795ab3fc4b8fa9bbc",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/hooks/use-selection.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/hooks/use-selection.ts",
+      "local": "packages/@ant/ink/src/hooks/use-selection.ts",
+      "sha256": "6758e73fc5054a6a65fc1c7a2f348728a6649a79e9d7d0932f8e20b5f2aae636",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/hooks/use-terminal-viewport.ts",
+      "upstream": "claude-code/packages/@ant/ink/src/hooks/use-terminal-viewport.ts",
+      "local": "packages/@ant/ink/src/hooks/use-terminal-viewport.ts",
+      "sha256": "b5337fb8c907ecf631fa207fb628535307561026a32dd5e00f07bf07e8a7716b",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/theme/Spinner.tsx",
+      "upstream": "claude-code/packages/@ant/ink/src/theme/Spinner.tsx",
+      "local": "packages/@ant/ink/src/theme/Spinner.tsx",
+      "sha256": "9a677d251e430b6d0d12488abc43dd139743efc6cba49019ade4b7ecc6903bf1",
+      "status": "byte-identical"
+    },
+    {
+      "path": "packages/@ant/ink/src/theme/ThemeProvider.tsx",
+      "upstream": "claude-code/packages/@ant/ink/src/theme/ThemeProvider.tsx",
+      "local": "packages/@ant/ink/src/theme/ThemeProvider.tsx",
+      "sha256": "6047c6f4d3dd2f00e9a25fa59248de77158b674b63a4894f5083f17b3a0aff34",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/App.tsx",
+      "upstream": "claude-code/src/components/App.tsx",
+      "local": "src/components/App.tsx",
+      "sha256": "54d83ba548e0a20699919248184effa0e9f952af4903308a25b4edc86505af72",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/FullscreenLayout.tsx",
+      "upstream": "claude-code/src/components/FullscreenLayout.tsx",
+      "local": "src/components/FullscreenLayout.tsx",
+      "sha256": "fbe7be8af513aa55f83dc87fce3176f6954cdb46988b7486678642d886fc85ff",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/Markdown.tsx",
+      "upstream": "claude-code/src/components/Markdown.tsx",
+      "local": "src/components/Markdown.tsx",
+      "sha256": "d8215713ef809a772e368bf54a848216c8edf62b5e0abad58a91ce0cae986d4a",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/MarkdownTable.tsx",
+      "upstream": "claude-code/src/components/MarkdownTable.tsx",
+      "local": "src/components/MarkdownTable.tsx",
+      "sha256": "f2fddc3b164e05903c8d7ce6a13d882d567d19c3fa70df5edfc6d5d8d40964fa",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/Messages.tsx",
+      "upstream": "claude-code/src/components/Messages.tsx",
+      "local": "src/components/Messages.tsx",
+      "sha256": "07b9787a0c8af73bedfc30aeb7ff0baef6ec6032d3a3f40418a29d545f7b6efe",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/PromptInput/PromptInput.tsx",
+      "upstream": "claude-code/src/components/PromptInput/PromptInput.tsx",
+      "local": "src/components/PromptInput/PromptInput.tsx",
+      "sha256": "71f604c5d81f8e8ded08c544d348298d829f14785d2adcb53b35a6371777914c",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/PromptInput/PromptInputFooter.tsx",
+      "upstream": "claude-code/src/components/PromptInput/PromptInputFooter.tsx",
+      "local": "src/components/PromptInput/PromptInputFooter.tsx",
+      "sha256": "99c3ea2dc4d76b4b3917a37e305e255741cef913aba3902b2008db8022584894",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/PromptInput/inputPaste.ts",
+      "upstream": "claude-code/src/components/PromptInput/inputPaste.ts",
+      "local": "src/components/PromptInput/inputPaste.ts",
+      "sha256": "9ddd0dc8a63a2f10abc9520360a5f13ddea32346ec9d4d5929520274a9d16ace",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/ScrollKeybindingHandler.tsx",
+      "upstream": "claude-code/src/components/ScrollKeybindingHandler.tsx",
+      "local": "src/components/ScrollKeybindingHandler.tsx",
+      "sha256": "97065f420aaf5ee9d4fac520b6c86be0516822b377dd5d2fcf5485aec06d000e",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/Spinner/index.ts",
+      "upstream": "claude-code/src/components/Spinner/index.ts",
+      "local": "src/components/Spinner/index.ts",
+      "sha256": "d43048591a780c6143c2ad6451bb95f3f689557a955b17696b22c2d82b7fafbb",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/components/TextInput.tsx",
+      "upstream": "claude-code/src/components/TextInput.tsx",
+      "local": "src/components/TextInput.tsx",
+      "sha256": "423ceef3acf5acc9753575df24637002d34db89fed3f11b251054f886ea9271d",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/context/overlayContext.tsx",
+      "upstream": "claude-code/src/context/overlayContext.tsx",
+      "local": "src/context/overlayContext.tsx",
+      "sha256": "cadd3da515ae7336e252a46bcd964fc2e8c1b14b01ece717d2ae85747ab14fb7",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/dialogLaunchers.tsx",
+      "upstream": "claude-code/src/dialogLaunchers.tsx",
+      "local": "src/dialogLaunchers.tsx",
+      "sha256": "cdf54136e1f5b769bae752802a08c631432e15cf4ffcdd063dfa18a2a1c1cb42",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/history.ts",
+      "upstream": "claude-code/src/history.ts",
+      "local": "src/history.ts",
+      "sha256": "046a9276ed83655cfbb550581f885c7073225ec9cd40fb8296cd74d973b3a77b",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/interactiveHelpers.tsx",
+      "upstream": "claude-code/src/interactiveHelpers.tsx",
+      "local": "src/interactiveHelpers.tsx",
+      "sha256": "f6cbf9dd6b793b7703175b0e6b943f507d8df7a6cf4b7b382fe56de3632c0529",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/main.tsx",
+      "upstream": "claude-code/src/main.tsx",
+      "local": "src/main.tsx",
+      "sha256": "437d11c2b25c335bd968ff4eb5729fd6b9fd31fd74bc2673fb8275bb762f3841",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/replLauncher.tsx",
+      "upstream": "claude-code/src/replLauncher.tsx",
+      "local": "src/replLauncher.tsx",
+      "sha256": "15c64b9de539392341e36880747c898614d5412095c11c50ae6c11314b6a07b6",
+      "status": "byte-identical"
+    },
+    {
+      "path": "src/screens/REPL.tsx",
+      "upstream": "claude-code/src/screens/REPL.tsx",
+      "local": "src/screens/REPL.tsx",
+      "sha256": "868e0ff2fe2e4e81dfbf388b20d2fd4057b751a060d42b7818d208e174df7221",
+      "status": "byte-identical"
+    }
+  ],
+  "legacyActivePaths": []
+}

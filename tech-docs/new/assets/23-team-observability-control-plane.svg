@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 820" width="1240" height="820" role="img" aria-labelledby="title desc">
+  <title id="title">Team observability and control plane</title>
+  <desc id="desc">How teammate runtime signals flow into AppState selectors and terminal UI control surfaces.</desc>
+  <style>
+    text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .layer-title { font-size: 15px; font-weight: 700; fill: #111827; }
+    .node-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #4b5563; }
+    .tiny { font-size: 11px; fill: #6b7280; }
+    .section { fill: #f9fafb; stroke: #d1d5db; stroke-width: 1.4; stroke-dasharray: 6 5; rx: 14; ry: 14; }
+    .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; rx: 8; ry: 8; }
+    .blue { fill: #eff6ff; stroke: #bfdbfe; }
+    .green { fill: #f0fdf4; stroke: #bbf7d0; }
+    .purple { fill: #faf5ff; stroke: #ddd6fe; }
+    .orange { fill: #fff7ed; stroke: #fed7aa; }
+    .teal { fill: #f0fdfa; stroke: #99f6e4; }
+    .red { fill: #fef2f2; stroke: #fecaca; }
+    .terminal { fill: #111827; stroke: #374151; rx: 6; ry: 6; }
+    .terminal-text { fill: #e5e7eb; font-size: 12px; }
+    .term-accent { fill: #93c5fd; font-size: 12px; font-weight: 700; }
+  </style>
+  <defs>
+    <marker id="arrow-blue-23a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green-23a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple-23a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red-23a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="820" fill="#ffffff"/>
+  <text x="40" y="46" class="title">第 23 章：Team UI 可观察控制面</text>
+  <text x="40" y="70" class="subtitle">Runtime signal -> AppState -> selectors/hooks -> Ink terminal surfaces -> user control actions</text>
+
+  <rect x="36" y="104" width="1168" height="138" class="section"/>
+  <text x="58" y="132" class="layer-title">Runtime signals</text>
+  <rect x="78" y="154" width="212" height="62" class="box blue"/>
+  <text x="98" y="179" class="node-title">InProcessTeammateTask</text>
+  <text x="98" y="199" class="node-sub">progress / messages / idle</text>
+  <rect x="324" y="154" width="212" height="62" class="box green"/>
+  <text x="344" y="179" class="node-title">team config</text>
+  <text x="344" y="199" class="node-sub">members / mode / pane</text>
+  <rect x="570" y="154" width="212" height="62" class="box orange"/>
+  <text x="590" y="179" class="node-title">Task V2 files</text>
+  <text x="590" y="199" class="node-sub">owner / blockers / status</text>
+  <rect x="816" y="154" width="212" height="62" class="box purple"/>
+  <text x="836" y="179" class="node-title">mailbox protocol</text>
+  <text x="836" y="199" class="node-sub">shutdown / mode_set</text>
+
+  <rect x="36" y="282" width="1168" height="148" class="section"/>
+  <text x="58" y="310" class="layer-title">AppState and derived state</text>
+  <rect x="94" y="334" width="238" height="70" class="box"/>
+  <text x="116" y="360" class="node-title">AppState.tasks</text>
+  <text x="116" y="381" class="node-sub">all background task states</text>
+  <rect x="372" y="334" width="238" height="70" class="box"/>
+  <text x="394" y="360" class="node-title">teamContext</text>
+  <text x="394" y="381" class="node-sub">teamName + teammates map</text>
+  <rect x="650" y="334" width="238" height="70" class="box"/>
+  <text x="672" y="360" class="node-title">view state</text>
+  <text x="672" y="381" class="node-sub">expandedView / selection</text>
+  <rect x="928" y="334" width="218" height="70" class="box"/>
+  <text x="950" y="360" class="node-title">selectors</text>
+  <text x="950" y="381" class="node-sub">viewed / active input</text>
+
+  <rect x="36" y="468" width="1168" height="204" class="section"/>
+  <text x="58" y="496" class="layer-title">Ink terminal UI surfaces</text>
+  <rect x="78" y="522" width="232" height="104" class="terminal"/>
+  <text x="98" y="548" class="term-accent">SpinnerWithVerb</text>
+  <text x="98" y="571" class="terminal-text">TeammateSpinnerTree</text>
+  <text x="98" y="592" class="terminal-text">leader + @teammates</text>
+  <text x="98" y="613" class="terminal-text">tokens / tools / idle</text>
+  <rect x="348" y="522" width="232" height="104" class="terminal"/>
+  <text x="368" y="548" class="term-accent">TaskListV2</text>
+  <text x="368" y="571" class="terminal-text">task owner color</text>
+  <text x="368" y="592" class="terminal-text">blocked by #id</text>
+  <text x="368" y="613" class="terminal-text">current activity</text>
+  <rect x="618" y="522" width="232" height="104" class="terminal"/>
+  <text x="638" y="548" class="term-accent">Prompt footer</text>
+  <text x="638" y="571" class="terminal-text">TeamStatus pill</text>
+  <text x="638" y="592" class="terminal-text">Swarm banner</text>
+  <text x="638" y="613" class="terminal-text">focused footer actions</text>
+  <rect x="888" y="522" width="232" height="104" class="terminal"/>
+  <text x="908" y="548" class="term-accent">Dialogs</text>
+  <text x="908" y="571" class="terminal-text">TeamsDialog</text>
+  <text x="908" y="592" class="terminal-text">BackgroundTasksDialog</text>
+  <text x="908" y="613" class="terminal-text">teammate detail</text>
+
+  <rect x="36" y="706" width="1168" height="74" class="section"/>
+  <text x="58" y="735" class="layer-title">User control actions</text>
+  <text x="272" y="735" class="node-sub">Shift+Up/Down selects</text>
+  <text x="454" y="735" class="node-sub">Enter / f foregrounds transcript</text>
+  <text x="702" y="735" class="node-sub">Esc exits or aborts current turn</text>
+  <text x="928" y="735" class="node-sub">k kill / s shutdown / mode cycle</text>
+
+  <path d="M184 216 L184 334" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23a)"/>
+  <path d="M430 216 L491 334" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23a)"/>
+  <path d="M676 216 L491 334" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23a)"/>
+  <path d="M922 216 L1037 334" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23a)"/>
+
+  <path d="M213 404 L194 522" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23a)"/>
+  <path d="M491 404 L464 522" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23a)"/>
+  <path d="M769 404 L734 522" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23a)"/>
+  <path d="M1037 404 L1004 522" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23a)"/>
+  <path d="M769 404 C760 455 655 467 734 522" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23a)"/>
+  <path d="M1037 404 C1080 454 1080 475 1004 522" fill="none" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23a)"/>
+
+  <path d="M194 626 L304 706" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23a)"/>
+  <path d="M1004 626 L966 706" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23a)"/>
+  <path d="M734 626 L556 706" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23a)"/>
+
+  <g transform="translate(54 788)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue-23a)"/>
+    <text x="42" y="12" class="tiny">runtime progress</text>
+    <line x1="176" y1="8" x2="208" y2="8" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green-23a)"/>
+    <text x="218" y="12" class="tiny">task/team data</text>
+    <line x1="350" y1="8" x2="382" y2="8" stroke="#9333ea" stroke-width="2" marker-end="url(#arrow-purple-23a)"/>
+    <text x="392" y="12" class="tiny">view/control state</text>
+    <line x1="544" y1="8" x2="576" y2="8" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red-23a)"/>
+    <text x="586" y="12" class="tiny">user action</text>
+  </g>
+</svg>

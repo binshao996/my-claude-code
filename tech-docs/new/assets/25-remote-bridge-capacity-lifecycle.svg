@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 800" width="1180" height="800" role="img" aria-labelledby="title desc">
+  <title id="title">Remote Bridge Capacity Lifecycle</title>
+  <desc id="desc">Claude Code daemon remote-control worker, bridge poll loop, capacity, child session and remote viewer lifecycle.</desc>
+  <style>
+    text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'Microsoft JhengHei', 'SimHei', sans-serif;
+    }
+    .title { font-size: 22px; font-weight: 600; fill: #111827; }
+    .subtitle { font-size: 13px; fill: #6b7280; }
+    .lane { font-size: 13px; font-weight: 600; fill: #374151; }
+    .node-title { font-size: 14px; font-weight: 600; fill: #111827; }
+    .node-sub { font-size: 12px; fill: #6b7280; }
+    .small { font-size: 11px; fill: #6b7280; }
+  </style>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <filter id="soft-shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#111827" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1180" height="800" fill="#ffffff"/>
+  <text x="40" y="44" class="title">Remote Control Bridge：多会话容量与远端可观察生命周期</text>
+  <text x="40" y="67" class="subtitle">daemon supervisor -&gt; remoteControl worker -&gt; bridge loop -&gt; child print process -&gt; CCR / WebSocket viewer</text>
+
+  <rect x="40" y="96" width="210" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="282" y="96" width="230" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="544" y="96" width="250" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+  <rect x="826" y="96" width="290" height="560" rx="10" fill="#f9fafb" stroke="#e5e7eb"/>
+
+  <text x="62" y="124" class="lane">1. 守护进程</text>
+  <text x="304" y="124" class="lane">2. Bridge 注册与取工</text>
+  <text x="566" y="124" class="lane">3. Child session 运行</text>
+  <text x="848" y="124" class="lane">4. 远端 UI / 控制</text>
+
+  <g filter="url(#soft-shadow)">
+    <rect x="70" y="150" width="150" height="82" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="94" y="177" class="node-title">daemon start</text>
+    <text x="94" y="199" class="node-sub">write state file</text>
+    <text x="94" y="217" class="node-sub">spawn workers</text>
+
+    <rect x="70" y="274" width="150" height="86" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text x="94" y="301" class="node-title">remoteControl</text>
+    <text x="94" y="323" class="node-sub">--daemon-worker</text>
+    <text x="94" y="341" class="node-sub">runBridgeHeadless</text>
+
+    <rect x="70" y="404" width="150" height="86" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text x="94" y="431" class="node-title">supervise</text>
+    <text x="94" y="453" class="node-sub">backoff restart</text>
+    <text x="94" y="471" class="node-sub">park permanent error</text>
+
+    <rect x="314" y="142" width="166" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="338" y="169" class="node-title">register environment</text>
+    <text x="338" y="191" class="node-sub">environmentId/secret</text>
+    <text x="338" y="209" class="node-sub">dir branch repo</text>
+
+    <rect x="314" y="266" width="166" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="338" y="293" class="node-title">pollForWork</text>
+    <text x="338" y="315" class="node-sub">session / healthcheck</text>
+    <text x="338" y="333" class="node-sub">reclaim old work</text>
+
+    <rect x="314" y="396" width="166" height="92" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+    <text x="338" y="423" class="node-title">capacity gate</text>
+    <text x="338" y="445" class="node-sub">active &lt; maxSessions</text>
+    <text x="338" y="463" class="node-sub">heartbeat at capacity</text>
+
+    <rect x="576" y="140" width="186" height="86" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+    <text x="600" y="167" class="node-title">sessionRunner.spawn</text>
+    <text x="600" y="189" class="node-sub">claude --print --sdk-url</text>
+    <text x="600" y="207" class="node-sub">stream-json I/O</text>
+
+    <rect x="576" y="266" width="186" height="86" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="600" y="293" class="node-title">activity extract</text>
+    <text x="600" y="315" class="node-sub">tool_start / text</text>
+    <text x="600" y="333" class="node-sub">result / error</text>
+
+    <rect x="576" y="396" width="186" height="92" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+    <text x="600" y="423" class="node-title">done lifecycle</text>
+    <text x="600" y="445" class="node-sub">stopWork / archive</text>
+    <text x="600" y="463" class="node-sub">cleanup worktree</text>
+
+    <rect x="576" y="528" width="186" height="82" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text x="600" y="555" class="node-title">timeout watchdog</text>
+    <text x="600" y="577" class="node-sub">kill then mark failed</text>
+
+    <rect x="858" y="140" width="220" height="86" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="882" y="167" class="node-title">CCR / Session Ingress</text>
+    <text x="882" y="189" class="node-sub">work queue + worker events</text>
+    <text x="882" y="207" class="node-sub">session token / epoch</text>
+
+    <rect x="858" y="266" width="220" height="86" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1.5"/>
+    <text x="882" y="293" class="node-title">RemoteSessionManager</text>
+    <text x="882" y="315" class="node-sub">WS subscribe + HTTP send</text>
+    <text x="882" y="333" class="node-sub">permission response</text>
+
+    <rect x="858" y="396" width="220" height="92" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="882" y="423" class="node-title">useRemoteSession</text>
+    <text x="882" y="445" class="node-sub">SDK message -&gt; REPL</text>
+    <text x="882" y="463" class="node-sub">task count event-sourced</text>
+
+    <rect x="858" y="528" width="220" height="82" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="882" y="555" class="node-title">viewer AppState</text>
+    <text x="882" y="577" class="node-sub">connection status</text>
+    <text x="882" y="595" class="node-sub">remoteBackgroundTaskCount</text>
+  </g>
+
+  <path d="M145 232 L145 274" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M145 360 L145 404" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arrow-red)"/>
+  <path d="M220 317 C260 317 274 183 314 183" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M397 224 L397 266" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M397 352 L397 396" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M480 442 C524 442 532 183 576 183" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M669 226 L669 266" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M669 352 L669 396" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M669 488 L669 528" stroke="#dc2626" stroke-width="1.8" fill="none" marker-end="url(#arrow-red)"/>
+
+  <path d="M762 183 C806 183 814 183 858 183" stroke="#2563eb" stroke-width="1.8" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M858 309 C812 309 808 183 762 183" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M762 309 C806 309 814 309 858 309" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M968 352 L968 396" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M968 488 L968 528" stroke="#16a34a" stroke-width="1.8" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M576 442 C520 620 400 602 397 488" stroke="#9333ea" stroke-width="1.8" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <rect x="70" y="682" width="1045" height="52" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="92" y="713" class="node-title">核心约束</text>
+  <text x="210" y="713" class="node-sub">single-session 完成即退出；same-dir/worktree 常驻接新 work；capacity 满时 heartbeat + sleep；session done 后 wake capacity sleep</text>
+
+  <g transform="translate(50 756)">
+    <line x1="0" y1="8" x2="34" y2="8" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+    <text x="44" y="12" class="small">注册 / 取工</text>
+    <line x1="155" y1="8" x2="189" y2="8" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+    <text x="199" y="12" class="small">事件 / 状态</text>
+    <line x1="310" y1="8" x2="344" y2="8" stroke="#9333ea" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+    <text x="354" y="12" class="small">容量 / token</text>
+    <line x1="480" y1="8" x2="514" y2="8" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="524" y="12" class="small">失败 / 超时</text>
+  </g>
+</svg>

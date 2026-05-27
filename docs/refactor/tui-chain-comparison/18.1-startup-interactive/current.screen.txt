@@ -1,0 +1,26 @@
+ ▐▛███▜▌ClaudeCodev2.4.4
+▝▜█████▛▘deepseek-v4-pro·APIUsageBilling
+ ▘▘▝▝~/my-compony/my-claude-code
+  ⎿  SessionStart:startup says: # claude-mem status
+                                                                                                    
+     This project has no memory yet. The current session will seed it; subsequent sessions will 
+     receive auto-injected context for relevant past work.                                          
+                                     
+   Memoryinjection starts on your second session in a project.
+
+`/learn-codebase`isavailableiftheuserwantstofront-loadtheentirerepointomemoryina
+ singlepass(~5minutesonatypicalrepo,optional).Otherwisememorybuildspassivelyas
+workhappens.
+
+Liveactivity:http://localhost:37702
+Howitworks:`/how-it-works`
+
+Thismessagedisappearsoncethefirstobservationlands.
+
+ViewObservationsLive@http://localhost:37702
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ Try"fixtypecheckerrors"
+────────────────────────────────────────────────────────────────────────────────────────────────────
+[CAVEMAN]                                   
+  338.4MB · pid:89082                                                                               

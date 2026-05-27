@@ -1,0 +1,223 @@
+{
+  "generatedAt": "2026-05-26T03:08:25.933Z",
+  "cols": 100,
+  "rows": 32,
+  "cases": [
+    {
+      "id": "18.1-startup-interactive",
+      "title": "18.1 startup: cli.tsx -> main.tsx -> REPL first render",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 17079,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-startup-interactive/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-startup-interactive/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 17583,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-startup-interactive/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-startup-interactive/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": false,
+        "currentLines": 19,
+        "upstreamLines": 18,
+        "currentOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code",
+          "❯ Try\"fixtypecheckerrors\"",
+          "  338.4MB · pid:89082"
+        ],
+        "upstreamOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code/claude-code",
+          "❯ Try\"howdoesclaude.tswork?\""
+        ]
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-startup-interactive/compare.png"
+    },
+    {
+      "id": "18.1-print-headless",
+      "title": "18.1 print/headless branch",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 7737,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 7451,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": true,
+        "currentLines": 1,
+        "upstreamLines": 1,
+        "currentOnlySample": [],
+        "upstreamOnlySample": []
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.1-print-headless/compare.png"
+    },
+    {
+      "id": "18.2-user-input-model",
+      "title": "18.2 PromptInput -> handlePromptSubmit -> queryLoop -> callModel",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 47613,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 47656,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": false,
+        "currentLines": 20,
+        "upstreamLines": 20,
+        "currentOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code"
+        ],
+        "upstreamOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code/claude-code"
+        ]
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.2-user-input-model/compare.png"
+    },
+    {
+      "id": "18.3-tool-call-read",
+      "title": "18.3 assistant tool_use -> runTools -> Read -> tool_result -> next model turn",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 62626,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.3-tool-call-read/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.3-tool-call-read/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 63802,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.3-tool-call-read/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.3-tool-call-read/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": false,
+        "currentLines": 21,
+        "upstreamLines": 22,
+        "currentOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code",
+          "⏺my-claude-code",
+          "❯"
+        ],
+        "upstreamOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code/claude-code",
+          "⏺claude-code-best",
+          "❯ runthetests",
+          "325.3MB·pid:97666"
+        ]
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.3-tool-call-read/compare.png"
+    },
+    {
+      "id": "18.4-permission-write",
+      "title": "18.4 tool permission ask -> PermissionRequest panel",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 55137,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.4-permission-write/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.4-permission-write/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 54733,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.4-permission-write/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.4-permission-write/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": false,
+        "currentLines": 22,
+        "upstreamLines": 22,
+        "currentOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code"
+        ],
+        "upstreamOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code/claude-code"
+        ]
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.4-permission-write/compare.png"
+    },
+    {
+      "id": "18.5-mcp-load",
+      "title": "18.5 --mcp-config -> connect stdio -> list tools/resources/prompts -> /mcp UI",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 32758,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.5-mcp-load/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.5-mcp-load/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 32583,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.5-mcp-load/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.5-mcp-load/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": false,
+        "currentLines": 23,
+        "upstreamLines": 23,
+        "currentOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code",
+          "   Memory injection starts on your second session in a project."
+        ],
+        "upstreamOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code/claude-code",
+          "   Memoryinjection starts on your second session in a project."
+        ]
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.5-mcp-load/compare.png"
+    },
+    {
+      "id": "18.6-compact",
+      "title": "18.6 messages -> /compact -> compact/context collapse update",
+      "current": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 69042,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.6-compact/current.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.6-compact/current.screen.txt"
+      },
+      "upstream": {
+        "status": "captured",
+        "exitCode": 0,
+        "durationMs": 68966,
+        "png": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.6-compact/upstream.png",
+        "screenTxt": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.6-compact/upstream.screen.txt"
+      },
+      "visualDiff": {
+        "normalizedEqual": false,
+        "currentLines": 21,
+        "upstreamLines": 21,
+        "currentOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code"
+        ],
+        "upstreamOnlySample": [
+          " ▘▘▝▝~/my-compony/my-claude-code/claude-code"
+        ]
+      },
+      "sideBySidePng": "/Users/bin.ke/my-compony/my-claude-code/docs/refactor/tui-chain-comparison/18.6-compact/compare.png"
+    }
+  ]
+}
