@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 860" width="1160" height="860">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', 'Microsoft YaHei', 'SimHei', monospace; fill: #e2e8f0; }
+    .title { font-size: 24px; font-weight: 700; }
+    .layer { font-size: 13px; font-weight: 700; fill: #94a3b8; }
+    .label { font-size: 14px; font-weight: 700; }
+    .sub { font-size: 11px; fill: #94a3b8; }
+  </style>
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f1a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a855f7"/>
+    </marker>
+  </defs>
+
+  <rect width="1160" height="860" fill="url(#bg-grad)"/>
+  <text x="48" y="52" class="title">V6 Agent Workspace</text>
+  <text x="48" y="78" class="sub">Runtime events, plan updates, tool calls, command results, context updates, and permission prompts become an observable agent workspace.</text>
+
+  <rect x="40" y="108" width="1080" height="118" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="62" y="132" class="layer">INPUT STREAMS</text>
+  <rect x="70" y="156" width="170" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="96" y="186" class="label">RuntimeEvent</text>
+  <rect x="284" y="156" width="170" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="312" y="186" class="label">Plan</text>
+  <rect x="498" y="156" width="170" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="526" y="186" class="label">Tool Calls</text>
+  <rect x="712" y="156" width="170" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="740" y="186" class="label">Permissions</text>
+  <rect x="926" y="156" width="170" height="52" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="954" y="186" class="label">Command Result</text>
+
+  <rect x="40" y="282" width="1080" height="154" rx="10" fill="#111827" stroke="#475569" stroke-width="1"/>
+  <text x="62" y="306" class="layer">AGENT WORKSPACE CORE</text>
+  <rect x="84" y="334" width="190" height="62" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="112" y="358" class="label">Event Reducer</text>
+  <text x="112" y="378" class="sub">normalize / append</text>
+  <rect x="356" y="334" width="190" height="62" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="384" y="358" class="label">Agent Store</text>
+  <text x="384" y="378" class="sub">plan / tools / timeline</text>
+  <rect x="628" y="334" width="190" height="62" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="656" y="358" class="label">Status Model</text>
+  <text x="656" y="378" class="sub">idle / thinking / acting</text>
+  <rect x="900" y="334" width="190" height="62" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="928" y="358" class="label">Permission Queue</text>
+  <text x="928" y="378" class="sub">ask / approve / deny</text>
+
+  <rect x="40" y="492" width="1080" height="152" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="62" y="516" class="layer">OBSERVABILITY UI</text>
+  <rect x="70" y="544" width="170" height="58" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="96" y="568" class="label">Plan View</text>
+  <text x="96" y="588" class="sub">progress / items</text>
+  <rect x="284" y="544" width="170" height="58" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="312" y="568" class="label">Tool Timeline</text>
+  <text x="312" y="588" class="sub">start / result</text>
+  <rect x="498" y="544" width="170" height="58" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="526" y="568" class="label">Event Timeline</text>
+  <text x="526" y="588" class="sub">turn / context</text>
+  <rect x="712" y="544" width="170" height="58" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="740" y="568" class="label">Permission UI</text>
+  <text x="740" y="588" class="sub">approve / deny</text>
+  <rect x="926" y="544" width="170" height="58" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="954" y="568" class="label">Status Summary</text>
+  <text x="954" y="588" class="sub">tokens / running</text>
+
+  <rect x="40" y="704" width="1080" height="80" rx="10" fill="#111827" stroke="#475569" stroke-width="1"/>
+  <text x="62" y="728" class="layer">BOUNDARY</text>
+  <rect x="164" y="744" width="330" height="36" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="194" y="768" class="label">Observe Runtime, do not replace ToolRunner</text>
+  <rect x="660" y="744" width="300" height="36" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="690" y="768" class="label">Permission flows back to Runtime</text>
+
+  <path d="M155 208 C155 258,179 282,179 334" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M369 208 C369 258,179 282,179 334" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M583 208 C583 258,179 282,179 334" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M797 208 C797 258,995 282,995 334" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M1011 208 C1011 258,179 282,179 334" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <path d="M274 365 H356" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M546 365 H628" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M818 365 H900" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <path d="M451 396 C451 472,155 476,155 544" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M451 396 C451 472,369 476,369 544" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M451 396 C451 472,583 476,583 544" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M995 396 C995 472,797 476,797 544" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M723 396 C723 472,1011 476,1011 544" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+  <path d="M797 602 C797 660,810 684,810 744" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5 5" fill="none" marker-end="url(#arrow-orange)"/>
+</svg>

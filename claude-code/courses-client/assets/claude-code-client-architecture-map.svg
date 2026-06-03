@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" width="1200" height="920">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', 'Microsoft YaHei', 'SimHei', monospace; fill: #e2e8f0; }
+    .title { font-size: 24px; font-weight: 700; }
+    .layer { font-size: 13px; font-weight: 700; fill: #94a3b8; }
+    .label { font-size: 13px; font-weight: 700; }
+    .sub { font-size: 10px; fill: #94a3b8; }
+  </style>
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f1a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10b981"/></marker>
+  </defs>
+  <rect width="1200" height="920" fill="url(#bg-grad)"/>
+  <text x="48" y="52" class="title">Claude Code Client Architecture Map</text>
+  <text x="48" y="78" class="sub">Product shell, client platform, runtime integration, and enterprise operations from V0 to V10.</text>
+
+  <rect x="40" y="116" width="1120" height="120" rx="10" fill="#0f172a" stroke="#334155"/>
+  <text x="62" y="140" class="layer">Product Experience</text>
+  <g fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5">
+    <rect x="74" y="164" width="130" height="48" rx="6"/><rect x="224" y="164" width="130" height="48" rx="6"/><rect x="374" y="164" width="130" height="48" rx="6"/><rect x="524" y="164" width="130" height="48" rx="6"/><rect x="674" y="164" width="130" height="48" rx="6"/><rect x="824" y="164" width="130" height="48" rx="6"/><rect x="974" y="164" width="130" height="48" rx="6"/>
+  </g>
+  <text x="98" y="194" class="label">Workspace</text><text x="258" y="194" class="label">Chat</text><text x="414" y="194" class="label">Editor</text><text x="550" y="194" class="label">Terminal</text><text x="704" y="194" class="label">Agent</text><text x="854" y="194" class="label">Diff</text><text x="1004" y="194" class="label">Session</text>
+
+  <rect x="40" y="286" width="1120" height="120" rx="10" fill="#111827" stroke="#475569"/>
+  <text x="62" y="310" class="layer">Client Platform</text>
+  <g fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5">
+    <rect x="94" y="334" width="180" height="50" rx="6"/><rect x="334" y="334" width="180" height="50" rx="6"/><rect x="574" y="334" width="180" height="50" rx="6"/><rect x="814" y="334" width="180" height="50" rx="6"/>
+  </g>
+  <text x="122" y="364" class="label">State Stores</text><text x="362" y="364" class="label">IPC / Services</text><text x="602" y="364" class="label">Plugin Host</text><text x="842" y="364" class="label">Settings</text>
+
+  <rect x="40" y="456" width="1120" height="120" rx="10" fill="#0f172a" stroke="#334155"/>
+  <text x="62" y="480" class="layer">Runtime Integration</text>
+  <g fill="#1c1917" stroke="#ea580c" stroke-width="1.5">
+    <rect x="94" y="504" width="180" height="50" rx="6"/><rect x="334" y="504" width="180" height="50" rx="6"/><rect x="574" y="504" width="180" height="50" rx="6"/><rect x="814" y="504" width="180" height="50" rx="6"/>
+  </g>
+  <text x="122" y="534" class="label">RuntimeClient</text><text x="362" y="534" class="label">Agent Loop</text><text x="602" y="534" class="label">ToolRunner</text><text x="842" y="534" class="label">Context</text>
+
+  <rect x="40" y="626" width="1120" height="120" rx="10" fill="#111827" stroke="#475569"/>
+  <text x="62" y="650" class="layer">Governance</text>
+  <g fill="#052e16" stroke="#059669" stroke-width="1.5">
+    <rect x="94" y="674" width="180" height="50" rx="6"/><rect x="334" y="674" width="180" height="50" rx="6"/><rect x="574" y="674" width="180" height="50" rx="6"/><rect x="814" y="674" width="180" height="50" rx="6"/>
+  </g>
+  <text x="122" y="704" class="label">Permission</text><text x="362" y="704" class="label">Policy</text><text x="602" y="704" class="label">Audit</text><text x="842" y="704" class="label">Diagnostics</text>
+
+  <path d="M600 212 V334" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M600 384 V504" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M600 554 V674" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+</svg>

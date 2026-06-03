@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 720" width="1160" height="720">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', 'Microsoft YaHei', 'SimHei', monospace; fill: #e2e8f0; }
+    .title { font-size: 24px; font-weight: 700; }
+    .layer { font-size: 13px; font-weight: 700; fill: #94a3b8; }
+    .label { font-size: 14px; font-weight: 700; }
+    .sub { font-size: 11px; fill: #94a3b8; }
+    .note { font-size: 12px; fill: #cbd5e1; }
+  </style>
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f1a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a855f7"/>
+    </marker>
+    <filter id="soft-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1160" height="720" fill="url(#bg-grad)"/>
+  <text x="48" y="52" class="title">V0 Runtime Integration</text>
+  <text x="48" y="78" class="sub">Client shell connects to Claude Code Mini Runtime through a stable adapter boundary.</text>
+
+  <rect x="40" y="108" width="1080" height="132" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="62" y="132" class="layer">CLIENT EXPERIENCE LAYER</text>
+  <rect x="82" y="158" width="180" height="64" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="108" y="184" class="label">Chat Shell</text>
+  <text x="108" y="204" class="sub">input / stream output</text>
+  <rect x="338" y="158" width="180" height="64" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="365" y="184" class="label">Activity View</text>
+  <text x="365" y="204" class="sub">turn / tool / plan</text>
+  <rect x="594" y="158" width="180" height="64" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="622" y="184" class="label">Session Badge</text>
+  <text x="622" y="204" class="sub">id / transcript</text>
+  <rect x="850" y="158" width="180" height="64" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="876" y="184" class="label">Permission UI</text>
+  <text x="876" y="204" class="sub">ask / allow / deny</text>
+
+  <rect x="40" y="286" width="1080" height="142" rx="10" fill="#111827" stroke="#475569" stroke-width="1"/>
+  <text x="62" y="310" class="layer">INTEGRATION BOUNDARY</text>
+  <rect x="90" y="336" width="242" height="72" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5" filter="url(#soft-glow)"/>
+  <text x="116" y="364" class="label">RuntimeClient</text>
+  <text x="116" y="386" class="sub">send() / subscribe() / stop()</text>
+  <rect x="430" y="336" width="242" height="72" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="456" y="364" class="label">MiniRuntimeAdapter</text>
+  <text x="456" y="386" class="sub">maps runtime events to UI events</text>
+  <rect x="770" y="336" width="242" height="72" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="796" y="364" class="label">Event Normalizer</text>
+  <text x="796" y="386" class="sub">text / tool / plan / error</text>
+
+  <rect x="40" y="474" width="1080" height="126" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="62" y="498" class="layer">CLAUDE CODE MINI RUNTIME</text>
+  <rect x="92" y="524" width="152" height="54" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="118" y="547" class="label">ChatSession</text>
+  <text x="118" y="566" class="sub">conversation state</text>
+  <rect x="306" y="524" width="152" height="54" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="334" y="547" class="label">AgentLoop</text>
+  <text x="334" y="566" class="sub">turn loop</text>
+  <rect x="520" y="524" width="152" height="54" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="548" y="547" class="label">ToolRunner</text>
+  <text x="548" y="566" class="sub">validate / execute</text>
+  <rect x="734" y="524" width="152" height="54" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="762" y="547" class="label">Context</text>
+  <text x="762" y="566" class="sub">system / budget</text>
+  <rect x="948" y="524" width="152" height="54" rx="6" fill="#052e16" stroke="#059669" stroke-width="1.5"/>
+  <text x="976" y="547" class="label">SessionStore</text>
+  <text x="976" y="566" class="sub">transcript</text>
+
+  <path d="M262 190 H338" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M518 190 H594" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M774 190 H850" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <path d="M172 222 V336" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M428 222 C428 270,211 284,211 336" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M940 222 V336" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M332 372 H430" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M672 372 H770" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+
+  <path d="M551 408 V472 C551 500,168 494,168 524" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M244 551 H306" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M458 551 H520" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M672 551 H734" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M886 551 H948" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+  <path d="M1024 524 C1024 454,956 454,956 408" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5 5" fill="none" marker-end="url(#arrow-green)"/>
+  <text x="922" y="456" class="sub">transcript events</text>
+
+  <rect x="48" y="636" width="454" height="44" rx="6" fill="#111827" stroke="#334155" stroke-width="1"/>
+  <line x1="68" y1="652" x2="100" y2="652" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="112" y="656" class="note">UI composition</text>
+  <line x1="246" y1="652" x2="278" y2="652" stroke="#f97316" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <text x="290" y="656" class="note">adapter boundary</text>
+  <line x1="68" y1="670" x2="100" y2="670" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <text x="112" y="674" class="note">runtime request</text>
+  <line x1="246" y1="670" x2="278" y2="670" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="290" y="674" class="note">tool/context/session</text>
+</svg>
+

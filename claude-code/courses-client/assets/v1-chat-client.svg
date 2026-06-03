@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 760" width="1160" height="760">
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Courier New', 'Microsoft YaHei', 'SimHei', monospace; fill: #e2e8f0; }
+    .title { font-size: 24px; font-weight: 700; }
+    .layer { font-size: 13px; font-weight: 700; fill: #94a3b8; }
+    .label { font-size: 14px; font-weight: 700; }
+    .sub { font-size: 11px; fill: #94a3b8; }
+    .note { font-size: 12px; fill: #cbd5e1; }
+  </style>
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f1a"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f97316"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a855f7"/>
+    </marker>
+  </defs>
+
+  <rect width="1160" height="760" fill="url(#bg-grad)"/>
+  <text x="48" y="52" class="title">V1 Chat Client</text>
+  <text x="48" y="78" class="sub">Runtime events become a durable chat state tree, then render as streaming markdown, code blocks, and tool activity.</text>
+
+  <rect x="40" y="108" width="1080" height="116" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="62" y="132" class="layer">RUNTIME EVENT INPUT</text>
+  <rect x="90" y="154" width="170" height="48" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="116" y="183" class="label">text_delta</text>
+  <rect x="326" y="154" width="170" height="48" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="350" y="183" class="label">tool_start</text>
+  <rect x="562" y="154" width="170" height="48" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="586" y="183" class="label">tool_result</text>
+  <rect x="798" y="154" width="170" height="48" rx="6" fill="#1c1917" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="824" y="183" class="label">turn_done</text>
+
+  <rect x="40" y="276" width="1080" height="142" rx="10" fill="#111827" stroke="#475569" stroke-width="1"/>
+  <text x="62" y="300" class="layer">CHAT STATE CORE</text>
+  <rect x="84" y="326" width="190" height="58" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="114" y="350" class="label">event reducer</text>
+  <text x="114" y="370" class="sub">append / patch / complete</text>
+  <rect x="364" y="326" width="190" height="58" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="394" y="350" class="label">message store</text>
+  <text x="394" y="370" class="sub">user / assistant / tool</text>
+  <rect x="644" y="326" width="190" height="58" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="674" y="350" class="label">activity store</text>
+  <text x="674" y="370" class="sub">turn / tool / context</text>
+  <rect x="924" y="326" width="70" height="58" rx="6" fill="#1e1b4b" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="944" y="350" class="label">UI</text>
+  <text x="938" y="370" class="sub">selectors</text>
+
+  <rect x="40" y="474" width="1080" height="142" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="62" y="498" class="layer">PRESENTATION LAYER</text>
+  <rect x="84" y="524" width="190" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="114" y="548" class="label">ChatTimeline</text>
+  <text x="114" y="568" class="sub">virtualized list later</text>
+  <rect x="364" y="524" width="190" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="394" y="548" class="label">MessageBubble</text>
+  <text x="394" y="568" class="sub">streaming text</text>
+  <rect x="644" y="524" width="190" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="674" y="548" class="label">MarkdownView</text>
+  <text x="674" y="568" class="sub">prose / code block</text>
+  <rect x="924" y="524" width="190" height="58" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="954" y="548" class="label">ToolActivity</text>
+  <text x="954" y="568" class="sub">running / ok / error</text>
+
+  <path d="M175 202 V326" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M411 202 C411 250,179 258,179 326" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M647 202 C647 250,179 258,179 326" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M883 202 C883 250,179 258,179 326" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#arrow-orange)"/>
+
+  <path d="M274 355 H364" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M554 355 H644" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+  <path d="M834 355 H924" stroke="#a855f7" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <path d="M459 384 V524" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M739 384 V524" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M959 384 C959 444,1019 464,1019 524" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M274 553 H364" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M554 553 H644" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <rect x="48" y="660" width="548" height="52" rx="6" fill="#111827" stroke="#334155" stroke-width="1"/>
+  <line x1="68" y1="678" x2="100" y2="678" stroke="#f97316" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+  <text x="112" y="682" class="note">runtime events</text>
+  <line x1="260" y1="678" x2="292" y2="678" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <text x="304" y="682" class="note">state transition</text>
+  <line x1="68" y1="700" x2="100" y2="700" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="112" y="704" class="note">render selection</text>
+  <line x1="260" y1="700" x2="292" y2="700" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="304" y="704" class="note">future workspace links</text>
+</svg>
