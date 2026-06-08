@@ -27,6 +27,10 @@ import { parseSandboxMode, SandboxPolicyEngine, type SandboxMode } from "./sandb
 import { PermissionStore, type AskUser } from "./permissions";
 // 19add: 插件系统 — 安装、加载、注入上下文
 import { installPluginFromPath, PluginRegistry } from "./plugins";
+// 22add: logging + transcript
+import { setSessionId } from "./session/sessionState";
+import { installRuntimeEventSinks } from "./logging/sinks";
+import { recordTranscriptMessage } from "./transcript/store";
 
 type RootOptions = {
   contextWindow: number;
@@ -118,6 +122,9 @@ async function handlePrompt(
   const prompt = promptParts.join(" ").trim();
 
   try {
+    // 22add: Install runtime event → debug + transcript sinks
+    installRuntimeEventSinks();
+
     const config = loadLLMConfig();
     if (options.model) {
       config.model = options.model;
@@ -135,6 +142,9 @@ async function handlePrompt(
       resume: options.resume,
       continue: options.continue,
     });
+
+    // 22add: Track session ID for debug log and transcript
+    setSessionId(startupSession.loadedSession.metadata.sessionId);
 
     const planner = new PlannerStore(
       startupSession.loadedSession.metadata.sessionId,
@@ -382,7 +392,10 @@ async function resolveStartupSession(
   }
 
   if (options.resume) {
-    const loadedSession = await sessionStore.loadSession(options.resume);
+    // 23add: support both session id and JSONL file path
+    const loadedSession = options.resume.endsWith(".jsonl")
+      ? await sessionStore.loadSessionFromPath(options.resume)
+      : await sessionStore.loadSession(options.resume);
 
     if (!loadedSession) {
       throw new Error(`Session not found: ${options.resume}`);

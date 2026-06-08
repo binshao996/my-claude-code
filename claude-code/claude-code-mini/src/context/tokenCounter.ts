@@ -46,7 +46,7 @@ export type ContentBlock =
   | ToolResultBlock;
 
 export type ChatMessage = {
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system";
   content: string | ContentBlock[];
 };
 

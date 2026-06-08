@@ -119,6 +119,18 @@ pnpm test
 - Release compatibility matrix 能解释 Client / Runtime / Plugin / Session / Audit 兼容关系。
 - Closure checklist UI 能逐项显示 Policy / Audit / Recovery 是否覆盖。
 
+## Smoke Check 总表
+
+`pnpm dev` 后按章节验证可见 UI：
+
+- 01：ProductShell 首屏显示 workspace、右侧 Agent/Diff 面板、底部 Terminal 和企业治理入口。
+- 02：Settings / Policy 显示 policy source badge、locked state 和 denied plugin source。
+- 03：Permission Governance 显示 allow / ask / deny 队列和 deny reason。
+- 04：Audit table 显示 audit rows，Diagnostics download mock 可点击。
+- 05：Performance Dashboard 显示 pass / degraded / failed 的 budget status。
+- 06：Release matrix 显示 blocked / compatible 状态和 rollback target。
+- 07：Closure checklist UI 显示 Policy、Audit、Recovery、Plugin、Release 的闭环状态。
+
 ## 当前版本缺陷
 
 V10 仍然是教学版企业架构，不等于完整商业产品。

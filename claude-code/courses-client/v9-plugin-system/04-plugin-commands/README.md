@@ -91,6 +91,14 @@ export function CommandPalettePluginSection({
 }
 ```
 
+## Service / Store / UI Skeleton
+
+本章最小骨架：
+
+- service：`pluginCommandToPaletteItem()` 把 manifest command 转成可执行 command palette item。
+- store：`pluginStore.enabledPlugins` 决定哪些 plugin commands 出现在 Palette。
+- UI：`CommandPalettePluginSection` 渲染 `source=plugin` 的命令入口。
+
 ## 安全边界
 
 插件命令只生成 prompt，不直接执行工具。

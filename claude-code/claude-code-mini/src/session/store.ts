@@ -8,7 +8,7 @@ import {
   writeFile,
 } from "node:fs/promises";
 import { homedir } from "node:os";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import type { ChatMessage } from "../llm/types";
 import type {
   LoadedSession,
@@ -155,6 +155,20 @@ export class SessionStore {
     );
   }
 
+  // 23add: Load a session from an arbitrary JSONL file path
+  async loadSessionFromPath(path: string): Promise<LoadedSession | null> {
+    try {
+      const raw = await readFile(path, "utf8");
+      const sessionId = extractSessionIdFromPath(path);
+      return parseSessionTranscript(raw, path, sessionId, this.cwd);
+    } catch (error) {
+      if (isNotFound(error)) {
+        return null;
+      }
+      throw error;
+    }
+  }
+
   async getLatestSession(): Promise<LoadedSession | null> {
     const [latest] = await this.listSessions();
 
@@ -215,27 +229,37 @@ function parseSessionTranscript(
       continue;
     }
 
-    let entry: SessionTranscriptEntry;
+    let entry: Record<string, unknown>;
 
     try {
-      entry = JSON.parse(line) as SessionTranscriptEntry;
+      entry = JSON.parse(line) as Record<string, unknown>;
     } catch {
-      throw new Error(`Invalid JSONL at ${path}:${index + 1}`);
+      // 23add: tolerate broken lines instead of throwing
+      continue;
     }
 
     if (entry.type === "metadata") {
-      metadata = entry.metadata;
+      metadata = entry.metadata as SessionMetadata;
       continue;
     }
 
     if (entry.type === "message") {
-      messages.push(entry.message);
+      // 23add: support both ch22 transcript format ({ role, content }) and
+      // legacy session format ({ message: { role, content } })
+      const ch22Msg = tryParseCh22Message(entry);
+      if (ch22Msg) {
+        messages.push(ch22Msg);
+      } else if (entry.message) {
+        messages.push(entry.message as ChatMessage);
+      }
       continue;
     }
 
     if (entry.type === "plan") {
-      plan = entry.plan;
+      plan = (entry as { plan: Plan | null }).plan;
     }
+
+    // 23add: silently skip event and meta entries from ch22 transcript
   }
 
   return {
@@ -251,6 +275,22 @@ function parseSessionTranscript(
     plan,
     path,
   };
+}
+
+/** Try to parse a ch22-format transcript message entry: { role, content, ... } */
+function tryParseCh22Message(entry: Record<string, unknown>): ChatMessage | null {
+  const role = entry.role;
+  const content = entry.content;
+
+  if (
+    typeof role === "string" &&
+    (role === "user" || role === "assistant") &&
+    typeof content === "string"
+  ) {
+    return { role, content };
+  }
+
+  return null;
 }
 
 function getFirstPrompt(messages: readonly ChatMessage[]): string {
@@ -294,5 +334,15 @@ function isNotFound(error: unknown): boolean {
     "code" in error &&
     (error as { code?: string }).code === "ENOENT"
   );
+}
+
+function extractSessionIdFromPath(path: string): string {
+  const name = basename(path, ".jsonl");
+  // If the basename looks like a valid session id (UUID-like), use it.
+  // Otherwise fall back to a hash of the path.
+  if (/^[a-zA-Z0-9._-]+$/.test(name) && name.length >= 8) {
+    return name;
+  }
+  return name || "unknown";
 }
 

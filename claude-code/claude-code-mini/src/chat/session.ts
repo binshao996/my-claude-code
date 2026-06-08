@@ -10,6 +10,14 @@ import type { Plan } from "../planner";
 import { MemoryStore } from "../memory";
 // 19add: PluginRegistry 注入插件上下文 + 命令
 import type { PluginRegistry } from "../plugins";
+// 22add: Transcript recording
+import { recordTranscriptMessage } from "../transcript/store";
+// 24add: Context compaction
+import type { CompactResult } from "../compact/types";
+import { compactConversation, buildPostCompactMessages } from "../compact/compactConversation";
+import { toModelMessages, getCompactStats } from "../compact/boundary";
+import { autoCompactIfNeeded } from "../compact/autoCompact";
+import { microCompactToolResults } from "../compact/microCompact";
 
 type ChatSessionOptions = {
   maxTurns: number;
@@ -29,7 +37,7 @@ type SendUserMessageOptions = {
 };
 
 export class ChatSession {
-  private readonly messages: ChatMessage[];
+  private messages: ChatMessage[];
   private readonly agentLoop: AgentLoop;
   private readonly planner: PlannerStore;
   // 17add: MemoryStore 实例，供 chatLoop 调用 /memory /remember
@@ -103,20 +111,63 @@ export class ChatSession {
     this.messages.length = 0;
   }
 
+  // 23add: Replace all messages in-place (for /resume and /continue).
+  // Copy the array so the session owns the messages.
+  replaceMessages(messages: ChatMessage[]): void {
+    this.messages.length = 0;
+    this.messages.push(...messages);
+  }
+
+  // 25add: Append meta/injected messages to the current conversation
+  appendMessages(messages: ChatMessage[]): void {
+    this.messages.push(...messages);
+  }
+
+  // 24add: Manual compact — triggered by /compact command
+  async compact(customInstructions?: string): Promise<CompactResult> {
+    const result = await compactConversation({
+      messages: this.messages,
+      trigger: "manual",
+      customInstructions,
+    });
+
+    this.messages = buildPostCompactMessages(result);
+    return result;
+  }
+
+  // 24add: Compact statistics for /context display
+  getCompactStats(): ReturnType<typeof getCompactStats> {
+    return getCompactStats(this.messages);
+  }
+
   async *sendUserMessageStream(
     content: string,
     options: SendUserMessageOptions = {},
   ): AsyncGenerator<ChatSessionEvent, void> {
     const historyLengthBeforeTurn = this.messages.length;
     const mode = options.mode ?? "default";
+    const userContent = mode === "plan" ? buildPlanModePrompt(content) : content;
 
     this.messages.push({
       role: "user",
-      content: mode === "plan" ? buildPlanModePrompt(content) : content,
+      content: userContent,
     });
 
+    // 22add: Record user message in transcript
+    void recordTranscriptMessage({ role: "user", content: userContent });
+
     try {
+      // 24add: Micro-compact old tool results before auto-compact check
+      const micro = microCompactToolResults(this.messages);
+      if (micro.clearedCount > 0) {
+        this.messages = micro.messages;
+      }
+
+      // 24add: Auto-compact if context exceeds threshold
+      this.messages = await autoCompactIfNeeded(this.messages);
+
       // 18add: ContextPreparer 构建 system + 预算裁剪后的 messages 视图
+      // 24add: Filter out compact boundaries before sending to model
       const memoryPrompt = await this.memory.getPrompt();
       const runtimeContext = this.buildRuntimeContext();
 
@@ -124,7 +175,7 @@ export class ChatSession {
         systemPrompt: this.baseSystemPrompt,
         memoryPrompt,
         runtimeContext,
-        messages: this.messages,
+        messages: toModelMessages(this.messages),
       });
 
       yield* this.agentLoop.run(prepared.messages, {
@@ -133,6 +184,17 @@ export class ChatSession {
         // 18add: 传递完整 system（base + memory + runtime context）
         system: prepared.system,
       });
+
+      // 22add: Record assistant messages from this turn in transcript
+      for (let i = historyLengthBeforeTurn + 1; i < this.messages.length; i++) {
+        const msg = this.messages[i]!;
+        if (msg.role === "assistant") {
+          void recordTranscriptMessage({
+            role: "assistant",
+            content: typeof msg.content === "string" ? msg.content : JSON.stringify(msg.content),
+          });
+        }
+      }
 
       await this.options.sessionStore.appendMessages(
         this.sessionId,

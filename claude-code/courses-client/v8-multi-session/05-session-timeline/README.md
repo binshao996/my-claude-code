@@ -111,6 +111,14 @@ export function SessionTimeline({ items }: { items: SessionTimelineItem[] }) {
 }
 ```
 
+## Service / Store / UI Skeleton
+
+本章最小骨架：
+
+- service：`loadedSessionToTimeline()` 和 `mergeTranscriptAndClientEvents()`。
+- store：`sessionStore.activeSession.timeline` 保存合并后的 `SessionTimelineItem[]`。
+- UI：`SessionTimeline` 渲染 message、plan、tool、diff 四类 item。
+
 ```tsx
 export function renderTimelineSummary(item: SessionTimelineItem): string {
   switch (item.type) {

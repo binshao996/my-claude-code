@@ -55,7 +55,7 @@ Session 不应该包含：
 
 ## 本章交付
 
-本章交付 Session 的产品边界和入口动作，不落地完整列表。
+本章交付 Session 的产品边界、入口动作和一个 fake list preview。完整列表在 03 章展开，但本章写完后已经能在 UI 看到 Session Header 和三个动作入口。
 
 Client 必须把三个动作拆开：
 

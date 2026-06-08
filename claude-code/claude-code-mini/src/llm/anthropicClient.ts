@@ -284,13 +284,17 @@ function createAnthropicClient(config: LLMConfig): Anthropic {
 }
 
 function toMessageParams(messages: ChatMessage[]): MessageParam[] {
-  return messages.map(message => ({
-    role: message.role,
-    content:
-      typeof message.content === "string"
-        ? message.content
-        : toContentBlockParams(message.content),
-  }));
+  return messages
+    .filter((msg): msg is ChatMessage & { role: "user" | "assistant" } =>
+      msg.role === "user" || msg.role === "assistant",
+    )
+    .map(message => ({
+      role: message.role,
+      content:
+        typeof message.content === "string"
+          ? message.content
+          : toContentBlockParams(message.content),
+    }));
 }
 
 function toContentBlockParams(blocks: ChatContentBlock[]): ContentBlockParam[] {

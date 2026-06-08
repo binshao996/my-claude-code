@@ -1,4 +1,4 @@
-export type ChatRole = "user" | "assistant";
+export type ChatRole = "user" | "assistant" | "system";
 
 export type TextContentBlock = {
   type: "text";
@@ -43,9 +43,24 @@ export type ChatContentBlock =
   | ToolUseContentBlock
   | ToolResultContentBlock;
 
+// 24add: Extended message kinds for compact support
+export type ChatMessageKind = "compact_boundary" | "compact_summary";
+
 export type ChatMessage = {
   role: ChatRole;
   content: string | ChatContentBlock[];
+  // 24add: Optional fields for compact messages
+  id?: string;
+  kind?: ChatMessageKind;
+  isMeta?: boolean;
+  compact?: {
+    trigger: "manual" | "auto";
+    preTokens: number;
+    createdAt: string;
+    summarizedMessageCount: number;
+    lastPreCompactMessageId: string | null;
+    customInstructions?: string;
+  };
 };
 
 export type LLMConfig = {

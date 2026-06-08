@@ -110,11 +110,11 @@ pnpm test
 
 ### P0：Feature PR 体验补齐
 
-- [ ] V0 必须提供稳定 Runtime Adapter 接入路径，不能只依赖 `claude-code-mini/src/*` 临时源码 import。
-- [ ] V0 必须提供 fake Runtime Adapter；没有模型 key 时也能跑出 event log。
-- [ ] V7-V10 每章必须有可复制的 service / store / UI 代码骨架。
-- [ ] V7-V10 每章必须提供 fixture 或 fake event，避免读者等真实 Runtime/企业后端才看到效果。
-- [ ] V7-V10 每章 Smoke Check 必须写清可见 UI 状态，而不是只写命令通过。
+- [x] V0 必须提供稳定 Runtime Adapter 接入路径，不能只依赖 `claude-code-mini/src/*` 临时源码 import。
+- [x] V0 必须提供 fake Runtime Adapter；没有模型 key 时也能跑出 event log。
+- [x] V7-V10 每章必须有可复制的 service / store / UI 代码骨架。
+- [x] V7-V10 每章必须提供 fixture 或 fake event，避免读者等真实 Runtime/企业后端才看到效果。
+- [x] V7-V10 每章 Smoke Check 必须写清可见 UI 状态，而不是只写命令通过。
 
 ### P1：V1-V3 基础体验
 

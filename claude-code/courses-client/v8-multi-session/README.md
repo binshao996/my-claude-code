@@ -142,6 +142,17 @@ pnpm test
 - Session Timeline 能展示 messages、plan、tools、diff decisions。
 - 不自动恢复 terminal process 和未保存 editor buffer。
 
+## Smoke Check 总表
+
+`pnpm dev` 后按章节验证可见 UI：
+
+- 01：Session Header 显示 `new / resumed / continued` 入口动作。
+- 02：Session debug panel 显示 fake metadata、first prompt 和 timeline count。
+- 03：Session List 显示 fake sessions、empty state 和 error state。
+- 04：Resume / Continue 后 Chat、Plan View 和 Header 同步更新。
+- 05：Session Timeline 同时出现 message、tool、plan、diff 四类 item。
+- 06：切换 workspace 后只显示当前 workspace 的 session，跨项目 resume 显示拒绝原因。
+
 ## 当前版本缺陷
 
 V8 不做：

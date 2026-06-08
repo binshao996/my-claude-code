@@ -129,6 +129,14 @@ export async function completePatchDecision({
 }
 ```
 
+## Service / Store / UI Skeleton
+
+本章的骨架不是新增一个独立页面，而是把三处已有状态串起来：
+
+- service：`completePatchDecision()` 负责执行刷新和 audit 串联。
+- store：`DiffStore` 保存最终 decision，Agent Workspace timeline 接收 `patch.decision`。
+- UI：`DiffPanel` 的 decision badge 变化后，Editor tab 显示 refreshed 状态。
+
 ## 本章 Fake Bridge Run
 
 文件：`src/renderer/diff/fixtures/runFakeEditorBridge.ts`

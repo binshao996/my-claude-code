@@ -17,6 +17,8 @@ import type { ToolRegistry, ToolResult, ToolSummary } from "../tools";
 import type { ContextPreparer, ContextPreparationResult } from "../context";
 // 20add: Model route request for role-based model selection
 import type { ModelRouteRequest } from "../models";
+// 22add: Runtime event emission
+import { emitRuntimeEvent } from "../logging/events";
 
 export type AgentLoopOptions = {
   maxTurns: number;
@@ -174,6 +176,39 @@ export class AgentLoop {
       this.config,
       system,
       route,
+      {
+        onRetry(retryEvent: RetryEvent) {
+          emitRuntimeEvent({
+            type: "api_retry",
+            data: {
+              errorKind: retryEvent.errorKind,
+              attempt: retryEvent.attempt,
+              maxRetries: retryEvent.maxRetries,
+              retryInMs: retryEvent.retryInMs,
+            },
+          });
+        },
+        onFallback(fallbackEvent: FallbackEvent) {
+          if (fallbackEvent.type === "model_fallback") {
+            emitRuntimeEvent({
+              type: "model_fallback",
+              data: {
+                from: fallbackEvent.from,
+                to: fallbackEvent.to,
+                reason: fallbackEvent.reason,
+              },
+            });
+            return;
+          }
+
+          emitRuntimeEvent({
+            type: "streaming_fallback",
+            data: {
+              reason: fallbackEvent.reason,
+            },
+          });
+        },
+      },
     )) {
       if (event.type === "message_stop") {
         finalResponse = event.response;

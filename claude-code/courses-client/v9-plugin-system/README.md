@@ -168,6 +168,18 @@ ui.openPanel
 
 V9 必须交付一个可启停的插件系统切片。
 
+## Smoke Check 总表
+
+`pnpm dev` 后按章节验证可见 UI：
+
+- 01：Plugin Boundary 面板显示 command、tool、context、panel 的允许与禁止边界。
+- 02：Manifest fixture 显示插件名称、版本、权限和 validation error。
+- 03：Plugin Registry 能 enable、disable、reload，并显示 enabled badge。
+- 04：Command Palette 出现 `source=plugin` 的命令入口，禁用插件后消失。
+- 05：Plugin Tool fake runtime event 进入 Agent Workspace，并显示 permission chain。
+- 06：Plugin Panel sandbox 只暴露 scoped API，越权访问显示 deny reason。
+- 07：Marketplace local fixture 显示 signed badge、unsigned deny reason 和 lockfile 摘要。
+
 本版本完成后，读者应该能运行：
 
 ```bash
